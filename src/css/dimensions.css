@@ -1,0 +1,184 @@
+/*
+    Dimensions file.
+    Used for define dimensions of project.
+
+    All dimensions must be separated by categories.
+    Category name must represent class or attribute name.
+
+    Every entry must follow convention:
+    * Entry must begins with category name.
+    * Category name must be followed by css property name.
+    * Use dashes to separate words.
+
+    By example: --card-border-radius
+*/
+
+:root
+{
+    /* container */
+    --container-height: 35.031rem;
+    --container-min-width: 71.25rem;
+
+    /* row > div */
+    --row-div-margin-bottom: 1.875rem;
+
+    /* card */
+    --card-spacing: 1.5rem;
+    --card-min-height: 16.5625rem;
+    --card-border-radius: 0.625rem;
+
+    /* hw-logo */
+    --hw-logo-radius: 3.75rem;
+
+    /* label-hw-info */
+    --label-hw-info-top-spacing: 0.5625rem;
+    --label-hw-info-left-spacing: 5.875rem;
+
+    /* body */
+    --body-height: 5.313rem;
+    --body-width: 18.875rem;
+    --body-bottom-spacing: 4.625rem;
+
+    /* card-body-squares-grid */
+    --card-body-squares-grid-top-spacing: 0.813rem;
+
+    /* card-body-squares-grid > div */
+    --card-body-squares-grid-div-margin-bottom: 0.75rem;
+    --card-body-squares-grid-div-height: 0.625rem;
+    --card-body-squares-grid-div-width: 0.625rem;
+
+    /* main-hw-info */
+    --main-hw-info-height: 100%;
+
+    /* hw-utilization-value */
+    --hw-utilization-value-bottom-spacing: 0.25rem;
+
+    /* info-label */
+    --info-label-top-spacing: 4.188rem;
+    --info-label-width: 9.5rem;
+
+    /* underline */
+    --underline-height: 0.313rem;
+    --underline-width: 9.5rem;
+
+    /* footer */
+    --footer-height: 3.125rem;
+    --footer-width: 100%;
+
+    /* dots-grid > div */
+    --card-footer-dots-grid-div-radius: 1.5rem;
+    --card-footer-dots-grid-div-bottom-spacing: 2.375rem;
+
+    /* first-dot */
+    --first-dot-left-spacing: 2.90625rem;
+
+    /* second-dot */
+    --second-dot-left-spacing: 10.1875rem;
+
+    /* third-dot */
+    --third-dot-left-spacing: 17.46875rem;
+
+    /* inner-dot */
+    --inner-dot-spacing: 0.375rem;
+    --inner-dot-radius: 0.75rem;
+
+    /* detailed-hw-info > div */
+    --detailed-hw-info-div-height: 1.063rem;
+    --detailed-hw-info-div-width: 5.625rem;
+
+    /* first-label */
+    --first-label-left-spacing: 2.90625rem;
+
+    /* second-label */
+    --second-label-left-spacing: 10.1875rem;
+
+    /* third-label */
+    --third-label-left-spacing: 17.46875rem;
+
+    /* dividers > div */
+    --dividers-div-height: 3.125rem;
+    --dividers-div-width: 0.063rem;
+
+    /* first-divider */
+    --first-divider-left-spacing: 7.313rem;
+
+    /* second-divider */
+    --second-divider-left-spacing: 14.563rem;
+
+    /* dashboard-logo */
+    --dashboard-logo-top-spacing: 2.188rem;
+    --dashboard-logo-width: 21.875rem;
+
+    /* dashboard-logo-description */
+    --dashboard-logo-description-top-spacing: 5.3rem;
+    --dashboard-logo-description-width: 21.875rem;
+
+    /* dashboard-logo-background */
+    --dashboard-logo-background-height: 8.281rem;
+    --dashboard-logo-background-width: 21.875rem;
+
+    /* uptime */
+    --uptime-height: 8.281rem;
+    --uptime-width: 100%;
+
+    /* uptime-squares-grid */
+    --uptime-squares-grid-bottom-spacing:  0.813rem;
+    --uptime-squares-grid-left-spacing: 9.25rem;
+    
+    /* uptime-squares-grid > div */
+    --uptime-squares-grid-div-margin-right: 0.488rem;
+    --uptime-squares-grid-div-height: 0.625rem;
+    --uptime-squares-grid-div-width: 0.625rem;
+
+    /* uptime-rectangle-grid */
+    --uptime-rectangle-grid-top-spacing: 1.925rem;
+    --uptime-rectangle-grid-left-spacing: 2.781rem;
+
+    /* values-grid > div */
+    --values-grid-div-margin-right: 0.375rem;
+    --values-grid-div-height: 3.188rem;
+    --values-grid-div-width: 3.75rem;
+
+    /* values-grid > div > p */
+    --values-grid-div-p-bottom-spacing: 0.25rem;
+
+    /* labels-grid > div */
+    --labels-grid-div-margin-right: 0.125rem;
+    --labels-grid-div-margin-bottom: 0.313rem;
+    --labels-grid-div-height: 0.813rem;
+    --labels-grid-div-width: 3.75rem;
+
+    /* chart-rectangle-grid */
+    --chart-rectangle-grid-top-spacing: 1.906rem;
+
+    /* rectangle-grid > div */
+    --chart-rectangle-grid-div-height: 0.625rem;
+    --chart-rectangle-grid-div-width: 3.125rem;
+    
+    /* first-rectangle */
+    --first-rectangle-left-spacing: 33.25rem;
+
+    /* second-rectangle */
+    --second-rectangle-left-spacing: 37.125rem;
+
+    /* third-rectangle */
+    --third-rectangle-left-spacing: 41rem;
+
+    /* chart-container */
+    --chart-container-top-spacing: 3.375rem;
+    --chart-container-height: 11.688rem;
+    --chart-container-width: 42.625rem;
+    --chart-container-border-thickness: 0.063rem;
+
+    /* font-size */
+    --font-size-9pt: 0.563em;
+    --font-size-12pt: 0.75em;
+    --font-size-14pt: 0.875em;
+    --font-size-18pt: 1.125em;
+    --font-size-42pt: 2.625em;
+    --font-size-62pt: 3.875em;
+
+    /* letter-spacing */
+    --letter-spacing-10px: 0.625rem;
+    --letter-spacing-2px: 0.125rem;
+}

@@ -1,0 +1,38 @@
+/*
+    Fonts file.
+    Used for define fonts of project.
+
+    All font entries must be separated by categories.
+    Category name must represent font attribute name.
+
+    Every entry must follow convention:
+    * Entry must begins with category name.
+    * Category name must be followed by font attribute name.
+    * Use dashes to separate words.
+
+    By example: --font-weigth-regular
+*/
+
+:root
+{
+    /* font-family */
+    --font-family-roboto: roboto;
+
+    /* font-weight */
+    --font-weigth-regular: 400;
+    --font-weigth-bold: 700;
+}
+
+@font-face
+{
+    font-family: var(--font-family-roboto);
+    font-weight: var(--font-weigth-regular);
+    src: url(../fonts/roboto/regular.ttf);
+}
+
+@font-face
+{
+    font-family: var(--font-family-roboto);
+    font-weight: var(--font-weigth-bold);
+    src: url(../fonts/roboto/bold.ttf);
+}
