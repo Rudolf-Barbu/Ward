@@ -30,4 +30,5 @@ function getProcessorUsage(): int
     return intval((1 - ($currentIdleTime - $previousIdleTime) / ($currentTotalTime - $previousTotalTime)) * 100);
 }
 
+header('Content-Type: application/json');
 echo getUsage();
