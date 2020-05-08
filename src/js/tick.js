@@ -24,6 +24,6 @@ function tickInitialization()
 
 function sendAjaxReqest()
 {
-    xhr.open("GET", "./../php/usage.php");
+    xhr.open("GET", "php/usage.php");
     xhr.send();
 }
