@@ -1,6 +1,10 @@
-<h5 align = "center">
+<h2 align = "center">
   <img src = "https://steamuserimages-a.akamaihd.net/ugc/1012690662470353073/FC58F696881C05DF43E3D45E707E2A35E9176E91/"/>
-</h5>
+</h2>
+
+<p align = "center">
+  <img src="./screenshot.png" />
+</p>
 
 <p align = "center">
   <a href = "http://b-server.org/">DEMO</a>
