@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+    <head>
+        <title>Ward</title>
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
+        <link rel = "stylesheet" th:href = "@{/css/colors.css}">
+        <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
+        <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
+        <link rel = "stylesheet" th:href = "@{/css/theme.css}">
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-4">
+                    <div class = "card">
+                        <div class = "header">
+                            <div class = "hw-logo blue-light"></div>
+                            <div class = "label-hw-info">
+                                <div class = "hw-type">Processor</div>
+                                <div class = "hw-name"> test </div>
+                            </div>
+                        </div>
+                        <div class = "body">
+                            <div class = "card-body-squares-grid">
+                                <div class = "blue-light"></div>
+                                <div class = "blue-light"></div>
+                                <div class = "blue-light"></div></div>
+                            <div class = "main-hw-info">
+                                <div id = "processor-label" class = "hw-utilization-value">000%</div>
+                                <p class = "info-label">PROCESSOR USAGE</p>
+                                <div class = "underline blue-light"></div>
+                            </div>
+                        </div>
+                        <div class = "footer blue-light">
+                            <div class = "card-footer-dots-grid">
+                                <div class = "first-dot">
+                                    <div class = "inner-dot blue"></div>
+                                </div>
+                                <div class = "second-dot">
+                                    <div class = "inner-dot blue"></div>
+                                </div>
+                                <div class = "third-dot">
+                                    <div class = "inner-dot blue"></div>
+                                </div>
+                            </div>
+                            <div class = "detailed-hw-info">
+                                <div class = "first-label"> test </div>
+                                <div class = "second-label"> test </div>
+                                <div class = "third-label"> test </div>
+                            </div>
+                            <div class = "dividers">
+                                <div class = "first-divider"></div>
+                                <div class = "second-divider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-4">
+                    <div class = "card">
+                        <div class = "header">
+                            <div class = "hw-logo red-light"></div>
+                            <div class = "label-hw-info">
+                                <div class = "hw-type">Machine</div>
+                                <div class = "hw-name"> test </div>
+                            </div>
+                        </div>
+                        <div class = "body">
+                            <div class = "card-body-squares-grid">
+                                <div class = "red-light"></div>
+                                <div class = "red-light"></div>
+                                <div class = "red-light"></div>
+                            </div>
+                            <div class = "main-hw-info">
+                                <div id = "memory-label" class = "hw-utilization-value">000%</div>
+                                <p class = "info-label">RAM USAGE</p>
+                                <div class = "underline red-light"></div>
+                            </div>
+                        </div>
+                        <div class = "footer red-light">
+                            <div class = "card-footer-dots-grid">
+                                <div class = "first-dot">
+                                    <div class = "inner-dot red"></div>
+                                </div>
+                                <div class = "second-dot">
+                                    <div class = "inner-dot red"></div>
+                                </div>
+                                <div class = "third-dot">
+                                    <div class = "inner-dot red"></div>
+                                </div>
+                            </div>
+                            <div class = "detailed-hw-info">
+                                <div class = "first-label"> test </div>
+                                <div class = "second-label"> test </div>
+                                <div class = "third-label"> test </div>
+                            </div>
+                            <div class = "dividers">
+                                <div class = "first-divider"></div>
+                                <div class = "second-divider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-4">
+                    <div class = "card">
+                        <div class = "header">
+                            <div class = "hw-logo green-light"></div>
+                            <div class = "label-hw-info">
+                                <div class = "hw-type">Storage</div>
+                                <div class = "hw-name"> test </div>
+                            </div>
+                        </div>
+                        <div class = "body">
+                            <div class = "card-body-squares-grid">
+                                <div class = "green-light"></div>
+                                <div class = "green-light"></div>
+                                <div class = "green-light"></div>
+                            </div>
+                            <div class = "main-hw-info">
+                                <div id = "storage-label" class = "hw-utilization-value">000%</div>
+                                <div class = "info-label">STORAGE USAGE</div>
+                                <div class = "underline green-light"></div>
+                            </div>
+                        </div>
+                        <div class = "footer green-light">
+                            <div class = "card-footer-dots-grid">
+                                <div class = "first-dot">
+                                    <div class = "inner-dot green"></div>
+                                </div>
+                                <div class = "second-dot">
+                                    <div class = "inner-dot green"></div>
+                                </div>
+                                <div class = "third-dot">
+                                    <div class = "inner-dot green"></div>
+                                </div>
+                            </div>
+                            <div class = "detailed-hw-info">
+                                <div class = "first-label"> test </div>
+                                <div class = "second-label"> test </div>
+                                <div class = "third-label"> test </div>
+                            </div>
+                            <div class = "dividers">
+                                <div class = "first-divider"></div>
+                                <div class = "second-divider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-4">
+                    <div class = "card">
+                        <div class = "about">
+                            <div class = "dashboard-logo">WARD</div>
+                            <div class = "dashboard-logo-description">LINUX DASHBOARD</div>
+                        </div>
+                        <div class = "uptime">
+                            <div class = "uptime-squares-grid">
+                                <div class = "blue-light"></div>
+                                <div class = "red-light"></div>
+                                <div class = "green-light"></div>
+                            </div>
+                            <div class = "uptime-rectangle-grid">
+                                <div class = "values-grid"></div>
+                                <div class = "labels-grid">
+                                    <div>DAYS</div>
+                                    <div>HOURS</div>
+                                    <div>MINUTES</div>
+                                    <div>SECONDS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-8">
+                    <div class = "card">
+                        <div class = "chart-label">% Utilization</div>
+                        <div class = "chart-rectangle-grid">
+                            <div id = "processor-rectangle" class = "first-rectangle blue-light"></div>
+                            <div id = "ram-rectangle" class = "second-rectangle red-light"></div>
+                            <div id = "storage-rectangle" class = "third-rectangle green-light"></div>
+                        </div>
+                        <div class = "chart-container">
+                            <canvas id = "chart-body"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
