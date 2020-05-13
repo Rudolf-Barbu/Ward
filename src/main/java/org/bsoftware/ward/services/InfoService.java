@@ -65,10 +65,10 @@ public class InfoService
     private Map<String, String> getUptimeInfo(Map<String, String> infoBuffer)
     {
         long uptimeInSeconds = systemInfo.getOperatingSystem().getSystemUptime();
-        infoBuffer.put("uptimeDays", String.valueOf(Math.round(Math.floor(uptimeInSeconds / 86400))));
-        infoBuffer.put("uptimeHours", String.valueOf(Math.round(Math.floor((uptimeInSeconds % 86400) / 3600))));
-        infoBuffer.put("uptimeMinutes", String.valueOf(Math.round(Math.floor((uptimeInSeconds / 60) % 60))));
-        infoBuffer.put("uptimeSeconds", String.valueOf(Math.round(Math.floor(uptimeInSeconds % 60))));
+        infoBuffer.put("uptimeDays", String.format("%02d", (int) Math.floor(uptimeInSeconds / 86400)));
+        infoBuffer.put("uptimeHours", String.format("%02d", (int) Math.floor((uptimeInSeconds % 86400) / 3600)));
+        infoBuffer.put("uptimeMinutes", String.format("%02d", (int) Math.floor((uptimeInSeconds / 60) % 60)));
+        infoBuffer.put("uptimeSeconds", String.format("%02d", (int) Math.floor(uptimeInSeconds % 60)));
         return infoBuffer;
     }
 
