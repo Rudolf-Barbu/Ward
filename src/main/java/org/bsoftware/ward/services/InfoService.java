@@ -18,9 +18,14 @@ public class InfoService
     private Map<String, String> getProcessorInfo(Map<String, String> infoBuffer)
     {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
-        infoBuffer.put("modelName", centralProcessor.getProcessorIdentifier().getName());
-        String coreCountPostfix = (centralProcessor.getLogicalProcessorCount() > 1) ? " Cores" : " Core";
-        infoBuffer.put("coreCount", centralProcessor.getLogicalProcessorCount() + coreCountPostfix);
+        String processorName = centralProcessor.getProcessorIdentifier().getName();
+        if (processorName.contains("@"))
+        {
+            processorName = processorName.substring(0, processorName.indexOf('@') - 1).trim();
+        }
+        infoBuffer.put("processorName", processorName);
+        int coreCount = centralProcessor.getLogicalProcessorCount();
+        infoBuffer.put("coreCount", coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         infoBuffer.put("maxClockSpeed", (Math.round((centralProcessor.getMaxFreq() / 1E+9) * 10.0) / 10.0) + " GHz");
         String cpuBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         infoBuffer.put("cpuBitDepth", cpuBitDepthPrefix + "-bit Arch");
@@ -41,6 +46,7 @@ public class InfoService
 
     private Map<String, String> getStorageInfo(Map<String, String> infoBuffer)
     {
+        System.out.println(systemInfo.getHardware().getDiskStores().get(0).getSize());
         return infoBuffer;
     }
 
