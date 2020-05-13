@@ -62,7 +62,7 @@
                             <div class = "hw-logo red-light"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Machine</div>
-                                <div class = "hw-name"> test </div>
+                                <div class = "hw-name" th:text = "${machineName}"></div>
                             </div>
                         </div>
                         <div class = "body">
@@ -90,9 +90,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label"> test </div>
-                                <div class = "second-label"> test </div>
-                                <div class = "third-label"> test </div>
+                                <div class = "first-label" th:text = "${totalPhysicalMemory}"></div>
+                                <div class = "second-label" th:text = "${physicalMemoryClockSpeed}"></div>
+                                <div class = "third-label" th:text = "${physicalMemoryType}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first-divider"></div>
