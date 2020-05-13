@@ -32,11 +32,7 @@ public class InfoService
         ComputerSystem computerSystem = systemInfo.getHardware().getComputerSystem();
         infoBuffer.put("machineName", computerSystem.getModel().trim());
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
-        long totalPhysicalMemory = 0;
-        for (PhysicalMemory physicalMemoryModule : globalMemory.getPhysicalMemory())
-        {
-            totalPhysicalMemory += physicalMemoryModule.getCapacity();
-        }
+        long totalPhysicalMemory = globalMemory.getPhysicalMemory().stream().mapToLong(PhysicalMemory::getCapacity).sum();
         infoBuffer.put("totalPhysicalMemory", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
         infoBuffer.put("physicalMemoryClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
         infoBuffer.put("physicalMemoryType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
