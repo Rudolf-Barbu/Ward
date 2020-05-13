@@ -10,7 +10,7 @@
     * Category name must be followed by font attribute name.
     * Use dashes to separate words.
 
-    By example: --font-weigth-regular
+    By example: --font-weight-regular
 */
 
 :root
@@ -18,21 +18,29 @@
     /* font-family */
     --font-family-roboto: roboto;
 
+    /* font-size */
+    --font-size-9pt: 0.563em;
+    --font-size-12pt: 0.75em;
+    --font-size-14pt: 0.875em;
+    --font-size-18pt: 1.125em;
+    --font-size-42pt: 2.625em;
+    --font-size-62pt: 3.875em;
+
     /* font-weight */
-    --font-weigth-regular: 400;
-    --font-weigth-bold: 700;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
 }
 
 @font-face
 {
     font-family: var(--font-family-roboto);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     src: url(../fonts/roboto/regular.ttf);
 }
 
 @font-face
 {
     font-family: var(--font-family-roboto);
-    font-weight: var(--font-weigth-bold);
+    font-weight: var(--font-weight-bold);
     src: url(../fonts/roboto/bold.ttf);
 }

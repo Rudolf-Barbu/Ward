@@ -65,14 +65,14 @@ body
 .hw-type
 {
     font-size: var(--font-size-18pt);
-    font-weight: var(--font-weigth-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--black);
 }
 
 .hw-name
 {
     font-size: var(--font-size-14pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--grey);
 }
 
@@ -111,7 +111,7 @@ body
     right: 0;
     bottom: var(--hw-utilization-value-bottom-spacing);
     font-size: var(--font-size-62pt);
-    font-weight: var(--font-weigth-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--black);
 }
 
@@ -122,7 +122,7 @@ body
     width: var(--underline-width);
     text-align: center;
     font-size: var(--font-size-9pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--grey-light);
     background: var(--white-opacity-90);
 }
@@ -200,7 +200,7 @@ body
     width: var(--detailed-hw-info-div-width);
     text-align: center;
     font-size: var(--font-size-14pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--grey);
 }
 
@@ -257,7 +257,7 @@ body
     text-align: center;
     letter-spacing: var(--letter-spacing-10px);
     font-size: var(--font-size-42pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--grey-light);
 }
 
@@ -270,7 +270,7 @@ body
     text-align: center;
     letter-spacing: var(--letter-spacing-2px);
     font-size: var(--font-size-9pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--grey-light);
 }
 
@@ -323,7 +323,7 @@ body
     width: var(--values-grid-div-width);
     text-align: center;
     font-size: var(--font-size-42pt);
-    font-weight: var(--font-weigth-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--grey);
     background: var(--white-opacity-70);
 }
@@ -354,7 +354,7 @@ body
     top: var(--card-spacing);
     left: var(--card-spacing);
     font-size: var(--font-size-18pt);
-    font-weight: var(--font-weigth-bold);
+    font-weight: var(--font-weight-bold);
     color: var(--black);
 }
 

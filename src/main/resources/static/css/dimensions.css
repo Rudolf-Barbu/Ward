@@ -135,7 +135,7 @@
     --uptime-rectangle-grid-left-spacing: 2.781rem;
 
     /* values-grid > div */
-    --values-grid-div-margin-right: 0.375rem;
+    --values-grid-div-margin-right: 0.125rem;
     --values-grid-div-height: 3.188rem;
     --values-grid-div-width: 3.75rem;
 
@@ -169,14 +169,6 @@
     --chart-container-height: 11.688rem;
     --chart-container-width: 42.625rem;
     --chart-container-border-thickness: 0.063rem;
-
-    /* font-size */
-    --font-size-9pt: 0.563em;
-    --font-size-12pt: 0.75em;
-    --font-size-14pt: 0.875em;
-    --font-size-18pt: 1.125em;
-    --font-size-42pt: 2.625em;
-    --font-size-62pt: 3.875em;
 
     /* letter-spacing */
     --letter-spacing-10px: 0.625rem;
