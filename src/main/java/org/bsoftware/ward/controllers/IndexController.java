@@ -16,7 +16,7 @@ public class IndexController
     @GetMapping
     public String getDashboard(Model model)
     {
-        infoService.getProcessorInfo();
+        model.addAllAttributes(infoService.getInfo());
         return "index";
     }
 

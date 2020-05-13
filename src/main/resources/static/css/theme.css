@@ -71,7 +71,7 @@ body
 
 .hw-name
 {
-    font-size: var(--font-size-14pt);
+    font-size: var(--font-size-12pt);
     font-weight: var(--font-weight-regular);
     color: var(--grey);
 }
