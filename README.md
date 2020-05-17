@@ -45,4 +45,4 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Installation
-Just deploy `.war` file from latest release on your `Tomcat` server.
+Just deploy `.war` file from latest `Stable` release on your `Tomcat` server.
