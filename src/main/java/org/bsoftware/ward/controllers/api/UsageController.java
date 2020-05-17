@@ -25,7 +25,7 @@ public class UsageController
     private UsageService usageService;
 
     /**
-     * Get request to display current usage information for CPU, RAM and storage
+     * Get request to display current usage information for processor, RAM and storage
      *
      * @return Json string and response code
      */

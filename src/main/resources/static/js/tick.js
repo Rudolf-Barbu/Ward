@@ -1,5 +1,11 @@
+/**
+ * Used for sending ajax requests
+ */
 let xhr;
 
+/**
+ * Initializes uptime counter and usage values
+ */
 function tickInitialization()
 {
     xhr = new XMLHttpRequest();
@@ -19,6 +25,9 @@ function tickInitialization()
     }, 1000);
 }
 
+/**
+ * Sending ajax request to receive usage info
+ */
 function sendAjaxReqest()
 {
     xhr.open("GET", "/api/usage");

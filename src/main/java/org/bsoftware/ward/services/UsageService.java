@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * UsageService provides principal information of CPU, RAM and storage usage to rest controller
+ * UsageService provides principal information of processor, RAM and storage usage to rest controller
  *
  * @author Rudolf Barbu
  * @version 1.0.0
@@ -39,10 +39,10 @@ public class UsageService
     private HttpHeaders httpHeaders;
 
     /**
-     * Takes a buffer map and put in to it CPU usage for last second in 0-100% range
+     * Takes a buffer map and put in to it processor usage for last second in 0-100% range
      *
      * @param infoBuffer buffer for usage values
-     * @return Map<String, Integer>, which contain CPU usage
+     * @return Map<String, Integer>, which contain processor usage
      */
     private Map<String, Integer> getProcessorUsage(Map<String, Integer> infoBuffer)
     {
@@ -62,7 +62,7 @@ public class UsageService
      * Takes a buffer map and put in to it current RAM usage in 0-100% range
      *
      * @param infoBuffer buffer for usage values
-     * @return Map<String, Integer>, which contain CPU usage and RAM usage
+     * @return Map<String, Integer>, which contain processor usage and RAM usage
      */
     private Map<String, Integer> getRamUsage(Map<String, Integer> infoBuffer)
     {
@@ -77,7 +77,7 @@ public class UsageService
      * Takes a buffer map and put in to it current storage usage in 0-100% range
      *
      * @param infoBuffer buffer for usage values
-     * @return Map<String, Integer>, which contain CPU usage, RAM and storage usage
+     * @return Map<String, Integer>, which contain processor usage, RAM and storage usage
      */
     private Map<String, Integer> getStorageUsage(Map<String, Integer> infoBuffer)
     {

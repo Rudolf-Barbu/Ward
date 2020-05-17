@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * InfoService provides various information about machine, such as CPU name, core count, Ram amount, e.t.c.
+ * InfoService provides various information about machine, such as processor name, core count, Ram amount, e.t.c.
  *
  * @author Rudolf Barbu
  * @version 1.0.0
@@ -25,10 +25,10 @@ public class InfoService
     private SystemInfo systemInfo;
 
     /**
-     * Takes a buffer map and put in to it CPU information
+     * Takes a buffer map and put in to it processor information
      *
      * @param infoBuffer buffer for info values
-     * @return Map<String, Integer>, which contain CPU information
+     * @return Map<String, Integer>, which contain processor information
      */
     private Map<String, String> getProcessorInfo(Map<String, String> infoBuffer)
     {
@@ -42,8 +42,8 @@ public class InfoService
         int coreCount = centralProcessor.getLogicalProcessorCount();
         infoBuffer.put("coreCount", coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         infoBuffer.put("maxClockSpeed", (Math.round((centralProcessor.getMaxFreq() / 1E+9) * 10.0) / 10.0) + " GHz");
-        String cpuBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        infoBuffer.put("cpuBitDepth", cpuBitDepthPrefix + "-bit Arch");
+        String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
+        infoBuffer.put("processorBitDepth", processorBitDepthPrefix + "-bit Arch");
         return infoBuffer;
     }
 
@@ -51,7 +51,7 @@ public class InfoService
      * Takes a buffer map and put in to it machine information
      *
      * @param infoBuffer buffer for info values
-     * @return Map<String, Integer>, which contain CPU and machine information
+     * @return Map<String, Integer>, which contain processor and machine information
      */
     private Map<String, String> getMachineInfo(Map<String, String> infoBuffer)
     {
@@ -59,9 +59,9 @@ public class InfoService
         infoBuffer.put("machineName", computerSystem.getModel().trim());
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
         long totalPhysicalMemory = globalMemory.getTotal();
-        infoBuffer.put("totalPhysicalMemory", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
-        infoBuffer.put("physicalMemoryClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
-        infoBuffer.put("physicalMemoryType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
+        infoBuffer.put("totalRam", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
+        infoBuffer.put("ramClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
+        infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
         return infoBuffer;
     }
 
@@ -69,7 +69,7 @@ public class InfoService
      * Takes a buffer map and put in to it storage information
      *
      * @param infoBuffer buffer for info values
-     * @return Map<String, Integer>, which contain CPU, machine and storage information
+     * @return Map<String, Integer>, which contain processor, machine and storage information
      */
     private Map<String, String> getStorageInfo(Map<String, String> infoBuffer)
     {
@@ -93,7 +93,7 @@ public class InfoService
      * Takes a buffer map and put in to it uptime information
      *
      * @param infoBuffer buffer for info values
-     * @return Map<String, Integer>, which contain CPU, machine, storage and uptime information
+     * @return Map<String, Integer>, which contain processor, machine, storage and uptime information
      */
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private Map<String, String> getUptimeInfo(Map<String, String> infoBuffer)

@@ -1,12 +1,30 @@
+/**
+ * Used to display current processor usage
+ */
 let processorLabel;
-let memoryLabel;
+
+/**
+ * Used to display current ram usage
+ */
+let ramLabel;
+
+/**
+ * Used to display current storage usage
+ */
 let storageLabel;
+
+/**
+ * Used to handle chart object, displays usage for 15 seconds
+ */
 let chart;
 
+/**
+ * Initializes chart object with options and datasets. Also determines labels elements
+ */
 function usageInitialization()
 {
     processorLabel = document.getElementById("processor-label");
-    memoryLabel = document.getElementById("memory-label");
+    ramLabel = document.getElementById("ram-label");
     storageLabel = document.getElementById("storage-label");
     let ctx = document.getElementById("chart-body").getContext("2d");
     let data =
@@ -106,16 +124,26 @@ function usageInitialization()
     document.getElementById("storage-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
 }
 
+/**
+ * Updates chart and labels usage values
+ *
+ * @param {*} usageData Json object with usage data
+ */
 function usageTick(usageData)
 {
     processorLabel.innerHTML = labelAssignment(usageData.processor);
-    memoryLabel.innerHTML = labelAssignment(usageData.ram);
+    ramLabel.innerHTML = labelAssignment(usageData.ram);
     storageLabel.innerHTML = labelAssignment(usageData.storage);
     updateDataset(chart.data.datasets[0].data, usageData.processor);
     updateDataset(chart.data.datasets[1].data, usageData.ram);
     updateDataset(chart.data.datasets[2].data, usageData.storage);
 }
 
+/**
+ * Formats usage data values
+ *
+ * @param {*} usageData usage value
+ */
 function labelAssignment(usageData)
 {
     let formatedUsageData = "";
@@ -134,6 +162,12 @@ function labelAssignment(usageData)
     return formatedUsageData;
 }
 
+/**
+ * Updates dataset shifting previous values
+ *
+ * @param {*} dataset dataset to update
+ * @param {*} usageData new data
+ */
 function updateDataset(dataset, usageData)
 {
     for(let i = 0; i < dataset.length - 1; i++)
@@ -144,6 +178,11 @@ function updateDataset(dataset, usageData)
     chart.update();
 }
 
+/**
+ * Hides chosen dataset from chart
+ *
+ * @param {*} element dataset to hide
+ */
 function hideDataset(element)
 {
     switch(String(element.id))

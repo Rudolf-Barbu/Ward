@@ -1,8 +1,26 @@
+/**
+ * Used to display current days of uptime
+ */
 let days;
+
+/**
+ * Used to display current hours of uptime
+ */
 let hours;
+
+/**
+ * Used to display current minutes of uptime
+ */
 let minutes;
+
+/**
+ * Used to display current seconds of uptime
+ */
 let seconds;
 
+/**
+ * Determines uptime label elements
+ */
 function uptimeInitialization()
 {
     days = document.getElementById("uptime-days");
@@ -11,6 +29,9 @@ function uptimeInitialization()
     seconds = document.getElementById("uptime-seconds");
 }
 
+/**
+ * Increments uptime labels, once in second
+ */
 function uptimeTick()
 {
     increment(seconds);
@@ -31,6 +52,11 @@ function uptimeTick()
     }
 }
 
+/**
+ * Formats uptime label
+ *
+ * @param {*} domObject uptime label
+ */
 function increment(domObject)
 {
     if (parseInt(domObject.innerHTML) < 9)
