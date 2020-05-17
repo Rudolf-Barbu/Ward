@@ -6,21 +6,21 @@
   <img src="./screenshot.png" />
 </p>
 
-<p align = "center">
-  <a href = "http://b-server.org/">DEMO</a>
-</p>
 
-## Overview
-* **Simple and minimalistic design**
-* **Less than 1MB weight**
-* **Drop-in installation**
+## About Ward
+Ward is a simple and and minimalistic server monitoring tool. 
+It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
+Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
+
+**Ward works on:** `Windows` `Linux` `MacOS X` `Unix`
+
 
 ## Features
-As it is minimalistic dashboard, it shows only principal info, without any details
 
-* **Processor**
-    * CPU name
-    * CPU usage
+ Processor
+ 
+ CPU name
+  * CPU usage
     * CPU(s) count
     * Max CPU frequency
     * L3 cache amount
@@ -38,7 +38,7 @@ As it is minimalistic dashboard, it shows only principal info, without any detai
     * Storage amount in gibibytes
     * Disks count
     * Swap amount in gibibytes
-
-## Installation
-1. Make sure you have the `shell_exec`function enabled
-2. Drop files in to your web server folder
+    
+---
+#### Installation
+Just deploy `.war` file from latest release on your `Tomcat` server.
