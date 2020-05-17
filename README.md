@@ -14,7 +14,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ---
 
- #### Features
+ ### Features
     Processor name
     Processor usage
     Processor logical core count
@@ -39,5 +39,5 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ---
 
-#### Installation
+### Installation
 Just deploy `.war` file from latest release on your `Tomcat` server.
