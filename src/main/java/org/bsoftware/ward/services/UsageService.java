@@ -16,12 +16,34 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * UsageService provides principal information of CPU, RAM and storage usage to rest controller
+ *
+ * @author Rudolf Barbu
+ * @version 1.0.0
+ * @since 2020-05-17
+ */
 @Service
 public class UsageService
 {
+    /**
+     * Autowired SystemInfo object
+     * Used for getting usage information
+     */
     private SystemInfo systemInfo;
+
+    /**
+     * Autowired HttpHeaders object
+     * Used as bean, which provides Json headers automatically
+     */
     private HttpHeaders httpHeaders;
 
+    /**
+     * Takes a buffer map and put in to it CPU usage for last second in 0-100% range
+     *
+     * @param infoBuffer buffer for usage values
+     * @return Map<String, Integer>, which contain CPU usage
+     */
     private Map<String, Integer> getProcessorUsage(Map<String, Integer> infoBuffer)
     {
         long[] prevTicksArray = systemInfo.getHardware().getProcessor().getSystemCpuLoadTicks();
@@ -36,6 +58,12 @@ public class UsageService
         return infoBuffer;
     }
 
+    /**
+     * Takes a buffer map and put in to it current RAM usage in 0-100% range
+     *
+     * @param infoBuffer buffer for usage values
+     * @return Map<String, Integer>, which contain CPU usage and RAM usage
+     */
     private Map<String, Integer> getRamUsage(Map<String, Integer> infoBuffer)
     {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
@@ -45,6 +73,12 @@ public class UsageService
         return infoBuffer;
     }
 
+    /**
+     * Takes a buffer map and put in to it current storage usage in 0-100% range
+     *
+     * @param infoBuffer buffer for usage values
+     * @return Map<String, Integer>, which contain CPU usage, RAM and storage usage
+     */
     private Map<String, Integer> getStorageUsage(Map<String, Integer> infoBuffer)
     {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
@@ -54,12 +88,23 @@ public class UsageService
         return infoBuffer;
     }
 
+    /**
+     * Used as responce builder for rest controller
+     *
+     * @return completed response with body, Json headers and status code
+     */
     public ResponseEntity<?> getUsage()
     {
         return new ResponseEntity<>(new Gson().toJson(getStorageUsage(getRamUsage(getProcessorUsage(new HashMap<>())))),
                 httpHeaders, HttpStatus.OK);
     }
 
+    /**
+     * Used for autowiring necessary objects
+     *
+     * @param systemInfo autowired SystemInfo object
+     * @param httpHeaders autowired HttpHeaders object
+     */
     @Autowired
     public UsageService(SystemInfo systemInfo, HttpHeaders httpHeaders)
     {

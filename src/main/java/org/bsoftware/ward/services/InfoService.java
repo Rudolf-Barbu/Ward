@@ -8,11 +8,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * InfoService provides various information about machine, such as CPU name, core count, Ram amount, e.t.c.
+ *
+ * @author Rudolf Barbu
+ * @version 1.0.0
+ * @since 2020-05-17
+ */
 @Service
 public class InfoService
 {
+    /**
+     * Autowired SystemInfo object
+     * Used for getting machine information
+     */
     private SystemInfo systemInfo;
 
+    /**
+     * Takes a buffer map and put in to it CPU information
+     *
+     * @param infoBuffer buffer for info values
+     * @return Map<String, Integer>, which contain CPU information
+     */
     private Map<String, String> getProcessorInfo(Map<String, String> infoBuffer)
     {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
@@ -30,6 +47,12 @@ public class InfoService
         return infoBuffer;
     }
 
+    /**
+     * Takes a buffer map and put in to it machine information
+     *
+     * @param infoBuffer buffer for info values
+     * @return Map<String, Integer>, which contain CPU and machine information
+     */
     private Map<String, String> getMachineInfo(Map<String, String> infoBuffer)
     {
         ComputerSystem computerSystem = systemInfo.getHardware().getComputerSystem();
@@ -42,6 +65,12 @@ public class InfoService
         return infoBuffer;
     }
 
+    /**
+     * Takes a buffer map and put in to it storage information
+     *
+     * @param infoBuffer buffer for info values
+     * @return Map<String, Integer>, which contain CPU, machine and storage information
+     */
     private Map<String, String> getStorageInfo(Map<String, String> infoBuffer)
     {
         List<HWDiskStore> hwDiskStores = systemInfo.getHardware().getDiskStores();
@@ -60,6 +89,12 @@ public class InfoService
         return infoBuffer;
     }
 
+    /**
+     * Takes a buffer map and put in to it uptime information
+     *
+     * @param infoBuffer buffer for info values
+     * @return Map<String, Integer>, which contain CPU, machine, storage and uptime information
+     */
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     private Map<String, String> getUptimeInfo(Map<String, String> infoBuffer)
     {
@@ -71,11 +106,21 @@ public class InfoService
         return infoBuffer;
     }
 
+    /**
+     * Used as responce builder for controller
+     *
+     * @return provides map with info values for html template
+     */
     public Map<String, String> getInfo()
     {
         return getUptimeInfo(getStorageInfo(getMachineInfo(getProcessorInfo(new HashMap<>()))));
     }
 
+    /**
+     * Used for autowiring necessary objects
+     *
+     * @param systemInfo autowired SystemInfo object
+     */
     @Autowired
     public InfoService(SystemInfo systemInfo)
     {
