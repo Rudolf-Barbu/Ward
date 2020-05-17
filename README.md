@@ -12,7 +12,7 @@ Ward is a simple and and minimalistic server monitoring tool.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
-Ward works on: `Windows` `Linux` `MacOS X` `Unix`
+***Ward works on:*** `Windows` `Linux` `MacOS X` `Unix`
 
 
 ## Features
