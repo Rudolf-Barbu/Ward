@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +35,7 @@ public class InfoService
         ComputerSystem computerSystem = systemInfo.getHardware().getComputerSystem();
         infoBuffer.put("machineName", computerSystem.getModel().trim());
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
-        long totalPhysicalMemory = globalMemory.getPhysicalMemory().stream().mapToLong(PhysicalMemory::getCapacity).sum();
+        long totalPhysicalMemory = globalMemory.getTotal();
         infoBuffer.put("totalPhysicalMemory", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
         infoBuffer.put("physicalMemoryClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
         infoBuffer.put("physicalMemoryType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
@@ -54,7 +53,7 @@ public class InfoService
         infoBuffer.put("storageName", storageName.trim());
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
         infoBuffer.put("totalStorage", Math.round(totalStorage / 1.074E+9) + " GiB Total");
-        int diskCount = systemInfo.getHardware().getDiskStores().size();
+        int diskCount = hwDiskStores.size();
         infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
         infoBuffer.put("swapAmount", globalMemory.getVirtualMemory().getSwapTotal() + " GiB Swap");
