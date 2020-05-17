@@ -1,0 +1,45 @@
+/*
+    Colors file.
+    Used for define colors of project.
+
+    All color must be separated by palettes.
+    Palette name must represent color, not the destination.
+
+    Every entry must follow convention:
+    * Entry name must begins with palette name.
+    * Palette name must be followed by tint.
+    * Use dashes to separate words.
+
+    By example: --grey-light
+*/
+
+:root
+{
+    /* white */
+    --white: rgba(255, 255, 255, 1);
+    --white-opacity-70: rgba(255, 255, 255, 0.7);
+    --white-opacity-90: rgba(255, 255, 255, 0.9);
+
+    /* black */
+    --black: rgba(0, 0, 0, 1);
+    --black-opacity-10: rgba(0, 0, 0, 0.1);
+
+    /* grey */
+    --grey-light: rgba(188, 188, 188, 1);
+    --grey: rgba(121, 121, 121, 1);
+
+    /* blue */
+    --blue-light: rgba(230, 232, 254, 1);
+    --blue: rgba(89, 101, 249, 1);
+
+    /* red */
+    --red-light: rgba(249, 226, 226, 1);
+    --red: rgba(255, 89, 89, 1);
+
+    /* green */
+    --green-light: rgba(212, 242, 225, 1);
+    --green: rgba(8, 193, 141, 1);
+
+    /* purple */
+    --purple-light: rgba(228, 227, 239, 1);
+}
