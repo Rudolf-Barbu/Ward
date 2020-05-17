@@ -4,6 +4,8 @@
 
 ---
 
+### About
+
 Ward is a simple and and minimalistic server monitoring tool. 
 It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
@@ -12,28 +14,30 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ---
 
- Processor
-    
-    CPU name
-    CPU usage
-    * CPU(s) count
-    * Max CPU frequency
-    * L3 cache amount
+ #### Features
+    Processor name
+    Processor usage
+    Processor logical core count
+    Max processor frequency
+    Architecture
 
-* **Machine**
-    * Machine name
-    * RAM usage
-    * RAM amount in gibibytes
-    * Processes count
-    * CPU bogomips
+<br>
 
-* **Storage**
-    * Host0 starage name
-    * Storage usage
-    * Storage amount in gibibytes
-    * Disks count
-    * Swap amount in gibibytes
-    
+    Machine name
+    RAM usage
+    RAM amount in gibibytes
+    RAM speed
+    RAM type
+
+<br>
+
+    Host0 starage name
+    Storage usage
+    Storage amount in gibibytes
+    Disks count
+    Swap amount in gibibytes
+
 ---
+
 #### Installation
 Just deploy `.war` file from latest release on your `Tomcat` server.
