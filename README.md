@@ -1,26 +1,21 @@
-<h2 align = "center">
+<h3 align = "center">
   <img src = "https://steamuserimages-a.akamaihd.net/ugc/1012690662470353073/FC58F696881C05DF43E3D45E707E2A35E9176E91/"/>
-</h2>
+</h3>
 
-<p align = "center">
-  <img src="./screenshot.png" />
-</p>
+---
 
-
-## About Ward
 Ward is a simple and and minimalistic server monitoring tool. 
 It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
 **Ward works on:** `Windows` `Linux` `MacOS X` `Unix`
 
-
-## Features
+---
 
  Processor
- 
- CPU name
-  * CPU usage
+    
+    CPU name
+    CPU usage
     * CPU(s) count
     * Max CPU frequency
     * L3 cache amount
