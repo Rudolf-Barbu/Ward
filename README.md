@@ -12,6 +12,10 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 **Ward works on:** `Windows` `Linux` `MacOS X` `Unix`
 
+<h3 align = "center">
+  <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021699938952362350/2AFBA3591104BC3B36DEBEC33D8FED4909A0149D/"/>
+</h3>
+
 ---
 
  ### Features
