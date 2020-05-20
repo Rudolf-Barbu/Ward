@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
+import oshi.software.os.OperatingSystem;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,13 +56,19 @@ public class InfoService
      */
     private Map<String, String> getMachineInfo(Map<String, String> infoBuffer)
     {
-        ComputerSystem computerSystem = systemInfo.getHardware().getComputerSystem();
-        infoBuffer.put("machineName", computerSystem.getModel().trim());
+        OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
+        infoBuffer.put("machineName", operatingSystem.getFamily()
+                + " " + operatingSystem.getVersionInfo().getVersion()
+                + ", build: " + operatingSystem.getVersionInfo().getBuildNumber());
+
+        int processCount = operatingSystem.getProcessCount();
+        infoBuffer.put("procCount", processCount + ((processCount > 1) ? " Procs" : " Proc"));
+
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
         long totalPhysicalMemory = globalMemory.getTotal();
         infoBuffer.put("totalRam", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
-        infoBuffer.put("ramClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
         infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
+
         return infoBuffer;
     }
 
@@ -85,7 +92,7 @@ public class InfoService
         int diskCount = hwDiskStores.size();
         infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
-        infoBuffer.put("swapAmount", globalMemory.getVirtualMemory().getSwapTotal() + " GiB Swap");
+        infoBuffer.put("swapAmount", Math.round(globalMemory.getVirtualMemory().getSwapTotal() / 1.074E+9) + " GiB Swap");
         return infoBuffer;
     }
 
