@@ -35,6 +35,7 @@ function uptimeInitialization()
 function uptimeTick()
 {
     increment(seconds);
+
     if (parseInt(seconds.innerHTML) > 59)
     {
         increment(minutes);

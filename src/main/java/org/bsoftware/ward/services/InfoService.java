@@ -34,17 +34,21 @@ public class InfoService
     private Map<String, String> getProcessorInfo(Map<String, String> infoBuffer)
     {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
+
         String processorName = centralProcessor.getProcessorIdentifier().getName();
         if (processorName.contains("@"))
         {
             processorName = processorName.substring(0, processorName.indexOf('@') - 1);
         }
         infoBuffer.put("processorName", processorName.trim());
+
         int coreCount = centralProcessor.getLogicalProcessorCount();
         infoBuffer.put("coreCount", coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         infoBuffer.put("maxClockSpeed", (Math.round((centralProcessor.getMaxFreq() / 1E+9) * 10.0) / 10.0) + " GHz");
+
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         infoBuffer.put("processorBitDepth", processorBitDepthPrefix + "-bit Arch");
+
         return infoBuffer;
     }
 
@@ -57,6 +61,7 @@ public class InfoService
     private Map<String, String> getMachineInfo(Map<String, String> infoBuffer)
     {
         OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
+
         infoBuffer.put("machineName", operatingSystem.getFamily()
                 + " " + operatingSystem.getVersionInfo().getVersion()
                 + ", build: " + operatingSystem.getVersionInfo().getBuildNumber());
@@ -65,6 +70,7 @@ public class InfoService
         infoBuffer.put("procCount", processCount + ((processCount > 1) ? " Procs" : " Proc"));
 
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
+
         long totalPhysicalMemory = globalMemory.getTotal();
         infoBuffer.put("totalRam", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
         infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
@@ -81,18 +87,24 @@ public class InfoService
     private Map<String, String> getStorageInfo(Map<String, String> infoBuffer)
     {
         List<HWDiskStore> hwDiskStores = systemInfo.getHardware().getDiskStores();
+
         String storageName = hwDiskStores.get(0).getModel();
         if (storageName.contains("(Standard disk drives)"))
         {
             storageName = storageName.substring(0, storageName.indexOf("(Standard disk drives)") - 1);
         }
         infoBuffer.put("storageName", storageName.trim());
+
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
         infoBuffer.put("totalStorage", Math.round(totalStorage / 1.074E+9) + " GiB Total");
+
         int diskCount = hwDiskStores.size();
         infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
+
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
+
         infoBuffer.put("swapAmount", Math.round(globalMemory.getVirtualMemory().getSwapTotal() / 1.074E+9) + " GiB Swap");
+
         return infoBuffer;
     }
 
@@ -106,10 +118,12 @@ public class InfoService
     private Map<String, String> getUptimeInfo(Map<String, String> infoBuffer)
     {
         long uptimeInSeconds = systemInfo.getOperatingSystem().getSystemUptime();
+
         infoBuffer.put("uptimeDays", String.format("%02d", (int) Math.floor(uptimeInSeconds / 86400)));
         infoBuffer.put("uptimeHours", String.format("%02d", (int) Math.floor((uptimeInSeconds % 86400) / 3600)));
         infoBuffer.put("uptimeMinutes", String.format("%02d", (int) Math.floor((uptimeInSeconds / 60) % 60)));
         infoBuffer.put("uptimeSeconds", String.format("%02d", (int) Math.floor(uptimeInSeconds % 60)));
+
         return infoBuffer;
     }
 

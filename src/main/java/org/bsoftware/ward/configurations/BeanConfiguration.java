@@ -33,6 +33,7 @@ public class BeanConfiguration
     {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
         return httpHeaders;
     }
 }
