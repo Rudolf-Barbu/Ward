@@ -49,12 +49,16 @@ public class UsageService
         long[] prevTicksArray = systemInfo.getHardware().getProcessor().getSystemCpuLoadTicks();
         long prevTotalTicks = Arrays.stream(prevTicksArray).sum();
         long prevIdleTicks = prevTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
+
         Util.sleep(1000);
+
         long[] currTicksArray = systemInfo.getHardware().getProcessor().getSystemCpuLoadTicks();
         long currTotalTicks = Arrays.stream(currTicksArray).sum();
         long currIdleTicks = currTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
+
         infoBuffer.put("processor",
                 (int) Math.round((1 - ((double) (currIdleTicks - prevIdleTicks)) / ((double) (currTotalTicks - prevTotalTicks))) * 100));
+
         return infoBuffer;
     }
 
@@ -67,9 +71,11 @@ public class UsageService
     private Map<String, Integer> getRamUsage(Map<String, Integer> infoBuffer)
     {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
+
         long totalMemory = globalMemory.getTotal();
         long availableMemory = globalMemory.getAvailable();
         infoBuffer.put("ram", (int) Math.round(100 - (((double) availableMemory / totalMemory) * 100)));
+
         return infoBuffer;
     }
 
@@ -82,9 +88,11 @@ public class UsageService
     private Map<String, Integer> getStorageUsage(Map<String, Integer> infoBuffer)
     {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
+
         long totalStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getTotalSpace).sum();
         long freeStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getFreeSpace).sum();
         infoBuffer.put("storage", (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100));
+
         return infoBuffer;
     }
 

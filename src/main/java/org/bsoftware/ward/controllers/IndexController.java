@@ -34,6 +34,7 @@ public class IndexController
     public String getDashboard(Model model)
     {
         model.addAllAttributes(infoService.getInfo());
+
         return "index";
     }
 

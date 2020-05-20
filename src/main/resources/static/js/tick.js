@@ -9,6 +9,7 @@ let xhr;
 function tickInitialization()
 {
     xhr = new XMLHttpRequest();
+
     xhr.onreadystatechange = function()
     {
         if (this.readyState == 4)
@@ -19,6 +20,7 @@ function tickInitialization()
         }
     }
     sendAjaxReqest();
+
     setInterval(function()
     {
         uptimeTick();

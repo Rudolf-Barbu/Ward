@@ -26,6 +26,7 @@ function usageInitialization()
     processorLabel = document.getElementById("processor-label");
     ramLabel = document.getElementById("ram-label");
     storageLabel = document.getElementById("storage-label");
+
     let ctx = document.getElementById("chart-body").getContext("2d");
     let data =
     {
@@ -118,7 +119,9 @@ function usageInitialization()
             animation: false
         }
     };
+
     chart = new Chart(ctx, data);
+
     document.getElementById("processor-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
     document.getElementById("ram-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
     document.getElementById("storage-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
@@ -134,6 +137,7 @@ function usageTick(usageData)
     processorLabel.innerHTML = labelAssignment(usageData.processor);
     ramLabel.innerHTML = labelAssignment(usageData.ram);
     storageLabel.innerHTML = labelAssignment(usageData.storage);
+
     updateDataset(chart.data.datasets[0].data, usageData.processor);
     updateDataset(chart.data.datasets[1].data, usageData.ram);
     updateDataset(chart.data.datasets[2].data, usageData.storage);
@@ -147,6 +151,7 @@ function usageTick(usageData)
 function labelAssignment(usageData)
 {
     let formatedUsageData = "";
+
     if (parseInt(usageData) < 10)
     {
         formatedUsageData = "00" + usageData + "%";
@@ -159,6 +164,7 @@ function labelAssignment(usageData)
     {
         formatedUsageData = usageData + "%";
     }
+
     return formatedUsageData;
 }
 
@@ -175,6 +181,7 @@ function updateDataset(dataset, usageData)
         dataset[i] = dataset[i + 1];
     }
     dataset[dataset.length - 1] = usageData;
+
     chart.update();
 }
 
@@ -206,5 +213,6 @@ function hideDataset(element)
             break;
         }
     }
+
     chart.update();
 }

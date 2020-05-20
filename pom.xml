@@ -9,7 +9,7 @@
     <groupId>org.b-software</groupId>
     <artifactId>ward</artifactId>
     <version>1.0.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <properties>
         <oshiVersion>5.0.1</oshiVersion>
         <jnaVersion>5.5.0</jnaVersion>
