@@ -61,20 +61,18 @@ public class InfoService
     private Map<String, String> getMachineInfo(Map<String, String> infoBuffer)
     {
         OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
+        OperatingSystem.OSVersionInfo osVersionInfo = systemInfo.getOperatingSystem().getVersionInfo();
+        GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        infoBuffer.put("machineName", operatingSystem.getFamily()
-                + " " + operatingSystem.getVersionInfo().getVersion()
-                + ", build: " + operatingSystem.getVersionInfo().getBuildNumber());
+        infoBuffer.put("machineName", operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
         int processCount = operatingSystem.getProcessCount();
         infoBuffer.put("procCount", processCount + ((processCount > 1) ? " Procs" : " Proc"));
 
-        GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
-
         long totalPhysicalMemory = globalMemory.getTotal();
         infoBuffer.put("totalRam", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
+        infoBuffer.put("ramClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
         infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
-
         return infoBuffer;
     }
 
@@ -87,6 +85,7 @@ public class InfoService
     private Map<String, String> getStorageInfo(Map<String, String> infoBuffer)
     {
         List<HWDiskStore> hwDiskStores = systemInfo.getHardware().getDiskStores();
+        GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         String storageName = hwDiskStores.get(0).getModel();
         if (storageName.contains("(Standard disk drives)"))
@@ -100,8 +99,6 @@ public class InfoService
 
         int diskCount = hwDiskStores.size();
         infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
-
-        GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         infoBuffer.put("swapAmount", Math.round(globalMemory.getVirtualMemory().getSwapTotal() / 1.074E+9) + " GiB Swap");
 
