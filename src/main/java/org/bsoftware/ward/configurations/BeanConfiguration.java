@@ -11,7 +11,6 @@ import oshi.SystemInfo;
  *
  * @author Rudolf Barbu
  * @version 1.0.0
- * @since 2020-05-17
  */
 @Configuration
 public class BeanConfiguration

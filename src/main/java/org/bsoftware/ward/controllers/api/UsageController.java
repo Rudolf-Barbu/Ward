@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Rudolf Barbu
  * @version 1.0.0
- * @since 2020-05-17
  */
 @RestController
 @RequestMapping(value = "/api/usage")

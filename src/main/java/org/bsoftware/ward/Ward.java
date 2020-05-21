@@ -9,7 +9,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  * @author Rudolf Barbu
  * @version 1.0.0
- * @since 2020-05-17
  */
 @SpringBootApplication
 public class Ward extends SpringBootServletInitializer

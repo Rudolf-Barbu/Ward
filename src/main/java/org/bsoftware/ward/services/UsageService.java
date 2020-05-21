@@ -21,7 +21,6 @@ import java.util.Map;
  *
  * @author Rudolf Barbu
  * @version 1.0.0
- * @since 2020-05-17
  */
 @Service
 public class UsageService
@@ -41,59 +40,61 @@ public class UsageService
     /**
      * Takes a buffer map and put in to it processor usage for last second in 0-100% range
      *
-     * @param infoBuffer buffer for usage values
+     * @param usageBuffer buffer for usage values
      * @return Map<String, Integer>, which contain processor usage
      */
-    private Map<String, Integer> getProcessorUsage(Map<String, Integer> infoBuffer)
+    private Map<String, Integer> getProcessorUsage(Map<String, Integer> usageBuffer)
     {
-        long[] prevTicksArray = systemInfo.getHardware().getProcessor().getSystemCpuLoadTicks();
+        CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
+
+        long[] prevTicksArray = centralProcessor.getSystemCpuLoadTicks();
         long prevTotalTicks = Arrays.stream(prevTicksArray).sum();
         long prevIdleTicks = prevTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
 
         Util.sleep(1000);
 
-        long[] currTicksArray = systemInfo.getHardware().getProcessor().getSystemCpuLoadTicks();
+        long[] currTicksArray = centralProcessor.getSystemCpuLoadTicks();
         long currTotalTicks = Arrays.stream(currTicksArray).sum();
         long currIdleTicks = currTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
 
-        infoBuffer.put("processor",
+        usageBuffer.put("processor",
                 (int) Math.round((1 - ((double) (currIdleTicks - prevIdleTicks)) / ((double) (currTotalTicks - prevTotalTicks))) * 100));
 
-        return infoBuffer;
+        return usageBuffer;
     }
 
     /**
      * Takes a buffer map and put in to it current RAM usage in 0-100% range
      *
-     * @param infoBuffer buffer for usage values
+     * @param usageBuffer buffer for usage values
      * @return Map<String, Integer>, which contain processor usage and RAM usage
      */
-    private Map<String, Integer> getRamUsage(Map<String, Integer> infoBuffer)
+    private Map<String, Integer> getRamUsage(Map<String, Integer> usageBuffer)
     {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         long totalMemory = globalMemory.getTotal();
         long availableMemory = globalMemory.getAvailable();
-        infoBuffer.put("ram", (int) Math.round(100 - (((double) availableMemory / totalMemory) * 100)));
+        usageBuffer.put("ram", (int) Math.round(100 - (((double) availableMemory / totalMemory) * 100)));
 
-        return infoBuffer;
+        return usageBuffer;
     }
 
     /**
      * Takes a buffer map and put in to it current storage usage in 0-100% range
      *
-     * @param infoBuffer buffer for usage values
+     * @param usageBuffer buffer for usage values
      * @return Map<String, Integer>, which contain processor usage, RAM and storage usage
      */
-    private Map<String, Integer> getStorageUsage(Map<String, Integer> infoBuffer)
+    private Map<String, Integer> getStorageUsage(Map<String, Integer> usageBuffer)
     {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
 
         long totalStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getTotalSpace).sum();
         long freeStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getFreeSpace).sum();
-        infoBuffer.put("storage", (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100));
+        usageBuffer.put("storage", (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100));
 
-        return infoBuffer;
+        return usageBuffer;
     }
 
     /**
