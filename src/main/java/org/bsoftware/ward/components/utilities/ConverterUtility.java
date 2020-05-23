@@ -33,7 +33,7 @@ public class ConverterUtility
      * Converts capacity to most readable format
      *
      * @param bits raw capacity value in bits
-     * @return String with capacity frequency and postfix
+     * @return String with formatted capacity and postfix
      */
     public String getConvertedCapacity(long bits)
     {
