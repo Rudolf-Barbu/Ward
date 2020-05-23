@@ -1,5 +1,6 @@
 package org.bsoftware.ward.services;
 
+import org.bsoftware.ward.components.utilities.ConverterUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -25,6 +26,12 @@ public class InfoService
     private SystemInfo systemInfo;
 
     /**
+     * Autowired ConverterUtility object
+     * Used for improve values readability
+     */
+    private ConverterUtility converterUtility;
+
+    /**
      * Takes a buffer map and put in to it processor information
      *
      * @param infoBuffer buffer for info values
@@ -43,7 +50,7 @@ public class InfoService
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         infoBuffer.put("coreCount", coreCount + ((coreCount > 1) ? " Cores" : " Core"));
-        infoBuffer.put("maxClockSpeed", (Math.round((centralProcessor.getMaxFreq() / 1E+9) * 10.0) / 10.0) + " GHz");
+        infoBuffer.put("maxClockSpeed", converterUtility.getConvertedFrequency(centralProcessor.getMaxFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         infoBuffer.put("processorBitDepth", processorBitDepthPrefix + "-bit Arch");
@@ -65,13 +72,12 @@ public class InfoService
 
         infoBuffer.put("machineName", operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
+        infoBuffer.put("totalRam", converterUtility.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+        infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
+
         int processCount = operatingSystem.getProcessCount();
         infoBuffer.put("procCount", processCount + ((processCount > 1) ? " Procs" : " Proc"));
 
-        long totalPhysicalMemory = globalMemory.getTotal();
-        infoBuffer.put("totalRam", Math.round(totalPhysicalMemory / 1.074E+9) + " GiB Ram");
-        infoBuffer.put("ramClockSpeed", Math.round(globalMemory.getPhysicalMemory().get(0).getClockSpeed() / 1e+6) + " MHz");
-        infoBuffer.put("ramType", globalMemory.getPhysicalMemory().get(0).getMemoryType());
         return infoBuffer;
     }
 
@@ -94,12 +100,12 @@ public class InfoService
         infoBuffer.put("storageName", storageName.trim());
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        infoBuffer.put("totalStorage", Math.round(totalStorage / 1.074E+9) + " GiB Total");
+        infoBuffer.put("totalStorage", converterUtility.getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
         infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
-        infoBuffer.put("swapAmount", Math.round(globalMemory.getVirtualMemory().getSwapTotal() / 1.074E+9) + " GiB Swap");
+        infoBuffer.put("swapAmount", converterUtility.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
         return infoBuffer;
     }
@@ -137,10 +143,12 @@ public class InfoService
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
+     * @param converterUtility autowired ConverterUtility object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo)
+    public InfoService(SystemInfo systemInfo, ConverterUtility converterUtility)
     {
         this.systemInfo = systemInfo;
+        this.converterUtility = converterUtility;
     }
 }

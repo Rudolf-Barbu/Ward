@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
  *
  * @author Rudolf Barbu
  * @version 1.0.0
- * @since 2020-05-22
  */
 @Component
 public class ConverterUtility
