@@ -29,16 +29,16 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         </td>
     </tr>
     <tr>
-        <td>Processor usage</td>
+        <td>Processor utilization percentage</td>
     </tr>
     <tr>
-        <td>Processor logical core count</td>
+        <td>Processor cores count (Logical and physical ones)</td>
     </tr>
     <tr>
-        <td>Max processor frequency</td>
+        <td>Maximum frequency of the processor</td>
     </tr>
     <tr>
-        <td>Architecture</td>
+        <td>Does the processor supports 64-bit instructions</td>
     </tr>
 </table>
 
@@ -46,22 +46,22 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 <table>
     <tr>
-        <td width = "560">Machine name</td>
+        <td width = "560">Type of operating system and it's version</td>
         <td rowspan ="5">
             <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300889331/2708C0302E91CF20B78DBB012878F46EA906FB49/" alt = "Card 2" align = "center" width = "330" height = "254" />
         </td>
     </tr>
     <tr>
-        <td>RAM usage</td>
+        <td>RAM utilization percentage</td>
     </tr>
     <tr>
-        <td>RAM amount in gibibytes</td>
+        <td>Amount of total installed RAM</td>
     </tr>
     <tr>
-        <td>RAM speed</td>
+        <td>Generation of the installed RAM</td>
     </tr>
     <tr>
-        <td>RAM type</td>
+        <td>Current processes count</td>
     </tr>
 </table>
 
@@ -75,16 +75,16 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         </td>
     </tr>
     <tr>
-        <td>Storage usage</td>
+        <td>Storage utilization percentage</td>
     </tr>
     <tr>
-        <td>Storage amount in gibibytes</td>
+        <td>Total Storage installed (Including external drives)</td>
     </tr>
     <tr>
-        <td>Disks count</td>
+        <td>Installed Drives count</td>
     </tr>
     <tr>
-        <td>Swap amount in gibibytes</td>
+        <td>Total amount of virtual memory (Swap in Linux)</td>
     </tr>
 </table>
 
