@@ -81,7 +81,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         <td>Total Storage installed (Including external drives)</td>
     </tr>
     <tr>
-        <td>Installed Drives count</td>
+        <td>Installed disks count</td>
     </tr>
     <tr>
         <td>Total amount of virtual memory (Swap in Linux)</td>
