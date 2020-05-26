@@ -42,8 +42,6 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     </tr>
 </table>
 
-<br>
-
 <table>
     <tr>
         <td width = "560">Machine name</td>
@@ -64,8 +62,6 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         <td>RAM type</td>
     </tr>
 </table>
-
-<br>
 
 <table>
     <tr>
