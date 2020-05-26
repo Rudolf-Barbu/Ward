@@ -10,6 +10,8 @@ Ward is a simple and and minimalistic server monitoring tool.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
+**All features tested on:** `Windows` `Linux`
+
 <p align = "center">
     <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300814148/E9FD3820605C945DA9C14E5FB6E189D7D36ABA77/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
@@ -18,8 +20,6 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Features
-
-**All features tested on:** `Windows` `Linux`
 
 <table>
     <tr>
@@ -110,5 +110,4 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ### Installation
 1. Download `.jar` file from latest `Stable` release.
 2. Execute jar on `Windows` or `Linux` with administrative rights.
-
-**Example for Ubuntu:** `sudo nohup java -jar "here your path to jar"/ward-1.0.0.jar &`
+3. Example for Ubuntu: `sudo nohup java -jar "here your path to jar"/ward-1.0.0.jar &`
