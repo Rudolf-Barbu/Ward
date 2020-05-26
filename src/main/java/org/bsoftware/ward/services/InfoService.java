@@ -103,7 +103,7 @@ public class InfoService
         infoBuffer.put("totalStorage", converterUtility.getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
-        infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Drives" : " Drive"));
+        infoBuffer.put("diskCount", diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
         infoBuffer.put("swapAmount", converterUtility.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
