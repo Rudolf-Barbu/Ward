@@ -15,11 +15,11 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <h7 align = "center">Preview Image</h7>
 </p>
 
-**Ward tested on:** `Windows` `Linux`
-
 ---
 
 ### Features
+
+**All features tested on:** `Windows` `Linux`
 
 <table>
     <tr>
@@ -108,4 +108,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Installation
-Just deploy `.war` file from latest `Stable` release on your `Tomcat` server.
+1. Download `.jar` file from latest `Stable` release.
+2. Execute jar on `Windows` or `Linux` with administrative rights.
+
+**Example for Ubuntu:** `sudo nohup java -jar "here your path to jar"/ward-1.0.0.jar &`
