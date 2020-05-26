@@ -92,12 +92,12 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 <table>
     <tr>
-        <td width = "600.5">
+        <td width = "916.5">
             <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700703201509261/E3DF09C892C172B7FC98CD19FBA022BBC1925179/" alt = "Card 4" align = "center" width = "994" height = "224" />
         </td>
     </tr>
     <tr>
-        <td>Storage utilization percentage</td>
+        <td></td>
     </tr>
 </table>
 
