@@ -25,7 +25,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "560">Processor name</td>
         <td rowspan ="5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300885710/ECF3044C71DEBE87D06E7017E61D6ABA9735CEF8/" alt = "Card 1" width = "330" height = "254" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300885710/ECF3044C71DEBE87D06E7017E61D6ABA9735CEF8/" alt = "Card 1" align = "center" width = "330" height = "254" />
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "560">Machine name</td>
         <td rowspan ="5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300889331/2708C0302E91CF20B78DBB012878F46EA906FB49/" alt = "Card 2" width = "330" height = "254" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300889331/2708C0302E91CF20B78DBB012878F46EA906FB49/" alt = "Card 2" align = "center" width = "330" height = "254" />
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "560">Host0 storage name</td>
         <td rowspan ="5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300892445/953B8488230DA6316D12D37E2DE1B7B815FB19E7/" alt = "Card 3" width = "330" height = "254" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300892445/953B8488230DA6316D12D37E2DE1B7B815FB19E7/" alt = "Card 3" align = "center" width = "330" height = "254" />
         </td>
     </tr>
     <tr>
