@@ -1,6 +1,5 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.bsoftware.ward.components.dto.Dto;
 import org.bsoftware.ward.components.dto.implementation.InfoDto;
 import org.bsoftware.ward.components.utilities.ConverterUtility;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +69,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         OperatingSystem.OSVersionInfo osVersionInfo = systemInfo.getOperatingSystem().getVersionInfo();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        infoDto.setMachineName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
+        infoDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
         infoDto.setTotalRam(converterUtility.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
         infoDto.setRamType(globalMemory.getPhysicalMemory().get(0).getMemoryType());
@@ -129,7 +128,6 @@ public class InfoService implements org.bsoftware.ward.services.Service
     @SuppressWarnings("unchecked")
     public InfoDto get()
     {
-        infoDto.clear();
         getProcessorInfo();
         getMachineInfo();
         getStorageInfo();

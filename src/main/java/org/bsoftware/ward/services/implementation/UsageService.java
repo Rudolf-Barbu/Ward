@@ -86,7 +86,6 @@ public class UsageService implements org.bsoftware.ward.services.Service
     @SuppressWarnings("unchecked")
     public UsageDto get()
     {
-        usageDto.clear();
         getProcessorUsage();
         getRamUsage();
         getStorageUsage();

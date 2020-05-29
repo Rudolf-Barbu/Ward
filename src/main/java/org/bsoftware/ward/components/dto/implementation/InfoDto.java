@@ -34,9 +34,9 @@ public class InfoDto implements Dto
     private String processorBitDepth;
 
     /**
-     * Machine name usage field
+     * OS info field
      */
-    private String machineName;
+    private String operatingSystemInfo;
 
     /**
      * Amount of total installed ram field
@@ -161,21 +161,21 @@ public class InfoDto implements Dto
     /**
      * Getter for machineName field
      *
-     * @return String machineName field value
+     * @return String operatingSystemInfo field value
      */
-    public String getMachineName()
+    public String getOperatingSystemInfo()
     {
-        return machineName;
+        return operatingSystemInfo;
     }
 
     /**
      * Setter for machineName field
      *
-     * @param machineName new field value
+     * @param operatingSystemInfo new field value
      */
-    public void setMachineName(String machineName)
+    public void setOperatingSystemInfo(String operatingSystemInfo)
     {
-        this.machineName = machineName;
+        this.operatingSystemInfo = operatingSystemInfo;
     }
 
     /**
@@ -336,26 +336,5 @@ public class InfoDto implements Dto
     public void setUptime(Map<String, String> uptime)
     {
         this.uptime = uptime;
-    }
-
-    /**
-     * Resets dto values to defaults
-     */
-    @Override
-    public void clear()
-    {
-        processorName = "";
-        coreCount = "";
-        maxClockSpeed = "";
-        processorBitDepth = "";
-        machineName = "";
-        totalRam = "";
-        ramType = "";
-        procCount = "";
-        storageName = "";
-        totalStorage = "";
-        diskCount = "";
-        swapAmount = "";
-        uptime = null;
     }
 }

@@ -86,15 +86,4 @@ public class UsageDto implements Dto
     {
         this.storage = storage;
     }
-
-    /**
-     * Resets dto values to defaults
-     */
-    @Override
-    public void clear()
-    {
-        processor = 0;
-        ram = 0;
-        storage = 0;
-    }
 }
