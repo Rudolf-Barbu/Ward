@@ -9,11 +9,15 @@
         <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
         <link rel = "stylesheet" th:href = "@{/css/theme.css}">
         <script type = "text/javascript" th:src = "@{/js/assets/chart.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/usage.js}"></script>
     </head>
-    <body>
+    <body id = "background">
+        <script th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container">
             <div class = "row">
                 <div class = "col-4">
@@ -25,7 +29,7 @@
                                 <div class = "hw-name" th:text = "${info.processorName}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "blue-light"></div>
                                 <div class = "blue-light"></div>
@@ -70,7 +74,7 @@
                                 <div class = "hw-name" th:text = "${info.operatingSystemInfo}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "red-light"></div>
                                 <div class = "red-light"></div>
@@ -115,7 +119,7 @@
                                 <div class = "hw-name" th:text = "${info.storageName}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "green-light"></div>
                                 <div class = "green-light"></div>

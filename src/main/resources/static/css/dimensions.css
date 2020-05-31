@@ -15,6 +15,10 @@
 
 :root
 {
+    /* body */
+    --body-height: 100%;
+    --body-width: 100%;
+
     /* container */
     --container-height: 35.031rem;
     --container-min-width: 71.25rem;
@@ -34,10 +38,10 @@
     --label-hw-info-top-spacing: 0.5625rem;
     --label-hw-info-left-spacing: 5.875rem;
 
-    /* body */
-    --body-height: 5.313rem;
-    --body-width: 18.875rem;
-    --body-bottom-spacing: 4.625rem;
+    /* usage */
+    --usage-height: 5.313rem;
+    --usage-width: 18.875rem;
+    --usage-bottom-spacing: 4.625rem;
 
     /* card-body-squares-grid */
     --card-body-squares-grid-top-spacing: 0.813rem;
