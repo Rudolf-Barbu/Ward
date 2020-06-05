@@ -110,13 +110,28 @@ body
     height: var(--main-hw-info-height);
 }
 
-.hw-utilization-value
+.hw-usage > div
 {
     position: absolute;
     right: 0;
-    bottom: var(--hw-utilization-value-bottom-spacing);
+    bottom: var(--hw-usage-bottom-spacing);
     font-size: var(--font-size-62pt);
     font-weight: var(--font-weight-bold);
+}
+
+.usage-value
+{
+    display: flex;
+    margin-right: var(--usage-value-margin-right);
+}
+
+.usage-value > span
+{
+    color: var(--grey-light);
+}
+
+.usage-postfix
+{
     color: var(--black);
 }
 

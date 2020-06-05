@@ -54,8 +54,11 @@
     /* main-hw-info */
     --main-hw-info-height: 100%;
 
-    /* hw-utilization-value */
-    --hw-utilization-value-bottom-spacing: 0.25rem;
+    /* hw-usage */
+    --hw-usage-bottom-spacing: 0.25rem;
+
+    /* usage-value */
+    --usage-value-margin-right: 2.9375rem;
 
     /* info-label */
     --info-label-top-spacing: 4.188rem;
@@ -128,7 +131,7 @@
     /* uptime-squares-grid */
     --uptime-squares-grid-bottom-spacing:  0.813rem;
     --uptime-squares-grid-left-spacing: 9.25rem;
-    
+
     /* uptime-squares-grid > div */
     --uptime-squares-grid-div-margin-right: 0.488rem;
     --uptime-squares-grid-div-height: 0.625rem;
@@ -158,7 +161,7 @@
     /* rectangle-grid > div */
     --chart-rectangle-grid-div-height: 0.625rem;
     --chart-rectangle-grid-div-width: 3.125rem;
-    
+
     /* first-rectangle */
     --first-rectangle-left-spacing: 33.25rem;
 
