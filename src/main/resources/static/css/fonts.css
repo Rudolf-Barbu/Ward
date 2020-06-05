@@ -1,14 +1,11 @@
 /*
-    Fonts file.
-    Used for define fonts of project.
-
-    All font entries must be separated by categories.
-    Category name must represent font attribute name.
+    Fonts file
+    Used for define fonts of project
 
     Every entry must follow convention:
-    * Entry must begins with category name.
-    * Category name must be followed by font attribute name.
-    * Use dashes to separate words.
+    * Entry must begins with "font" word
+    * Further should be followed by font property name
+    * Use dashes to separate words
 
     By example: --font-weight-regular
 */

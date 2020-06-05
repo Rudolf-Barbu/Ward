@@ -1,14 +1,11 @@
 /*
-    Colors file.
-    Used for define colors of project.
-
-    All color must be separated by palettes.
-    Palette name must represent color, not the destination.
+    Colors file
+    Used for define colors of project
 
     Every entry must follow convention:
-    * Entry name must begins with palette name.
-    * Palette name must be followed by tint.
-    * Use dashes to separate words.
+    * Entry name must begins with color name
+    * Further should be followed by tint or/and opacity
+    * Use dashes to separate words
 
     By example: --grey-light
 */

@@ -1,14 +1,11 @@
 /*
-    Dimensions file.
-    Used for define dimensions of project.
-
-    All dimensions must be separated by categories.
-    Category name must represent class or attribute name.
+    Dimensions file
+    Used for define dimensions of project
 
     Every entry must follow convention:
-    * Entry must begins with category name.
-    * Category name must be followed by css property name.
-    * Use dashes to separate words.
+    * Entry must begins with tag/class/id name
+    * Further should be followed by css property name
+    * Use dashes to separate words
 
     By example: --card-border-radius
 */
@@ -59,6 +56,10 @@
 
     /* usage-value */
     --usage-value-margin-right: 2.9375rem;
+
+    /* usage-value > span */
+    --usage-value-span-height: 5.8rem;
+    --usage-value-span-width: 2.224rem;
 
     /* info-label */
     --info-label-top-spacing: 4.188rem;

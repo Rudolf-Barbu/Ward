@@ -1,15 +1,14 @@
 /*
-    Theme css file.
-    Used to override bootstrap classes.
+    Theme css file
+    New classes, indexes and overrides must be defined here
 
-    This is a principal css file of whole project.
-    New classes, indexes and overrides must be defined here.
-    All entries must be separated by destination.
+    Every entry must follow convention:
+    * Entry must be separated by destination i.e layout or utility
 
-    By example: layout or utility classes
+    By example: Layout classes
 */
 
-/* Layout Classes */
+/* Layout classes */
 *
 {
     font-family: var(--font-family-roboto);
@@ -127,7 +126,28 @@ body
 
 .usage-value > span
 {
+    position: relative;
+    height: var(--usage-value-span-height);
+    width: var(--usage-value-span-width);
     color: var(--grey-light);
+}
+
+.first-span
+{
+    animation: wiggle var(--animation-duration-wiggle);
+    animation-delay: 0.2s;
+}
+
+.second-span
+{
+    animation: wiggle var(--animation-duration-wiggle);
+    animation-delay: 0.4s;
+}
+
+.third-span
+{
+    animation: wiggle var(--animation-duration-wiggle);
+    animation-delay: 0.6s;
 }
 
 .usage-postfix
@@ -418,7 +438,7 @@ body
     border: var(--chart-container-border-thickness) solid var(--grey-light);
 }
 
-/* Utility Classes */
+/* Utility classes */
 .blue-light
 {
     background-color: var(--blue-light);
