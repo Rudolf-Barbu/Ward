@@ -62,8 +62,8 @@ body
 .label-hw-info
 {
     position: absolute;
-    top: var(--label-hw-info-top-spacing);
-    left: calc(var(--label-hw-info-left-spacing) - var(--card-spacing));
+    top: var(--label-hw-info-top);
+    left: calc(var(--label-hw-info-left) - var(--card-spacing));
 }
 
 .hw-type
@@ -85,14 +85,14 @@ body
     position: absolute;
     height: var(--usage-height);
     width: var(--usage-width);
-    bottom: var(--usage-bottom-spacing);
+    bottom: var(--usage-bottom);
     left: var(--card-spacing);
 }
 
 .card-body-squares-grid
 {
     position: absolute;
-    top: var(--card-body-squares-grid-top-spacing);
+    top: var(--card-body-squares-grid-top);
 }
 
 .card-body-squares-grid > div
@@ -113,7 +113,7 @@ body
 {
     position: absolute;
     right: 0;
-    bottom: var(--hw-usage-bottom-spacing);
+    bottom: var(--hw-usage-bottom);
     font-size: var(--font-size-62pt);
     font-weight: var(--font-weight-bold);
 }
@@ -194,7 +194,7 @@ body
 {
     display: inline-block;
     position: absolute;
-    bottom: calc(var(--card-footer-dots-grid-div-bottom-spacing) - var(--footer-height));
+    bottom: calc(var(--card-footer-dots-grid-div-bottom) - var(--footer-height));
     height: var(--card-footer-dots-grid-div-radius);
     width: var(--card-footer-dots-grid-div-radius);
     border-radius: 50%;
@@ -203,17 +203,17 @@ body
 
 .first-dot
 {
-    left: var(--first-dot-left-spacing);
+    left: var(--first-dot-left);
 }
 
 .second-dot
 {
-    left: var(--second-dot-left-spacing);
+    left: var(--second-dot-left);
 }
 
 .third-dot
 {
-    left: var(--third-dot-left-spacing);
+    left: var(--third-dot-left);
 }
 
 .inner-dot
@@ -246,17 +246,17 @@ body
 
 .first-label
 {
-    left: calc(var(--first-label-left-spacing) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: calc(var(--first-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
 }
 
 .second-label
 {
-    left: calc(var(--second-label-left-spacing) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: calc(var(--second-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
 }
 
 .third-label
 {
-    left: calc(var(--third-label-left-spacing) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: calc(var(--third-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
 }
 
 .dividers
@@ -275,12 +275,12 @@ body
 
 .first-divider
 {
-    left: var(--first-divider-left-spacing);
+    left: var(--first-divider-left);
 }
 
 .second-divider
 {
-    left: var(--second-divider-left-spacing);
+    left: var(--second-divider-left);
 }
 
 .about
@@ -291,7 +291,7 @@ body
 .dashboard-logo
 {
     position: absolute;
-    top: var(--dashboard-logo-top-spacing);
+    top: var(--dashboard-logo-top);
     z-index: 1;
     width: var(--dashboard-logo-width);
     text-align: center;
@@ -304,7 +304,7 @@ body
 .dashboard-logo-description
 {
     position: absolute;
-    top: var(--dashboard-logo-description-top-spacing);
+    top: var(--dashboard-logo-description-top);
     z-index: 1;
     width: var(--dashboard-logo-description-width);
     text-align: center;
@@ -335,8 +335,8 @@ body
 .uptime-squares-grid
 {
     position: relative;
-    bottom: var(--uptime-squares-grid-bottom-spacing);
-    left: var(--uptime-squares-grid-left-spacing);
+    bottom: var(--uptime-squares-grid-bottom);
+    left: var(--uptime-squares-grid-left);
 }
 
 .uptime-squares-grid > div
@@ -351,8 +351,8 @@ body
 .uptime-rectangle-grid
 {
     position: absolute;
-    top: var(--uptime-rectangle-grid-top-spacing);
-    left: var(--uptime-rectangle-grid-left-spacing);
+    top: var(--uptime-rectangle-grid-top);
+    left: var(--uptime-rectangle-grid-left);
 }
 
 .values-grid > div
@@ -371,7 +371,7 @@ body
 .values-grid > div > p
 {
     position: relative;
-    bottom: var(--values-grid-div-p-bottom-spacing);
+    bottom: var(--values-grid-div-p-bottom);
 }
 
 .labels-grid > div
@@ -401,7 +401,7 @@ body
 .chart-rectangle-grid
 {
     position: absolute;
-    top: var(--chart-rectangle-grid-top-spacing);
+    top: var(--chart-rectangle-grid-top);
 }
 
 .chart-rectangle-grid > div
@@ -412,25 +412,70 @@ body
     width: var(--chart-rectangle-grid-div-width);
 }
 
+.chart-rectangle-grid > div:before
+{
+    position: absolute;
+    bottom: var(--chart-rectangle-grid-div-before-bottom);
+    left: var(--chart-rectangle-grid-div-before-left);
+    content: "";
+    border-width: var(--chart-rectangle-grid-div-before-border-width);
+    border-style: solid;
+    opacity: 0;
+    transition: bottom 0.3s, opacity 0.3s;
+}
+
 .first-rectangle
 {
-    left: var(--first-rectangle-left-spacing);
+    left: var(--first-rectangle-left);
+}
+
+.first-rectangle:before
+{
+    border-color: var(--blue) transparent;
+}
+
+.first-rectangle:hover:before
+{
+    bottom: var(--first-rectangle-hover-before-bottom);
+    opacity: 1;
 }
 
 .second-rectangle
 {
-    left: var(--second-rectangle-left-spacing);
+    left: var(--second-rectangle-left);
+}
+
+.second-rectangle:before
+{
+    border-color: var(--red) transparent;
+}
+
+.second-rectangle:hover:before
+{
+    bottom: var(--second-rectangle-hover-before-bottom);
+    opacity: 1;
 }
 
 .third-rectangle
 {
-    left: var(--third-rectangle-left-spacing);
+    left: var(--third-rectangle-left);
+}
+
+.third-rectangle:before
+{
+    border-color: var(--green) transparent;
+}
+
+.third-rectangle:hover:before
+{
+    bottom: var(--third-rectangle-hover-before-bottom);
+    opacity: 1;
 }
 
 .chart-container
 {
     position: absolute;
-    top: var(--chart-container-top-spacing);
+    top: var(--chart-container-top);
     left: var(--card-spacing);
     height: var(--chart-container-height);
     width: var(--chart-container-width);

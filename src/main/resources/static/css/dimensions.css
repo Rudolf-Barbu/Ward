@@ -32,16 +32,16 @@
     --hw-logo-radius: 3.75rem;
 
     /* label-hw-info */
-    --label-hw-info-top-spacing: 0.5625rem;
-    --label-hw-info-left-spacing: 5.875rem;
+    --label-hw-info-top: 0.5625rem;
+    --label-hw-info-left: 5.875rem;
 
     /* usage */
     --usage-height: 5.313rem;
     --usage-width: 18.875rem;
-    --usage-bottom-spacing: 4.625rem;
+    --usage-bottom: 4.625rem;
 
     /* card-body-squares-grid */
-    --card-body-squares-grid-top-spacing: 0.813rem;
+    --card-body-squares-grid-top: 0.813rem;
 
     /* card-body-squares-grid > div */
     --card-body-squares-grid-div-margin-bottom: 0.75rem;
@@ -52,7 +52,7 @@
     --main-hw-info-height: 100%;
 
     /* hw-usage */
-    --hw-usage-bottom-spacing: 0.25rem;
+    --hw-usage-bottom: 0.25rem;
 
     /* usage-value */
     --usage-value-margin-right: 2.9375rem;
@@ -62,7 +62,7 @@
     --usage-value-span-width: 2.224rem;
 
     /* info-label */
-    --info-label-top-spacing: 4.188rem;
+    --info-label-top: 4.188rem;
     --info-label-width: 9.5rem;
 
     /* underline */
@@ -75,16 +75,16 @@
 
     /* dots-grid > div */
     --card-footer-dots-grid-div-radius: 1.5rem;
-    --card-footer-dots-grid-div-bottom-spacing: 2.375rem;
+    --card-footer-dots-grid-div-bottom: 2.375rem;
 
     /* first-dot */
-    --first-dot-left-spacing: 2.90625rem;
+    --first-dot-left: 2.90625rem;
 
     /* second-dot */
-    --second-dot-left-spacing: 10.1875rem;
+    --second-dot-left: 10.1875rem;
 
     /* third-dot */
-    --third-dot-left-spacing: 17.46875rem;
+    --third-dot-left: 17.46875rem;
 
     /* inner-dot */
     --inner-dot-spacing: 0.375rem;
@@ -95,30 +95,30 @@
     --detailed-hw-info-div-width: 5.625rem;
 
     /* first-label */
-    --first-label-left-spacing: 2.90625rem;
+    --first-label-left: 2.90625rem;
 
     /* second-label */
-    --second-label-left-spacing: 10.1875rem;
+    --second-label-left: 10.1875rem;
 
     /* third-label */
-    --third-label-left-spacing: 17.46875rem;
+    --third-label-left: 17.46875rem;
 
     /* dividers > div */
     --dividers-div-height: 3.125rem;
     --dividers-div-width: 0.063rem;
 
     /* first-divider */
-    --first-divider-left-spacing: 7.313rem;
+    --first-divider-left: 7.313rem;
 
     /* second-divider */
-    --second-divider-left-spacing: 14.563rem;
+    --second-divider-left: 14.563rem;
 
     /* dashboard-logo */
-    --dashboard-logo-top-spacing: 2.188rem;
+    --dashboard-logo-top: 2.188rem;
     --dashboard-logo-width: 21.875rem;
 
     /* dashboard-logo-description */
-    --dashboard-logo-description-top-spacing: 5.3rem;
+    --dashboard-logo-description-top: 5.3rem;
     --dashboard-logo-description-width: 21.875rem;
 
     /* dashboard-logo-background */
@@ -130,8 +130,8 @@
     --uptime-width: 100%;
 
     /* uptime-squares-grid */
-    --uptime-squares-grid-bottom-spacing:  0.813rem;
-    --uptime-squares-grid-left-spacing: 9.25rem;
+    --uptime-squares-grid-bottom:  0.813rem;
+    --uptime-squares-grid-left: 9.25rem;
 
     /* uptime-squares-grid > div */
     --uptime-squares-grid-div-margin-right: 0.488rem;
@@ -139,8 +139,8 @@
     --uptime-squares-grid-div-width: 0.625rem;
 
     /* uptime-rectangle-grid */
-    --uptime-rectangle-grid-top-spacing: 1.925rem;
-    --uptime-rectangle-grid-left-spacing: 2.781rem;
+    --uptime-rectangle-grid-top: 1.925rem;
+    --uptime-rectangle-grid-left: 2.781rem;
 
     /* values-grid > div */
     --values-grid-div-margin-right: 0.125rem;
@@ -148,7 +148,7 @@
     --values-grid-div-width: 3.75rem;
 
     /* values-grid > div > p */
-    --values-grid-div-p-bottom-spacing: 0.25rem;
+    --values-grid-div-p-bottom: 0.25rem;
 
     /* labels-grid > div */
     --labels-grid-div-margin-right: 0.125rem;
@@ -157,23 +157,37 @@
     --labels-grid-div-width: 3.75rem;
 
     /* chart-rectangle-grid */
-    --chart-rectangle-grid-top-spacing: 1.906rem;
+    --chart-rectangle-grid-top: 1.906rem;
 
     /* rectangle-grid > div */
     --chart-rectangle-grid-div-height: 0.625rem;
     --chart-rectangle-grid-div-width: 3.125rem;
 
+    /* chart-rectangle-grid > div:before */
+    --chart-rectangle-grid-div-before-bottom: 1.5rem;
+    --chart-rectangle-grid-div-before-left: 1.125rem;
+    --chart-rectangle-grid-div-before-border-width: 0.438rem 0.438rem 0rem 0.438rem;
+
     /* first-rectangle */
-    --first-rectangle-left-spacing: 33.25rem;
+    --first-rectangle-left: 33.25rem;
+
+    /* first-rectangle:hover:before */
+    --first-rectangle-hover-before-bottom: 1.063rem;
 
     /* second-rectangle */
-    --second-rectangle-left-spacing: 37.125rem;
+    --second-rectangle-left: 37.125rem;
+
+    /* second-rectangle:hover:before */
+    --second-rectangle-hover-before-bottom: 1.063rem;
 
     /* third-rectangle */
-    --third-rectangle-left-spacing: 41rem;
+    --third-rectangle-left: 41rem;
+
+    /* third-rectangle:hover:before */
+    --third-rectangle-hover-before-bottom: 1.063rem;
 
     /* chart-container */
-    --chart-container-top-spacing: 3.375rem;
+    --chart-container-top: 3.375rem;
     --chart-container-height: 11.688rem;
     --chart-container-width: 42.625rem;
     --chart-container-border-thickness: 0.063rem;
