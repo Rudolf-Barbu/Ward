@@ -8,6 +8,8 @@
         <link rel = "stylesheet" th:href = "@{/css/colors.css}">
         <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
         <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
+        <link rel = "stylesheet" th:href = "@{/css/gradients.css}">
+        <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
         <link rel = "stylesheet" th:href = "@{/css/theme.css}">
         <script type = "text/javascript" th:src = "@{/js/assets/chart.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
@@ -213,10 +215,15 @@
                 <div class = "col-8">
                     <div class = "card">
                         <div class = "chart-label">% Utilization</div>
+                        <div class = "chart-triangle-grid">
+                            <div id = "processor-triangle" class = "first-triangle"></div>
+                            <div id = "ram-triangle" class = "second-triangle"></div>
+                            <div id = "storage-triangle" class = "third-triangle"></div>
+                        </div>
                         <div class = "chart-rectangle-grid">
-                            <div id = "processor-rectangle" class = "first-rectangle blue-light"></div>
-                            <div id = "ram-rectangle" class = "second-rectangle red-light"></div>
-                            <div id = "storage-rectangle" class = "third-rectangle green-light"></div>
+                            <div id = "processor-rectangle" class = "first-rectangle"></div>
+                            <div id = "ram-rectangle" class = "second-rectangle"></div>
+                            <div id = "storage-rectangle" class = "third-rectangle"></div>
                         </div>
                         <div class = "chart-container">
                             <canvas id = "chart-body"></canvas>

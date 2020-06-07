@@ -14,6 +14,21 @@ let ramUsageArray;
 let storageUsageArray;
 
 /**
+ * Used to manipulate processor triangle div
+ */
+let processorTriangle;
+
+/**
+ * Used to manipulate ram triangle div
+ */
+let ramTriangle;
+
+/**
+ * Used to manipulate storage triangle div
+ */
+let storageTriangle;
+
+/**
  * Used to handle chart object, displays usage for 15 seconds
  */
 let chart;
@@ -41,6 +56,10 @@ function usageInitialization()
         document.getElementById("storage-tens"),
         document.getElementById("storage-ones")
     ];
+
+    processorTriangle = document.getElementById("processor-triangle");
+    ramTriangle = document.getElementById("ram-triangle");
+    storageTriangle = document.getElementById("storage-triangle");
 
     let ctx = document.getElementById("chart-body").getContext("2d");
     let data =
@@ -133,7 +152,7 @@ function usageInitialization()
             },
             animation:
             {
-                duration: 100
+                duration: 150
             }
         }
     };
@@ -266,20 +285,23 @@ function hideDataset(element)
     {
         case "processor-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(0).hidden) ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(0).hidden = (chart.getDatasetMeta(0).hidden) ? false : true;
+            processorTriangle.style.borderWidth = chart.getDatasetMeta(0).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
         }
         case "ram-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(1).hidden) ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(1).hidden = (chart.getDatasetMeta(1).hidden) ? false : true;
+            ramTriangle.style.borderWidth = chart.getDatasetMeta(1).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
         }
         case "storage-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(2).hidden) ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(2).hidden = (chart.getDatasetMeta(2).hidden) ? false : true;
+            storageTriangle.style.borderWidth = chart.getDatasetMeta(2).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
             break;
         }
     }

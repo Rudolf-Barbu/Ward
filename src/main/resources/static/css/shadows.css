@@ -1,0 +1,20 @@
+/*
+    Shadows file
+    Used for define shadows of project
+
+    Every category must follow convention:
+    * Category must begins with shadow type name
+
+    Every entry must follow convention:
+    * Must include category name
+    * Further should be followed by tag/class/id/etc.
+
+    By example: --box-shadow-card
+*/
+
+:root
+{
+    /* box-shadow */
+    --box-shadow-card: 0rem 0.313rem 0.625rem 0rem;
+    --box-shadow-uptime-squares-grid-div: 0rem 0.188rem 0.313rem 0rem;
+}

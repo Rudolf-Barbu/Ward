@@ -2,10 +2,13 @@
     Fonts file
     Used for define fonts of project
 
-    Every entry must follow convention:
-    * Entry must begins with "font" word
+    Every category must follow convention:
+    * Category must begins with "font" word
     * Further should be followed by font property name
-    * Use dashes to separate words
+
+    Every entry must follow convention:
+    * Must include category name
+    * Further should be followed by size/weight/family/etc.
 
     By example: --font-weight-regular
 */

@@ -2,8 +2,8 @@
     Theme css file
     New classes, indexes and overrides must be defined here
 
-    Every entry must follow convention:
-    * Entry must be separated by destination i.e layout or utility
+    Every category must follow convention:
+    * Category must represent destination i.e layout or utility classes
 
     By example: Layout classes
 */
@@ -19,51 +19,51 @@ body
     position: fixed;
     top: 0;
     left: 0;
-    height: var(--body-height);
-    width: var(--body-width);
+    height: var(--height-body);
+    width: var(--width-body);
     background: var(--purple-light);
 }
 
 .container
 { 
-    margin-top: calc((100vh / 2) - (var(--container-height) / 2));
-    min-width: var(--container-min-width);
+    margin-top: calc((100vh / 2) - (var(--height-container) / 2));
+    min-width: var(--min-width-container);
 }
 
 .row > div
 {
-    margin-bottom: var(--row-div-margin-bottom);
+    margin-bottom: var(--margin-bottom-row-div);
 }
 
 .card
 {
-    min-height: var(--card-min-height);
+    min-height: var(--min-height-card);
     border: none;
-    border-radius: var(--card-border-radius);
+    border-radius: var(--border-radius-card);
     overflow: hidden;
-    box-shadow: 0px 5px 10px 0px var(--black-opacity-10);
+    box-shadow: var(--box-shadow-card) var(--black-opacity-10);
 }
 
 .header
 {
     position: relative;
     display: flex;
-    top: var(--card-spacing);
-    left: var(--card-spacing);
+    top: var(--top-header);
+    left: var(--left-header);
 }
 
 .hw-logo
 {
-    height: var(--hw-logo-radius);
-    width: var(--hw-logo-radius);
-    border-radius: 50%;
+    height: var(--height-hw-logo);
+    width: var(--width-hw-logo);
+    border-radius: var(--border-radius-hw-logo);
 }
 
 .label-hw-info
 {
     position: absolute;
-    top: var(--label-hw-info-top);
-    left: calc(var(--label-hw-info-left) - var(--card-spacing));
+    top: var(--top-label-hw-info);
+    left: var(--left-label-hw-info);
 }
 
 .hw-type
@@ -83,37 +83,37 @@ body
 .usage
 {
     position: absolute;
-    height: var(--usage-height);
-    width: var(--usage-width);
-    bottom: var(--usage-bottom);
-    left: var(--card-spacing);
+    height: var(--height-usage);
+    width: var(--width-usage);
+    bottom: var(--bottom-usage);
+    left: var(--left-usage);
 }
 
 .card-body-squares-grid
 {
     position: absolute;
-    top: var(--card-body-squares-grid-top);
+    top: var(--top-card-body-squares-grid);
 }
 
 .card-body-squares-grid > div
 {
-    margin-bottom: var(--card-body-squares-grid-div-margin-bottom);
-    height: var(--card-body-squares-grid-div-height);
-    width: var(--card-body-squares-grid-div-width);
+    margin-bottom: var(--margin-bottom-card-body-squares-grid-div);
+    height: var(--height-card-body-squares-grid-div);
+    width: var(--width-card-body-squares-grid-div);
 }
 
 .main-hw-info
 {
     position: absolute;
     right: 0;
-    height: var(--main-hw-info-height);
+    height: var(--height-main-hw-info);
 }
 
 .hw-usage > div
 {
     position: absolute;
     right: 0;
-    bottom: var(--hw-usage-bottom);
+    bottom: var(--bottom-hw-usage-div);
     font-size: var(--font-size-62pt);
     font-weight: var(--font-weight-bold);
 }
@@ -121,33 +121,34 @@ body
 .usage-value
 {
     display: flex;
-    margin-right: var(--usage-value-margin-right);
+    margin-right: var(--margin-right-usage-value);
 }
 
 .usage-value > span
 {
     position: relative;
-    height: var(--usage-value-span-height);
-    width: var(--usage-value-span-width);
+    height: var(--height-usage-value-span);
+    width: var(--width-usage-value-span);
     color: var(--grey-light);
+    animation-duration: var(--animation-duration-wiggle);
 }
 
 .first-span
 {
-    animation: wiggle var(--animation-duration-wiggle);
-    animation-delay: 0.2s;
+    animation: wiggle;
+    animation-delay: var(--animation-delay-first-span);
 }
 
 .second-span
 {
-    animation: wiggle var(--animation-duration-wiggle);
-    animation-delay: 0.4s;
+    animation: wiggle;
+    animation-delay: var(--animation-delay-second-span);
 }
 
 .third-span
 {
-    animation: wiggle var(--animation-duration-wiggle);
-    animation-delay: 0.6s;
+    animation: wiggle;
+    animation-delay: var(--animation-delay-third-span)
 }
 
 .usage-postfix
@@ -158,8 +159,8 @@ body
 .info-label
 {
     position: relative;
-    top: 67px;
-    width: var(--underline-width);
+    top: var(--top-info-label);
+    width: var(--width-info-label);
     text-align: center;
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
@@ -172,8 +173,8 @@ body
     position: absolute;
     right: 0;
     bottom: 0;
-    height: var(--underline-height);
-    width: var(--underline-width);
+    height: var(--height-underline);
+    width: var(--width-underline);
 }
 
 .footer
@@ -181,8 +182,8 @@ body
     position: absolute;
     bottom: 0;
     left: 0;
-    height: var(--footer-height);
-    width: var(--footer-width);
+    height: var(--height-footer);
+    width: var(--width-footer);
 }
 
 .card-footer-dots-grid
@@ -194,36 +195,36 @@ body
 {
     display: inline-block;
     position: absolute;
-    bottom: calc(var(--card-footer-dots-grid-div-bottom) - var(--footer-height));
-    height: var(--card-footer-dots-grid-div-radius);
-    width: var(--card-footer-dots-grid-div-radius);
-    border-radius: 50%;
+    bottom: var(--bottom-card-footer-dots-grid-div);
+    height: var(--height-card-footer-dots-grid-div);
+    width: var(--width-card-footer-dots-grid-div);
+    border-radius: var(--border-radius-card-footer-dots-grid-div);
     background-color: var(--white);
 }
 
 .first-dot
 {
-    left: var(--first-dot-left);
+    left: var(--left-first-dot);
 }
 
 .second-dot
 {
-    left: var(--second-dot-left);
+    left: var(--left-second-dot);
 }
 
 .third-dot
 {
-    left: var(--third-dot-left);
+    left: var(--left-third-dot);
 }
 
 .inner-dot
 {
     position: absolute;
-    top: var(--inner-dot-spacing);
-    left: var(--inner-dot-spacing);
-    height: var(--inner-dot-radius);
-    width: var(--inner-dot-radius);
-    border-radius: 50%;
+    top: var(--top-inner-dot);
+    left: var(--left-inner-dot);
+    height: var(--height-inner-dot);
+    width: var(--width-inner-dot);
+    border-radius: var(--border-radius-inner-dot);
 }
 
 .detailed-hw-info
@@ -235,9 +236,9 @@ body
 {
     display: inline-block;
     position: absolute;
-    top: calc((var(--footer-height) / 2) - (var(--detailed-hw-info-div-height) / 2.7));
-    height: var(--detailed-hw-info-div-height);
-    width: var(--detailed-hw-info-div-width);
+    top: var(--top-detailed-hw-info-div);
+    height: var(--height-detailed-hw-info-div);
+    width: var(--width-detailed-hw-info-div);
     text-align: center;
     font-size: var(--font-size-14pt);
     font-weight: var(--font-weight-regular);
@@ -246,17 +247,17 @@ body
 
 .first-label
 {
-    left: calc(var(--first-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: var(--left-first-label);
 }
 
 .second-label
 {
-    left: calc(var(--second-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: var(--left-second-label);
 }
 
 .third-label
 {
-    left: calc(var(--third-label-left) - (var(--detailed-hw-info-div-width) / 2.7));
+    left: var(--left-third-label);
 }
 
 .dividers
@@ -268,19 +269,19 @@ body
 {
     display: inline-block;
     position: absolute;
-    height: var(--dividers-div-height);
-    width: var(--dividers-div-width);
+    height: var(--height-dividers-div);
+    width: var(--width-dividers-div);
     background-color: var(--white);
 }
 
 .first-divider
 {
-    left: var(--first-divider-left);
+    left: var(--left-first-divider);
 }
 
 .second-divider
 {
-    left: var(--second-divider-left);
+    left: var(--left-second-divider);
 }
 
 .about
@@ -291,9 +292,9 @@ body
 .dashboard-logo
 {
     position: absolute;
-    top: var(--dashboard-logo-top);
+    top: var(--top-dashboard-logo);
     z-index: 1;
-    width: var(--dashboard-logo-width);
+    width: var(--width-dashboard-logo);
     text-align: center;
     letter-spacing: var(--letter-spacing-10px);
     font-size: var(--font-size-42pt);
@@ -304,9 +305,9 @@ body
 .dashboard-logo-description
 {
     position: absolute;
-    top: var(--dashboard-logo-description-top);
+    top: var(--top-dashboard-logo-description);
     z-index: 1;
-    width: var(--dashboard-logo-description-width);
+    width: var(--width-dashboard-logo-description);
     text-align: center;
     letter-spacing: var(--letter-spacing-2px);
     font-size: var(--font-size-9pt);
@@ -318,8 +319,8 @@ body
 {
     position: absolute;
     top: 0;
-    height: var(--dashboard-logo-background-height);
-    width: var(--dashboard-logo-background-width);
+    height: var(--height-dashboard-logo-background);
+    width: var(--width-dashboard-logo-background);
 }
 
 .uptime
@@ -327,40 +328,40 @@ body
     position: absolute;
     bottom: 0;
     left: 0;
-    height: var(--uptime-height);
-    width: var(--uptime-width);
-    background: linear-gradient(45deg, var(--blue-light) 0%, var(--red-light) 50%, var(--green-light) 100%);
+    height: var(--height-uptime);
+    width: var(--width-uptime);
+    background: var(--linear-gradient-uptime);
 }
 
 .uptime-squares-grid
 {
     position: relative;
-    bottom: var(--uptime-squares-grid-bottom);
-    left: var(--uptime-squares-grid-left);
+    bottom: var(--bottom-uptime-squares-grid);
+    left: var(--left-uptime-squares-grid);
 }
 
 .uptime-squares-grid > div
 {
     display: inline-block;
-    margin-right: var(--uptime-squares-grid-div-margin-right);
-    height: var(--uptime-squares-grid-div-height);
-    width: var(--uptime-squares-grid-div-width);
-    box-shadow: 0px 3px 5px 0px var(--black-opacity-10);
+    margin-right: var(--margin-right-uptime-squares-grid-div);
+    height: var(--height-uptime-squares-grid-div);
+    width: var(--width-uptime-squares-grid-div);
+    box-shadow: var(--box-shadow-uptime-squares-grid-div) var(--black-opacity-10);
 }
 
 .uptime-rectangle-grid
 {
     position: absolute;
-    top: var(--uptime-rectangle-grid-top);
-    left: var(--uptime-rectangle-grid-left);
+    top: var(--top-uptime-rectangle-grid);
+    left: var(--left-uptime-rectangle-grid);
 }
 
 .values-grid > div
 {
     display: inline-block;
-    margin-right: var(--values-grid-div-margin-right);
-    height: var(--values-grid-div-height);
-    width: var(--values-grid-div-width);
+    margin-right: var(--margin-right-values-grid-div);
+    height: var(--height-values-grid-div);
+    width: var(--width-values-grid-div);
     text-align: center;
     font-size: var(--font-size-42pt);
     font-weight: var(--font-weight-bold);
@@ -371,16 +372,16 @@ body
 .values-grid > div > p
 {
     position: relative;
-    bottom: var(--values-grid-div-p-bottom);
+    bottom: var(--bottom-values-grid-div-p);
 }
 
 .labels-grid > div
 {
     display: inline-block;
-    margin-right: var(--labels-grid-div-margin-right);
-    margin-bottom: var(--labels-grid-div-margin-bottom);
-    height: var(--labels-grid-div-height);
-    width: var(--labels-grid-div-width);
+    margin-right: var(--margin-right-labels-grid-div);
+    margin-bottom: var(--margin-bottom-labels-grid-div);
+    height: var(--height-labels-grid-div);
+    width: var(--width-labels-grid-div);
     text-align: center;
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weigth-regular);
@@ -391,96 +392,98 @@ body
 .chart-label
 {
     position: absolute;
-    top: var(--card-spacing);
-    left: var(--card-spacing);
+    top: var(--top-chart-label);
+    left: var(--left-chart-label);
     font-size: var(--font-size-18pt);
     font-weight: var(--font-weight-bold);
     color: var(--black);
 }
 
+.chart-triangle-grid
+{
+    position: absolute;
+    top: var(--top-chart-triangle-grid);
+}
+
+.chart-triangle-grid > div
+{
+    position: absolute;
+    border-style: solid;
+    border-width: var(--border-width-chart-triangle-grid-div);
+    opacity: 0;
+    animation: fade-in;
+    animation-duration: var(--animation-duration-fade-in);
+    animation-delay: var(--animation-delay-chart-triangle-grid-div);
+    animation-fill-mode: forwards;
+}
+
+.first-triangle
+{
+    left: var(--left-first-triangle);
+    border-color: var(--blue) transparent;
+}
+
+.second-triangle
+{
+    left: var(--left-second-triangle);
+    border-color: var(--red) transparent;
+}
+
+.third-triangle
+{
+    left: var(--left-third-triangle);
+    border-color: var(--green) transparent;
+}
+
 .chart-rectangle-grid
 {
     position: absolute;
-    top: var(--chart-rectangle-grid-top);
+    top: var(--top-chart-rectangle-grid);
 }
 
 .chart-rectangle-grid > div
 {
     display: inline-block;
     position: absolute;
-    height: var(--chart-rectangle-grid-div-height);
-    width: var(--chart-rectangle-grid-div-width);
+    height: var(--height-chart-rectangle-grid-div);
+    width: var(--width-chart-rectangle-grid-div);
+    transition: var(--transition-chart-rectangle-grid-div);
+    cursor: pointer;
 }
 
-.chart-rectangle-grid > div:before
+.chart-rectangle-grid > div:active
 {
-    position: absolute;
-    bottom: var(--chart-rectangle-grid-div-before-bottom);
-    left: var(--chart-rectangle-grid-div-before-left);
-    content: "";
-    border-width: var(--chart-rectangle-grid-div-before-border-width);
-    border-style: solid;
-    opacity: 0;
-    transition: bottom 0.3s, opacity 0.3s;
+    transform: var(--transform-chart-rectangle-grid-div-active);
 }
 
 .first-rectangle
 {
-    left: var(--first-rectangle-left);
+    left: var(--left-first-rectangle);
+    background-color: var(--blue-light);
 }
 
-.first-rectangle:before
-{
-    border-color: var(--blue) transparent;
-}
-
-.first-rectangle:hover:before
-{
-    bottom: var(--first-rectangle-hover-before-bottom);
-    opacity: 1;
-}
 
 .second-rectangle
 {
-    left: var(--second-rectangle-left);
-}
-
-.second-rectangle:before
-{
-    border-color: var(--red) transparent;
-}
-
-.second-rectangle:hover:before
-{
-    bottom: var(--second-rectangle-hover-before-bottom);
-    opacity: 1;
+    left: var(--left-second-rectangle);
+    background-color: var(--red-light);
 }
 
 .third-rectangle
 {
-    left: var(--third-rectangle-left);
-}
-
-.third-rectangle:before
-{
-    border-color: var(--green) transparent;
-}
-
-.third-rectangle:hover:before
-{
-    bottom: var(--third-rectangle-hover-before-bottom);
-    opacity: 1;
+    left: var(--left-third-rectangle);
+    background-color: var(--green-light);
 }
 
 .chart-container
 {
     position: absolute;
-    top: var(--chart-container-top);
-    left: var(--card-spacing);
-    height: var(--chart-container-height);
-    width: var(--chart-container-width);
+    top: var(--top-chart-container);
+    left: var(--left-chart-container);
+    height: var(--height-chart-container);
+    width: var(--width-chart-container);
     overflow: hidden;
-    border: var(--chart-container-border-thickness) solid var(--grey-light);
+    border: var(--border-chart-container) solid var(--grey-light);
 }
 
 /* Utility classes */

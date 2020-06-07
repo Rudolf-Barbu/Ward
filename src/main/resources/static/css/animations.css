@@ -2,10 +2,13 @@
     Animations file
     Used for define animations of project
 
-    Every entry must follow convention:
-    * Entry must begins with "animation" word
+    Every category must follow convention:
+    * Category must begins with "animation" word
     * Further should be followed by animation property name
-    * Use dashes to separate words
+
+    Every entry must follow convention:
+    * Must include category name
+    * Further should be followed by tag/class/id/animation name/etc.
 
     By example: --animation-duration-wiggle
 */
@@ -14,6 +17,14 @@
 {
     /* animation-duration */
     --animation-duration-wiggle: 0.6s;
+    --animation-duration-fade-in: 0.5s;
+
+    /* animation-delay */
+    --animation-delay-chart-triangle-grid-div: 1s;
+    --animation-delay-first-span: 0.2s;
+    --animation-delay-second-span: 0.4s;
+    --animation-delay-third-span: 0.6s;
+
 }
 
 @keyframes wiggle
@@ -29,5 +40,18 @@
     100%
     {
         top: 0rem;
+    }
+}
+
+@keyframes fade-in
+{
+    0%
+    {
+        top: 0rem;
+    }
+    100%
+    {
+        top: 0.563rem;
+        opacity : 1;
     }
 }
