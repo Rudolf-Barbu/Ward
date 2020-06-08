@@ -24,9 +24,9 @@ body
     background: var(--purple-light);
 }
 
-.container
+.index
 { 
-    margin-top: calc((100vh / 2) - (var(--height-container) / 2));
+    margin-top: calc((100vh / 2) - (var(--height-index) / 2));
     min-width: var(--min-width-container);
 }
 
@@ -116,6 +116,7 @@ body
     bottom: var(--bottom-hw-usage-div);
     font-size: var(--font-size-62pt);
     font-weight: var(--font-weight-bold);
+    color: var(--black);
 }
 
 .usage-value
@@ -199,7 +200,7 @@ body
     height: var(--height-card-footer-dots-grid-div);
     width: var(--width-card-footer-dots-grid-div);
     border-radius: var(--border-radius-card-footer-dots-grid-div);
-    background-color: var(--white);
+    background: var(--white);
 }
 
 .first-dot
@@ -271,7 +272,7 @@ body
     position: absolute;
     height: var(--height-dividers-div);
     width: var(--width-dividers-div);
-    background-color: var(--white);
+    background: var(--white);
 }
 
 .first-divider
@@ -411,8 +412,8 @@ body
     border-style: solid;
     border-width: var(--border-width-chart-triangle-grid-div);
     opacity: 0;
-    animation: fade-in;
-    animation-duration: var(--animation-duration-fade-in);
+    animation: fade-in-triangles;
+    animation-duration: var(--animation-duration-fade-in-triangles);
     animation-delay: var(--animation-delay-chart-triangle-grid-div);
     animation-fill-mode: forwards;
 }
@@ -459,20 +460,20 @@ body
 .first-rectangle
 {
     left: var(--left-first-rectangle);
-    background-color: var(--blue-light);
+    background: var(--blue-light);
 }
 
 
 .second-rectangle
 {
     left: var(--left-second-rectangle);
-    background-color: var(--red-light);
+    background: var(--red-light);
 }
 
 .third-rectangle
 {
     left: var(--left-third-rectangle);
-    background-color: var(--green-light);
+    background: var(--green-light);
 }
 
 .chart-container
@@ -486,33 +487,123 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
+.error
+{
+    margin-top: calc((100vh / 2) - (var(--height-error) / 2));
+    min-width: var(--min-width-container);
+}
+
+.error-gif
+{
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    height: var(--height-error-gif);
+    width: var(--width-error-gif);
+    object-fit: cover;
+    border-radius: var(--border-radius-error-gif);
+    box-shadow: var(--box-shadow-error-gif) var(--black-opacity-10);
+}
+
+.error-div
+{
+    position: relative;
+    left: var(--left-error-div);
+    z-index: 1;
+    height: var(--height-error-div);
+    width: var(--width-error-div);
+    opacity: 0;
+    border-radius: var(--border-radius-error-div);
+    background: var(--white);
+    box-shadow: var(--box-shadow-error-div) var(--black-opacity-10);
+    animation: fade-in-error-div;
+    animation-duration: var(--animation-duration-fade-in-error-div);
+    animation-fill-mode: forwards;
+}
+
+.error-div > div
+{
+    position: absolute;
+}
+
+.error-code
+{
+    top: var(--top-error-code);
+    left: var(--left-error-code);
+    font-size: var(--font-size-21pt);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+}
+
+.error-title
+{
+    top: var(--top-error-title);
+    left: var(--left-error-title);
+    font-size: var(--font-size-31pt);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+}
+
+.error-description
+{
+    top: var(--top-error-description);
+    left: var(--left-error-description);
+}
+
+.error-description > div
+{
+    font-size: var(--font-size-13pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--grey);
+}
+
+.error-advice
+{
+    position: fixed;
+    bottom: var(--bottom-error-advice);
+    font-size: var(--font-size-11pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--grey-light);
+}
+
+.error-404
+{
+    left: var(--left-error-404);
+}
+
+.error-500
+{
+    left: var(--left-error-500);
+}
+
 /* Utility classes */
 .blue-light
 {
-    background-color: var(--blue-light);
+    background: var(--blue-light);
 }
 
 .blue
 {
-    background-color: var(--blue);
+    background: var(--blue);
 }
 
 .red-light
 {
-    background-color: var(--red-light);
+    background: var(--red-light);
 }
 
 .red
 {
-    background-color: var(--red);
+    background: var(--red);
 }
 
 .green-light
 {
-    background-color: var(--green-light);
+    background: var(--green-light);
 }
 
 .green
 {
-    background-color: var(--green);
+    background: var(--green);
 }

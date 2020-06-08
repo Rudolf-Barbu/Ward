@@ -20,9 +20,13 @@
 
     /* font-size */
     --font-size-9pt: 0.563em;
-    --font-size-12pt: 0.75em;
+    --font-size-11pt: 0.688em;
+    --font-size-12pt: 0.750em;
+    --font-size-13pt: 0.813em;
     --font-size-14pt: 0.875em;
     --font-size-18pt: 1.125em;
+    --font-size-21pt: 1.313em;
+    --font-size-31pt: 1.938em;
     --font-size-42pt: 2.625em;
     --font-size-62pt: 3.875em;
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+    <head>
+        <title>Error</title>
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
+        <link rel = "stylesheet" th:href = "@{/css/animations.css}">
+        <link rel = "stylesheet" th:href = "@{/css/colors.css}">
+        <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
+        <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
+        <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
+        <link rel = "stylesheet" th:href = "@{/css/theme.css}">
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+    </head>
+    <body id = "background">
+        <script th:inline = "javascript"> backgroundInitialization(); </script>
+        <div class = "container error">
+            <img class = "error-gif" th:src = @{/img/error/500.gif} />
+            <div class = "error-div">
+                <div class = "error-code">500</div>
+                <div class = "error-title">We have a problem...</div>
+                <div class = "error-description">
+                    <div>While we go down this rabbit hole.</div>
+                    <div>Please go outside and enjoy the sunshine.</div>
+                </div>
+                <div class = "error-advice error-500">Open an issue on <a href = "https://github.com/B-Software/Ward">Github</a></div>
+            </div>
+        </div>
+    </body>
+</html>

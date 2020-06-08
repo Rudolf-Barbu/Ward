@@ -28,6 +28,9 @@
     --top-chart-triangle-grid: 0.500rem;
     --top-chart-rectangle-grid: 1.906rem;
     --top-chart-container: 3.375rem;
+    --top-error-code: 1.813rem;
+    --top-error-title: 3.500rem;
+    --top-error-description: 6.688rem;
 
     /* bottom */
     --bottom-usage: 4.625rem;
@@ -35,6 +38,8 @@
     --bottom-card-footer-dots-grid-div: -0.750rem;
     --bottom-uptime-squares-grid:  0.813rem;
     --bottom-values-grid-div-p: 0.250rem;
+    --bottom-error-div: 7.500rem;
+    --bottom-error-advice: 0.563rem;
 
     /* left */
     --left-header: 1.500rem;
@@ -59,6 +64,12 @@
     --left-second-rectangle: 37.125rem;
     --left-third-rectangle: 41.000rem;
     --left-chart-container: 1.500rem;
+    --left-error-div: 13.250rem;
+    --left-error-code: 1.813rem;
+    --left-error-title: 1.813rem;
+    --left-error-description: 1.813rem;
+    --left-error-404: 8.563rem;
+    --left-error-500: 8.281rem;
 
     /* margin-right */
     --margin-right-usage-value: 2.937rem;
@@ -73,7 +84,7 @@
 
     /* height */
     --height-body: 100%;
-    --height-container: 35.031rem;
+    --height-index: 35.031rem;
     --height-hw-logo: 3.750rem;
     --height-usage: 5.313rem;
     --height-card-body-squares-grid-div: 0.625rem;
@@ -92,6 +103,9 @@
     --height-labels-grid-div: 0.813rem;
     --height-chart-rectangle-grid-div: 0.625rem;
     --height-chart-container: 11.688rem;
+    --height-error: 25.75rem;
+    --height-error-gif: 19.313rem;
+    --height-error-div: 12.125rem;
 
     /* min-height */
     --min-height-card: 16.562rem;
@@ -118,6 +132,8 @@
     --width-labels-grid-div: 3.750rem;
     --width-chart-rectangle-grid-div: 3.125rem;
     --width-chart-container: 42.625rem;
+    --width-error-gif: 19.313rem;
+    --width-error-div: 23.875rem;
 
     /* min-width */
     --min-width-container: 71.250rem;
@@ -129,10 +145,12 @@
     --border-width-chart-triangle-grid-div: 0.438rem 0.438rem 0.000rem 0.438rem;
 
     /* border-radius */
-    --border-radius-card: 0.625rem;
+    --border-radius-card: 1.250rem;
     --border-radius-hw-logo: 50%;
     --border-radius-card-footer-dots-grid-div: 50%;
     --border-radius-inner-dot: 50%;
+    --border-radius-error-gif: 50%;
+    --border-radius-error-div: 1.250rem;
 
     /* letter-spacing */
     --letter-spacing-10px: 0.625rem;

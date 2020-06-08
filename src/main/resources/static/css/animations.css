@@ -17,7 +17,8 @@
 {
     /* animation-duration */
     --animation-duration-wiggle: 0.6s;
-    --animation-duration-fade-in: 0.5s;
+    --animation-duration-fade-in-triangles: 0.5s;
+    --animation-duration-fade-in-error-div: 0.8s;
 
     /* animation-delay */
     --animation-delay-chart-triangle-grid-div: 1s;
@@ -31,7 +32,7 @@
 {
     0%
     {
-        top: 0rem;
+        top: 0.000rem;
     }
     50%
     {
@@ -39,19 +40,48 @@
     }
     100%
     {
-        top: 0rem;
+        top: 0.000rem;
     }
 }
 
-@keyframes fade-in
+@keyframes fade-in-triangles
 {
     0%
     {
-        top: 0rem;
+        top: 0.000rem;
+        opacity: 0;
     }
     100%
     {
         top: 0.563rem;
-        opacity : 1;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-triangles
+{
+    0%
+    {
+        top: 0.563rem;
+        opacity: 1;
+    }
+    100%
+    {
+        top: 0.000rem;
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-error-div
+{
+    0%
+    {
+        bottom: 3.125rem;
+        opacity: 0;
+    }
+    100%
+    {
+        bottom: 7.500rem;
+        opacity: 1;
     }
 }

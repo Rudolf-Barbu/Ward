@@ -285,21 +285,21 @@ function hideDataset(element)
     {
         case "processor-rectangle":
         {
-            processorTriangle.style.borderWidth = chart.getDatasetMeta(0).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
             element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
             chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
         }
         case "ram-rectangle":
         {
-            ramTriangle.style.borderWidth = chart.getDatasetMeta(1).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
             element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
             chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
         }
         case "storage-rectangle":
         {
-            storageTriangle.style.borderWidth = chart.getDatasetMeta(2).hidden ? "0.438rem 0.438rem 0.000rem 0.438rem" : "0.000rem 0.438rem 0.438rem 0.438rem";
+            storageTriangle.style.animation = chart.getDatasetMeta(2).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
             element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
             chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
             break;
