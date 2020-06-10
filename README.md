@@ -1,6 +1,6 @@
 <h3 align = "center">
     <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851331322/A4887F3781AB6DD6B7CA098566FB62E6F5D92975/" alt = "Logo" />
-    <h4>[Demo](http://b-server.org/)</h4>
+    <h4 align = "center"><a href = "http://b-server.org/">Demo</a></h4> 
 </h3>
 
 ---
