@@ -30,7 +30,7 @@ public class IndexController
      * @return String name of html template with values from model param
      */
     @GetMapping
-    public String getDashboard(Model model)
+    public String getIndex(Model model)
     {
         model.addAttribute("info", infoService.get());
 

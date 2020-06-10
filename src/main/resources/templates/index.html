@@ -4,17 +4,24 @@
         <title>Ward</title>
         <meta charset = "utf-8">
         <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
+        <link rel = "stylesheet" th:href = "@{/css/animations.css}">
         <link rel = "stylesheet" th:href = "@{/css/colors.css}">
         <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
         <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
+        <link rel = "stylesheet" th:href = "@{/css/gradients.css}">
+        <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
         <link rel = "stylesheet" th:href = "@{/css/theme.css}">
         <script type = "text/javascript" th:src = "@{/js/assets/chart.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/usage.js}"></script>
     </head>
-    <body>
-        <div class = "container">
+    <body id = "background">
+        <script th:inline = "javascript"> backgroundInitialization(); </script>
+        <div class = "container index">
             <div class = "row">
                 <div class = "col-4">
                     <div class = "card">
@@ -25,14 +32,21 @@
                                 <div class = "hw-name" th:text = "${info.processorName}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "blue-light"></div>
                                 <div class = "blue-light"></div>
                                 <div class = "blue-light"></div>
                             </div>
                             <div class = "main-hw-info">
-                                <div id = "processor-label" class = "hw-utilization-value">000%</div>
+                                <div class = "hw-usage">
+                                    <div class = "usage-value">
+                                        <span id = "processor-hundreds" class = "first-span">0</span>
+                                        <span id = "processor-tens" class = "second-span">0</span>
+                                        <span id = "processor-ones" class = "third-span">0</span>
+                                    </div>
+                                    <div class = "usage-postfix">%</div>
+                                </div>
                                 <p class = "info-label">PROCESSOR USAGE</p>
                                 <div class = "underline blue-light"></div>
                             </div>
@@ -70,14 +84,21 @@
                                 <div class = "hw-name" th:text = "${info.operatingSystemInfo}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "red-light"></div>
                                 <div class = "red-light"></div>
                                 <div class = "red-light"></div>
                             </div>
                             <div class = "main-hw-info">
-                                <div id = "ram-label" class = "hw-utilization-value">000%</div>
+                                <div class = "hw-usage">
+                                    <div class = "usage-value">
+                                        <span id = "ram-hundreds" class = "first-span">0</span>
+                                        <span id = "ram-tens" class = "second-span">0</span>
+                                        <span id = "ram-ones" class = "third-span">0</span>
+                                    </div>
+                                    <div class = "usage-postfix">%</div>
+                                </div>
                                 <p class = "info-label">RAM USAGE</p>
                                 <div class = "underline red-light"></div>
                             </div>
@@ -115,14 +136,21 @@
                                 <div class = "hw-name" th:text = "${info.storageName}"></div>
                             </div>
                         </div>
-                        <div class = "body">
+                        <div class = "usage">
                             <div class = "card-body-squares-grid">
                                 <div class = "green-light"></div>
                                 <div class = "green-light"></div>
                                 <div class = "green-light"></div>
                             </div>
                             <div class = "main-hw-info">
-                                <div id = "storage-label" class = "hw-utilization-value">000%</div>
+                                <div class = "hw-usage">
+                                    <div class = "usage-value">
+                                        <span id = "storage-hundreds" class = "first-span">0</span>
+                                        <span id = "storage-tens" class = "second-span">0</span>
+                                        <span id = "storage-ones" class = "third-span">0</span>
+                                    </div>
+                                    <div class = "usage-postfix">%</div>
+                                </div>
                                 <div class = "info-label">STORAGE USAGE</div>
                                 <div class = "underline green-light"></div>
                             </div>
@@ -187,10 +215,15 @@
                 <div class = "col-8">
                     <div class = "card">
                         <div class = "chart-label">% Utilization</div>
+                        <div class = "chart-triangle-grid">
+                            <div id = "processor-triangle" class = "first-triangle"></div>
+                            <div id = "ram-triangle" class = "second-triangle"></div>
+                            <div id = "storage-triangle" class = "third-triangle"></div>
+                        </div>
                         <div class = "chart-rectangle-grid">
-                            <div id = "processor-rectangle" class = "first-rectangle blue-light"></div>
-                            <div id = "ram-rectangle" class = "second-rectangle red-light"></div>
-                            <div id = "storage-rectangle" class = "third-rectangle green-light"></div>
+                            <div id = "processor-rectangle" class = "first-rectangle"></div>
+                            <div id = "ram-rectangle" class = "second-rectangle"></div>
+                            <div id = "storage-rectangle" class = "third-rectangle"></div>
                         </div>
                         <div class = "chart-container">
                             <canvas id = "chart-body"></canvas>

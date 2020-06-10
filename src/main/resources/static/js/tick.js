@@ -16,10 +16,10 @@ function tickInitialization()
         {
             let response = JSON.parse(this.response);
             usageTick(response);
-            sendAjaxReqest();
+            sendAjaxRequest();
         }
     }
-    sendAjaxReqest();
+    sendAjaxRequest();
 
     setInterval(function()
     {
@@ -30,7 +30,7 @@ function tickInitialization()
 /**
  * Sending ajax request to receive usage info
  */
-function sendAjaxReqest()
+function sendAjaxRequest()
 {
     xhr.open("GET", "/api/usage");
     xhr.send();

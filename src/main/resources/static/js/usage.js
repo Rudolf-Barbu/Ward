@@ -1,17 +1,32 @@
 /**
- * Used to display current processor usage
+ * Used to hold values of processor usage
  */
-let processorLabel;
+let processorUsageArray;
 
 /**
- * Used to display current ram usage
+ * Used to hold values tens of processor usage
  */
-let ramLabel;
+let ramUsageArray;
 
 /**
- * Used to display current storage usage
+ * Used to hold values ones of processor usage
  */
-let storageLabel;
+let storageUsageArray;
+
+/**
+ * Used to manipulate processor triangle div
+ */
+let processorTriangle;
+
+/**
+ * Used to manipulate ram triangle div
+ */
+let ramTriangle;
+
+/**
+ * Used to manipulate storage triangle div
+ */
+let storageTriangle;
 
 /**
  * Used to handle chart object, displays usage for 15 seconds
@@ -23,9 +38,28 @@ let chart;
  */
 function usageInitialization()
 {
-    processorLabel = document.getElementById("processor-label");
-    ramLabel = document.getElementById("ram-label");
-    storageLabel = document.getElementById("storage-label");
+    processorUsageArray =
+    [
+        document.getElementById("processor-hundreds"),
+        document.getElementById("processor-tens"),
+        document.getElementById("processor-ones")
+    ];
+    ramUsageArray =
+    [
+        document.getElementById("ram-hundreds"),
+        document.getElementById("ram-tens"),
+        document.getElementById("ram-ones")
+    ];
+    storageUsageArray =
+    [
+        document.getElementById("storage-hundreds"),
+        document.getElementById("storage-tens"),
+        document.getElementById("storage-ones")
+    ];
+
+    processorTriangle = document.getElementById("processor-triangle");
+    ramTriangle = document.getElementById("ram-triangle");
+    storageTriangle = document.getElementById("storage-triangle");
 
     let ctx = document.getElementById("chart-body").getContext("2d");
     let data =
@@ -82,7 +116,7 @@ function usageInitialization()
             {
                 line:
                 {
-                    tension: 0.3
+                    tension: 0
                 }
             },
             scales:
@@ -116,7 +150,10 @@ function usageInitialization()
                     }
                 ]
             },
-            animation: false
+            animation:
+            {
+                duration: 150
+            }
         }
     };
 
@@ -134,53 +171,105 @@ function usageInitialization()
  */
 function usageTick(usageData)
 {
-    processorLabel.innerHTML = labelAssignment(usageData.processor);
-    ramLabel.innerHTML = labelAssignment(usageData.ram);
-    storageLabel.innerHTML = labelAssignment(usageData.storage);
-
-    updateDataset(chart.data.datasets[0].data, usageData.processor);
-    updateDataset(chart.data.datasets[1].data, usageData.ram);
-    updateDataset(chart.data.datasets[2].data, usageData.storage);
+    updateLabels(usageData);
+    updateDatasets(chart.data.datasets, usageData);
 }
 
 /**
- * Formats usage data values
+ * Updates labels values
  *
  * @param {*} usageData usage value
  */
-function labelAssignment(usageData)
+function updateLabels(usageData)
 {
-    let formatedUsageData = "";
+    let usageDataArray = Object.values(usageData);
 
-    if (parseInt(usageData) < 10)
+    for (let i = 0; i < usageDataArray.length; i++)
     {
-        formatedUsageData = "00" + usageData + "%";
+        switch (i)
+        {
+            case 0:
+            {
+                formatLabel(processorUsageArray, usageDataArray[i]);
+                break;
+            }
+            case 1:
+            {
+                formatLabel(ramUsageArray, usageDataArray[i]);
+                break;
+            }
+            case 2:
+            {
+                formatLabel(storageUsageArray, usageDataArray[i]);
+                break;
+            }
+        }
     }
-    else if (parseInt(usageData) < 100)
-    {
-        formatedUsageData = "0" + usageData + "%";
-    }
-    else
-    {
-        formatedUsageData = usageData + "%";
-    }
-
-    return formatedUsageData;
 }
 
 /**
- * Updates dataset shifting previous values
+ * Distributes values to spans and changes their color
  *
- * @param {*} dataset dataset to update
+ * @param {*} labelArray array with domObjects
+ * @param {*} usageData usage value to distribute
+ */
+function formatLabel(labelArray, usageData)
+{
+    usageDataString = String(usageData);
+
+    switch (usageDataString.length)
+    {
+        case 1:
+        {
+            labelArray[0].innerHTML = 0;
+            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[1].innerHTML = 0;
+            labelArray[1].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[2].innerHTML = usageDataString[0];
+            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+            break;
+        }
+        case 2:
+        {
+            labelArray[0].innerHTML = 0;
+            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[1].innerHTML = usageDataString[0];
+            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[2].innerHTML = usageDataString[1];
+            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+            break;
+        }
+        default:
+        {
+            labelArray[0].innerHTML = usageDataString[0];
+            labelArray[0].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[1].innerHTML = usageDataString[1];
+            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[2].innerHTML = usageDataString[2];
+            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+        }
+    }
+}
+
+/**
+ * Updates datasets shifting previous values
+ *
+ * @param {*} datasets datasets to update
  * @param {*} usageData new data
  */
-function updateDataset(dataset, usageData)
+function updateDatasets(datasets, usageData)
 {
-    for(let i = 0; i < dataset.length - 1; i++)
+    for (let i = 0; i < datasets.length; i++)
     {
-        dataset[i] = dataset[i + 1];
+        let dataset = datasets[i].data;
+        let usageDataArray = Object.values(usageData);
+
+        for (let k = 0; k < dataset.length - 1; k++)
+        {
+            dataset[k] = dataset[k + 1];
+        }
+        dataset[dataset.length - 1] = usageDataArray[i];
     }
-    dataset[dataset.length - 1] = usageData;
 
     chart.update();
 }
@@ -192,24 +281,27 @@ function updateDataset(dataset, usageData)
  */
 function hideDataset(element)
 {
-    switch(String(element.id))
+    switch (String(element.id))
     {
         case "processor-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(0).hidden) ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(0).hidden = (chart.getDatasetMeta(0).hidden) ? false : true;
+            processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
+            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
         }
         case "ram-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(1).hidden) ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(1).hidden = (chart.getDatasetMeta(1).hidden) ? false : true;
+            ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
+            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
         }
         case "storage-rectangle":
         {
-            element.style.backgroundColor = (chart.getDatasetMeta(2).hidden) ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
-            chart.getDatasetMeta(2).hidden = (chart.getDatasetMeta(2).hidden) ? false : true;
+            storageTriangle.style.animation = chart.getDatasetMeta(2).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
+            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
+            chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
             break;
         }
     }

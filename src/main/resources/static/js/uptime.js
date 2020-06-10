@@ -54,7 +54,7 @@ function uptimeTick()
 }
 
 /**
- * Formats uptime label
+ * Increments uptime label
  *
  * @param {*} domObject uptime label
  */
