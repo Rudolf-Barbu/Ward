@@ -1,5 +1,5 @@
 <h3 align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1012690662470353073/FC58F696881C05DF43E3D45E707E2A35E9176E91/" alt = "Logo" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851331322/A4887F3781AB6DD6B7CA098566FB62E6F5D92975/" alt = "Logo" />
 </h3>
 
 ---
