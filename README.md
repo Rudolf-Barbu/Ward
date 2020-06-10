@@ -25,7 +25,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Processor name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851282360/403FDEBFCF7D1FF0F69EB5278A61D4E20845DB7A/" alt = "Card 1" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851282360/403FDEBFCF7D1FF0F69EB5278A61D4E20845DB7A/" alt = "Card 1" align = "center" />
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Type of operating system and it's version</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851285796/144BB74471806F12E742CD82F8FF2756F30E4683/" alt = "Card 2" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851285796/144BB74471806F12E742CD82F8FF2756F30E4683/" alt = "Card 2" align = "center" />
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Host0 storage name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851289616/A01554173BC78C5AF030573F8572B53E00CF5EFD/" alt = "Card 3" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851289616/A01554173BC78C5AF030573F8572B53E00CF5EFD/" alt = "Card 3" align = "center" />
         </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 <table>
     <tr>
         <td width = "916.5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851293102/5E0B6FB960A45E5397102326BDCD6035E96A23EA/" alt = "Card 4" align = "center" width = "994" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851293102/5E0B6FB960A45E5397102326BDCD6035E96A23EA/" alt = "Card 4" align = "center" />
         </td>
     </tr>
     <tr>
