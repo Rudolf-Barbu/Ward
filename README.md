@@ -13,7 +13,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 **All features tested on:** `Windows` `Linux`
 
 <p align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300814148/E9FD3820605C945DA9C14E5FB6E189D7D36ABA77/" alt = "Preview Image" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851277781/BCE7498C9939D94CB871359DAF95F35B2CF90ED3/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
 </p>
 
@@ -25,7 +25,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Processor name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300885710/ECF3044C71DEBE87D06E7017E61D6ABA9735CEF8/" alt = "Card 1" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851282360/403FDEBFCF7D1FF0F69EB5278A61D4E20845DB7A/" alt = "Card 1" align = "center" width = "289" height = "224" />
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Type of operating system and it's version</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300889331/2708C0302E91CF20B78DBB012878F46EA906FB49/" alt = "Card 2" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851285796/144BB74471806F12E742CD82F8FF2756F30E4683/" alt = "Card 2" align = "center" width = "289" height = "224" />
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Host0 storage name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700505300892445/953B8488230DA6316D12D37E2DE1B7B815FB19E7/" alt = "Card 3" align = "center" width = "289" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851289616/A01554173BC78C5AF030573F8572B53E00CF5EFD/" alt = "Card 3" align = "center" width = "289" height = "224" />
         </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 <table>
     <tr>
         <td width = "916.5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1021700703201509261/E3DF09C892C172B7FC98CD19FBA022BBC1925179/" alt = "Card 4" align = "center" width = "994" height = "224" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851293102/5E0B6FB960A45E5397102326BDCD6035E96A23EA/" alt = "Card 4" align = "center" width = "994" height = "224" />
         </td>
     </tr>
     <tr>
@@ -109,5 +109,4 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ### Installation
 1. Download `.jar` file from latest `Stable` release.
-2. Execute jar on `Windows` or `Linux` with administrative rights.
-3. Example for Ubuntu: `sudo nohup java -jar "here your path to jar"/ward-1.0.0.jar &`
+2. Execute jar on `Windows` or `Linux` with `administrative` rights.
