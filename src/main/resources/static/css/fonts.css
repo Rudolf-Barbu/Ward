@@ -39,12 +39,12 @@
 {
     font-family: var(--font-family-roboto);
     font-weight: var(--font-weight-regular);
-    src: url(../fonts/roboto/regular.ttf);
+    src: url(/fonts/regular.ttf);
 }
 
 @font-face
 {
     font-family: var(--font-family-roboto);
     font-weight: var(--font-weight-bold);
-    src: url(../fonts/roboto/bold.ttf);
+    src: url(/fonts/roboto/bold.ttf);
 }
