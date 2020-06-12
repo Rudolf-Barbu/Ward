@@ -72,7 +72,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
         infoDto.setTotalRam(converterUtility.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
-        infoDto.setRamType(globalMemory.getPhysicalMemory().get(0).getMemoryType());
+        List<PhysicalMemory> physicalMem = globalMemory.getPhysicalMemory();
+        if (physicalMem.isEmpty()) {
+            infoDto.setRamType("Unknown");
+        } else {
+            infoDto.setRamType(physicalMem.get(0).getMemoryType());
+        }
 
         int processCount = operatingSystem.getProcessCount();
         infoDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));
