@@ -2,6 +2,7 @@ package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.dto.implementation.*;
 import org.bsoftware.ward.components.utilities.ConverterUtility;
+import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -78,7 +79,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         List<PhysicalMemory> physicalMemory = globalMemory.getPhysicalMemory();
         if (physicalMemory.isEmpty())
         {
-            throw new Exception();
+            throw new CantGetPhysicalMemoryArrayException();
         }
         machineDto.setRamType(physicalMemory.get(0).getMemoryType());
 
