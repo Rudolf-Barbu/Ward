@@ -1,6 +1,5 @@
 package org.bsoftware.ward.controllers;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController
 {
     /**
+     * Error code for page not found exception
+     */
+    private static final int NOT_FOUND = 404;
+
+    /**
+     * Error code for internal server error exception
+     */
+    private static final int INTERNAL_SERVER_ERROR = 500;
+
+    /**
      * Get request to display error page, which corresponds status code
      *
      * @param httpServletResponse used for providing response data
@@ -25,13 +34,20 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     @GetMapping
     public String getError(HttpServletResponse httpServletResponse)
     {
-        if (httpServletResponse.getStatus() == HttpStatus.NOT_FOUND.value())
+        switch (httpServletResponse.getStatus())
         {
-            return "error/404";
-        }
-        else
-        {
-            return "error/500";
+            case ErrorController.NOT_FOUND:
+            {
+                return "error/404";
+            }
+            case INTERNAL_SERVER_ERROR:
+            {
+                return "error/500";
+            }
+            default:
+            {
+                return "500";
+            }
         }
     }
 

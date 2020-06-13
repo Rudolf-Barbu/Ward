@@ -13,7 +13,7 @@
     <properties>
         <oshiVersion>5.0.1</oshiVersion>
         <jnaVersion>5.5.0</jnaVersion>
-        <gsonVersion>2.8.6</gsonVersion>
+        <lombokVersion>1.18.12</lombokVersion>
     </properties>
     <dependencies>
         <dependency>
@@ -40,9 +40,10 @@
             <version>${jnaVersion}</version>
         </dependency>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gsonVersion}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <version>${lombokVersion}</version>
         </dependency>
     </dependencies>
     <build>

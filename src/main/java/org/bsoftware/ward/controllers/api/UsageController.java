@@ -34,7 +34,7 @@ public class UsageController
     /**
      * Get request to display current usage information for processor, RAM and storage
      *
-     * @return completed ResponseEntity to servlet
+     * @return ResponseEntity to servlet
      */
     @GetMapping
     public ResponseEntity<?> getUsage()

@@ -1,6 +1,6 @@
 package org.bsoftware.ward.components.wrappers;
 
-import org.bsoftware.ward.components.dto.Dto;
+import org.bsoftware.ward.dto.Dto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class RestResponseEntityWrapper
      *
      * @param body object, which implements Dto interface
      * @param httpStatus object, which already provides Json headers
-     * @return completed ResponseEntity object
+     * @return ResponseEntity object with Json headers and Dto
      */
     public <T extends Dto> ResponseEntity<?> wrap(T body, HttpStatus httpStatus)
     {

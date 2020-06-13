@@ -1,3 +1,6 @@
+/**
+ * Initializes dynamic background
+ */
 function backgroundInitialization()
 {
     VANTA.FOG

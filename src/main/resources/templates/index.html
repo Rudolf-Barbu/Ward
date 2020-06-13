@@ -29,7 +29,7 @@
                             <div class = "hw-logo blue-light"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Processor</div>
-                                <div class = "hw-name" th:text = "${info.processorName}"></div>
+                                <div class = "hw-name" th:text = "${infoDto.processorDto.processorName}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -64,9 +64,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${info.coreCount}"></div>
-                                <div class = "second-label" th:text = "${info.maxClockSpeed}"></div>
-                                <div class = "third-label" th:text = "${info.processorBitDepth}"></div>
+                                <div class = "first-label" th:text = "${infoDto.processorDto.coreCount}"></div>
+                                <div class = "second-label" th:text = "${infoDto.processorDto.maxClockSpeed}"></div>
+                                <div class = "third-label" th:text = "${infoDto.processorDto.processorBitDepth}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first-divider"></div>
@@ -81,7 +81,7 @@
                             <div class = "hw-logo red-light"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Machine</div>
-                                <div class = "hw-name" th:text = "${info.operatingSystemInfo}"></div>
+                                <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemInfo}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -116,9 +116,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${info.totalRam}"></div>
-                                <div class = "second-label" th:text = "${info.ramType}"></div>
-                                <div class = "third-label" th:text = "${info.procCount}"></div>
+                                <div class = "first-label" th:text = "${infoDto.machineDto.totalRam}"></div>
+                                <div class = "second-label" th:text = "${infoDto.machineDto.ramType}"></div>
+                                <div class = "third-label" th:text = "${infoDto.machineDto.procCount}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first-divider"></div>
@@ -133,7 +133,7 @@
                             <div class = "hw-logo green-light"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Storage</div>
-                                <div class = "hw-name" th:text = "${info.storageName}"></div>
+                                <div class = "hw-name" th:text = "${infoDto.storageDto.storageName}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -168,9 +168,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${info.totalStorage}"></div>
-                                <div class = "second-label" th:text = "${info.diskCount}"></div>
-                                <div class = "third-label" th:text = "${info.swapAmount}"></div>
+                                <div class = "first-label" th:text = "${infoDto.storageDto.totalStorage}"></div>
+                                <div class = "second-label" th:text = "${infoDto.storageDto.diskCount}"></div>
+                                <div class = "third-label" th:text = "${infoDto.storageDto.swapAmount}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first-divider"></div>
@@ -196,10 +196,10 @@
                             </div>
                             <div class = "uptime-rectangle-grid">
                                 <div class = "values-grid">
-                                    <div><p id = "uptime-days" th:text = "${info.uptime.days}"></p></div>
-                                    <div><p id = "uptime-hours" th:text = "${info.uptime.hours}"></p></div>
-                                    <div><p id = "uptime-minutes" th:text = "${info.uptime.minutes}"></p></div>
-                                    <div><p id = "uptime-seconds" th:text = "${info.uptime.seconds}"></p></div>
+                                    <div><p id = "uptime-days" th:text = "${infoDto.uptimeDto.days}"></p></div>
+                                    <div><p id = "uptime-hours" th:text = "${infoDto.uptimeDto.hours}"></p></div>
+                                    <div><p id = "uptime-minutes" th:text = "${infoDto.uptimeDto.minutes}"></p></div>
+                                    <div><p id = "uptime-seconds" th:text = "${infoDto.uptimeDto.seconds}"></p></div>
                                 </div>
                                 <script th:inline = "javascript"> uptimeInitialization(); </script>
                                 <div class = "labels-grid">

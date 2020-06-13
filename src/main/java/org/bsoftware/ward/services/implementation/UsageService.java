@@ -1,6 +1,6 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.bsoftware.ward.components.dto.implementation.UsageDto;
+import org.bsoftware.ward.dto.implementation.UsageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -15,7 +15,7 @@ import java.util.Arrays;
  * UsageService provides principal information of processor, RAM and storage usage to rest controller
  *
  * @author Rudolf Barbu
- * @version 1.0.2
+ * @version 1.0.3
  */
 @Service
 public class UsageService implements org.bsoftware.ward.services.Service
@@ -27,14 +27,11 @@ public class UsageService implements org.bsoftware.ward.services.Service
     private SystemInfo systemInfo;
 
     /**
-     *  Dto to store all usage values
+     * Gets processor usage
+     *
+     * @return int that display processor usage
      */
-    private UsageDto usageDto;
-
-    /**
-     * Takes UsageDto and put in to it processor usage for last second in 0-100% range
-     */
-    private void getProcessorUsage()
+    private int getProcessorUsage()
     {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
 
@@ -48,47 +45,54 @@ public class UsageService implements org.bsoftware.ward.services.Service
         long currTotalTicks = Arrays.stream(currTicksArray).sum();
         long currIdleTicks = currTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
 
-        usageDto.setProcessor((int) Math.round((1 - ((double) (currIdleTicks - prevIdleTicks)) / ((double) (currTotalTicks - prevTotalTicks))) * 100));
+        return (int) Math.round((1 - ((double) (currIdleTicks - prevIdleTicks)) / ((double) (currTotalTicks - prevTotalTicks))) * 100);
     }
 
     /**
-     * Takes UsageDto and put in to it current RAM usage in 0-100% range
+     * Gets ram usage
+     *
+     * @return int that display ram usage
      */
-    private void getRamUsage()
+    private int getRamUsage()
     {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         long totalMemory = globalMemory.getTotal();
         long availableMemory = globalMemory.getAvailable();
 
-        usageDto.setRam((int) Math.round(100 - (((double) availableMemory / totalMemory) * 100)));
+        return (int) Math.round(100 - (((double) availableMemory / totalMemory) * 100));
     }
 
     /**
-     * Takes UsageDto and put in to it current storage usage in 0-100% range
+     * Gets storage usage
+     *
+     * @return int that display storage usage
      */
-    private void getStorageUsage()
+    private int getStorageUsage()
     {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
 
         long totalStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getTotalSpace).sum();
         long freeStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getFreeSpace).sum();
 
-        usageDto.setStorage((int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100));
+        return (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100);
     }
 
     /**
      * Used to deliver dto to corresponding controller
      *
-     * @return completed UsageDto with server usage info
+     * @return UsageDto filled with usage info
      */
     @Override
     @SuppressWarnings("unchecked")
     public UsageDto get()
     {
-        getProcessorUsage();
-        getRamUsage();
-        getStorageUsage();
+        UsageDto usageDto = new UsageDto();
+
+        usageDto.setProcessorUsage(getProcessorUsage());
+        usageDto.setRamUsage(getRamUsage());
+        usageDto.setStorageUsage(getStorageUsage());
+
         return usageDto;
     }
 
@@ -96,12 +100,10 @@ public class UsageService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
-     * @param usageDto autowired UsageDto object
      */
     @Autowired
-    public UsageService(SystemInfo systemInfo, UsageDto usageDto)
+    public UsageService(SystemInfo systemInfo)
     {
         this.systemInfo = systemInfo;
-        this.usageDto = usageDto;
     }
 }

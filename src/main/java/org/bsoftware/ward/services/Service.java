@@ -1,6 +1,6 @@
 package org.bsoftware.ward.services;
 
-import org.bsoftware.ward.components.dto.Dto;
+import org.bsoftware.ward.dto.Dto;
 
 /**
  * Service interface makes to all services return dto object
@@ -14,7 +14,7 @@ public interface Service
     /**
      * Get info from the service
      *
-     * @return dto object
+     * @return Dto object
      */
-    <T extends Dto> T get();
+    <T extends Dto> T get() throws Exception;
 }

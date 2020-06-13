@@ -30,9 +30,9 @@ public class IndexController
      * @return String name of html template with values from model param
      */
     @GetMapping
-    public String getIndex(Model model)
+    public String getIndex(Model model) throws Exception
     {
-        model.addAttribute("info", infoService.get());
+        model.addAttribute("infoDto", infoService.get());
 
         return "index";
     }
