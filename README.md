@@ -109,13 +109,28 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Installation
-1. Download `.jar` file from latest `Stable` release.
-2. Execute jar on `Windows` or `Linux` with `administrative` rights.
+    Create your own jar
 
+    1. Clone the project
+    2. Import project in your IDE as Maven project
+    3. mvn clean package
+    4. jar will be in the target folder
 
-### Build for docker
-In root directory, 
-1. ```mvn clean package```
-2. ```docker build --tag ward .```
-3. ```docker run --rm -it --name ward -p 8082:80 ward```
-4. Go to localhost:8082 in web browser
+<br>
+
+    Run jar file
+
+    1. Download jar file from latest release (Or build you own as described above)
+    2. Execute jar on Windows or Linux with administrative rights
+
+<br>
+
+    Build for Docker
+
+    1. Clone the project
+    2. mvn clean package
+    3. docker build --tag ward
+    4. docker run --rm -it --name ward -p 8082:80 ward
+    5. Go to localhost:8082 in web browser
+    
+    Thanks to: NangiDev
