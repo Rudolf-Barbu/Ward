@@ -133,4 +133,4 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     4. docker run --rm -it --name ward -p 8082:80 ward
     5. Go to localhost:8082 in web browser
     
-    Thanks to: NangiDev
+    Thanks to NangiDev
