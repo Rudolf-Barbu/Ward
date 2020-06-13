@@ -111,3 +111,11 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ### Installation
 1. Download `.jar` file from latest `Stable` release.
 2. Execute jar on `Windows` or `Linux` with `administrative` rights.
+
+
+### Build for docker
+In root directory, 
+1. ```mvn clean package```
+2. ```docker build --tag ward .```
+3. ```docker run --rm -it --name ward -p 8082:80 ward```
+4. Go to localhost:8082 in web browser
