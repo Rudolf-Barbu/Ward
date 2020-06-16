@@ -1,5 +1,5 @@
 <h3 align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851331322/A4887F3781AB6DD6B7CA098566FB62E6F5D92975/" alt = "Logo" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183832249548920590/A4887F3781AB6DD6B7CA098566FB62E6F5D92975/" alt = "Logo" />
     <h4 align = "center"><a href = "http://b-server.org/">Demo</a></h4> 
 </h3>
 
@@ -14,15 +14,13 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 **All features tested on:** `Windows` `Linux`
 
 <p align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183832067514192286/03913BF3E387CB7634B28E481A3B741BBF147DBB/" alt = "Preview Image" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183832249548928124/96254EF1AE05044ADA3AF54073ADDE891D8CA71E/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
 </p>
 
 ---
 
 ### Features
-
-Ward have several color themes. Next, you will see all project features listed in tables.
 
 <table>
     <tr>
@@ -115,7 +113,7 @@ Ward have several color themes. Next, you will see all project features listed i
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. In application properties file choose port and theme ("light" or "dark")
+    3. In application properties file choose port and theme
     4. mvn clean package
     5. jar will be in the target folder
 
@@ -126,7 +124,7 @@ Ward have several color themes. Next, you will see all project features listed i
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
     
-    NOTE: By default Ward uses port:80 and light theme
+    NOTE: By default Ward uses port:80
 
 <br>
 
