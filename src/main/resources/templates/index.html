@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light">
     <head>
         <title>Ward</title>
         <meta charset = "utf-8">
@@ -9,12 +9,14 @@
         <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
         <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
         <link rel = "stylesheet" th:href = "@{/css/gradients.css}">
+        <link rel = "stylesheet" th:href = "@{/css/layout.css}">
         <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
-        <link rel = "stylesheet" th:href = "@{/css/theme.css}">
+        <link rel = "stylesheet" th:href = "@{/css/themes.css}">
         <script type = "text/javascript" th:src = "@{/js/assets/chart.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/usage.js}"></script>
@@ -26,17 +28,17 @@
                 <div class = "col-4">
                     <div class = "card">
                         <div class = "header">
-                            <div class = "hw-logo blue-light"></div>
+                            <div class = "hw-logo first"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Processor</div>
                                 <div class = "hw-name" th:text = "${infoDto.processorDto.processorName}"></div>
                             </div>
                         </div>
                         <div class = "usage">
-                            <div class = "card-body-squares-grid">
-                                <div class = "blue-light"></div>
-                                <div class = "blue-light"></div>
-                                <div class = "blue-light"></div>
+                            <div class = "card-body-squares-grid first">
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
                             <div class = "main-hw-info">
                                 <div class = "hw-usage">
@@ -48,19 +50,19 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <p class = "info-label">PROCESSOR USAGE</p>
-                                <div class = "underline blue-light"></div>
+                                <div class = "underline first"></div>
                             </div>
                         </div>
-                        <div class = "footer blue-light">
+                        <div class = "footer first">
                             <div class = "card-footer-dots-grid">
                                 <div class = "first-dot">
-                                    <div class = "inner-dot blue"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "second-dot">
-                                    <div class = "inner-dot blue"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "third-dot">
-                                    <div class = "inner-dot blue"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
@@ -78,17 +80,17 @@
                 <div class = "col-4">
                     <div class = "card">
                         <div class = "header">
-                            <div class = "hw-logo red-light"></div>
+                            <div class = "hw-logo second"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Machine</div>
                                 <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemInfo}"></div>
                             </div>
                         </div>
                         <div class = "usage">
-                            <div class = "card-body-squares-grid">
-                                <div class = "red-light"></div>
-                                <div class = "red-light"></div>
-                                <div class = "red-light"></div>
+                            <div class = "card-body-squares-grid second">
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
                             <div class = "main-hw-info">
                                 <div class = "hw-usage">
@@ -100,19 +102,19 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <p class = "info-label">RAM USAGE</p>
-                                <div class = "underline red-light"></div>
+                                <div class = "underline second"></div>
                             </div>
                         </div>
-                        <div class = "footer red-light">
+                        <div class = "footer second">
                             <div class = "card-footer-dots-grid">
                                 <div class = "first-dot">
-                                    <div class = "inner-dot red"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "second-dot">
-                                    <div class = "inner-dot red"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "third-dot">
-                                    <div class = "inner-dot red"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
@@ -130,17 +132,17 @@
                 <div class = "col-4">
                     <div class = "card">
                         <div class = "header">
-                            <div class = "hw-logo green-light"></div>
+                            <div class = "hw-logo third"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Storage</div>
                                 <div class = "hw-name" th:text = "${infoDto.storageDto.storageName}"></div>
                             </div>
                         </div>
                         <div class = "usage">
-                            <div class = "card-body-squares-grid">
-                                <div class = "green-light"></div>
-                                <div class = "green-light"></div>
-                                <div class = "green-light"></div>
+                            <div class = "card-body-squares-grid third">
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
                             <div class = "main-hw-info">
                                 <div class = "hw-usage">
@@ -152,19 +154,19 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <div class = "info-label">STORAGE USAGE</div>
-                                <div class = "underline green-light"></div>
+                                <div class = "underline third"></div>
                             </div>
                         </div>
-                        <div class = "footer green-light">
+                        <div class = "footer third">
                             <div class = "card-footer-dots-grid">
                                 <div class = "first-dot">
-                                    <div class = "inner-dot green"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "second-dot">
-                                    <div class = "inner-dot green"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                                 <div class = "third-dot">
-                                    <div class = "inner-dot green"></div>
+                                    <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
@@ -190,9 +192,9 @@
                         </div>
                         <div class = "uptime">
                             <div class = "uptime-squares-grid">
-                                <div class = "blue-light"></div>
-                                <div class = "red-light"></div>
-                                <div class = "green-light"></div>
+                                <div class = "first"></div>
+                                <div class = "second"></div>
+                                <div class = "third"></div>
                             </div>
                             <div class = "uptime-rectangle-grid">
                                 <div class = "values-grid">

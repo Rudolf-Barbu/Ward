@@ -1,0 +1,10 @@
+{
+    "properties":
+    [
+        {
+            "name": "ward.theme.name",
+            "type": "java.lang.String",
+            "description": "Used for determine theme name"
+        }
+    ]
+}
