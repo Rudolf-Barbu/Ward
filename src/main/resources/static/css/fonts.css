@@ -7,7 +7,7 @@
     * Further should be followed by font property name
 
     Every entry must follow convention:
-    * Must include category name
+    * Must begins with category name
     * Further should be followed by size/weight/family/etc.
 
     By example: --font-weight-regular

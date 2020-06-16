@@ -1,14 +1,8 @@
 /*
-    Theme css file
+    Layout css file
     New classes, indexes and overrides must be defined here
-
-    Every category must follow convention:
-    * Category must represent destination i.e layout or utility classes
-
-    By example: Layout classes
 */
 
-/* Layout classes */
 *
 {
     font-family: var(--font-family-roboto);
@@ -21,7 +15,7 @@ body
     left: 0;
     height: var(--height-body);
     width: var(--width-body);
-    background: var(--purple-light);
+    background: var(--background-body);
 }
 
 .index
@@ -41,6 +35,7 @@ body
     border: none;
     border-radius: var(--border-radius-card);
     overflow: hidden;
+    background: var(--background-card);
     box-shadow: var(--box-shadow-card) var(--black-opacity-10);
 }
 
@@ -59,6 +54,21 @@ body
     border-radius: var(--border-radius-hw-logo);
 }
 
+.hw-logo.first
+{
+    background: var(--background-hw-logo-first);
+}
+
+.hw-logo.second
+{
+    background: var(--background-hw-logo-second);
+}
+
+.hw-logo.third
+{
+    background: var(--background-hw-logo-third);
+}
+
 .label-hw-info
 {
     position: absolute;
@@ -70,14 +80,14 @@ body
 {
     font-size: var(--font-size-18pt);
     font-weight: var(--font-weight-bold);
-    color: var(--black);
+    color: var(--color-hw-type);
 }
 
 .hw-name
 {
     font-size: var(--font-size-12pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey);
+    color: var(--color-hw-name);
 }
 
 .usage
@@ -102,6 +112,21 @@ body
     width: var(--width-card-body-squares-grid-div);
 }
 
+.card-body-squares-grid.first > div
+{
+    background: var(--background-card-body-squares-grid-first-div);
+}
+
+.card-body-squares-grid.second > div
+{
+    background: var(--background-card-body-squares-grid-second-div);
+}
+
+.card-body-squares-grid.third > div
+{
+    background: var(--background-card-body-squares-grid-third-div);
+}
+
 .main-hw-info
 {
     position: absolute;
@@ -116,7 +141,6 @@ body
     bottom: var(--bottom-hw-usage-div);
     font-size: var(--font-size-62pt);
     font-weight: var(--font-weight-bold);
-    color: var(--black);
 }
 
 .usage-value
@@ -130,7 +154,7 @@ body
     position: relative;
     height: var(--height-usage-value-span);
     width: var(--width-usage-value-span);
-    color: var(--grey-light);
+    color: var(--color-usage-value-span);
     animation-duration: var(--animation-duration-wiggle);
 }
 
@@ -154,7 +178,7 @@ body
 
 .usage-postfix
 {
-    color: var(--black);
+    color: var(--color-usage-postfix);
 }
 
 .info-label
@@ -165,8 +189,8 @@ body
     text-align: center;
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey-light);
-    background: var(--white-opacity-90);
+    color: var(--color-info-label);
+    background: transparent;
 }
 
 .underline
@@ -178,6 +202,21 @@ body
     width: var(--width-underline);
 }
 
+.underline.first
+{
+    background: var(--background-underline-first);
+}
+
+.underline.second
+{
+    background: var(--background-underline-second);
+}
+
+.underline.third
+{
+    background: var(--background-underline-third);
+}
+
 .footer
 {
     position: absolute;
@@ -185,6 +224,36 @@ body
     left: 0;
     height: var(--height-footer);
     width: var(--width-footer);
+}
+
+.footer.first
+{
+    background: var(--background-footer-first);
+}
+
+.footer.first > .card-footer-dots-grid > div > .inner-dot
+{
+    background: var(--background-footer-first-card-footer-dots-grid-div-inner-dot);
+}
+
+.footer.second
+{
+    background: var(--background-footer-second);
+}
+
+.footer.second > .card-footer-dots-grid > div > .inner-dot
+{
+    background: var(--background-footer-second-card-footer-dots-grid-div-inner-dot);
+}
+
+.footer.third
+{
+    background: var(--background-footer-third);
+}
+
+.footer.third > .card-footer-dots-grid > div > .inner-dot
+{
+    background: var(--background-footer-third-card-footer-dots-grid-div-inner-dot);
 }
 
 .card-footer-dots-grid
@@ -200,7 +269,7 @@ body
     height: var(--height-card-footer-dots-grid-div);
     width: var(--width-card-footer-dots-grid-div);
     border-radius: var(--border-radius-card-footer-dots-grid-div);
-    background: var(--white);
+    background: var(--background-card-footer-dots-grid-div);
 }
 
 .first-dot
@@ -243,7 +312,7 @@ body
     text-align: center;
     font-size: var(--font-size-14pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey);
+    color: var(--color-detailed-hw-info-div);
 }
 
 .first-label
@@ -272,7 +341,7 @@ body
     position: absolute;
     height: var(--height-dividers-div);
     width: var(--width-dividers-div);
-    background: var(--white);
+    background: var(--background-dividers-div);
 }
 
 .first-divider
@@ -300,7 +369,7 @@ body
     letter-spacing: var(--letter-spacing-10px);
     font-size: var(--font-size-42pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey-light);
+    color: var(--color-dashboard-logo);
 }
 
 .dashboard-logo-description
@@ -313,7 +382,7 @@ body
     letter-spacing: var(--letter-spacing-2px);
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey-light);
+    color: var(--color-dashboard-logo-description);
 }
 
 .dashboard-logo-background
@@ -331,7 +400,7 @@ body
     left: 0;
     height: var(--height-uptime);
     width: var(--width-uptime);
-    background: var(--linear-gradient-uptime);
+    background: var(--background-uptime);
 }
 
 .uptime-squares-grid
@@ -350,6 +419,21 @@ body
     box-shadow: var(--box-shadow-uptime-squares-grid-div) var(--black-opacity-10);
 }
 
+.uptime-squares-grid > .first
+{
+    background: var(--background-uptime-squares-grid-first);
+}
+
+.uptime-squares-grid > .second
+{
+    background: var(--background-uptime-squares-grid-second);
+}
+
+.uptime-squares-grid > .third
+{
+    background: var(--background-uptime-squares-grid-third);
+}
+
 .uptime-rectangle-grid
 {
     position: absolute;
@@ -366,8 +450,8 @@ body
     text-align: center;
     font-size: var(--font-size-42pt);
     font-weight: var(--font-weight-bold);
-    color: var(--grey);
-    background: var(--white-opacity-70);
+    color: var(--color-values-grid-div);
+    background: var(--background-values-grid-div);
 }
 
 .values-grid > div > p
@@ -386,8 +470,8 @@ body
     text-align: center;
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weigth-regular);
-    color: var(--grey-light);
-    background: var(--white-opacity-90);
+    color: var(--color-labels-grid-div);
+    background: var(--background-labels-grid-div);
 }
 
 .chart-label
@@ -397,7 +481,7 @@ body
     left: var(--left-chart-label);
     font-size: var(--font-size-18pt);
     font-weight: var(--font-weight-bold);
-    color: var(--black);
+    color: var(--color-chart-label);
 }
 
 .chart-triangle-grid
@@ -421,19 +505,19 @@ body
 .first-triangle
 {
     left: var(--left-first-triangle);
-    border-color: var(--blue) transparent;
+    border-color: var(--border-color-first-triangle) transparent;
 }
 
 .second-triangle
 {
     left: var(--left-second-triangle);
-    border-color: var(--red) transparent;
+    border-color: var(--border-color-second-triangle) transparent;
 }
 
 .third-triangle
 {
     left: var(--left-third-triangle);
-    border-color: var(--green) transparent;
+    border-color: var(--border-color-third-triangle) transparent;
 }
 
 .chart-rectangle-grid
@@ -460,20 +544,20 @@ body
 .first-rectangle
 {
     left: var(--left-first-rectangle);
-    background: var(--blue-light);
+    background: var(--background-first-rectangle);
 }
 
 
 .second-rectangle
 {
     left: var(--left-second-rectangle);
-    background: var(--red-light);
+    background: var(--background-second-rectangle);
 }
 
 .third-rectangle
 {
     left: var(--left-third-rectangle);
-    background: var(--green-light);
+    background: var(--background-third-rectangle);
 }
 
 .chart-container
@@ -515,7 +599,7 @@ body
     width: var(--width-error-div);
     opacity: 0;
     border-radius: var(--border-radius-error-div);
-    background: var(--white);
+    background: var(--background-error-div);
     box-shadow: var(--box-shadow-error-div) var(--black-opacity-10);
     animation: fade-in-error-div;
     animation-duration: var(--animation-duration-fade-in-error-div);
@@ -533,7 +617,7 @@ body
     left: var(--left-error-code);
     font-size: var(--font-size-21pt);
     font-weight: var(--font-weight-bold);
-    color: var(--black);
+    color: var(--color-error-code);
 }
 
 .error-title
@@ -542,7 +626,7 @@ body
     left: var(--left-error-title);
     font-size: var(--font-size-31pt);
     font-weight: var(--font-weight-bold);
-    color: var(--black);
+    color: var(--color-error-title);
 }
 
 .error-description
@@ -555,7 +639,7 @@ body
 {
     font-size: var(--font-size-13pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey);
+    color: var(--color-error-description-div);
 }
 
 .error-advice
@@ -564,7 +648,7 @@ body
     bottom: var(--bottom-error-advice);
     font-size: var(--font-size-11pt);
     font-weight: var(--font-weight-regular);
-    color: var(--grey-light);
+    color: var(--color-error-advice);
 }
 
 .error-404
@@ -575,35 +659,4 @@ body
 .error-500
 {
     left: var(--left-error-500);
-}
-
-/* Utility classes */
-.blue-light
-{
-    background: var(--blue-light);
-}
-
-.blue
-{
-    background: var(--blue);
-}
-
-.red-light
-{
-    background: var(--red-light);
-}
-
-.red
-{
-    background: var(--red);
-}
-
-.green-light
-{
-    background: var(--green-light);
-}
-
-.green
-{
-    background: var(--green);
 }

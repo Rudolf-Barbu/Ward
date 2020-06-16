@@ -1,39 +1,4 @@
 /**
- * Used to hold values of processor usage
- */
-let processorUsageArray;
-
-/**
- * Used to hold values tens of processor usage
- */
-let ramUsageArray;
-
-/**
- * Used to hold values ones of processor usage
- */
-let storageUsageArray;
-
-/**
- * Used to manipulate processor triangle div
- */
-let processorTriangle;
-
-/**
- * Used to manipulate ram triangle div
- */
-let ramTriangle;
-
-/**
- * Used to manipulate storage triangle div
- */
-let storageTriangle;
-
-/**
- * Used to handle chart object, displays usage for 15 seconds
- */
-let chart;
-
-/**
  * Initializes chart object with options and datasets. Also determines labels elements
  */
 function usageInitialization()
@@ -61,6 +26,8 @@ function usageInitialization()
     ramTriangle = document.getElementById("ram-triangle");
     storageTriangle = document.getElementById("storage-triangle");
 
+    html = document.getElementById("html");
+
     let ctx = document.getElementById("chart-body").getContext("2d");
     let data =
     {
@@ -73,34 +40,34 @@ function usageInitialization()
                 {
                     label: "Processor usage",
                     borderWidth: 1.5,
-                    borderColor: "#5965F9",
+                    borderColor: (html.getAttribute("theme") == "light") ? "rgba(89, 101, 249, 1)" : "rgba(188, 188, 188, 1)",
                     pointRadius: 2,
                     pointHoverRadius: 3,
-                    pointBackgroundColor: "#FFFFFF",
-                    pointHoverBackgroundColor: "#E6E8FE",
-                    backgroundColor: "rgba(230, 232, 254, 0.3)",
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: (html.getAttribute("theme") == "light") ? "rgba(230, 232, 254, 1)" : "rgba(121, 121, 121, 1)",
+                    backgroundColor: (html.getAttribute("theme") == "light") ? "rgba(230, 232, 254, 0.3)" : "rgba(121, 121, 121, 0.5)",
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
                 {
                     label: "Ram usage",
                     borderWidth: 1.5,
-                    borderColor: "#FF5959",
+                    borderColor: (html.getAttribute("theme") == "light") ? "rgba(255, 89, 89, 1)" : "rgba(188, 188, 188, 1)",
                     pointRadius: 2,
                     pointHoverRadius: 3,
-                    pointBackgroundColor: "#FFFFFF",
-                    pointHoverBackgroundColor: "#F9E2E2",
-                    backgroundColor: "rgba(249, 226, 226, 0.3)",
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: (html.getAttribute("theme") == "light") ? "rgba(249, 226, 226, 1)" : "rgba(121, 121, 121, 1)",
+                    backgroundColor: (html.getAttribute("theme") == "light") ? "rgba(249, 226, 226, 0.3)" : "rgba(121, 121, 121, 0.5)",
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
                 {
                     label: "Storage usage",
                     borderWidth: 1.5,
-                    borderColor: "#08C18D",
+                    borderColor: (html.getAttribute("theme") == "light") ? "rgba(8, 193, 141, 1)" : "rgba(188, 188, 188, 1)",
                     pointRadius: 2,
                     pointHoverRadius: 3,
-                    pointBackgroundColor: "#FFFFFF",
-                    pointHoverBackgroundColor: "#D4F2E1",
-                    backgroundColor: "rgba(212, 242, 225, 0.3)",
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: (html.getAttribute("theme") == "light") ? "rgba(212, 242, 225, 1)" : "rgba(121, 121, 121, 1)",
+                    backgroundColor: (html.getAttribute("theme") == "light") ? "rgba(212, 242, 225, 0.3)" : "rgba(121, 121, 121, 0.5)",
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }
             ]
@@ -221,32 +188,33 @@ function formatLabel(labelArray, usageData)
     {
         case 1:
         {
+            
             labelArray[0].innerHTML = 0;
-            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[0].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
             labelArray[1].innerHTML = 0;
-            labelArray[1].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[1].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
             labelArray[2].innerHTML = usageDataString[0];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             break;
         }
         case 2:
         {
             labelArray[0].innerHTML = 0;
-            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
+            labelArray[0].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
             labelArray[1].innerHTML = usageDataString[0];
-            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[1].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             labelArray[2].innerHTML = usageDataString[1];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             break;
         }
         default:
         {
             labelArray[0].innerHTML = usageDataString[0];
-            labelArray[0].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[0].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             labelArray[1].innerHTML = usageDataString[1];
-            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[1].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             labelArray[2].innerHTML = usageDataString[2];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
+            labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
         }
     }
 }
@@ -286,21 +254,30 @@ function hideDataset(element)
         case "processor-rectangle":
         {
             processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
-            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
+
+            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ?
+            ((html.getAttribute("theme") == "light") ? "rgba(230, 232, 254, 1)" : "rgba(121, 121, 121, 1)") : "rgba(188, 188, 188, 1)";
+
             chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
         }
         case "ram-rectangle":
         {
             ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
-            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
+
+            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ?
+            ((html.getAttribute("theme") == "light") ? "rgba(249, 226, 226, 1)" : "rgba(121, 121, 121, 1)") : "rgba(188, 188, 188, 1)";
+
             chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
         }
         case "storage-rectangle":
         {
             storageTriangle.style.animation = chart.getDatasetMeta(2).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
-            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
+
+            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ?
+            ((html.getAttribute("theme") == "light") ? "rgba(212, 242, 225, 1)" : "rgba(121, 121, 121, 1)") : "rgba(188, 188, 188, 1)";
+
             chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
             break;
         }
