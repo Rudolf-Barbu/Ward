@@ -81,7 +81,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         {
             throw new CantGetPhysicalMemoryArrayException();
         }
-        machineDto.setRamType(physicalMemory.get(0).getMemoryType());
+        machineDto.setRamType(physicalMemory.stream().findAny().get().getMemoryType());
 
         int processCount = operatingSystem.getProcessCount();
         machineDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));

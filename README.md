@@ -115,7 +115,7 @@ Ward have several color themes. Next, you will see all project features listed i
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. In application properties choose port and theme
+    3. In application properties file choose port and theme ("light" or "dark")
     4. mvn clean package
     5. jar will be in the target folder
 
