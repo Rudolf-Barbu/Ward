@@ -3,10 +3,10 @@
     Used for define dimensions of project
 
     Every category must follow convention:
-    * Category must begins with css property name
+    * Category must contain only css property name
 
     Every entry must follow convention:
-    * Must include category name
+    * Must begins with category name
     * Further should be followed by tag/class/id/etc.
 
     By example: --height-body

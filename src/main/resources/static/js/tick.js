@@ -1,9 +1,4 @@
 /**
- * Used for sending ajax requests
- */
-let xhr;
-
-/**
  * Initializes uptime counter and usage values
  */
 function tickInitialization()
@@ -21,10 +16,10 @@ function tickInitialization()
     }
     sendAjaxRequest();
 
-    setInterval(function()
+    setInterval(() =>
     {
         uptimeTick();
-    }, 1000);
+    }, 1000)
 }
 
 /**

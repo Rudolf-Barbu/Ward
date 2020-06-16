@@ -14,13 +14,15 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 **All features tested on:** `Windows` `Linux`
 
 <p align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851277781/BCE7498C9939D94CB871359DAF95F35B2CF90ED3/" alt = "Preview Image" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183832067514192286/03913BF3E387CB7634B28E481A3B741BBF147DBB/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
 </p>
 
 ---
 
 ### Features
+
+Ward have several color themes. Next, you will see all project features listed in tables.
 
 <table>
     <tr>
@@ -113,8 +115,9 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. mvn clean package
-    4. jar will be in the target folder
+    3. In application properties choose port and theme
+    4. mvn clean package
+    5. jar will be in the target folder
 
 <br>
 
@@ -122,6 +125,8 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
+    
+    NOTE: By default Ward uses port:80 and light theme
 
 <br>
 
@@ -133,4 +138,4 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     4. docker run --rm -it --name ward -p 8082:80 ward
     5. Go to localhost:8082 in web browser
     
-    Thanks to NangiDev
+    NOTE: Thanks to NangiDev

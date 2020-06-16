@@ -3,10 +3,10 @@
     Used for define shadows of project
 
     Every category must follow convention:
-    * Category must begins with shadow type name
+    * Category must contain only shadow type name
 
     Every entry must follow convention:
-    * Must include category name
+    * Must begins with category name
     * Further should be followed by tag/class/id/etc.
 
     By example: --box-shadow-card

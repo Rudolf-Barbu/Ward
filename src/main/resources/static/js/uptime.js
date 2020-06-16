@@ -1,24 +1,4 @@
 /**
- * Used to display current days of uptime
- */
-let days;
-
-/**
- * Used to display current hours of uptime
- */
-let hours;
-
-/**
- * Used to display current minutes of uptime
- */
-let minutes;
-
-/**
- * Used to display current seconds of uptime
- */
-let seconds;
-
-/**
  * Determines uptime label elements
  */
 function uptimeInitialization()

@@ -3,10 +3,10 @@
     Used for define gradients of project
 
     Every category must follow convention:
-    * Category must begins with gradient type name
+    * Category must contain only gradient type name
 
     Every entry must follow convention:
-    * Must include category name
+    * Must begins with category name
     * Further should be followed by tag/class/id/etc.
 
     By example: --linear-gradient-uptime
@@ -15,5 +15,6 @@
 :root
 {
     /* linear-gradient */
-    --linear-gradient-uptime: linear-gradient(45deg, var(--blue-light) 0%, var(--red-light) 50%, var(--green-light) 100%);
+    --linear-gradient-uptime-light: linear-gradient(45deg, var(--blue-light) 0%, var(--red-light) 50%, var(--green-light) 100%);
+    --linear-gradient-uptime-dark: linear-gradient(45deg, var(--grey) 0%, var(--grey-dark) 50%, var(--grey) 100%);
 }

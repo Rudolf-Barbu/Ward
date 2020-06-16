@@ -3,10 +3,10 @@
     Used for define colors of project
 
     Every category must follow convention:
-    * Category must begins with color name
+    * Category must contain only color name
 
     Every entry must follow convention:
-    * Must include category name
+    * Must begins with category name
     * Further should be followed by tint/opacity/etc.
 
     By example: --grey-light
@@ -26,6 +26,9 @@
     /* grey */
     --grey-light: rgba(188, 188, 188, 1);
     --grey: rgba(121, 121, 121, 1);
+    --grey-opacity-90: rgba(121, 121, 121, 0.9);
+    --grey-opacity-70: rgba(121, 121, 121, 0.7);
+    --grey-dark: rgba(60, 60, 60, 1);
 
     /* blue */
     --blue-light: rgba(230, 232, 254, 1);
