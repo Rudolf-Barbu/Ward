@@ -2,6 +2,7 @@ package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,12 @@ public class IndexController
     private InfoService infoService;
 
     /**
+     * Used for determine application theme from properties file
+     */
+    @Value(value = "${ward.theme.name}")
+    private String themeName;
+
+    /**
      * Get request to display index page
      *
      * @param model used for providing values in to html template
@@ -33,6 +40,7 @@ public class IndexController
     public String getIndex(Model model) throws Exception
     {
         model.addAttribute("infoDto", infoService.get());
+        model.addAttribute("theme", themeName);
 
         return "index";
     }
