@@ -25,12 +25,6 @@ public class IndexController
     private InfoService infoService;
 
     /**
-     * Used for determine application theme from properties file
-     */
-    @Value(value = "${ward.theme.name}")
-    private String themeName;
-
-    /**
      * Get request to display index page
      *
      * @param model used for providing values in to html template
@@ -40,7 +34,6 @@ public class IndexController
     public String getIndex(Model model) throws Exception
     {
         model.addAttribute("infoDto", infoService.get());
-        model.addAttribute("theme", themeName);
 
         return "index";
     }

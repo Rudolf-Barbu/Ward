@@ -28,22 +28,14 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     private static final int INTERNAL_SERVER_ERROR = 500;
 
     /**
-     * Used for determine application theme from properties file
-     */
-    @Value(value = "${ward.theme.name}")
-    private String themeName;
-
-    /**
      * Get request to display error page, which corresponds status code
      *
      * @param httpServletResponse used for providing response data
      * @return String name of html template
      */
     @GetMapping
-    public String getError(HttpServletResponse httpServletResponse, Model model)
+    public String getError(HttpServletResponse httpServletResponse)
     {
-        model.addAttribute("theme", themeName);
-
         switch (httpServletResponse.getStatus())
         {
             case ErrorController.NOT_FOUND:

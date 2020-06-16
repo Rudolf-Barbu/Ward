@@ -3,15 +3,13 @@
  */
 function backgroundInitialization()
 {
-    html = document.getElementById("html");
-
     VANTA.FOG
     ({
         el: "#background",
-        highlightColor: (html.getAttribute("theme") == "light") ? 0xcac7e8 : 0x797979,
-        midtoneColor: (html.getAttribute("theme") == "light") ? 0xbbb7ed : 0xffffff,
-        lowlightColor: (html.getAttribute("theme") == "light") ? 0xe4e3ef : 0xbcbcbc,
-        baseColor: (html.getAttribute("theme") == "light") ? 0xe4e3ef : 0xbcbcbc,
+        highlightColor: 0xCAC7E8,
+        midtoneColor: 0xBBB7Ed,
+        lowlightColor: 0xE4E3EF,
+        baseColor: 0xE4E3EF,
         blurFactor: 0.40,
         zoom: 1.50
     });

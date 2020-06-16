@@ -22,8 +22,6 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ### Features
 
-Ward have several color themes. Next, you will see all project features listed in tables.
-
 <table>
     <tr>
         <td width = "600.5">Processor name</td>
@@ -115,7 +113,7 @@ Ward have several color themes. Next, you will see all project features listed i
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. In application properties file choose port and theme ("light" or "dark")
+    3. In application properties file choose port and theme
     4. mvn clean package
     5. jar will be in the target folder
 
@@ -126,7 +124,7 @@ Ward have several color themes. Next, you will see all project features listed i
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
     
-    NOTE: By default Ward uses port:80 and light theme
+    NOTE: By default Ward uses port:80
 
 <br>
 
