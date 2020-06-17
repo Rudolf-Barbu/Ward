@@ -113,7 +113,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. In application properties file choose port and theme
+    3. In application properties file choose port
     4. mvn clean package
     5. jar will be in the target folder
 
