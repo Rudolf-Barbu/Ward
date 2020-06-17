@@ -37,14 +37,14 @@
 
 @font-face
 {
-    font-family: var(--font-family-roboto);
-    font-weight: var(--font-weight-regular);
-    src: url(/fonts/roboto/regular.ttf);
+    font-family: roboto;
+    font-weight: 400;
+    src: url(/fonts/roboto/regular.woff2) format('woff2');
 }
 
 @font-face
 {
-    font-family: var(--font-family-roboto);
-    font-weight: var(--font-weight-bold);
-    src: url(/fonts/roboto/bold.ttf);
+    font-family: roboto;
+    font-weight: 700;
+    src: url(/fonts/roboto/bold.woff2) format('woff2');
 }
