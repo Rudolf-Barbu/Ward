@@ -253,7 +253,7 @@ function hideDataset(element)
         {
             processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
 
-            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
+            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
 
             chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
@@ -262,7 +262,7 @@ function hideDataset(element)
         {
             ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
 
-            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
+            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
 
             chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
