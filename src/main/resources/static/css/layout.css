@@ -19,18 +19,54 @@ body
 }
 
 .index
-{ 
-    margin-top: calc((100vh / 2) - (var(--height-index) / 2));
-    min-width: var(--min-width-container);
+{
+    margin-top: calc((100vh / 2) - (var(--height-index-xl) / 2));
 }
 
-.row > div
+@media only screen and (max-width: 74.938rem)
 {
-    margin-bottom: var(--margin-bottom-row-div);
+    .index
+    {
+        margin-top: calc((100vh / 2) - (var(--height-index-lg) / 2));
+    }
+
+    .container
+    {
+        width: var(--width-container-lg);
+    }
+}
+
+@media only screen and (max-width: 61.938rem)
+{
+    .index
+    {
+        margin-top: calc((100vh / 2) - (var(--height-index-md) / 2));
+    }
+
+    .container
+    {
+        width: var(--width-container-md);
+    }
+
+    .col-lg-12.col-xl-8
+    {
+        display: hidden;
+    }
+}
+
+.col-lg-6.col-xl-4
+{
+   max-width: var(--max-width-col-lg-6-col-xl-4);
+}
+
+.col-lg-12.col-xl-8
+{
+    max-width: var(--max-width-col-lg-12.col-xl-8);
 }
 
 .card
 {
+    margin-bottom: var(--margin-bottom-card);
     min-height: var(--min-height-card);
     border: none;
     border-radius: var(--border-radius-card);
@@ -574,7 +610,7 @@ body
 .error
 {
     margin-top: calc((100vh / 2) - (var(--height-error) / 2));
-    min-width: var(--min-width-container);
+    min-width: var(--min-width-error);
 }
 
 .error-gif
