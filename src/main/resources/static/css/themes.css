@@ -3,17 +3,20 @@
     Used for define themes of project
 
     Every category must follow convention:
-    * Category must contain only css property name
+    * Category must contain only theme name
+
+    Every subcategory must follow convention:
+    * Subcategory must contain only css property name
 
     Every entry must follow convention:
-    * Must begins with category name
+    * Must begins with subcategory name
     * Further should be followed by tag/class/id/etc.
 
     By example: --color-body
 */
 
 /* light */
-:root
+html[theme = "light"]
 {
     /* color */
     --color-hw-type: var(--black);
@@ -52,7 +55,7 @@
     --background-footer-third-card-footer-dots-grid-div-inner-dot: var(--green);
     --background-card-footer-dots-grid-div: var(--white);
     --background-dividers-div: var(--white);
-    --background-uptime: var(--linear-gradient-uptime);
+    --background-uptime: var(--linear-gradient-uptime-light);
     --background-uptime-squares-grid-first: var(--blue-light);
     --background-uptime-squares-grid-second: var(--red-light);
     --background-uptime-squares-grid-third: var(--green-light);
@@ -67,4 +70,61 @@
     --border-color-first-triangle: var(--blue);
     --border-color-second-triangle: var(--red);
     --border-color-third-triangle: var(--green);
+}
+
+/* dark */
+html[theme = "dark"]
+{
+    /* color */
+    --color-hw-type: var(--white);
+    --color-hw-name: var(--grey);
+    --color-usage-value-span: var(--grey);
+    --color-usage-postfix: var(--white);
+    --color-info-label: var(--grey-light);
+    --color-detailed-hw-info-div: var(--grey-light);
+    --color-dashboard-logo: var(--grey-light);
+    --color-dashboard-logo-description: var(--grey-light);
+    --color-values-grid-div: var(--white);
+    --color-labels-grid-div: var(--grey-light);
+    --color-chart-label: var(--white);
+    --color-error-code: var(--white);
+    --color-error-title: var(--white);
+    --color-error-description-div: var(--grey);
+    --color-error-advice: var(--grey-light);
+
+    /* background */
+    --background-body: var(--grey-light);
+    --background-card: var(--grey-dark);
+    --background-hw-logo-first: var(--grey);
+    --background-hw-logo-second: var(--grey);
+    --background-hw-logo-third: var(--grey);
+    --background-card-body-squares-grid-first-div: var(--grey);
+    --background-card-body-squares-grid-second-div: var(--grey);
+    --background-card-body-squares-grid-third-div: var(--grey);
+    --background-underline-first: var(--grey);
+    --background-underline-second: var(--grey);
+    --background-underline-third: var(--grey);
+    --background-footer-first: var(--grey);
+    --background-footer-first-card-footer-dots-grid-div-inner-dot: var(--grey-light);
+    --background-footer-second: var(--grey);
+    --background-footer-second-card-footer-dots-grid-div-inner-dot: var(--grey-light);
+    --background-footer-third: var(--grey);
+    --background-footer-third-card-footer-dots-grid-div-inner-dot: var(--grey-light);
+    --background-card-footer-dots-grid-div: var(--grey-dark);
+    --background-dividers-div: var(--grey-dark);
+    --background-uptime: var(--linear-gradient-uptime-dark);
+    --background-uptime-squares-grid-first: var(--grey-light);
+    --background-uptime-squares-grid-second: var(--grey-light);
+    --background-uptime-squares-grid-third: var(--grey-light);
+    --background-values-grid-div: var(--grey-opacity-70);
+    --background-labels-grid-div: var(--grey-opacity-90);
+    --background-first-rectangle: var(--grey);
+    --background-second-rectangle: var(--grey);
+    --background-third-rectangle: var(--grey);
+    --background-error-div: var(--grey-dark);
+
+    /* border-color */
+    --border-color-first-triangle: var(--grey-light);
+    --border-color-second-triangle: var(--grey-light);
+    --border-color-third-triangle: var(--grey-light);
 }

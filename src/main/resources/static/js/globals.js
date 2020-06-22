@@ -54,6 +54,11 @@ let ramTriangle;
 let storageTriangle;
 
 /**
+ * Used to determine theme value
+ */
+let html;
+
+/**
  * Used to handle chart object, displays usage for 15 seconds
  */
 let chart;
