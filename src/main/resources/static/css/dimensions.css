@@ -78,13 +78,14 @@
     --margin-right-labels-grid-div: 0.125rem;
 
     /* margin-bottom */
-    --margin-bottom-row-div: 1.875rem;
+    --margin-bottom-card: 1.875rem;
     --margin-bottom-card-body-squares-grid-div: 0.750rem;
     --margin-bottom-labels-grid-div: 0.313rem;
 
     /* height */
     --height-body: 100%;
-    --height-index: 35.031rem;
+    --height-index-xl: 35.031rem;
+    --height-index-lg: 53.438rem;
     --height-hw-logo: 3.750rem;
     --height-usage: 5.313rem;
     --height-card-body-squares-grid-div: 0.625rem;
@@ -135,8 +136,16 @@
     --width-error-gif: 19.313rem;
     --width-error-div: 23.875rem;
 
+    /* max-width */
+    --max-width-index-xl: 71.250rem;
+    --max-width-index-lg: 47.500rem;
+    --max-width-col-lg-6-col-xl-4: 23.750rem;
+    --max-width-col-lg-12.col-xl-8: 47.500rem;
+
     /* min-width */
-    --min-width-container: 71.250rem;
+    --min-width-index-xl: 71.250rem;
+    --min-width-index-lg: 47.500rem;
+    --min-width-error-xl: 71.250rem;
 
     /* border */
     --border-chart-container: 0.063rem;
