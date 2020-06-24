@@ -22,8 +22,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ### Features
 
-Ward supports adaptive design system. Also it supports dark theme. (At version v1.2.0)
-But now it temporary disabled. Next you will se all Ward features, arranged in tables.
+Ward supports adaptive design system. Also it supports dark theme. Next you will se all Ward features, arranged in tables.
 
 <table>
     <tr>
