@@ -6,6 +6,7 @@
 *
 {
     font-family: var(--font-family-roboto);
+    transition: var(--transition-all);
 }
 
 body
@@ -588,6 +589,16 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
+.theme-label
+{
+    position: relative;
+    bottom: 20px;
+    font-size: var(--font-size-12pt);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-theme-label);
+    cursor: pointer;
+}
+
 .error
 {
     margin-top: calc((100vh / 2) - (var(--height-error) / 2));
@@ -662,7 +673,6 @@ body
 
 .error-advice
 {
-    position: fixed;
     bottom: var(--bottom-error-advice);
     font-size: var(--font-size-11pt);
     font-weight: var(--font-weight-regular);

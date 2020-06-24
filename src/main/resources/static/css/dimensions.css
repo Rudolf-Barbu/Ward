@@ -166,7 +166,8 @@
     --letter-spacing-2px: 0.125rem;
 
     /* transition */
-    --transition-chart-rectangle-grid-div: transform 0.07s, background-color 0.2s;
+    --transition-all: color 0.2s, background 0.2s, flex 0.2s;
+    --transition-chart-rectangle-grid-div: transform 0.07s;
 
     /* transform */
     --transform-chart-rectangle-grid-div-active: scale(0.9);

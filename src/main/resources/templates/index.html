@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org">
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "">
     <head>
         <title>Ward</title>
         <meta charset = "utf-8">
@@ -16,13 +16,17 @@
         <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/chart.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/labels.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/theme.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/usage.js}"></script>
+        <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
+        <script type = "text/javascript" th:inline = "javascript"> themeInitialization(); </script>
     </head>
     <body id = "background">
-        <script th:inline = "javascript"> backgroundInitialization(); </script>
+        <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container index">
             <div class = "row">
                 <div class = "col-6 col-lg-6 col-xl-4">
@@ -181,6 +185,7 @@
                         </div>
                     </div>
                 </div>
+                <script type = "text/javascript" th:inline = "javascript"> labelsInitialization(); </script>
                 <div class = "col-6 col-lg-6 col-xl-4">
                     <div class = "card">
                         <div class = "about">
@@ -201,7 +206,7 @@
                                     <div><p id = "uptime-minutes" th:text = "${infoDto.uptimeDto.minutes}"></p></div>
                                     <div><p id = "uptime-seconds" th:text = "${infoDto.uptimeDto.seconds}"></p></div>
                                 </div>
-                                <script th:inline = "javascript"> uptimeInitialization(); </script>
+                                <script type = "text/javascript" th:inline = "javascript"> uptimeInitialization(); </script>
                                 <div class = "labels-grid">
                                     <div>DAYS</div>
                                     <div>HOURS</div>
@@ -228,11 +233,12 @@
                         <div class = "chart-container">
                             <canvas id = "chart-body"></canvas>
                         </div>
-                        <script th:inline = "javascript"> usageInitialization(); </script>
+                        <script type = "text/javascript" th:inline = "javascript"> chartInitialization(); </script>
                     </div>
+                    <div class = "theme-label text-center" onclick = "changeTheme();">CHANGE THEME</div>
                 </div>
             </div>
         </div>
-        <script th:inline = "javascript"> tickInitialization(); </script>
+        <script type = "text/javascript" th:inline = "javascript"> tickInitialization(); </script>
     </body>
 </html>

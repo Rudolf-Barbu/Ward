@@ -1,35 +1,13 @@
-/**
- * Initializes chart object with options and datasets. Also determines labels elements
- */
-function usageInitialization()
+function chartInitialization()
 {
-    processorUsageArray =
-    [
-        document.getElementById("processor-hundreds"),
-        document.getElementById("processor-tens"),
-        document.getElementById("processor-ones")
-    ];
-    ramUsageArray =
-    [
-        document.getElementById("ram-hundreds"),
-        document.getElementById("ram-tens"),
-        document.getElementById("ram-ones")
-    ];
-    storageUsageArray =
-    [
-        document.getElementById("storage-hundreds"),
-        document.getElementById("storage-tens"),
-        document.getElementById("storage-ones")
-    ];
-
     processorTriangle = document.getElementById("processor-triangle");
     ramTriangle = document.getElementById("ram-triangle");
     storageTriangle = document.getElementById("storage-triangle");
 
-    let ctx = document.getElementById("chart-body").getContext("2d");
-    let data =
+    ctx = document.getElementById("chart-body").getContext("2d");
+
+    dataLight =
     {
-        type: "line",
         data:
         {
             labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
@@ -69,7 +47,55 @@ function usageInitialization()
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }
             ]
-        },
+        }
+    }
+    dataDark =
+    {
+        data:
+        {
+            labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+            datasets:
+            [
+                {
+                    label: "Processor usage",
+                    borderWidth: 1.5,
+                    borderColor: "rgba(188, 188, 188, 1)",
+                    pointRadius: 2,
+                    pointHoverRadius: 3,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
+                    backgroundColor: "rgba(121, 121, 121, 0.5)",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: "Ram usage",
+                    borderWidth: 1.5,
+                    borderColor: "rgba(188, 188, 188, 1)",
+                    pointRadius: 2,
+                    pointHoverRadius: 3,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
+                    backgroundColor: "rgba(121, 121, 121, 0.5)",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                },
+                {
+                    label: "Storage usage",
+                    borderWidth: 1.5,
+                    borderColor: "rgba(188, 188, 188, 1)",
+                    pointRadius: 2,
+                    pointHoverRadius: 3,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
+                    backgroundColor: "rgba(121, 121, 121, 0.5)",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }
+            ]
+        }
+    }
+
+    options =
+    {
+        type: "line",
         options:
         {
             maintainAspectRatio: false,
@@ -122,99 +148,11 @@ function usageInitialization()
         }
     };
 
-    chart = new Chart(ctx, data);
+    chart = new Chart(ctx, Object.assign((html.getAttribute("theme") == "light") ? dataLight : dataDark, options));
 
     document.getElementById("processor-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
     document.getElementById("ram-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
     document.getElementById("storage-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
-}
-
-/**
- * Updates chart and labels usage values
- *
- * @param {*} usageData Json object with usage data
- */
-function usageTick(usageData)
-{
-    updateLabels(usageData);
-    updateDatasets(chart.data.datasets, usageData);
-}
-
-/**
- * Updates labels values
- *
- * @param {*} usageData usage value
- */
-function updateLabels(usageData)
-{
-    let usageDataArray = Object.values(usageData);
-
-    for (let i = 0; i < usageDataArray.length; i++)
-    {
-        switch (i)
-        {
-            case 0:
-            {
-                formatLabel(processorUsageArray, usageDataArray[i]);
-                break;
-            }
-            case 1:
-            {
-                formatLabel(ramUsageArray, usageDataArray[i]);
-                break;
-            }
-            case 2:
-            {
-                formatLabel(storageUsageArray, usageDataArray[i]);
-                break;
-            }
-        }
-    }
-}
-
-/**
- * Distributes values to spans and changes their color
- *
- * @param {*} labelArray array with domObjects
- * @param {*} usageData usage value to distribute
- */
-function formatLabel(labelArray, usageData)
-{
-    usageDataString = String(usageData);
-
-    switch (usageDataString.length)
-    {
-        case 1:
-        {
-            
-            labelArray[0].innerHTML = 0;
-            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
-            labelArray[1].innerHTML = 0;
-            labelArray[1].style.color = "rgba(188, 188, 188, 1)";
-            labelArray[2].innerHTML = usageDataString[0];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)"
-            break;
-        }
-        case 2:
-        {
-            labelArray[0].innerHTML = 0;
-            labelArray[0].style.color = "rgba(188, 188, 188, 1)";
-            labelArray[1].innerHTML = usageDataString[0];
-            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
-            labelArray[2].innerHTML = usageDataString[1];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
-            break;
-        }
-        default:
-        {
-            labelArray[0].innerHTML = usageDataString[0];
-            labelArray[0].style.color = "rgba(0, 0, 0, 1)";
-            labelArray[1].innerHTML = usageDataString[1];
-            labelArray[1].style.color = "rgba(0, 0, 0, 1)";
-            labelArray[2].innerHTML = usageDataString[2];
-            labelArray[2].style.color = "rgba(0, 0, 0, 1)";
-        }
-    }
 }
 
 /**
@@ -223,8 +161,10 @@ function formatLabel(labelArray, usageData)
  * @param {*} datasets datasets to update
  * @param {*} usageData new data
  */
-function updateDatasets(datasets, usageData)
+function chartTick(usageData)
 {
+    let datasets = chart.data.datasets;
+
     for (let i = 0; i < datasets.length; i++)
     {
         let dataset = datasets[i].data;
@@ -253,16 +193,12 @@ function hideDataset(element)
         {
             processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
 
-            element.style.backgroundColor = chart.getDatasetMeta(0).hidden ? "rgba(230, 232, 254, 1)" : "rgba(188, 188, 188, 1)";
-
             chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
             break;
         }
         case "ram-rectangle":
         {
             ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
-
-            element.style.backgroundColor = chart.getDatasetMeta(1).hidden ? "rgba(249, 226, 226, 1)" : "rgba(188, 188, 188, 1)";
 
             chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
             break;
@@ -271,12 +207,30 @@ function hideDataset(element)
         {
             storageTriangle.style.animation = chart.getDatasetMeta(2).hidden ? "fade-in-triangles 0.5s forwards" : "fade-out-triangles 0.5s forwards";
 
-            element.style.backgroundColor = chart.getDatasetMeta(2).hidden ? "rgba(212, 242, 225, 1)" : "rgba(188, 188, 188, 1)";
-
             chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
             break;
         }
     }
 
     chart.update();
+}
+
+/**
+ * Chooses the dataset theme according to the theme of project
+ *
+ * @param {*} chart link to chart object
+ */
+function changeChartTheme()
+{
+    let datasets = chart.data.datasets;
+    let dataTheme = (html.getAttribute("theme") == "light") ? dataLight : dataDark;
+
+    for (let i = 0; i < datasets.length; i++)
+    {
+        let dataset = datasets[i].data;
+        dataTheme.data.datasets[i].data = dataset;
+    }
+
+    chart.destroy();
+    chart = new Chart(ctx, Object.assign((html.getAttribute("theme") == "light") ? dataLight : dataDark, options));
 }
