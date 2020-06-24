@@ -3,16 +3,33 @@
  */
 function backgroundInitialization()
 {
-    html = document.getElementById("html");
+    background = VANTA.FOG({el: "#background", blurFactor: 0.40, zoom: 1.50});
+    changeBackgroundTheme();
+}
 
-    VANTA.FOG
-    ({
-        el: "#background",
-        highlightColor: (html.getAttribute("theme") == "light") ? 0xcac7e8 : 0x797979,
-        midtoneColor: (html.getAttribute("theme") == "light") ? 0xbbb7ed : 0xffffff,
-        lowlightColor: (html.getAttribute("theme") == "light") ? 0xe4e3ef : 0xbcbcbc,
-        baseColor: (html.getAttribute("theme") == "light") ? 0xe4e3ef : 0xbcbcbc,
-        blurFactor: 0.40,
-        zoom: 1.50
-    });
+/**
+ * Changes dynamic background theme
+ */
+function changeBackgroundTheme()
+{
+    if (html.getAttribute("theme") == "light")
+    {
+        background.setOptions
+        ({
+            highlightColor: 0xcac7e8,
+            midtoneColor: 0xbbb7ed,
+            lowlightColor: 0xe4e3ef,
+            baseColor: 0xe4e3ef
+        });
+    }
+    else
+    {
+        background.setOptions
+        ({
+            highlightColor: 0x797979,
+            midtoneColor: 0xffffff,
+            lowlightColor: 0xbcbcbc,
+            baseColor: 0xbcbcbc
+        });
+    }
 }

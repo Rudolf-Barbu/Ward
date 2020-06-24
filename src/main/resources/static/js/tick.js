@@ -1,5 +1,5 @@
 /**
- * Initializes uptime counter and usage values
+ * Initializes uptime, labels and chart values
  */
 function tickInitialization()
 {
@@ -10,7 +10,8 @@ function tickInitialization()
         if (this.readyState == 4)
         {
             let response = JSON.parse(this.response);
-            usageTick(response);
+            labelsTick(response);
+            chartTick(response);
             sendAjaxRequest();
         }
     }
@@ -19,7 +20,7 @@ function tickInitialization()
     setInterval(() =>
     {
         uptimeTick();
-    }, 1000)
+    }, 1000);
 }
 
 /**

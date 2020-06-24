@@ -28,6 +28,7 @@
     --grey: rgba(121, 121, 121, 1);
     --grey-opacity-90: rgba(121, 121, 121, 0.9);
     --grey-opacity-70: rgba(121, 121, 121, 0.7);
+    --grey-dimmed: rgba(90, 90, 90, 1);
     --grey-dark: rgba(60, 60, 60, 1);
 
     /* blue */

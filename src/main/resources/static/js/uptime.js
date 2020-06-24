@@ -1,5 +1,5 @@
 /**
- * Determines uptime label elements
+ * Initializes uptime objects
  */
 function uptimeInitialization()
 {
@@ -34,7 +34,7 @@ function uptimeTick()
 }
 
 /**
- * Increments uptime label
+ * Increments uptime label properly
  *
  * @param {*} domObject uptime label
  */
