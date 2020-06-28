@@ -8,7 +8,6 @@ import org.bsoftware.ward.dto.Dto;
  * @author Rudolf Barbu
  * @version 1.0.0
  */
-@FunctionalInterface
 public interface Service
 {
     /**
@@ -16,5 +15,13 @@ public interface Service
      *
      * @return Dto object
      */
-    <T extends Dto> T get() throws Exception;
+    default <T extends Dto> T get() throws Exception
+    {
+        return null;
+    }
+
+    /**
+     * Get info from user and managing it
+     */
+    default <T extends Dto> void post(T dto) throws Exception {}
 }
