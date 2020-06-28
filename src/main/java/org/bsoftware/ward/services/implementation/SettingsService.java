@@ -1,7 +1,7 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.utilities.DtoUtility;
+import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
 import org.bsoftware.ward.repositories.SettingsRepository;
@@ -24,10 +24,10 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     private SettingsRepository settingsRepository;
 
     /**
-     * Autowired DtoUtility object
+     * Autowired Utilities object
      * Used for filling dto fields
      */
-    private DtoUtility dtoUtility;
+    private Utilities utilities;
 
     /**
      * Fills data in database
@@ -38,9 +38,8 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     @Override
     public <T extends Dto> void post(T dto)
     {
-        settingsRepository.save(dtoUtility.convertSettingsDtoStringToSettingsEntity("port", ((SettingsDto) dto).getPort()));
-        settingsRepository.save(dtoUtility.convertSettingsDtoStringToSettingsEntity("theme", ((SettingsDto) dto).getTheme()));
-
+        settingsRepository.save(utilities.convertSettingsDtoStringToSettingsEntity("port", ((SettingsDto) dto).getPort()));
+        settingsRepository.save(utilities.convertSettingsDtoStringToSettingsEntity("theme", ((SettingsDto) dto).getTheme()));
         Ward.restart();
     }
 
@@ -48,12 +47,12 @@ public class SettingsService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param settingsRepository autowired SettingsRepository object
-     * @param dtoUtility autowired DtoUtility object
+     * @param utilities autowired Utilities object
      */
     @Autowired
-    public SettingsService(SettingsRepository settingsRepository, DtoUtility dtoUtility)
+    public SettingsService(SettingsRepository settingsRepository, Utilities utilities)
     {
         this.settingsRepository = settingsRepository;
-        this.dtoUtility = dtoUtility;
+        this.utilities = utilities;
     }
 }

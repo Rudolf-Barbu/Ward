@@ -589,16 +589,6 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
-.theme-label
-{
-    position: relative;
-    bottom: 20px;
-    font-size: var(--font-size-12pt);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-theme-label);
-    cursor: pointer;
-}
-
 .error
 {
     margin-top: calc((100vh / 2) - (var(--height-error) / 2));
@@ -682,6 +672,11 @@ body
 .error-404
 {
     left: var(--left-error-404);
+}
+
+.error-405
+{
+    left: var(--left-error-405);
 }
 
 .error-500

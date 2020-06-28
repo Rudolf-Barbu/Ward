@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "">
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" th:attr = "theme = ${theme}">
     <head>
         <title>Ward</title>
         <meta charset = "utf-8">
@@ -235,7 +235,6 @@
                         </div>
                         <script type = "text/javascript" th:inline = "javascript"> chartInitialization(); </script>
                     </div>
-                    <div class = "theme-label text-center" onclick = "changeTheme();">CHANGE THEME</div>
                 </div>
             </div>
         </div>

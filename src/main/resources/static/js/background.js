@@ -4,14 +4,7 @@
 function backgroundInitialization()
 {
     background = VANTA.FOG({el: "#background", blurFactor: 0.40, zoom: 1.50});
-    changeBackgroundTheme();
-}
 
-/**
- * Changes dynamic background theme
- */
-function changeBackgroundTheme()
-{
     if (html.getAttribute("theme") == "light")
     {
         background.setOptions

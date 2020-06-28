@@ -214,23 +214,3 @@ function hideDataset(element)
 
     chart.update();
 }
-
-/**
- * Chooses the dataset theme according to the theme of project
- *
- * @param {*} chart link to chart object
- */
-function changeChartTheme()
-{
-    let datasets = chart.data.datasets;
-    let dataTheme = (html.getAttribute("theme") == "light") ? dataLight : dataDark;
-
-    for (let i = 0; i < datasets.length; i++)
-    {
-        let dataset = datasets[i].data;
-        dataTheme.data.datasets[i].data = dataset;
-    }
-
-    chart.destroy();
-    chart = new Chart(ctx, Object.assign((html.getAttribute("theme") == "light") ? dataLight : dataDark, options));
-}

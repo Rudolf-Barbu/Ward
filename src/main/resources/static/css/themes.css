@@ -30,7 +30,6 @@ html[theme = "light"]
     --color-values-grid-div: var(--grey);
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--black);
-    --color-theme-label: var(--grey);
     --color-error-code: var(--black);
     --color-error-title: var(--black);
     --color-error-description-div: var(--grey);
@@ -88,7 +87,6 @@ html[theme = "dark"]
     --color-values-grid-div: var(--white);
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--white);
-    --color-theme-label: var(--white);
     --color-error-code: var(--white);
     --color-error-title: var(--white);
     --color-error-description-div: var(--grey);
