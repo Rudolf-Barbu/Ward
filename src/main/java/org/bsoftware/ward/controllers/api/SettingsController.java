@@ -34,15 +34,6 @@ public class SettingsController
     private RestResponseEntityWrapper restResponseEntityWrapper;
 
     /**
-     * Get request to display internal server error and prevent incorrect index page display
-     */
-    @GetMapping
-    public void getSettings() throws Exception
-    {
-        throw new RequestMethodNotAllowedException();
-    }
-
-    /**
      * Posting settings into database
      *
      * @param settingsDto dto with data

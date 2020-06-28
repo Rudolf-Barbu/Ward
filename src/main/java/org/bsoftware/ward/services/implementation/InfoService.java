@@ -1,7 +1,7 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.dto.implementation.*;
-import org.bsoftware.ward.components.utilities.ConverterUtility;
+import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +26,10 @@ public class InfoService implements org.bsoftware.ward.services.Service
     private SystemInfo systemInfo;
 
     /**
-     * Autowired ConverterUtility object
+     * Autowired utilities object
      * Used for improve values readability
      */
-    private ConverterUtility converterUtility;
+    private Utilities utilities;
 
     /**
      * Gets processor information
@@ -51,7 +51,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
-        processorDto.setMaxClockSpeed(converterUtility.getConvertedFrequency(centralProcessor.getMaxFreq()));
+        processorDto.setMaxClockSpeed(utilities.getConvertedFrequency(centralProcessor.getMaxFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit Arch");
@@ -74,7 +74,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         machineDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
-        machineDto.setTotalRam(converterUtility.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+        machineDto.setTotalRam(utilities.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
         List<PhysicalMemory> physicalMemory = globalMemory.getPhysicalMemory();
         if (physicalMemory.isEmpty())
@@ -109,12 +109,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
         storageDto.setStorageName(storageName.trim());
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(converterUtility.getConvertedCapacity(totalStorage) + " Total");
+        storageDto.setTotalStorage(utilities.getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
         storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
-        storageDto.setSwapAmount(converterUtility.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
+        storageDto.setSwapAmount(utilities.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
         return storageDto;
     }
@@ -162,12 +162,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
-     * @param converterUtility autowired ConverterUtility object
+     * @param utilities autowired Utilities object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo, ConverterUtility converterUtility)
+    public InfoService(SystemInfo systemInfo, Utilities utilities)
     {
         this.systemInfo = systemInfo;
-        this.converterUtility = converterUtility;
+        this.utilities = utilities;
     }
 }
