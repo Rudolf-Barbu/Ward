@@ -1,6 +1,5 @@
 package org.bsoftware.ward.components.utilities;
 
-import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.entities.SettingsEntity;
 import org.springframework.stereotype.Component;
 
@@ -18,10 +17,9 @@ public class DtoUtility
      *
      * @param key String name of setting
      * @param value String Value of setting
-     * @param <T> determines, that only Dto object can pass
      * @return SettingsEntity object
      */
-    public <T extends Dto> SettingsEntity convertSettingsDtoStringToSettingsEntity(String key, String value)
+    public SettingsEntity convertSettingsDtoStringToSettingsEntity(String key, String value)
     {
         SettingsEntity settingsEntity = new SettingsEntity();
 
