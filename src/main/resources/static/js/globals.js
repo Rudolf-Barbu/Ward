@@ -4,6 +4,16 @@
 let html;
 
 /**
+ * Used for holding button element
+ */
+let lightTheme
+
+/**
+ * Used for holding button element
+ */
+let darkTheme
+
+/**
  * Used for sending ajax requests
  */
 let xhr;
@@ -22,6 +32,21 @@ let ramLabelsArray;
  * Used to hold values ones of processor usage
  */
 let storageLabelsArray;
+
+/**
+ * Used to hold dataset element
+ */
+let processorRectangle
+
+/**
+ * Used to hold dataset element
+ */
+let ramRectangle
+
+/**
+ * Used to hold dataset element
+ */
+let storageRectangle
 
 /**
  * Used to manipulate processor triangle div

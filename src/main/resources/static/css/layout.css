@@ -36,6 +36,7 @@ body
     background: white;
     border-radius: var(--border-radius-welcome-div);
     overflow: hidden;
+    box-shadow: var(--box-shadow-welcome-div) var(--black-opacity-10);
 }
 
 .welcome-about

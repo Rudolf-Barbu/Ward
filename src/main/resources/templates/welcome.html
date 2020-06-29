@@ -4,7 +4,6 @@
         <title>Welcome</title>
         <meta charset = "utf-8">
         <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
-        <link rel = "stylesheet" th:href = "@{/css/animations.css}">
         <link rel = "stylesheet" th:href = "@{/css/colors.css}">
         <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
         <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
@@ -16,10 +15,10 @@
         <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/theme.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
     </head>
     <body id = "background">
-        <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container welcome">
             <div class = "welcome-div" >
                 <div class = "welcome-about">
@@ -60,5 +59,6 @@
                 </div>
             </div>
         </div>
+        <script type = "text/javascript" th:inline = "javascript"> themeInitialization(); </script>
     </body>
 </html>
