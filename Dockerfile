@@ -5,7 +5,7 @@ FROM adoptopenjdk/openjdk8
 ARG USER=user
 
 # Update apt repo and install sudo package
-RUN apt-get update \ && apt-get install -y sudo
+RUN apt-get update && apt-get install -y sudo
 
 # Add the user with no password
 RUN adduser --disabled-password --gecos '' $USER
