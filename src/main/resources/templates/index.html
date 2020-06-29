@@ -19,11 +19,9 @@
         <script type = "text/javascript" th:src = "@{/js/chart.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/labels.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/theme.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
-        <script type = "text/javascript" th:inline = "javascript"> themeInitialization(); </script>
     </head>
     <body id = "background">
         <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
@@ -54,7 +52,7 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <p class = "info-label">PROCESSOR USAGE</p>
-                                <div class = "underline first"></div>
+                                <div class = "usage-underline first"></div>
                             </div>
                         </div>
                         <div class = "footer first">
@@ -106,7 +104,7 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <p class = "info-label">RAM USAGE</p>
-                                <div class = "underline second"></div>
+                                <div class = "usage-underline second"></div>
                             </div>
                         </div>
                         <div class = "footer second">
@@ -158,7 +156,7 @@
                                     <div class = "usage-postfix">%</div>
                                 </div>
                                 <div class = "info-label">STORAGE USAGE</div>
-                                <div class = "underline third"></div>
+                                <div class = "usage-underline third"></div>
                             </div>
                         </div>
                         <div class = "footer third">
@@ -188,10 +186,10 @@
                 <script type = "text/javascript" th:inline = "javascript"> labelsInitialization(); </script>
                 <div class = "col-6 col-lg-6 col-xl-4">
                     <div class = "card">
-                        <div class = "about">
-                            <div class = "dashboard-logo">WARD</div>
-                            <div class = "dashboard-logo-description">SERVER DASHBOARD</div>
-                            <img class = "dashboard-logo-background" th:src = @{/img/logo/background.jpg} />
+                        <div class = "uptime-about">
+                            <div class = "uptime-dashboard-logo">WARD</div>
+                            <div class = "uptime-dashboard-logo-description">SERVER DASHBOARD</div>
+                            <img class = "uptime-dashboard-logo-background" th:src = @{/img/logo/background.jpg} />
                         </div>
                         <div class = "uptime">
                             <div class = "uptime-squares-grid">

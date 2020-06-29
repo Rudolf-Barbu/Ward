@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light">
+    <head>
+        <title>Welcome</title>
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
+        <link rel = "stylesheet" th:href = "@{/css/animations.css}">
+        <link rel = "stylesheet" th:href = "@{/css/colors.css}">
+        <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
+        <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
+        <link rel = "stylesheet" th:href = "@{/css/gradients.css}">
+        <link rel = "stylesheet" th:href = "@{/css/layout.css}">
+        <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
+        <link rel = "stylesheet" th:href = "@{/css/themes.css}">
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
+    </head>
+    <body id = "background">
+        <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
+        <div class = "container welcome">
+            <div class = "welcome-div" >
+                <div class = "welcome-about">
+                    <div class = "welcome-dashboard-logo">WARD</div>
+                    <div class = "welcome-dashboard-logo-description">SERVER DASHBOARD</div>
+                    <img class = "welcome-dashboard-logo-background" th:src = @{/img/logo/background.jpg} />
+                </div>
+                <div class = "form">
+                    <div class = "form-squares-grid">
+                        <div class = "first"></div>
+                        <div class = "second"></div>
+                        <div class = "third"></div>
+                    </div>
+                    <div>
+                        <div class = "label-main-settings">MAIN SETTINGS</div>
+                        <div class = "form-field">
+                            <input id = "database-address" type = "text" placeholder = "Database Address" />
+                            <div class = "form-field-underline first"></div>
+                        </div>
+                        <div class = "form-field">
+                            <input id = "username" type = "text" placeholder = "Username" />
+                            <div class = "form-field-underline second"></div>
+                        </div>
+                        <div class = "form-field">
+                            <input id = "password" type = "text" placeholder = "Password" />
+                            <div class = "form-field-underline third"></div>
+                        </div>
+                    </div>
+                    <div class = "additional-settings">
+                        <div class = "label-additional-settings">ADDITIONAL SETTINGS</div>
+                        <input id = "light-theme" class = "theme-button first" type = "button" value = "LIGHT THEME" />
+                        <input id = "dark-theme" class = "theme-button second" type = "button" value = "DARK THEME" />
+                        <div class = "port-text-field">
+                            <input id = "port" type = "text" placeholder = "Application Port" />
+                        </div>
+                    </div>
+                    <input class = "submit-button" type = "button" value = "LAUNCH" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

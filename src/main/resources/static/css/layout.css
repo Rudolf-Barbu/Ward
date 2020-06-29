@@ -19,6 +19,259 @@ body
     background: var(--background-body);
 }
 
+.welcome
+{
+    margin-top: calc((100vh / 2) - (var(--height-welcome) / 2));
+    max-width: var(--max-width-welcome);
+    min-width: var(--min-width-welcome);
+}
+
+.welcome-div
+{
+    display: block;
+    position: relative;
+    margin: auto;
+    height: var(--height-welcome-div);
+    width: var(--width-welcome-div);
+    background: white;
+    border-radius: var(--border-radius-welcome-div);
+    overflow: hidden;
+}
+
+.welcome-about
+{
+    position: absolute;
+}
+
+.welcome-dashboard-logo
+{
+    position: absolute;
+    top: var(--top-welcome-dashboard-logo);
+    z-index: 1;
+    width: var(--width-welcome-dashboard-logo);
+    text-align: center;
+    letter-spacing: var(--letter-spacing-10px);
+    font-size: var(--font-size-42pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-welcome-dashboard-logo);
+}
+
+.welcome-dashboard-logo-description
+{
+    position: absolute;
+    top: var(--top-welcome-dashboard-logo-description);
+    z-index: 1;
+    width: var(--width-welcome-dashboard-logo-description);
+    text-align: center;
+    letter-spacing: var(--letter-spacing-2px);
+    font-size: var(--font-size-9pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-welcome-dashboard-logo-description);
+}
+
+.welcome-dashboard-logo-background
+{
+    position: absolute;
+    top: 0;
+    height: var(--height-welcome-dashboard-logo-background);
+    width: var(--width-welcome-dashboard-logo-background);
+}
+
+.form
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: var(--height-form);
+    width: var(--width-form);
+    background: var(--background-form);
+}
+
+.form-squares-grid
+{
+    position: relative;
+    bottom: var(--bottom-form-squares-grid);
+    left: var(--left-form-squares-grid);
+}
+
+.form-squares-grid > div
+{
+    display: inline-block;
+    margin-right: var(--margin-right-form-squares-grid-div);
+    height: var(--height-form-squares-grid-div);
+    width: var(--width-form-squares-grid-div);
+    box-shadow: var(--box-shadow-form-squares-grid-div) var(--black-opacity-10);
+}
+
+.form-squares-grid > .first
+{
+    background: var(--background-form-squares-grid-first);
+}
+
+.form-squares-grid > .second
+{
+    background: var(--background-form-squares-grid-second);
+}
+
+.form-squares-grid > .third
+{
+    background: var(--background-form-squares-grid-third);
+}
+
+.label-main-settings
+{
+    position: relative;
+    margin-bottom: var(--margin-bottom-label-main-settings);
+    text-align: center;
+    letter-spacing: var(--letter-spacing-2px);
+    font-size: var(--font-size-9pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-label-main-settings);
+}
+
+.form-field
+{
+   position: relative;
+   left: var(--left-form-field);
+   margin-bottom: var(--margin-bottom-form-field);
+   height: var(--height-form-field);
+   width: var(--width-form-field);
+   background: var(--background-form-field);
+}
+
+.form-field > div
+{
+   position: relative;
+   top: var(--top-form-field-div);
+   height: var(--height-form-field-div);
+   width: var(--width-form-field-div);
+   box-shadow: var(--box-shadow-form-field-div) var(--black-opacity-10);
+}
+
+.form-field > input
+{
+    position: relative;
+    top: var(--top-form-field-input);
+    width: var(--width-form-field-input);
+    text-align: center;
+    font-size: var(--font-size-14pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-form-field-input);
+    background: var(--background-form-field-input);
+    border: 0;
+    outline: none;
+}
+
+.form-field > input::placeholder
+{
+    color: var(--color-form-field-input-placeholder);
+}
+
+.form-field-underline.first
+{
+    background: var(--background-form-field-underline-first);
+}
+
+.form-field-underline.second
+{
+    background: var(--background-form-field-underline-second);
+}
+
+.form-field-underline.third
+{
+    background: var(--background-form-field-underline-third);
+}
+
+.label-additional-settings
+{
+    position: relative;
+    top: var(--top-label-additional-settings);
+    text-align: center;
+    letter-spacing: var(--letter-spacing-2px);
+    font-size: var(--font-size-9pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-label-additional-settings);
+}
+
+.additional-settings > input
+{
+    position: relative;
+    top: var(--top-additional-settings-input);
+    height: var(--height-additional-settings-input);
+    width: var(--width-additional-settings-input);
+}
+
+.theme-button
+{
+    letter-spacing: var(--letter-spacing-2px);
+    font-size: var(--font-size-14pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-theme-button);
+    border: 0;
+    outline: none;
+    box-shadow: var(--box-shadow-theme-button) var(--black-opacity-10);
+}
+
+.theme-button.first
+{
+    left: var(--left-theme-button-first);
+    margin-right: var(--margin-right-theme-button-first);
+    background: var(--background-theme-button-first);
+}
+
+.theme-button.second
+{
+    background: var(--background-theme-button-second);
+}
+
+.port-text-field
+{
+    position: relative;
+    top: var(--top-port-text-field);
+    left: var(--left-port-text-field);
+    height: var(--height-port-text-field);
+    width: var(--width-port-text-field);
+    overflow: hidden;
+    border-radius: var(--border-radius-port-text-field);
+    outline: none;
+}
+
+.port-text-field > input
+{
+    height: var(--height-port-text-field-input);
+    width: var(--width-port-text-field-input);
+    text-align: center;
+    font-size: var(--font-size-14pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-form-field-input);
+    background: var(--background-port-text-field-input);
+    border: 0;
+    outline: none;
+}
+
+.port-text-field > input::placeholder
+{
+    color: var(--color-port-text-field-input-placeholder);
+}
+
+.submit-button
+{
+    position: absolute;
+    bottom: var(--bottom-submit-button);
+    left: var(--left-submit-button);
+    height: var(--height-submit-button);
+    width: var(--width-submit-button);
+    letter-spacing: var(--letter-spacing-2px);
+    font-size: var(--font-size-14pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-submit-button);
+    background: var(--background-submit-button);
+    border: 0;
+    border-radius: 0.625rem;
+    outline: none;
+    box-shadow: var(--box-shadow-submit-button) var(--black-opacity-10);
+}
+
 .index
 {
     margin-top: calc((100vh / 2) - (var(--height-index-xl) / 2));
@@ -211,28 +464,28 @@ body
     background: transparent;
 }
 
-.underline
+.usage-underline
 {
     position: absolute;
     right: 0;
     bottom: 0;
-    height: var(--height-underline);
-    width: var(--width-underline);
+    height: var(--height-usage-underline);
+    width: var(--width-usage-underline);
 }
 
-.underline.first
+.usage-underline.first
 {
-    background: var(--background-underline-first);
+    background: var(--background-usage-underline-first);
 }
 
-.underline.second
+.usage-underline.second
 {
-    background: var(--background-underline-second);
+    background: var(--background-usage-underline-second);
 }
 
-.underline.third
+.usage-underline.third
 {
-    background: var(--background-underline-third);
+    background: var(--background-usage-underline-third);
 }
 
 .footer
@@ -372,43 +625,43 @@ body
     left: var(--left-second-divider);
 }
 
-.about
+.uptime-about
 {
     position: absolute;
 }
 
-.dashboard-logo
+.uptime-dashboard-logo
 {
     position: absolute;
-    top: var(--top-dashboard-logo);
+    top: var(--top-uptime-dashboard-logo);
     z-index: 1;
-    width: var(--width-dashboard-logo);
+    width: var(--width-uptime-dashboard-logo);
     text-align: center;
     letter-spacing: var(--letter-spacing-10px);
     font-size: var(--font-size-42pt);
     font-weight: var(--font-weight-regular);
-    color: var(--color-dashboard-logo);
+    color: var(--color-uptime-dashboard-logo);
 }
 
-.dashboard-logo-description
+.uptime-dashboard-logo-description
 {
     position: absolute;
-    top: var(--top-dashboard-logo-description);
+    top: var(--top-uptime-dashboard-logo-description);
     z-index: 1;
-    width: var(--width-dashboard-logo-description);
+    width: var(--width-uptime-dashboard-logo-description);
     text-align: center;
     letter-spacing: var(--letter-spacing-2px);
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
-    color: var(--color-dashboard-logo-description);
+    color: var(--color-uptime-dashboard-logo-description);
 }
 
-.dashboard-logo-background
+.uptime-dashboard-logo-background
 {
     position: absolute;
     top: 0;
-    height: var(--height-dashboard-logo-background);
-    width: var(--width-dashboard-logo-background);
+    height: var(--height-uptime-dashboard-logo-background);
+    width: var(--width-uptime-dashboard-logo-background);
 }
 
 .uptime
@@ -592,8 +845,8 @@ body
 .error
 {
     margin-top: calc((100vh / 2) - (var(--height-error) / 2));
-    max-width: var(--min-width-error-xl);
-    min-width: var(--min-width-error-xl);
+    max-width: var(--min-width-error);
+    min-width: var(--min-width-error);
 }
 
 .error-gif
