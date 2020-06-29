@@ -1,5 +1,6 @@
 package org.bsoftware.ward.controllers;
 
+import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +40,13 @@ public class IndexController
     @GetMapping
     public String getIndex(Model model) throws Exception
     {
+        if (Ward.isFirstLaunch())
+        {
+            return "welcome";
+        }
+
         model.addAttribute("infoDto", infoService.get());
         model.addAttribute("theme", utilities.getApplicationTheme());
-
         return "index";
     }
 

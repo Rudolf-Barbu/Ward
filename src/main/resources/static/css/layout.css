@@ -210,6 +210,12 @@ body
     border: 0;
     outline: none;
     box-shadow: var(--box-shadow-theme-button) var(--black-opacity-10);
+    transition: var(--transition-theme-button);
+}
+
+.theme-button:active
+{
+    transform: var(--transform-theme-button-div-active);
 }
 
 .theme-button.first
@@ -270,6 +276,12 @@ body
     border-radius: 0.625rem;
     outline: none;
     box-shadow: var(--box-shadow-submit-button) var(--black-opacity-10);
+    transition: var(--transition-submit-button);
+}
+
+.submit-button:active
+{
+    transform: var(--transform-submit-button);
 }
 
 .index

@@ -2,7 +2,6 @@ package org.bsoftware.ward.controllers.api;
 
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
-import org.bsoftware.ward.exceptions.RequestMethodNotAllowedException;
 import org.bsoftware.ward.services.implementation.SettingsService;
 import org.bsoftware.ward.validators.RequestDtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
