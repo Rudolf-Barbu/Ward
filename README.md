@@ -7,8 +7,8 @@
 
 ### About
 
-Ward is a simple and and minimalistic server monitoring tool. 
-It shows only principal information and can be used, if you want to see nice looking dashboard instead bunch of numbers and graphs.
+Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme.
+It shows only principal information and can be used, if you want to see nice looking dashboard instead looking on bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
 **All features tested on:** `Windows` `Linux`
@@ -21,8 +21,6 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Features
-
-Ward supports adaptive design system. Also it supports dark theme. Next you will se all Ward features, arranged in tables.
 
 <table>
     <tr>
@@ -115,9 +113,8 @@ Ward supports adaptive design system. Also it supports dark theme. Next you will
 
     1. Clone the project
     2. Import project in your IDE as Maven project
-    3. In application properties file choose port
-    4. mvn clean package
-    5. jar will be in the target folder
+    3. mvn clean package
+    4. jar will be in the target folder
 
 <br>
 
@@ -125,8 +122,7 @@ Ward supports adaptive design system. Also it supports dark theme. Next you will
 
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
-    
-    NOTE: By default Ward uses port:80
+    3. Enter "your patht":4000 and set up application
 
 <br>
 
