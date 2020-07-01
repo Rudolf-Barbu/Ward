@@ -4,6 +4,7 @@ import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
+import org.bsoftware.ward.entities.SettingsEntity;
 import org.bsoftware.ward.repositories.SettingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,21 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     private SettingsRepository settingsRepository;
 
     /**
-     * Autowired Utilities object
-     * Used for filling dto fields
+     * Converts dto value to entity object
+     *
+     * @param key String name of setting
+     * @param value String Value of setting
+     * @return SettingsEntity object
      */
-    private Utilities utilities;
+    public SettingsEntity convertSettingsDtoStringToSettingsEntity(String key, String value)
+    {
+        SettingsEntity settingsEntity = new SettingsEntity();
+
+        settingsEntity.setName(key);
+        settingsEntity.setValue(value);
+
+        return settingsEntity;
+    }
 
     /**
      * Fills data in database
@@ -38,8 +50,8 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     @Override
     public <T extends Dto> void post(T dto)
     {
-        settingsRepository.save(utilities.convertSettingsDtoStringToSettingsEntity("port", ((SettingsDto) dto).getPort()));
-        settingsRepository.save(utilities.convertSettingsDtoStringToSettingsEntity("theme", ((SettingsDto) dto).getTheme()));
+        settingsRepository.save(convertSettingsDtoStringToSettingsEntity("theme", ((SettingsDto) dto).getTheme()));
+        settingsRepository.save(convertSettingsDtoStringToSettingsEntity("port", ((SettingsDto) dto).getPort()));
         Ward.restart();
     }
 
@@ -53,6 +65,5 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     public SettingsService(SettingsRepository settingsRepository, Utilities utilities)
     {
         this.settingsRepository = settingsRepository;
-        this.utilities = utilities;
     }
 }

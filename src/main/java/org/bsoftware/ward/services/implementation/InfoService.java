@@ -1,7 +1,6 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.dto.implementation.*;
-import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,12 +25,6 @@ public class InfoService implements org.bsoftware.ward.services.Service
     private SystemInfo systemInfo;
 
     /**
-     * Autowired utilities object
-     * Used for improve values readability
-     */
-    private Utilities utilities;
-
-    /**
      * Gets processor information
      *
      * @return ProcessorDto with filled fields
@@ -51,7 +44,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
-        processorDto.setMaxClockSpeed(utilities.getConvertedFrequency(centralProcessor.getMaxFreq()));
+        processorDto.setMaxClockSpeed(getConvertedFrequency(centralProcessor.getMaxFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit Arch");
@@ -74,7 +67,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         machineDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
-        machineDto.setTotalRam(utilities.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
         List<PhysicalMemory> physicalMemory = globalMemory.getPhysicalMemory();
         if (physicalMemory.isEmpty())
@@ -109,12 +102,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
         storageDto.setStorageName(storageName.trim());
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(utilities.getConvertedCapacity(totalStorage) + " Total");
+        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
         storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
-        storageDto.setSwapAmount(utilities.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
+        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
         return storageDto;
     }
@@ -140,6 +133,49 @@ public class InfoService implements org.bsoftware.ward.services.Service
     }
 
     /**
+     * Converts frequency to most readable format
+     *
+     * @param hertz raw frequency value in hertz
+     * @return String with formatted frequency and postfix
+     */
+    public String getConvertedFrequency(long hertz)
+    {
+        if ((hertz / 1E+6) > 999)
+        {
+            return (Math.round((hertz / 1E+9) * 10.0) / 10.0) + " GHz";
+        }
+        else
+        {
+            return Math.round(hertz / 1E+6) + " MHz";
+        }
+    }
+
+    /**
+     * Converts capacity to most readable format
+     *
+     * @param bits raw capacity value in bits
+     * @return String with formatted capacity and postfix
+     */
+    public String getConvertedCapacity(long bits)
+    {
+        if ((bits / 1.049E+6) > 999)
+        {
+            if ((bits / 1.074E+9) > 999)
+            {
+                return (Math.round((bits / 1.1E+12) * 10.0) / 10.0) + " TiB";
+            }
+            else
+            {
+                return Math.round(bits / 1.074E+9) + " GiB";
+            }
+        }
+        else
+        {
+            return Math.round(bits / 1.049E+6) + " MiB";
+        }
+    }
+
+    /**
      * Used to deliver dto to corresponding controller
      *
      * @return InfoDto filled with server info
@@ -162,12 +198,10 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
-     * @param utilities autowired Utilities object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo, Utilities utilities)
+    public InfoService(SystemInfo systemInfo)
     {
         this.systemInfo = systemInfo;
-        this.utilities = utilities;
     }
 }

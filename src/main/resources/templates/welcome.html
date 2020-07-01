@@ -2,20 +2,19 @@
 <html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light">
     <head>
         <title>Welcome</title>
-        <meta charset = "utf-8">
-        <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" >
-        <link rel = "stylesheet" th:href = "@{/css/colors.css}">
-        <link rel = "stylesheet" th:href = "@{/css/dimensions.css}">
-        <link rel = "stylesheet" th:href = "@{/css/fonts.css}">
-        <link rel = "stylesheet" th:href = "@{/css/gradients.css}">
-        <link rel = "stylesheet" th:href = "@{/css/layout.css}">
-        <link rel = "stylesheet" th:href = "@{/css/shadows.css}">
-        <link rel = "stylesheet" th:href = "@{/css/themes.css}">
-        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+        <meta charset = "utf-8" />
+        <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/assets/dhtmlx.min.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/colors.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/dimensions.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/fonts.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/gradients.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/layout.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/shadows.css}" />
+        <link rel = "stylesheet" th:href = "@{/css/themes.css}" />
+        <script type = "text/javascript" th:src = "@{/js/assets/dhtmlx.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/theme.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/settings.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
     </head>
     <body id = "background">
@@ -35,7 +34,7 @@
                     <div>
                         <div class = "label-main-settings">MAIN SETTINGS</div>
                         <div class = "form-field">
-                            <input id = "database-address" type = "text" placeholder = "Database Address" />
+                            <input id = "database-link" type = "text" placeholder = "Database Address" />
                             <div class = "form-field-underline first"></div>
                         </div>
                         <div class = "form-field">
@@ -52,13 +51,13 @@
                         <input id = "light-theme" class = "theme-button first" type = "button" value = "LIGHT THEME" />
                         <input id = "dark-theme" class = "theme-button second" type = "button" value = "DARK THEME" />
                         <div class = "port-text-field">
-                            <input id = "port" type = "text" placeholder = "Application Port" />
+                            <input id = "port" type = "number" placeholder = "Application Port" />
                         </div>
                     </div>
-                    <input class = "submit-button" type = "button" value = "LAUNCH" />
+                    <input id = "submit" class = "submit-button" type = "button" value = "LAUNCH" />
                 </div>
             </div>
         </div>
-        <script type = "text/javascript" th:inline = "javascript"> themeInitialization(); </script>
+        <script type = "text/javascript" th:inline = "javascript"> settingsInitialization(); </script>
     </body>
 </html>

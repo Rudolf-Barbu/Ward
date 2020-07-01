@@ -6,12 +6,38 @@ let html;
 /**
  * Used for holding button element
  */
-let lightTheme
+let lightTheme;
 
 /**
  * Used for holding button element
  */
-let darkTheme
+let darkTheme;
+
+/**
+ * Used to set up database address and name port
+ */
+
+let databaseLink;
+/**
+ * Used to set up database username port
+ */
+
+let username;
+
+/**
+ * Used to set up database password port
+ */
+let password;
+
+/**
+ * Used to set up application port
+ */
+let port;
+
+/**
+ * Used to send settings to database
+ */
+let submit;
 
 /**
  * Used for sending ajax requests
@@ -36,17 +62,17 @@ let storageLabelsArray;
 /**
  * Used to hold dataset element
  */
-let processorRectangle
+let processorRectangle;
 
 /**
  * Used to hold dataset element
  */
-let ramRectangle
+let ramRectangle;
 
 /**
  * Used to hold dataset element
  */
-let storageRectangle
+let storageRectangle;
 
 /**
  * Used to manipulate processor triangle div
@@ -114,4 +140,5 @@ let seconds;
 function globalsInitialization()
 {
     html = document.getElementById("html");
+    xhr = new XMLHttpRequest();
 }
