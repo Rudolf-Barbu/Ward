@@ -33,4 +33,9 @@ public class InfoDto implements Dto
      *  Uptime info dto field
      */
     private UptimeDto uptimeDto;
+
+    /**
+     *  Settings info dto field
+     */
+    private SettingsDto settingsDto;
 }

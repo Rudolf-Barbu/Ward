@@ -1,5 +1,7 @@
 package org.bsoftware.ward.services.implementation;
 
+import org.bsoftware.ward.Ward;
+import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.implementation.*;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,9 @@ import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.OperatingSystem;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -23,6 +28,55 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for getting machine information
      */
     private SystemInfo systemInfo;
+
+    /**
+     * Autowired Utilities object
+     * Used for various utility functions
+     */
+    private Utilities utilities;
+
+    /**
+     * Converts frequency to most readable format
+     *
+     * @param hertz raw frequency value in hertz
+     * @return String with formatted frequency and postfix
+     */
+    private String getConvertedFrequency(long hertz)
+    {
+        if ((hertz / 1E+6) > 999)
+        {
+            return (Math.round((hertz / 1E+9) * 10.0) / 10.0) + " GHz";
+        }
+        else
+        {
+            return Math.round(hertz / 1E+6) + " MHz";
+        }
+    }
+
+    /**
+     * Converts capacity to most readable format
+     *
+     * @param bits raw capacity value in bits
+     * @return String with formatted capacity and postfix
+     */
+    private String getConvertedCapacity(long bits)
+    {
+        if ((bits / 1.049E+6) > 999)
+        {
+            if ((bits / 1.074E+9) > 999)
+            {
+                return (Math.round((bits / 1.1E+12) * 10.0) / 10.0) + " TiB";
+            }
+            else
+            {
+                return Math.round(bits / 1.074E+9) + " GiB";
+            }
+        }
+        else
+        {
+            return Math.round(bits / 1.049E+6) + " MiB";
+        }
+    }
 
     /**
      * Gets processor information
@@ -132,47 +186,14 @@ public class InfoService implements org.bsoftware.ward.services.Service
         return uptimeDto;
     }
 
-    /**
-     * Converts frequency to most readable format
-     *
-     * @param hertz raw frequency value in hertz
-     * @return String with formatted frequency and postfix
-     */
-    public String getConvertedFrequency(long hertz)
+    private SettingsDto getSettingsDto() throws IOException
     {
-        if ((hertz / 1E+6) > 999)
-        {
-            return (Math.round((hertz / 1E+9) * 10.0) / 10.0) + " GHz";
-        }
-        else
-        {
-            return Math.round(hertz / 1E+6) + " MHz";
-        }
-    }
+        SettingsDto settingsDto = new SettingsDto();
+        File file = new File(Ward.SETTINGS_FILE_PATH);
 
-    /**
-     * Converts capacity to most readable format
-     *
-     * @param bits raw capacity value in bits
-     * @return String with formatted capacity and postfix
-     */
-    public String getConvertedCapacity(long bits)
-    {
-        if ((bits / 1.049E+6) > 999)
-        {
-            if ((bits / 1.074E+9) > 999)
-            {
-                return (Math.round((bits / 1.1E+12) * 10.0) / 10.0) + " TiB";
-            }
-            else
-            {
-                return Math.round(bits / 1.074E+9) + " GiB";
-            }
-        }
-        else
-        {
-            return Math.round(bits / 1.049E+6) + " MiB";
-        }
+        settingsDto.setServerName(utilities.getFromIniFile(file, "settings", "serverName"));
+
+        return settingsDto;
     }
 
     /**
@@ -190,6 +211,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setMachineDto(getMachineDto());
         infoDto.setStorageDto(getStorageDto());
         infoDto.setUptimeDto(getUptimeDto());
+        infoDto.setSettingsDto(getSettingsDto());
 
         return infoDto;
     }
@@ -198,10 +220,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
+     * @param utilities autowired Utilities object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo)
+    public InfoService(SystemInfo systemInfo, Utilities utilities)
     {
         this.systemInfo = systemInfo;
+        this.utilities = utilities;
     }
 }

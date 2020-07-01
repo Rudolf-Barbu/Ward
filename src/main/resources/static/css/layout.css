@@ -854,6 +854,15 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
+.server-name
+{
+    position: relative;
+    bottom: var(--bottom-server-name);
+    font-size: var(--font-size-12pt);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-server-name);
+}
+
 .error
 {
     margin-top: calc((100vh / 2) - (var(--height-error) / 2));
