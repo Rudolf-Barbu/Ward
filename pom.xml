@@ -14,7 +14,7 @@
         <oshiVersion>5.0.1</oshiVersion>
         <jnaVersion>5.5.0</jnaVersion>
         <lombokVersion>1.18.12</lombokVersion>
-        <mysqlVersion>8.0.20</mysqlVersion>
+        <ini4jlVersion>0.5.4</ini4jlVersion>
     </properties>
     <dependencies>
         <dependency>
@@ -24,10 +24,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.oshi</groupId>
@@ -50,9 +46,9 @@
             <version>${lombokVersion}</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysqlVersion}</version>
+            <groupId>org.ini4j</groupId>
+            <artifactId>ini4j</artifactId>
+            <version>${ini4jlVersion}</version>
         </dependency>
     </dependencies>
     <build>

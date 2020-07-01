@@ -1,27 +1,27 @@
 package org.bsoftware.ward.components.containers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.entities.SettingsEntity;
-import org.bsoftware.ward.repositories.SettingsRepository;
+import org.bsoftware.ward.components.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.stereotype.Component;
-import java.util.Optional;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * ServletContainer used for application port changing
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.3
  */
 @Component
 public class ServletContainer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>
 {
     /**
-     * Autowired SettingsRepository object
-     * Settings repository to manipulate data
+     * Autowired Utilities object
+     * Used for various utility functions
      */
-    private SettingsRepository settingsRepository;
+    private Utilities utilities;
 
     /**
      * Customizes port of application
@@ -31,25 +31,33 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
     @Override
     public void customize(TomcatServletWebServerFactory factory)
     {
-        Optional<SettingsEntity> optionalSettingsEntity = settingsRepository.findSettingsEntityByName("port");
-
-        if (!Ward.isFirstLaunch() && optionalSettingsEntity.isPresent() && !optionalSettingsEntity.get().getValue().equals(""))
+        if (!Ward.isFirstLaunch())
         {
-            factory.setPort(Integer.parseInt(optionalSettingsEntity.get().getValue()));
+            try
+            {
+                File file = new File(Ward.SETTINGS_FILE_PATH);
+
+                factory.setPort(Integer.parseInt(utilities.getFromIniFile(file, "settings", "port")));
+            }
+            catch (IOException exception)
+            {
+                exception.printStackTrace();
+            }
         }
         else
         {
-            factory.setPort(4000);
+            factory.setPort(80);
         }
     }
+
     /**
      * Used for autowiring necessary objects
      *
-     * @param settingsRepository autowired SettingsRepository object
+     * @param utilities autowired Utilities object
      */
     @Autowired
-    public ServletContainer(SettingsRepository settingsRepository)
+    public ServletContainer(Utilities utilities)
     {
-        this.settingsRepository = settingsRepository;
+        this.utilities = utilities;
     }
 }

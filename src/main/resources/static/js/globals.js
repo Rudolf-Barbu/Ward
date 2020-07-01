@@ -14,20 +14,9 @@ let lightTheme;
 let darkTheme;
 
 /**
- * Used to set up database address and name port
+ * Used to set up server name
  */
-
-let databaseLink;
-/**
- * Used to set up database username port
- */
-
-let username;
-
-/**
- * Used to set up database password port
- */
-let password;
+let serverName;
 
 /**
  * Used to set up application port

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.io.File;
 
 /**
  * IndexController displays index page of Ward application
@@ -46,7 +47,10 @@ public class IndexController
         }
 
         model.addAttribute("infoDto", infoService.get());
-        model.addAttribute("theme", utilities.getApplicationTheme());
+
+        File file = new File(Ward.SETTINGS_FILE_PATH);
+        model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
+
         return "index";
     }
 

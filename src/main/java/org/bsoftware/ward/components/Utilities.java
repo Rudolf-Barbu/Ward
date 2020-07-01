@@ -1,47 +1,36 @@
 package org.bsoftware.ward.components;
 
-import org.bsoftware.ward.entities.SettingsEntity;
-import org.bsoftware.ward.repositories.SettingsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.ini4j.Ini;
 import org.springframework.stereotype.Component;
-import java.util.Optional;
+import java.io.File;
+import java.io.IOException;
 
+/**
+ * Utilities used various functions, which are used in different classes
+ * @author Rudolf Barbu
+ * @version 1.0.2
+ */
 @Component
 public class Utilities
 {
     /**
-     * Autowired SettingsRepository object
-     * Settings repository to manipulate data
-     */
-    private SettingsRepository settingsRepository;
-
-    /**
-     * Get theme and return it to model
+     * Gets string data from ini file
      *
-     * @return String which contains theme
+     * @param file ini file
+     * @param sectionName section in ini filr
+     * @param optionName option in section
+     * @return String wth parsed data
+     * @throws IOException if file does not exists
      */
-    public String getApplicationTheme()
+    public String getFromIniFile(File file, String sectionName, String optionName) throws IOException
     {
-        Optional<SettingsEntity> optionalSettingsEntity = settingsRepository.findSettingsEntityByName("theme");
-
-        if (optionalSettingsEntity.isPresent() && !optionalSettingsEntity.get().getValue().equals(""))
+        if (file.exists())
         {
-            return optionalSettingsEntity.get().getValue();
-        }
-        else
-        {
-            return "light";
-        }
-    }
+            Ini ini = new Ini(file);
 
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param settingsRepository autowired SettingsRepository object
-     */
-    @Autowired
-    public Utilities(SettingsRepository settingsRepository)
-    {
-        this.settingsRepository = settingsRepository;
+            return ini.get(sectionName, optionName, String.class);
+        }
+
+        return null;
     }
 }

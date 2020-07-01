@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * SettingsController displays responses from rest API
  *
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.1
  */
 @RestController
 @RequestMapping(value = "/api/settings")
@@ -39,9 +39,10 @@ public class SettingsController
      * @return OR response with empty body
      */
     @PostMapping
-    public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto)
+    public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto) throws Exception
     {
         settingsService.post(settingsDto);
+
         return restResponseEntityWrapper.wrap(null, HttpStatus.OK);
     }
 

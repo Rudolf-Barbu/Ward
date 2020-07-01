@@ -11,34 +11,19 @@ import javax.validation.constraints.*;
  * SettingsDto s a values container for settings
  *
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.2
  */
 @Getter
 @Setter
 public class SettingsDto implements Dto
 {
     /**
-     * Port database address field
+     * Server name Field
      */
     @NotNull(groups = {RequestDtoValidator.PostSettings.class})
     @NotEmpty(groups = {RequestDtoValidator.PostSettings.class})
-    @Size(groups = {RequestDtoValidator.PostSettings.class}, max = 32)
-    private String databaseLink;
-
-    /**
-     * Port username field
-     */
-    @NotNull(groups = {RequestDtoValidator.PostSettings.class})
-    @NotEmpty(groups = {RequestDtoValidator.PostSettings.class})
-    @Size(groups = {RequestDtoValidator.PostSettings.class}, max = 32)
-    private String username;
-
-    /**
-     * Port password field
-     */
-    @NotNull(groups = {RequestDtoValidator.PostSettings.class})
     @Size(groups = {RequestDtoValidator.PostSettings.class}, max = 16)
-    private String password;
+    private String serverName;
 
     /**
      * Port port field
@@ -46,6 +31,7 @@ public class SettingsDto implements Dto
     @NotNull(groups = {RequestDtoValidator.PostSettings.class})
     @NotEmpty(groups = {RequestDtoValidator.PostSettings.class})
     @Max(groups = {RequestDtoValidator.PostSettings.class}, value = 65535)
+    @Min(groups = {RequestDtoValidator.PostSettings.class}, value = 0)
     private String port;
 
     /**

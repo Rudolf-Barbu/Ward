@@ -97,17 +97,16 @@
 
     /* margin-bottom */
     --margin-bottom-label-main-settings: 0.438rem;
-    --margin-bottom-form-field: 1.063rem;
     --margin-bottom-card: 1.875rem;
     --margin-bottom-card-body-squares-grid-div: 0.750rem;
     --margin-bottom-labels-grid-div: 0.313rem;
 
     /* height */
     --height-body: 100%;
-    --height-welcome: 32.706rem;
-    --height-welcome-div: 32.706rem;
+    --height-welcome: 26.706rem;
+    --height-welcome-div: 26.706rem;
     --height-welcome-dashboard-logo-background: 8.281rem;
-    --height-form: 24.426rem;
+    --height-form: 18.425rem;
     --height-form-squares-grid-div: 0.625rem;
     --height-form-field: 1.875rem;
     --height-form-field-div: 0.313rem;

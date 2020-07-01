@@ -134,7 +134,6 @@ body
 {
    position: relative;
    left: var(--left-form-field);
-   margin-bottom: var(--margin-bottom-form-field);
    height: var(--height-form-field);
    width: var(--width-form-field);
    background: var(--background-form-field);
@@ -168,19 +167,9 @@ body
     color: var(--color-form-field-input-placeholder);
 }
 
-.form-field-underline.first
+.form-field-underline
 {
     background: var(--background-form-field-underline-first);
-}
-
-.form-field-underline.second
-{
-    background: var(--background-form-field-underline-second);
-}
-
-.form-field-underline.third
-{
-    background: var(--background-form-field-underline-third);
 }
 
 .label-additional-settings

@@ -53,9 +53,7 @@ html[theme = "light"]
     --background-form-squares-grid-third: var(--green-light);
     --background-form-field: var(--white);
     --background-form-field-input: var(--white);
-    --background-form-field-underline-first: var(--blue-light);
-    --background-form-field-underline-second: var(--red-light);
-    --background-form-field-underline-third: var(--green-light);
+    --background-form-field-underline: var(--blue-light);
     --background-theme-button-first: var(--purple-light);
     --background-theme-button-second: var(--grey-light);
     --background-port-text-field-input: var(--white);

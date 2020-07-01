@@ -3,9 +3,7 @@ function settingsInitialization()
     lightTheme = document.getElementById("light-theme");
     darkTheme = document.getElementById("dark-theme");
 
-    databaseLink = document.getElementById("database-link");
-    username = document.getElementById("username");
-    password = document.getElementById("password");
+    serverName = document.getElementById("server-name");
     port = document.getElementById("port");
     submit = document.getElementById("submit");
 
@@ -53,9 +51,7 @@ function sendSettingsRequest()
 
     data =
     {
-        "databaseLink": databaseLink.value,
-        "username": username.value,
-        "password": password.value,
+        "serverName": serverName.value,
         "theme": html.getAttribute("theme"),
         "port": port.value
     }
