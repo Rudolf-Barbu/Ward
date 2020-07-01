@@ -1,5 +1,6 @@
 package org.bsoftware.ward.controllers;
 
+import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,19 +9,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 
 /**
  * ErrorController displays error pages of Ward application
  *
  * @author Rudolf Barbu
- * @version 1.0.1
+ * @version 1.0.2
  */
 @Controller
 @RequestMapping(value = "/error")
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController
 {
     /**
-     * Autowired InfoService object
+     * Autowired Utilities object
      * Used for various utility functions
      */
     private Utilities utilities;
@@ -33,11 +35,12 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      */
     @GetMapping
     @SuppressWarnings("ConstantConditions")
-    public String getError(HttpServletResponse httpServletResponse, Model model)
+    public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
-        final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
-        model.addAttribute("theme", utilities.getApplicationTheme());
+        File file = new File(Ward.SETTINGS_FILE_PATH);
+        model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
 
+        final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
         switch (httpStatus)
         {
             case NOT_FOUND:

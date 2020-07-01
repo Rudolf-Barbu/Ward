@@ -11,11 +11,21 @@ import org.springframework.context.ConfigurableApplicationContext;
  * Ward is a Spring Boot application class
  *
  * @author Rudolf Barbu
- * @version 1.0.1
+ * @version 1.0.3
  */
 @SpringBootApplication
 public class Ward extends SpringBootServletInitializer
 {
+    /**
+     * Constant for determine settings file name
+     */
+    public static final String SETTINGS_FILE_PATH = "settings.ini";
+
+    /**
+     * Constant for determine initial application port
+     */
+    public static final int INITIAL_PORT = 4000;
+
     /**
      * Holder for determine first launch of applicatuion
      */

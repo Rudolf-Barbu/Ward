@@ -1,13 +1,17 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.bsoftware.ward.dto.implementation.*;
+import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.dto.implementation.*;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.OperatingSystem;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -26,10 +30,53 @@ public class InfoService implements org.bsoftware.ward.services.Service
     private SystemInfo systemInfo;
 
     /**
-     * Autowired utilities object
-     * Used for improve values readability
+     * Autowired Utilities object
+     * Used for various utility functions
      */
     private Utilities utilities;
+
+    /**
+     * Converts frequency to most readable format
+     *
+     * @param hertz raw frequency value in hertz
+     * @return String with formatted frequency and postfix
+     */
+    private String getConvertedFrequency(long hertz)
+    {
+        if ((hertz / 1E+6) > 999)
+        {
+            return (Math.round((hertz / 1E+9) * 10.0) / 10.0) + " GHz";
+        }
+        else
+        {
+            return Math.round(hertz / 1E+6) + " MHz";
+        }
+    }
+
+    /**
+     * Converts capacity to most readable format
+     *
+     * @param bits raw capacity value in bits
+     * @return String with formatted capacity and postfix
+     */
+    private String getConvertedCapacity(long bits)
+    {
+        if ((bits / 1.049E+6) > 999)
+        {
+            if ((bits / 1.074E+9) > 999)
+            {
+                return (Math.round((bits / 1.1E+12) * 10.0) / 10.0) + " TiB";
+            }
+            else
+            {
+                return Math.round(bits / 1.074E+9) + " GiB";
+            }
+        }
+        else
+        {
+            return Math.round(bits / 1.049E+6) + " MiB";
+        }
+    }
 
     /**
      * Gets processor information
@@ -51,7 +98,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
-        processorDto.setMaxClockSpeed(utilities.getConvertedFrequency(centralProcessor.getMaxFreq()));
+        processorDto.setMaxClockSpeed(getConvertedFrequency(centralProcessor.getMaxFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit Arch");
@@ -74,7 +121,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         machineDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
-        machineDto.setTotalRam(utilities.getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
         List<PhysicalMemory> physicalMemory = globalMemory.getPhysicalMemory();
         if (physicalMemory.isEmpty())
@@ -109,12 +156,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
         storageDto.setStorageName(storageName.trim());
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(utilities.getConvertedCapacity(totalStorage) + " Total");
+        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
         storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
-        storageDto.setSwapAmount(utilities.getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
+        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
         return storageDto;
     }
@@ -139,6 +186,16 @@ public class InfoService implements org.bsoftware.ward.services.Service
         return uptimeDto;
     }
 
+    private SettingsDto getSettingsDto() throws IOException
+    {
+        SettingsDto settingsDto = new SettingsDto();
+        File file = new File(Ward.SETTINGS_FILE_PATH);
+
+        settingsDto.setServerName(utilities.getFromIniFile(file, "settings", "serverName"));
+
+        return settingsDto;
+    }
+
     /**
      * Used to deliver dto to corresponding controller
      *
@@ -154,6 +211,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setMachineDto(getMachineDto());
         infoDto.setStorageDto(getStorageDto());
         infoDto.setUptimeDto(getUptimeDto());
+        infoDto.setSettingsDto(getSettingsDto());
 
         return infoDto;
     }

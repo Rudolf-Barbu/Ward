@@ -2,7 +2,6 @@ package org.bsoftware.ward.controllers.api;
 
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
-import org.bsoftware.ward.exceptions.RequestMethodNotAllowedException;
 import org.bsoftware.ward.services.implementation.SettingsService;
 import org.bsoftware.ward.validators.RequestDtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * SettingsController displays responses from rest API
  *
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.1
  */
 @RestController
 @RequestMapping(value = "/api/settings")
@@ -40,9 +39,10 @@ public class SettingsController
      * @return OR response with empty body
      */
     @PostMapping
-    public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto)
+    public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto) throws Exception
     {
         settingsService.post(settingsDto);
+
         return restResponseEntityWrapper.wrap(null, HttpStatus.OK);
     }
 

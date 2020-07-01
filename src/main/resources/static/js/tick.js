@@ -3,8 +3,6 @@
  */
 function tickInitialization()
 {
-    xhr = new XMLHttpRequest();
-
     xhr.onreadystatechange = function()
     {
         if (this.readyState == 4)
@@ -12,12 +10,12 @@ function tickInitialization()
             let response = JSON.parse(this.response);
             labelsTick(response);
             chartTick(response);
-            sendAjaxRequest();
+            sendUsageRequest();
         }
     }
-    sendAjaxRequest();
+    sendUsageRequest();
 
-    setInterval(() =>
+    setInterval(function()
     {
         uptimeTick();
     }, 1000);
@@ -26,7 +24,7 @@ function tickInitialization()
 /**
  * Sending ajax request to receive usage info
  */
-function sendAjaxRequest()
+function sendUsageRequest()
 {
     xhr.open("GET", "/api/usage");
     xhr.send();

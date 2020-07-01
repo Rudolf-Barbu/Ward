@@ -15,6 +15,8 @@
 :root
 {
     /* linear-gradient */
+    --linear-gradient-form-light: linear-gradient(45deg, var(--blue-light) 0%, var(--red-light) 50%, var(--green-light) 100%);
+    --linear-gradient-form-dark: linear-gradient(45deg, var(--grey) 0%, var(--grey-dimmed) 50%, var(--grey) 100%);
     --linear-gradient-uptime-light: linear-gradient(45deg, var(--blue-light) 0%, var(--red-light) 50%, var(--green-light) 100%);
     --linear-gradient-uptime-dark: linear-gradient(45deg, var(--grey) 0%, var(--grey-dimmed) 50%, var(--grey) 100%);
 }

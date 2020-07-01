@@ -23,5 +23,5 @@ public interface Service
     /**
      * Get info from user and managing it
      */
-    default <T extends Dto> void post(T dto) {}
+    default <T extends Dto> void post(T dto) throws Exception {}
 }

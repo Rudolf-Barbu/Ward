@@ -1,5 +1,9 @@
 function chartInitialization()
 {
+    processorRectangle = document.getElementById("processor-rectangle");
+    ramRectangle = document.getElementById("ram-rectangle");
+    storageRectangle = document.getElementById("storage-rectangle");
+
     processorTriangle = document.getElementById("processor-triangle");
     ramTriangle = document.getElementById("ram-triangle");
     storageTriangle = document.getElementById("storage-triangle");
@@ -150,9 +154,9 @@ function chartInitialization()
 
     chart = new Chart(ctx, Object.assign((html.getAttribute("theme") == "light") ? dataLight : dataDark, options));
 
-    document.getElementById("processor-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
-    document.getElementById("ram-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
-    document.getElementById("storage-rectangle").addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
+    processorRectangle.addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
+    ramRectangle.addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
+    storageRectangle.addEventListener("click", function(event) {hideDataset(event.target || event.srcElement)});
 }
 
 /**
