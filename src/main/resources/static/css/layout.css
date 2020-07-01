@@ -167,9 +167,14 @@ body
     color: var(--color-form-field-input-placeholder);
 }
 
+.form-field > input::-webkit-input-placeholder
+{
+    color: var(--color-form-field-input-placeholder);
+}
+
 .form-field-underline
 {
-    background: var(--background-form-field-underline-first);
+    background: var(--background-form-field-underline);
 }
 
 .label-additional-settings
@@ -246,6 +251,11 @@ body
 }
 
 .port-text-field > input::placeholder
+{
+    color: var(--color-port-text-field-input-placeholder);
+}
+
+.port-text-field > input::-webkit-input-placeholder
 {
     color: var(--color-port-text-field-input-placeholder);
 }

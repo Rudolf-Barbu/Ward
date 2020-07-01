@@ -131,9 +131,7 @@ html[theme = "dark"]
     --background-form-squares-grid-third: var(--grey-light);
     --background-form-field: var(--grey);
     --background-form-field-input: var(--grey);
-    --background-form-field-underline-first: var(--grey-light);
-    --background-form-field-underline-second: var(--grey-light);
-    --background-form-field-underline-third: var(--grey-light);
+    --background-form-field-underline: var(--grey-light);
     --background-theme-button-first: var(--purple-light);
     --background-theme-button-second: var(--grey-light);
     --background-port-text-field-input: var(--grey);

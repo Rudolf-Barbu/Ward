@@ -36,7 +36,7 @@ function sendSettingsRequest()
                 }
                 case 405:
                 {
-                    var message =
+                    let message =
                     {
                         text:"Fill the form correctly",
                         type:("")
@@ -56,5 +56,18 @@ function sendSettingsRequest()
         "port": port.value
     }
 
-    xhr.send(JSON.stringify(data));
+    if (port.value != 4000)
+    {
+        xhr.send(JSON.stringify(data));
+    }
+    else
+    {
+        let message =
+        {
+            text:"Choose other port",
+            type:("")
+        }
+
+        dhtmlx.message(message);
+    }
 }

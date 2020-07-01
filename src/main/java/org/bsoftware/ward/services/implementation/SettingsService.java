@@ -1,11 +1,9 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
 import org.ini4j.Ini;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
@@ -47,12 +45,15 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     @Override
     public <T extends Dto> void post(T dto) throws Exception
     {
-        File file = new File("settings.ini");
+        if (Ward.isFirstLaunch())
+        {
+            File file = new File(Ward.SETTINGS_FILE_PATH);
 
-        putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
-        putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
-        putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+            putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
+            putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
+            putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
 
-        Ward.restart();
+            Ward.restart();
+        }
     }
 }

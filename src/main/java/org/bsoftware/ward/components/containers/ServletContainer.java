@@ -36,7 +36,6 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
             try
             {
                 File file = new File(Ward.SETTINGS_FILE_PATH);
-
                 factory.setPort(Integer.parseInt(utilities.getFromIniFile(file, "settings", "port")));
             }
             catch (IOException exception)
@@ -46,7 +45,7 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
         }
         else
         {
-            factory.setPort(80);
+            factory.setPort(Ward.INITIAL_PORT);
         }
     }
 
