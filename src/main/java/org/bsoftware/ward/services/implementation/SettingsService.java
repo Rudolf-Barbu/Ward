@@ -2,6 +2,7 @@ package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.dto.Dto;
+import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
 import org.ini4j.Ini;
 import org.springframework.stereotype.Service;
@@ -39,21 +40,19 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     /**
      * Fills data in database
      *
-     * @param dto user settings data
      * @param <T> determines, that only Dto object can pass
+     * @param dto user settings data
      */
     @Override
-    public <T extends Dto> void post(T dto) throws Exception
+    @SuppressWarnings("unchecked")
+    public <T, K extends Dto> K post(T dto) throws Exception
     {
-        if (Ward.isFirstLaunch())
-        {
-            File file = new File(Ward.SETTINGS_FILE_PATH);
+        File file = new File(Ward.SETTINGS_FILE_PATH);
 
-            putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
-            putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
-            putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+        putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
+        putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
+        putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
 
-            Ward.restart();
-        }
+        return (K) new ResponseDto("Settings saved correctly");
     }
 }

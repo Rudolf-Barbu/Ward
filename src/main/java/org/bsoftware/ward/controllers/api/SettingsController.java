@@ -1,5 +1,6 @@
 package org.bsoftware.ward.controllers.api;
 
+import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
 import org.bsoftware.ward.services.implementation.SettingsService;
@@ -41,9 +42,12 @@ public class SettingsController
     @PostMapping
     public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto) throws Exception
     {
-        settingsService.post(settingsDto);
+        if (Ward.isFirstLaunch())
+        {
+            Ward.restart();
+        }
 
-        return restResponseEntityWrapper.wrap(null, HttpStatus.OK);
+        return restResponseEntityWrapper.wrap(settingsService.post(settingsDto), HttpStatus.OK);
     }
 
     /**

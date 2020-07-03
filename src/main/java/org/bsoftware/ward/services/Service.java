@@ -23,5 +23,9 @@ public interface Service
     /**
      * Get info from user and managing it
      */
-    default <T extends Dto> void post(T dto) throws Exception {}
+    @SuppressWarnings("UnusedReturnValue")
+    default <T, K extends Dto> K post(T dto) throws Exception
+    {
+        return null;
+    }
 }

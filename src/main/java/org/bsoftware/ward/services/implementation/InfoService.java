@@ -2,6 +2,7 @@ package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -203,7 +204,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
      */
     @Override
     @SuppressWarnings("unchecked")
-    public InfoDto get() throws Exception
+    public <T extends Dto> T get() throws Exception
     {
         InfoDto infoDto = new InfoDto();
 
@@ -213,7 +214,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setUptimeDto(getUptimeDto());
         infoDto.setSettingsDto(getSettingsDto());
 
-        return infoDto;
+        return (T) infoDto;
     }
 
     /**

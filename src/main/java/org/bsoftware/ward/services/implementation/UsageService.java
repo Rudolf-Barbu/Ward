@@ -1,5 +1,6 @@
 package org.bsoftware.ward.services.implementation;
 
+import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.UsageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -85,7 +86,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
      */
     @Override
     @SuppressWarnings("unchecked")
-    public UsageDto get()
+    public <T extends Dto> T get()
     {
         UsageDto usageDto = new UsageDto();
 
@@ -93,7 +94,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
         usageDto.setRamUsage(getRamUsage());
         usageDto.setStorageUsage(getStorageUsage());
 
-        return usageDto;
+        return (T) usageDto;
     }
 
     /**
