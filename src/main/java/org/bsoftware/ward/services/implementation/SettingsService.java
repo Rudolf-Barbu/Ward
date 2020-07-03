@@ -38,10 +38,13 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     }
 
     /**
-     * Fills data in database
+     * Fills data in ini file
      *
-     * @param <T> determines, that only Dto object can pass
      * @param dto user settings data
+     * @param <T> determines, that only Dto object can pass
+     * @param <K> determines, that only Dto object can be returned
+     * @return Dto
+     * @throws Exception IoException if file is fot found, and cant be created
      */
     @Override
     @SuppressWarnings("unchecked")
