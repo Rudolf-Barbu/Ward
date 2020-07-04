@@ -57,6 +57,8 @@ public class SettingsService implements org.bsoftware.ward.services.Service
             putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
             putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
             putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+
+            Ward.restart();
         }
 
         return (K) new ResponseDto("Settings saved correctly");

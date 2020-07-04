@@ -42,11 +42,6 @@ public class SettingsController
     @PostMapping
     public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto) throws Exception
     {
-        if (Ward.isFirstLaunch())
-        {
-            Ward.restart();
-        }
-
         return restResponseEntityWrapper.wrap(settingsService.post(settingsDto), HttpStatus.OK);
     }
 
