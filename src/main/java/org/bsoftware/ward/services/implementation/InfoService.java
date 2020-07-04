@@ -192,7 +192,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         SettingsDto settingsDto = new SettingsDto();
         File file = new File(Ward.SETTINGS_FILE_PATH);
 
-        settingsDto.setServerName(utilities.getFromIniFile(file, "settings", "serverName"));
+        settingsDto.setServerName(utilities.getFromIniFile(file, "settings", "serverName").toUpperCase());
 
         return settingsDto;
     }
