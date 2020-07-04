@@ -122,7 +122,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
-    3. Enter "your patht":4000 and set up application
+    3. Enter "your path":4000 and set up application
 
 <br>
 
