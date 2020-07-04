@@ -37,28 +37,35 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     @SuppressWarnings("ConstantConditions")
     public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
-        File file = new File(Ward.SETTINGS_FILE_PATH);
-        model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
-
-        final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
-        switch (httpStatus)
+        if (!Ward.isFirstLaunch())
         {
-            case NOT_FOUND:
+            File file = new File(Ward.SETTINGS_FILE_PATH);
+            model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
+
+            final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
+            switch (httpStatus)
             {
-                return "error/404";
+                case NOT_FOUND:
+                {
+                    return "error/404";
+                }
+                case METHOD_NOT_ALLOWED:
+                {
+                    return "error/405";
+                }
+                case INTERNAL_SERVER_ERROR:
+                {
+                    return "error/500";
+                }
+                default:
+                {
+                    return "index";
+                }
             }
-            case METHOD_NOT_ALLOWED:
-            {
-                return "error/405";
-            }
-            case INTERNAL_SERVER_ERROR:
-            {
-                return "error/500";
-            }
-            default:
-            {
-                return "index";
-            }
+        }
+        else
+        {
+            return "welcome";
         }
     }
 

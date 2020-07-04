@@ -15,6 +15,27 @@ function settingsInitialization()
 function changeTheme(element)
 {
     (String(element.id) == "light-theme") ? html.setAttribute("theme", "light") : html.setAttribute("theme", "dark");
+
+    if (String(element.id) == "light-theme")
+    {
+        background.setOptions
+        ({
+            highlightColor: 0xcac7e8,
+            midtoneColor: 0xbbb7ed,
+            lowlightColor: 0xe4e3ef,
+            baseColor: 0xe4e3ef
+        });
+    }
+    else
+    {
+        background.setOptions
+        ({
+            highlightColor: 0x797979,
+            midtoneColor: 0xffffff,
+            lowlightColor: 0xbcbcbc,
+            baseColor: 0xbcbcbc
+        });
+    }
 }
 
 function sendSettingsRequest()

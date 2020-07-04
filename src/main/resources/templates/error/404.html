@@ -11,10 +11,14 @@
         <link rel = "stylesheet" th:href = "@{/css/layout.css}" />
         <link rel = "stylesheet" th:href = "@{/css/shadows.css}" />
         <link rel = "stylesheet" th:href = "@{/css/themes.css}" />
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
     </head>
     <body id = "background">
+        <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container error">
             <img class = "error-gif" th:src = @{/img/error/404.gif} />
             <div class = "error-div">

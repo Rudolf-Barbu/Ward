@@ -50,11 +50,14 @@ public class SettingsService implements org.bsoftware.ward.services.Service
     @SuppressWarnings("unchecked")
     public <T, K extends Dto> K post(T dto) throws Exception
     {
-        File file = new File(Ward.SETTINGS_FILE_PATH);
+        if (Ward.isFirstLaunch())
+        {
+            File file = new File(Ward.SETTINGS_FILE_PATH);
 
-        putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
-        putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
-        putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+            putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
+            putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
+            putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+        }
 
         return (K) new ResponseDto("Settings saved correctly");
     }
