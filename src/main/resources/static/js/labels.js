@@ -73,17 +73,8 @@ function formatLabels(labelArray, usageData)
             labelArray[0].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
             labelArray[1].innerHTML = 0;
             labelArray[1].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
-
             labelArray[2].innerHTML = usageDataString[0];
-            if (usageDataString[0] != 0)
-            {
-                labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
-            }
-            else
-            {
-                labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(188, 188, 188, 1)" : "rgba(121, 121, 121, 1)";
-            }
-
+            labelArray[2].style.color = (html.getAttribute("theme") == "light") ? "rgba(0, 0, 0, 1)" : "rgba(255, 255, 255, 1)";
             break;
         }
         case 2:
