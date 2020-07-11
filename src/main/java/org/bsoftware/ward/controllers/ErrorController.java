@@ -65,7 +65,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
         }
         else
         {
-            return "welcome";
+            return "setup";
         }
     }
 
