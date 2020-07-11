@@ -55,6 +55,8 @@ html[theme = "light"]
     --background-form-field: var(--white);
     --background-form-field-input: var(--white);
     --background-form-field-underline: var(--blue-light);
+    --background-button-squares-grid-first: var(--purple-light);
+    --background-button-squares-grid-second: var(--grey-light);
     --background-theme-button-first: var(--purple-light);
     --background-theme-button-second: var(--grey-light);
     --background-port-text-field-input: var(--white);
@@ -134,6 +136,8 @@ html[theme = "dark"]
     --background-form-field: var(--grey);
     --background-form-field-input: var(--grey);
     --background-form-field-underline: var(--grey-light);
+    --background-button-squares-grid-first: var(--purple-light);
+    --background-button-squares-grid-second: var(--grey-light);
     --background-theme-button-first: var(--purple-light);
     --background-theme-button-second: var(--grey-light);
     --background-port-text-field-input: var(--grey);

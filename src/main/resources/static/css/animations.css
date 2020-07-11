@@ -71,6 +71,34 @@
     }
 }
 
+@keyframes fade-in-square
+{
+    0%
+    {
+        top: 0.000rem;
+        opacity: 0;
+    }
+    100%
+    {
+        top: 0.563rem;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-square
+{
+    0%
+    {
+        top: 0.563rem;
+        opacity: 1;
+    }
+    100%
+    {
+        top: 0.000rem;
+        opacity: 0;
+    }
+}
+
 @keyframes fade-in-error-div
 {
     0%

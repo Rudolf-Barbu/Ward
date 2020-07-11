@@ -43,7 +43,7 @@ public class IndexController
     {
         if (Ward.isFirstLaunch())
         {
-            return "welcome";
+            return "settings";
         }
 
         model.addAttribute("infoDto", infoService.get());

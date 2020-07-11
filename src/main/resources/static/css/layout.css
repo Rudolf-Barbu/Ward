@@ -196,6 +196,40 @@ body
     width: var(--width-additional-settings-input);
 }
 
+.button-squares-grid
+{
+    position: relative;
+    top: var(--top-button-squares-grid);
+}
+
+.button-squares-grid > div
+{
+    position: absolute;
+    display: inline-block;
+    height: var(--height-button-squares-grid-div);
+    width: var(--width-button-squares-grid-div);
+    opacity: 0;
+    box-shadow: var(--box-shadow-button-squares-grid-div) var(--black-opacity-10);
+}
+
+.button-squares-grid > .first
+{
+    left: var(--left-button-squares-grid-first);
+    background: var(--background-button-squares-grid-first);
+    animation: fade-in-square 0.5s forwards;
+}
+
+.button-squares-grid > .second
+{
+    left: var(--left-button-squares-grid-second);
+    background: var(--background-button-squares-grid-second);
+}
+
+.tooltip
+{
+    visibility: visible;
+}
+
 .theme-button
 {
     letter-spacing: var(--letter-spacing-2px);

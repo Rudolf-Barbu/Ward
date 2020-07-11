@@ -9,9 +9,19 @@ let html;
 let lightTheme;
 
 /**
+ * Light theme square
+ */
+let lightThemeSquare;
+
+/**
  * Used for holding button element
  */
 let darkTheme;
+
+/**
+ * Dark theme square
+ */
+let darkThemeSquare;
 
 /**
  * Used to set up server name

@@ -3,6 +3,9 @@ function settingsInitialization()
     lightTheme = document.getElementById("light-theme");
     darkTheme = document.getElementById("dark-theme");
 
+    lightThemeSquare = document.getElementById("light-theme-square");
+    darkThemeSquare = document.getElementById("dark-theme-square");
+
     serverName = document.getElementById("server-name");
     port = document.getElementById("port");
     submit = document.getElementById("submit");
@@ -15,6 +18,17 @@ function settingsInitialization()
 function changeTheme(element)
 {
     (String(element.id) == "light-theme") ? html.setAttribute("theme", "light") : html.setAttribute("theme", "dark");
+
+    if (String(element.id) == "light-theme")
+    {
+        lightThemeSquare.style.animation = "fade-in-square 0.5s forwards";
+        darkThemeSquare.style.animation = "fade-out-square 0.5s forwards";
+    }
+    else
+    {
+        lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
+        darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
+    }
 
     if (String(element.id) == "light-theme")
     {

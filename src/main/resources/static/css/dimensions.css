@@ -21,6 +21,7 @@
     --top-form-field-input: 0.125rem;
     --top-label-additional-settings: 1.500rem;
     --top-additional-settings-input: 1.938rem;
+    --top-button-squares-grid: 0.222rem;
     --top-port-text-field: 2.750rem;
     --top-header: 1.500rem;
     --top-label-hw-info: 0.562rem;
@@ -54,6 +55,8 @@
     /* left */
     --left-form-squares-grid: 9.250rem;
     --left-form-field: 1.500rem;
+    --left-button-squares-grid-first: 1.500rem;
+    --left-button-squares-grid-second: 19.688rem;
     --left-theme-button-first: 1.500rem;
     --left-port-text-field: 1.500rem;
     --left-submit-button: 6.563rem;
@@ -112,6 +115,7 @@
     --height-form-field: 1.875rem;
     --height-form-field-div: 0.313rem;
     --height-additional-settings-input: 2.188rem;
+    --height-button-squares-grid-div: 0.625rem;;
     --height-port-text-field: 3.125rem;
     --height-port-text-field-input: 3.125rem;
     --height-submit-button: 1.875rem;
@@ -154,6 +158,7 @@
     --width-form-field-div: 18.875rem;
     --width-form-field-input: 18.875rem;
     --width-additional-settings-input: 9.063rem;
+    --width-button-squares-grid-div: 0.625rem;
     --width-port-text-field: 18.875rem;
     --width-port-text-field-input: 20.125rem;
     --width-submit-button: 8.750rem;
