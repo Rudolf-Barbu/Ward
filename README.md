@@ -132,5 +132,3 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     3. docker build --tag ward .
     4. docker run --rm -it --name ward -p 4000:4000 -p <application port>:<application port> --privileged ward
     5. Go to localhost:4000 in web browser, input the same application port
-    
-    NOTE: Thanks to NangiDev
