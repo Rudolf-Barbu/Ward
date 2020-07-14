@@ -1,12 +1,10 @@
 package org.bsoftware.ward.controllers.api;
 
-import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SettingsDto;
 import org.bsoftware.ward.services.implementation.SettingsService;
 import org.bsoftware.ward.validators.RequestDtoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +40,7 @@ public class SettingsController
     @PostMapping
     public ResponseEntity<?> postSettings(@Validated(value = {RequestDtoValidator.PostSettings.class}) @RequestBody SettingsDto settingsDto) throws Exception
     {
-        return restResponseEntityWrapper.wrap(settingsService.post(settingsDto), HttpStatus.OK);
+        return restResponseEntityWrapper.wrap(settingsService.post(settingsDto));
     }
 
     /**

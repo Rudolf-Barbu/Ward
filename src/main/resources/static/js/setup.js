@@ -1,4 +1,7 @@
-function settingsInitialization()
+/**
+ * Initializes dom objects
+ */
+function setupInitialization()
 {
     lightTheme = document.getElementById("light-theme");
     darkTheme = document.getElementById("dark-theme");
@@ -10,11 +13,16 @@ function settingsInitialization()
     port = document.getElementById("port");
     submit = document.getElementById("submit");
 
+    setupXHR = new XMLHttpRequest();
+
     lightTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     darkTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     submit.addEventListener("click", function(event) {sendSettingsRequest(event.target || event.srcElement)});
 }
 
+/**
+ * Changes theme
+ */
 function changeTheme(element)
 {
     (String(element.id) == "light-theme") ? html.setAttribute("theme", "light") : html.setAttribute("theme", "dark");
@@ -23,15 +31,7 @@ function changeTheme(element)
     {
         lightThemeSquare.style.animation = "fade-in-square 0.5s forwards";
         darkThemeSquare.style.animation = "fade-out-square 0.5s forwards";
-    }
-    else
-    {
-        lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
-        darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
-    }
 
-    if (String(element.id) == "light-theme")
-    {
         background.setOptions
         ({
             highlightColor: 0xcac7e8,
@@ -42,6 +42,9 @@ function changeTheme(element)
     }
     else
     {
+        lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
+        darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
+
         background.setOptions
         ({
             highlightColor: 0x797979,
@@ -52,12 +55,15 @@ function changeTheme(element)
     }
 }
 
+/**
+ * Sends settings request
+ */
 function sendSettingsRequest()
 {
-    xhr.open("POST", "/api/settings");
-    xhr.setRequestHeader("Content-Type", "application/json");
+    setupXHR.open("POST", "/api/settings");
+    setupXHR.setRequestHeader("Content-Type", "application/json");
 
-    xhr.onreadystatechange = function()
+    setupXHR.onreadystatechange = function()
     {
         if (this.readyState == 4)
         {
@@ -93,7 +99,7 @@ function sendSettingsRequest()
 
     if (port.value != 4000)
     {
-        xhr.send(JSON.stringify(data));
+        setupXHR.send(JSON.stringify(data));
     }
     else
     {
