@@ -31,15 +31,7 @@ function changeTheme(element)
     {
         lightThemeSquare.style.animation = "fade-in-square 0.5s forwards";
         darkThemeSquare.style.animation = "fade-out-square 0.5s forwards";
-    }
-    else
-    {
-        lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
-        darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
-    }
 
-    if (String(element.id) == "light-theme")
-    {
         background.setOptions
         ({
             highlightColor: 0xcac7e8,
@@ -50,6 +42,9 @@ function changeTheme(element)
     }
     else
     {
+        lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
+        darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
+
         background.setOptions
         ({
             highlightColor: 0x797979,
