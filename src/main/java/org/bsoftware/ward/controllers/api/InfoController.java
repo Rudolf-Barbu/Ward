@@ -1,6 +1,8 @@
 package org.bsoftware.ward.controllers.api;
 
+import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
+import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,14 @@ public class InfoController
     @GetMapping
     public ResponseEntity<?> getUsage() throws Exception
     {
-        return restResponseEntityWrapper.wrap(infoService.get());
+        if (!Ward.isFirstLaunch())
+        {
+            return restResponseEntityWrapper.wrap(infoService.get());
+        }
+        else
+        {
+            return restResponseEntityWrapper.wrap(new ResponseDto("Set up application first"));
+        }
     }
 
     /**
