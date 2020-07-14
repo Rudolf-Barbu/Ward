@@ -18,9 +18,8 @@
         <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/chart.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/index.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/labels.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/tick.js}"></script>
-        <script type = "text/javascript" th:src = "@{/js/uptime.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
     </head>
     <body id = "background">
@@ -69,7 +68,7 @@
                             </div>
                             <div class = "detailed-hw-info">
                                 <div class = "first-label" th:text = "${infoDto.processorDto.coreCount}"></div>
-                                <div class = "second-label" th:text = "${infoDto.processorDto.maxClockSpeed}"></div>
+                                <div id = "clockSpeed" class = "second-label" th:text = "${infoDto.processorDto.clockSpeed}"></div>
                                 <div class = "third-label" th:text = "${infoDto.processorDto.processorBitDepth}"></div>
                             </div>
                             <div class = "dividers">
@@ -85,7 +84,7 @@
                             <div class = "hw-logo second"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Machine</div>
-                                <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemInfo}"></div>
+                                <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemName}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -122,7 +121,7 @@
                             <div class = "detailed-hw-info">
                                 <div class = "first-label" th:text = "${infoDto.machineDto.totalRam}"></div>
                                 <div class = "second-label" th:text = "${infoDto.machineDto.ramType}"></div>
-                                <div class = "third-label" th:text = "${infoDto.machineDto.procCount}"></div>
+                                <div id = "procCount" class = "third-label" th:text = "${infoDto.machineDto.procCount}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first-divider"></div>
@@ -172,8 +171,8 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${infoDto.storageDto.totalStorage}"></div>
-                                <div class = "second-label" th:text = "${infoDto.storageDto.diskCount}"></div>
+                                <div id = "totalStorage" class = "first-label" th:text = "${infoDto.storageDto.totalStorage}"></div>
+                                <div id = "diskCount" class = "second-label" th:text = "${infoDto.storageDto.diskCount}"></div>
                                 <div class = "third-label" th:text = "${infoDto.storageDto.swapAmount}"></div>
                             </div>
                             <div class = "dividers">
@@ -204,7 +203,6 @@
                                     <div><p id = "uptime-minutes" th:text = "${infoDto.uptimeDto.minutes}"></p></div>
                                     <div><p id = "uptime-seconds" th:text = "${infoDto.uptimeDto.seconds}"></p></div>
                                 </div>
-                                <script type = "text/javascript" th:inline = "javascript"> uptimeInitialization(); </script>
                                 <div class = "labels-grid">
                                     <div>DAYS</div>
                                     <div>HOURS</div>
@@ -237,6 +235,6 @@
                 </div>
             </div>
         </div>
-        <script type = "text/javascript" th:inline = "javascript"> tickInitialization(); </script>
+        <script type = "text/javascript" th:inline = "javascript"> indexInitialization(); </script>
     </body>
 </html>

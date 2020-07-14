@@ -1,3 +1,6 @@
+/**
+ * Initializes labels and datasets
+ */
 function chartInitialization()
 {
     processorRectangle = document.getElementById("processor-rectangle");

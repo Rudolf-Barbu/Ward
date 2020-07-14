@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.OperatingSystem;
-
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,11 +39,14 @@ public class InfoService implements org.bsoftware.ward.services.Service
     /**
      * Converts frequency to most readable format
      *
-     * @param hertz raw frequency value in hertz
+     * @param hertzArray raw frequency array values in hertz for each logical processor
      * @return String with formatted frequency and postfix
      */
-    private String getConvertedFrequency(long hertz)
+    private String getConvertedFrequency(long[] hertzArray)
     {
+        long totalFrequency = Arrays.stream(hertzArray).sum();
+        long hertz = totalFrequency / hertzArray.length;
+
         if ((hertz / 1E+6) > 999)
         {
             return (Math.round((hertz / 1E+9) * 10.0) / 10.0) + " GHz";
@@ -99,7 +102,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
-        processorDto.setMaxClockSpeed(getConvertedFrequency(centralProcessor.getMaxFreq()));
+        processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
         processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit Arch");
@@ -120,7 +123,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         OperatingSystem.OSVersionInfo osVersionInfo = systemInfo.getOperatingSystem().getVersionInfo();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        machineDto.setOperatingSystemInfo(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
+        machineDto.setOperatingSystemName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
 
         machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 

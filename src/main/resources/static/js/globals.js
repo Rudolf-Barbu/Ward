@@ -39,9 +39,24 @@ let port;
 let submit;
 
 /**
- * Used for sending ajax requests
+ * Used for sending setup request
  */
-let xhr;
+let setupXHR;
+
+/**
+ * Used for sending usage requests
+ */
+let usageXHR;
+
+/**
+ * Used for sending info requests
+ */
+let infoXHR;
+
+/**
+ * Used to hold value of processor name
+ */
+let processorName;
 
 /**
  * Used to hold values of processor usage
@@ -49,9 +64,19 @@ let xhr;
 let processorLabelsArray;
 
 /**
+ * Used to hold value of clock speed
+ */
+let clockSpeed;
+
+/**
  * Used to hold values tens of processor usage
  */
 let ramLabelsArray;
+
+/**
+ * Used to hold value of processes count
+ */
+let procCount;
 
 /**
  * Used to hold values ones of processor usage
@@ -59,19 +84,14 @@ let ramLabelsArray;
 let storageLabelsArray;
 
 /**
- * Used to hold dataset element
+ * Used to hold values of total storage
  */
-let processorRectangle;
+let totalStorage
 
 /**
- * Used to hold dataset element
+ * Used to hold values of disk count
  */
-let ramRectangle;
-
-/**
- * Used to hold dataset element
- */
-let storageRectangle;
+let diskCount
 
 /**
  * Used to manipulate processor triangle div
@@ -87,6 +107,21 @@ let ramTriangle;
  * Used to manipulate storage triangle div
  */
 let storageTriangle;
+
+/**
+ * Used to hold dataset element
+ */
+let processorRectangle;
+
+/**
+ * Used to hold dataset element
+ */
+let ramRectangle;
+
+/**
+ * Used to hold dataset element
+ */
+let storageRectangle;
 
 /**
  *  Ctx chart object
@@ -139,5 +174,4 @@ let seconds;
 function globalsInitialization()
 {
     html = document.getElementById("html");
-    xhr = new XMLHttpRequest();
 }

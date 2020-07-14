@@ -17,7 +17,7 @@ public class MachineDto implements Dto
     /**
      * OS info field
      */
-    private String operatingSystemInfo;
+    private String operatingSystemName;
 
     /**
      * Amount of total installed ram field

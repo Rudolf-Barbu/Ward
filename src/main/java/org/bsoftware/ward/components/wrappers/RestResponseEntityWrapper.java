@@ -25,12 +25,11 @@ public class RestResponseEntityWrapper
      *  Wrapping Json headers, status and specified dto to ResponseEntity
      *
      * @param body object, which implements Dto interface
-     * @param httpStatus object, which already provides Json headers
      * @return ResponseEntity object with Json headers and Dto
      */
-    public <T extends Dto> ResponseEntity<?> wrap(T body, HttpStatus httpStatus)
+    public <T extends Dto> ResponseEntity<?> wrap(T body)
     {
-        return new ResponseEntity<>(body, httpHeaders, httpStatus);
+        return new ResponseEntity<>(body, httpHeaders, HttpStatus.OK);
     }
 
     /**

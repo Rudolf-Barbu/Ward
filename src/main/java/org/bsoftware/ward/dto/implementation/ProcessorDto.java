@@ -27,7 +27,7 @@ public class ProcessorDto implements Dto
     /**
      * Processor max frequency field
      */
-    private String maxClockSpeed;
+    private String clockSpeed;
 
     /**
      * Processor architecture field
