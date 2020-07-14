@@ -26,7 +26,7 @@ public class SettingsService implements org.bsoftware.ward.services.Service
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @SuppressWarnings(value = "ResultOfMethodCallIgnored")
     private void putInIniFile(File file, String sectionName, String optionName, String value) throws IOException
     {
         file.createNewFile();
@@ -47,7 +47,7 @@ public class SettingsService implements org.bsoftware.ward.services.Service
      * @throws Exception IoException if file is fot found, and cant be created
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings(value = "unchecked")
     public <T, K extends Dto> K post(T dto) throws Exception
     {
         if (Ward.isFirstLaunch())

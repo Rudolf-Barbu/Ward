@@ -34,7 +34,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * @return String name of html template
      */
     @GetMapping
-    @SuppressWarnings("ConstantConditions")
+    @SuppressWarnings(value = "ConstantConditions")
     public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
         if (!Ward.isFirstLaunch())

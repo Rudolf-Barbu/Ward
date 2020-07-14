@@ -172,7 +172,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @return UptimeDto with filled fields
      */
-    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
+    @SuppressWarnings(value = "IntegerDivisionInFloatingPointContext")
     private UptimeDto getUptimeDto()
     {
         UptimeDto uptimeDto = new UptimeDto();
@@ -203,7 +203,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * @return InfoDto filled with server info
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings(value = "unchecked")
     public <T extends Dto> T get() throws Exception
     {
         InfoDto infoDto = new InfoDto();

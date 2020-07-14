@@ -85,7 +85,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
      * @return UsageDto filled with usage info
      */
     @Override
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings(value = "unchecked")
     public <T extends Dto> T get()
     {
         UsageDto usageDto = new UsageDto();
