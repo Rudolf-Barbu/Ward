@@ -40,7 +40,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
         if (!Ward.isFirstLaunch())
         {
             File file = new File(Ward.SETTINGS_FILE_PATH);
-            model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
+            model.addAttribute("theme", utilities.getFromIniFile(file, "setup", "theme"));
 
             final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
             switch (httpStatus)

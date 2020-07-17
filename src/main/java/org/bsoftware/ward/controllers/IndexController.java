@@ -49,7 +49,7 @@ public class IndexController
         model.addAttribute("infoDto", infoService.get());
 
         File file = new File(Ward.SETTINGS_FILE_PATH);
-        model.addAttribute("theme", utilities.getFromIniFile(file, "settings", "theme"));
+        model.addAttribute("theme", utilities.getFromIniFile(file, "setup", "theme"));
 
         return "index";
     }

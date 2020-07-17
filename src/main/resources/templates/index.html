@@ -3,6 +3,7 @@
     <head>
         <title>Ward</title>
         <meta charset = "utf-8" />
+        <link rel = "shortcut icon" th:href = "@{/img/ico/favicon.ico}" type = "image/x-icon" />
         <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" />
         <link rel = "stylesheet" th:href = "@{/css/animations.css}" />
         <link rel = "stylesheet" th:href = "@{/css/colors.css}" />
@@ -185,11 +186,13 @@
                 <script type = "text/javascript" th:inline = "javascript"> labelsInitialization(); </script>
                 <div class = "col-6 col-lg-6 col-xl-4">
                     <div class = "card">
-                        <div class = "uptime-about">
-                            <div class = "uptime-dashboard-logo">WARD</div>
-                            <div class = "uptime-dashboard-logo-description">SERVER DASHBOARD</div>
-                            <img class = "uptime-dashboard-logo-background" th:src = @{/img/logo/background.jpg} />
+                        <div class = "logo">WARD</div>
+                        <div class = "logo-description">SERVER DASHBOARD</div>
+                        <div class = "clouds">
+                            <img class = "logo-cloud-left" th:src = @{/img/logo/clouds/left.png} />
+                            <img class = "logo-cloud-right" th:src = @{/img/logo/clouds/right.png} />
                         </div>
+                        <img class = "logo-background" th:src = @{/img/logo/background.png} />
                         <div class = "uptime">
                             <div class = "uptime-squares-grid">
                                 <div class = "first"></div>
@@ -231,7 +234,7 @@
                         </div>
                         <script type = "text/javascript" th:inline = "javascript"> chartInitialization(); </script>
                     </div>
-                    <div class = "server-name text-center" th:text = "${infoDto.settingsDto.serverName}"></div>
+                    <div class = "project-version text-center" th:text = "${infoDto.mavenDto.projectVersion}"></div>
                 </div>
             </div>
         </div>
