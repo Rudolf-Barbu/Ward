@@ -80,14 +80,15 @@ body
     width: var(--width-clouds-img);
 }
 
-.logo-cloud-bottom
+.logo-cloud-left
 {
-    top: var(--top-logo-cloud-bottom);
+    top: var(--top-logo-cloud-left);
 }
 
-.logo-cloud-top
+.logo-cloud-right
 {
-    left: var(--left-logo-cloud-top);
+    top: var(--top-logo-cloud-right);
+    left: var(--left-logo-cloud-right);
 }
 
 .logo-background

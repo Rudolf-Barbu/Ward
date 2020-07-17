@@ -17,7 +17,8 @@
     /* top */
     --top-logo: 2.188rem;
     --top-logo-description: 5.300rem;
-    --top-logo-cloud-bottom: 2.875rem;
+    --top-logo-cloud-left: 2.875rem;
+    --top-logo-cloud-right: 2.875rem;
     --top-form-field-div: 0.313rem;
     --top-form-field-input: 0.125rem;
     --top-label-additional-settings: 1.500rem;
@@ -54,7 +55,7 @@
     --bottom-error-advice: 0.563rem;
 
     /* left */
-    --left-logo-cloud-top: 12.875rem;
+    --left-logo-cloud-right: 12.875rem;
     --left-form-squares-grid: 9.250rem;
     --left-form-field: 1.500rem;
     --left-button-squares-grid-first: 1.500rem;
