@@ -3,6 +3,7 @@
     <head>
         <title>Welcome</title>
         <meta charset = "utf-8" />
+        <link rel = "shortcut icon" th:href = "@{/img/ico/favicon.ico}" type = "image/x-icon" />
         <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" />
         <link rel = "stylesheet" th:href = "@{/css/assets/dhtmlx.min.css}" />
         <link rel = "stylesheet" th:href = "@{/css/animations.css}" />
@@ -23,13 +24,15 @@
     </head>
     <body id = "background">
         <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
-        <div class = "container welcome">
-            <div class = "welcome-div" >
-                <div class = "welcome-about">
-                    <div class = "welcome-dashboard-logo">WARD</div>
-                    <div class = "welcome-dashboard-logo-description">SERVER DASHBOARD</div>
-                    <img class = "welcome-dashboard-logo-background" th:src = @{/img/logo/background.jpg} />
+        <div class = "container setup">
+            <div class = "setup-div" >
+                <div class = "logo">WARD</div>
+                <div class = "logo-description">SERVER DASHBOARD</div>
+                <div class = "clouds">
+                    <img class = "logo-cloud-left" th:src = @{/img/logo/clouds/left.png} />
+                    <img class = "logo-cloud-right" th:src = @{/img/logo/clouds/right.png} />
                 </div>
+                <img class = "logo-background" th:src = @{/img/logo/background.png} />
                 <div class = "form">
                     <div class = "form-squares-grid">
                         <div class = "first"></div>

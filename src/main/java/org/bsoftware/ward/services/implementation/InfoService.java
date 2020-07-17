@@ -1,16 +1,20 @@
 package org.bsoftware.ward.services.implementation;
 
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
 import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.OperatingSystem;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -190,14 +194,38 @@ public class InfoService implements org.bsoftware.ward.services.Service
         return uptimeDto;
     }
 
-    private SettingsDto getSettingsDto() throws IOException
+    /**
+     * Gets server name information
+     *
+     * @return SetupDto with filled field
+     * @throws IOException if file does not exists
+     */
+    private SetupDto getSetupDto() throws IOException
     {
-        SettingsDto settingsDto = new SettingsDto();
+        SetupDto setupDto = new SetupDto();
         File file = new File(Ward.SETTINGS_FILE_PATH);
 
-        settingsDto.setServerName(utilities.getFromIniFile(file, "settings", "serverName"));
+        setupDto.setServerName(utilities.getFromIniFile(file, "setup", "serverName"));
 
-        return settingsDto;
+        return setupDto;
+    }
+
+    /**
+     * Gets project version information
+     *
+     * @return MavenDto with filled field
+     * @throws IOException if file does not exists
+     * @throws XmlPullParserException if xml invalid
+     */
+    private MavenDto getMavenDto() throws IOException, XmlPullParserException
+    {
+        MavenDto mavenDto = new MavenDto();
+        MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+        Model model = mavenXpp3Reader.read(new FileReader("pom.xml"));
+
+        mavenDto.setProjectVersion("Ward: v" + model.getVersion());
+
+        return mavenDto;
     }
 
     /**
@@ -215,7 +243,8 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setMachineDto(getMachineDto());
         infoDto.setStorageDto(getStorageDto());
         infoDto.setUptimeDto(getUptimeDto());
-        infoDto.setSettingsDto(getSettingsDto());
+        infoDto.setSetupDto(getSetupDto());
+        infoDto.setMavenDto(getMavenDto());
 
         return (T) infoDto;
     }

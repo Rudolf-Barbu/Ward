@@ -15,8 +15,10 @@
 :root
 {
     /* top */
-    --top-welcome-dashboard-logo: 2.188rem;
-    --top-welcome-dashboard-logo-description: 5.300rem;
+    --top-logo: 2.188rem;
+    --top-logo-description: 5.300rem;
+    --top-logo-cloud-left: 2.875rem;
+    --top-logo-cloud-right: 2.875rem;
     --top-form-field-div: 0.313rem;
     --top-form-field-input: 0.125rem;
     --top-label-additional-settings: 1.500rem;
@@ -48,11 +50,12 @@
     --bottom-card-footer-dots-grid-div: -0.750rem;
     --bottom-uptime-squares-grid:  0.813rem;
     --bottom-values-grid-div-p: 0.250rem;
-    --bottom-server-name: 1.250rem;
+    --bottom-project-version: 1.250rem;
     --bottom-error-div: 7.500rem;
     --bottom-error-advice: 0.563rem;
 
     /* left */
+    --left-logo-cloud-right: 12.875rem;
     --left-form-squares-grid: 9.250rem;
     --left-form-field: 1.500rem;
     --left-button-squares-grid-first: 1.500rem;
@@ -107,9 +110,11 @@
 
     /* height */
     --height-body: 100%;
-    --height-welcome: 26.706rem;
-    --height-welcome-div: 26.706rem;
-    --height-welcome-dashboard-logo-background: 8.281rem;
+    --height-setup: 26.706rem;
+    --height-setup-div: 26.706rem;
+    --height-clouds: 8.281rem;
+    --height-clouds-img: 5.438rem;
+    --height-logo-background: 8.281rem;
     --height-form: 18.425rem;
     --height-form-squares-grid-div: 0.625rem;
     --height-form-field: 1.875rem;
@@ -148,10 +153,12 @@
 
     /* width */
     --width-body: 100%;
-    --width-welcome-div: 21.875rem;
-    --width-welcome-dashboard-logo: 21.875rem;
-    --width-welcome-dashboard-logo-description: 21.875rem;
-    --width-welcome-dashboard-logo-background: 21.875rem;
+    --width-setup-div: 21.875rem;
+    --width-logo: 21.875rem;
+    --width-logo-description: 21.875rem;
+    --width-clouds: 21.875rem;
+    --width-clouds-img: 4.375rem;
+    --width-logo-background: 21.875rem;
     --width-form: 21.875rem;
     --width-form-squares-grid-div: 0.625rem;
     --width-form-field: 18.875rem;
@@ -186,14 +193,14 @@
     --width-error-div: 23.875rem;
 
     /* max-width */
-    --max-width-welcome: 71.250rem;
+    --max-width-setup: 71.250rem;
     --max-width-index-xl: 71.250rem;
     --max-width-index-lg: 47.500rem;
     --max-width-col-lg-6-col-xl-4: 23.750rem;
     --max-width-col-lg-12.col-xl-8: 47.500rem;
 
     /* min-width */
-    --min-width-welcome: 71.250rem;
+    --min-width-setup: 71.250rem;
     --min-width-index-xl: 71.250rem;
     --min-width-index-lg: 47.500rem;
     --min-width-error: 71.250rem;
@@ -205,7 +212,7 @@
     --border-width-chart-triangle-grid-div: 0.438rem 0.438rem 0.000rem 0.438rem;
 
     /* border-radius */
-    --border-radius-welcome-div: 1.250rem;
+    --border-radius-setup-div: 1.250rem;
     --border-radius-port-text-field: 0.000rem 0.000rem 0.625rem 0.625rem;
     --border-radius-card: 1.250rem;
     --border-radius-hw-logo: 50%;

@@ -19,63 +19,84 @@ body
     background: var(--background-body);
 }
 
-.welcome
+.setup
 {
-    margin-top: calc((100vh / 2) - (var(--height-welcome) / 2));
-    max-width: var(--max-width-welcome);
-    min-width: var(--min-width-welcome);
+    margin-top: calc((100vh / 2) - (var(--height-setup) / 2));
+    max-width: var(--max-width-setup);
+    min-width: var(--min-width-setup);
 }
 
-.welcome-div
+.setup-div
 {
     display: block;
     position: relative;
     margin: auto;
-    height: var(--height-welcome-div);
-    width: var(--width-welcome-div);
+    height: var(--height-setup-div);
+    width: var(--width-setup-div);
     background: white;
-    border-radius: var(--border-radius-welcome-div);
+    border-radius: var(--border-radius-setup-div);
     overflow: hidden;
-    box-shadow: var(--box-shadow-welcome-div) var(--black-opacity-10);
+    box-shadow: var(--box-shadow-setup-div) var(--black-opacity-10);
 }
 
-.welcome-about
+.logo
 {
     position: absolute;
-}
-
-.welcome-dashboard-logo
-{
-    position: absolute;
-    top: var(--top-welcome-dashboard-logo);
+    top: var(--top-logo);
     z-index: 1;
-    width: var(--width-welcome-dashboard-logo);
+    width: var(--width-logo);
     text-align: center;
     letter-spacing: var(--letter-spacing-10px);
     font-size: var(--font-size-42pt);
     font-weight: var(--font-weight-regular);
-    color: var(--color-welcome-dashboard-logo);
+    color: var(--color-logo);
 }
 
-.welcome-dashboard-logo-description
+.logo-description
 {
     position: absolute;
-    top: var(--top-welcome-dashboard-logo-description);
+    top: var(--top-logo-description);
     z-index: 1;
-    width: var(--width-welcome-dashboard-logo-description);
+    width: var(--width-logo-description);
     text-align: center;
     letter-spacing: var(--letter-spacing-2px);
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
-    color: var(--color-welcome-dashboard-logo-description);
+    color: var(--color-logo-description);
 }
 
-.welcome-dashboard-logo-background
+.clouds
+{
+    height: var(--height-clouds);
+    width: var(--width-clouds);
+    overflow: hidden;
+}
+
+.clouds > img
+{
+    position: relative;
+    z-index: 1;
+    height: var(--height-clouds-img);
+    width: var(--width-clouds-img);
+}
+
+.logo-cloud-left
+{
+    top: var(--top-logo-cloud-left);
+}
+
+.logo-cloud-right
+{
+    top: var(--top-logo-cloud-right);
+    left: var(--left-logo-cloud-right);
+}
+
+.logo-background
 {
     position: absolute;
     top: 0;
-    height: var(--height-welcome-dashboard-logo-background);
-    width: var(--width-welcome-dashboard-logo-background);
+    height: var(--height-logo-background);
+    width: var(--width-logo-background);
 }
 
 .form
@@ -671,45 +692,6 @@ body
     left: var(--left-second-divider);
 }
 
-.uptime-about
-{
-    position: absolute;
-}
-
-.uptime-dashboard-logo
-{
-    position: absolute;
-    top: var(--top-uptime-dashboard-logo);
-    z-index: 1;
-    width: var(--width-uptime-dashboard-logo);
-    text-align: center;
-    letter-spacing: var(--letter-spacing-10px);
-    font-size: var(--font-size-42pt);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-uptime-dashboard-logo);
-}
-
-.uptime-dashboard-logo-description
-{
-    position: absolute;
-    top: var(--top-uptime-dashboard-logo-description);
-    z-index: 1;
-    width: var(--width-uptime-dashboard-logo-description);
-    text-align: center;
-    letter-spacing: var(--letter-spacing-2px);
-    font-size: var(--font-size-9pt);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-uptime-dashboard-logo-description);
-}
-
-.uptime-dashboard-logo-background
-{
-    position: absolute;
-    top: 0;
-    height: var(--height-uptime-dashboard-logo-background);
-    width: var(--width-uptime-dashboard-logo-background);
-}
-
 .uptime
 {
     position: absolute;
@@ -888,13 +870,13 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
-.server-name
+.project-version
 {
     position: relative;
-    bottom: var(--bottom-server-name);
+    bottom: var(--bottom-project-version);
     font-size: var(--font-size-12pt);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-server-name);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-project-version);
 }
 
 .error

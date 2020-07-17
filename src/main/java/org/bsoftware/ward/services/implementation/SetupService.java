@@ -3,7 +3,7 @@ package org.bsoftware.ward.services.implementation;
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
-import org.bsoftware.ward.dto.implementation.SettingsDto;
+import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.ini4j.Ini;
 import org.springframework.stereotype.Service;
 import java.io.File;
@@ -13,16 +13,16 @@ import java.io.IOException;
  * SettingsService manipulated settings data
  *
  * @author Rudolf Barbu
- * @version 1.0.1
+ * @version 1.0.2
  */
 @Service
-public class SettingsService implements org.bsoftware.ward.services.Service
+public class SetupService implements org.bsoftware.ward.services.Service
 {
     /**
      * Puts new data in ini file
      *
      * @param file ini file
-     * @param sectionName section in ini filr
+     * @param sectionName section in ini file
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
@@ -54,9 +54,9 @@ public class SettingsService implements org.bsoftware.ward.services.Service
         {
             File file = new File(Ward.SETTINGS_FILE_PATH);
 
-            putInIniFile(file, "settings", "serverName", ((SettingsDto) dto).getServerName());
-            putInIniFile(file, "settings", "theme", ((SettingsDto) dto).getTheme());
-            putInIniFile(file, "settings", "port", ((SettingsDto) dto).getPort());
+            putInIniFile(file, "setup", "serverName", ((SetupDto) dto).getServerName());
+            putInIniFile(file, "setup", "theme", ((SetupDto) dto).getTheme());
+            putInIniFile(file, "setup", "port", ((SetupDto) dto).getPort());
 
             Ward.restart();
         }

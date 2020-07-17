@@ -15,7 +15,7 @@
 :root
 {
     /* box-shadow */
-    --box-shadow-welcome-div: 0.000rem 0.313rem 0.625rem 0.000rem;
+    --box-shadow-setup-div: 0.000rem 0.313rem 0.625rem 0.000rem;
     --box-shadow-form-squares-grid-div: 0.000rem 0.188rem 0.313rem 0.000rem;
     --box-shadow-form-field-div: 0.000rem 0.188rem 0.313rem 0.000rem;
     --box-shadow-button-squares-grid-div: 0.000rem 0.188rem 0.313rem 0.000rem;
