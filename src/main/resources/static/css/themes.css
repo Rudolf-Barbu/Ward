@@ -19,8 +19,8 @@
 html[theme = "light"]
 {
     /* color */
-    --color-welcome-dashboard-logo: var(--grey-light);
-    --color-welcome-dashboard-logo-description: var(--grey-light);
+    --color-logo: var(--grey-light);
+    --color-logo-description: var(--grey-light);
     --color-label-main-settings: var(--grey-light);
     --color-form-field-input: var(--grey);
     --color-form-field-input-placeholder: var(--grey-light);
@@ -40,7 +40,7 @@ html[theme = "light"]
     --color-values-grid-div: var(--grey);
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--black);
-    --color-server-name: var(--grey);
+    --color-project-version: var(--grey);
     --color-error-code: var(--black);
     --color-error-title: var(--black);
     --color-error-description-div: var(--grey);
@@ -100,8 +100,8 @@ html[theme = "light"]
 html[theme = "dark"]
 {
     /* color */
-    --color-welcome-dashboard-logo: var(--grey-light);
-    --color-welcome-dashboard-logo-description: var(--grey-light);
+    --color-logo: var(--grey-light);
+    --color-logo-description: var(--grey-light);
     --color-label-main-settings: var(--grey-light);
     --color-form-field-input: var(--white);
     --color-form-field-input-placeholder: var(--white);
@@ -121,7 +121,7 @@ html[theme = "dark"]
     --color-values-grid-div: var(--white);
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--white);
-    --color-server-name: var(--white);
+    --color-project-version: var(--white);
     --color-error-code: var(--white);
     --color-error-title: var(--white);
     --color-error-description-div: var(--grey);

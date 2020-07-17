@@ -35,7 +35,12 @@ public class InfoDto implements Dto
     private UptimeDto uptimeDto;
 
     /**
-     *  Settings info dto field
+     *  Setup info dto field
      */
-    private SettingsDto settingsDto;
+    private SetupDto setupDto;
+
+    /**
+     *  Maven info dto field
+     */
+    private MavenDto mavenDto;
 }
