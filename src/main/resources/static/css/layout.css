@@ -80,23 +80,23 @@ body
     width: var(--width-clouds-img);
 }
 
-.logo-cloud-left
+.cloud-left
 {
-    top: var(--top-logo-cloud-left);
+    top: var(--top-cloud-left);
 }
 
-.logo-cloud-right
+.cloud-right
 {
-    top: var(--top-logo-cloud-right);
-    left: var(--left-logo-cloud-right);
+    top: var(--top-cloud-right);
+    left: var(--left-cloud-right);
 }
 
-.logo-background
+.background
 {
     position: absolute;
     top: 0;
-    height: var(--height-logo-background);
-    width: var(--width-logo-background);
+    height: var(--height-background);
+    width: var(--width-background);
 }
 
 .form
@@ -243,12 +243,8 @@ body
 .button-squares-grid > .second
 {
     left: var(--left-button-squares-grid-second);
+    visibility: hidden;
     background: var(--background-button-squares-grid-second);
-}
-
-.tooltip
-{
-    visibility: visible;
 }
 
 .theme-button
@@ -493,24 +489,24 @@ body
     height: var(--height-usage-value-span);
     width: var(--width-usage-value-span);
     color: var(--color-usage-value-span);
-    animation-duration: var(--animation-duration-wiggle);
+    animation-duration: var(--animation-duration-wiggle-span);
 }
 
 .first-span
 {
-    animation: wiggle;
+    animation: wiggle-span;
     animation-delay: var(--animation-delay-first-span);
 }
 
 .second-span
 {
-    animation: wiggle;
+    animation: wiggle-span;
     animation-delay: var(--animation-delay-second-span);
 }
 
 .third-span
 {
-    animation: wiggle;
+    animation: wiggle-span;
     animation-delay: var(--animation-delay-third-span)
 }
 
@@ -692,6 +688,65 @@ body
     left: var(--left-second-divider);
 }
 
+.controls
+{
+    position: absolute;
+    height: var(--height-controls);
+    width: var(--width-controls);
+}
+
+.controls > div
+{
+    position: absolute;
+    top: var(--top-controls-div);
+    z-index: 1;
+    height: var(--height-controls-div);
+    width: var(--width-controls-div);
+    border-radius: var(--border-radius-controls-div);
+    background: var(--background-controls-div);
+}
+
+.controls > .first
+{
+    left: var(--left-controls-first);
+    transform: var(--transform-controls-first);
+    animation: wiggle-first-control;
+    animation-duration: var(--animation-duration-wiggle-first-control);
+}
+
+.controls > .second
+{
+    left: var(--left-controls-second);
+    transform: var(--transform-controls-second);
+    animation: wiggle-second-control;
+    animation-duration: var(--animation-duration-wiggle-second-control);
+}
+
+.controls > div::before
+{
+    position: relative;
+    top: var(--top-controls-div-before);
+    left: var(--left-controls-div-before);
+    content: "";
+    border-style: solid;
+    border-color: var(--background-controls-div-before) transparent;
+}
+
+.controls > .first::before
+{
+    border-width: var(--border-width-controls-first-before);
+}
+
+.controls > .second::before
+{
+    border-width: var(--border-width-controls-second-before);
+}
+
+.pages
+{
+    position: absolute;
+}
+
 .uptime
 {
     position: absolute;
@@ -795,8 +850,8 @@ body
     border-style: solid;
     border-width: var(--border-width-chart-triangle-grid-div);
     opacity: 0;
-    animation: fade-in-triangles;
-    animation-duration: var(--animation-duration-fade-in-triangles);
+    animation: fade-in-triangle;
+    animation-duration: var(--animation-duration-fade-in-triangle);
     animation-delay: var(--animation-delay-chart-triangle-grid-div);
     animation-fill-mode: forwards;
 }

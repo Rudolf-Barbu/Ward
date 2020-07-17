@@ -186,13 +186,23 @@
                 <script type = "text/javascript" th:inline = "javascript"> labelsInitialization(); </script>
                 <div class = "col-6 col-lg-6 col-xl-4">
                     <div class = "card">
-                        <div class = "logo">WARD</div>
-                        <div class = "logo-description">SERVER DASHBOARD</div>
-                        <div class = "clouds">
-                            <img class = "logo-cloud-left" th:src = @{/img/logo/clouds/left.png} />
-                            <img class = "logo-cloud-right" th:src = @{/img/logo/clouds/right.png} />
+                        <div class = "controls">
+                            <div id = "first-control" class = "first"></div>
+                            <div id = "second-control" class = "second"></div>
                         </div>
-                        <img class = "logo-background" th:src = @{/img/logo/background.png} />
+                        <div class = "pages">
+                            <div id = "location"></div>
+                            <div id = "logo">
+                                <div class = "logo">WARD</div>
+                                <div class = "logo-description">SERVER DASHBOARD</div>
+                            </div>
+                            <div id = "info"></div>
+                        </div>
+                        <div class = "clouds">
+                            <img class = "cloud-left" th:src = @{/img/logo/clouds/left.png} />
+                            <img class = "cloud-right" th:src = @{/img/logo/clouds/right.png} />
+                        </div>
+                        <img class = "background" th:src = @{/img/logo/background.png} />
                         <div class = "uptime">
                             <div class = "uptime-squares-grid">
                                 <div class = "first"></div>

@@ -16,8 +16,10 @@
 :root
 {
     /* animation-duration */
-    --animation-duration-wiggle: 0.6s;
-    --animation-duration-fade-in-triangles: 0.5s;
+    --animation-duration-wiggle-span: 0.6s;
+    --animation-duration-wiggle-first-control: 1s;
+    --animation-duration-wiggle-second-control: 1s;
+    --animation-duration-fade-in-triangle: 0.5s;
     --animation-duration-fade-in-error-div: 0.8s;
 
     /* animation-delay */
@@ -25,50 +27,6 @@
     --animation-delay-first-span: 0.2s;
     --animation-delay-second-span: 0.4s;
     --animation-delay-third-span: 0.6s;
-}
-
-@keyframes wiggle
-{
-    0%
-    {
-        top: 0.000rem;
-    }
-    50%
-    {
-        top: -2rem;
-    }
-    100%
-    {
-        top: 0.000rem;
-    }
-}
-
-@keyframes fade-in-triangles
-{
-    0%
-    {
-        top: 0.000rem;
-        opacity: 0;
-    }
-    100%
-    {
-        top: 0.563rem;
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out-triangles
-{
-    0%
-    {
-        top: 0.563rem;
-        opacity: 1;
-    }
-    100%
-    {
-        top: 0.000rem;
-        opacity: 0;
-    }
 }
 
 @keyframes fade-in-square
@@ -86,6 +44,82 @@
 }
 
 @keyframes fade-out-square
+{
+    0%
+    {
+        top: 0.563rem;
+        opacity: 1;
+    }
+    100%
+    {
+        top: 0.000rem;
+        opacity: 0;
+    }
+}
+
+@keyframes wiggle-span
+{
+    0%
+    {
+        top: 0.000rem;
+    }
+    50%
+    {
+        top: -2rem;
+    }
+    100%
+    {
+        top: 0.000rem;
+    }
+}
+
+@keyframes wiggle-first-control
+{
+    0%
+    {
+        left: 0.750rem;
+    }
+    50%
+    {
+        left: 1.750rem;
+    }
+    100%
+    {
+        left: 0.750rem;
+    }
+}
+
+@keyframes wiggle-second-control
+{
+    0%
+    {
+        left: 19.250rem;
+    }
+    50%
+    {
+        left: 18.250rem;
+    }
+    100%
+    {
+        left: 19.250rem;
+    }
+}
+
+@keyframes fade-in-triangle
+{
+    0%
+    {
+        top: 0.000rem;
+        opacity: 0;
+    }
+    100%
+    {
+        top: 0.563rem;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out-triangle
 {
     0%
     {

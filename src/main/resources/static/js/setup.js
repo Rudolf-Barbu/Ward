@@ -42,6 +42,8 @@ function changeTheme(element)
     }
     else
     {
+        darkThemeSquare.style.visibility = "visible";
+
         lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
         darkThemeSquare.style.animation = "fade-in-square 0.5s forwards";
 

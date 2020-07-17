@@ -16,6 +16,7 @@
 {
     /* white */
     --white: rgba(255, 255, 255, 1);
+    --white-opacity-50: rgba(255, 255, 255, 0.6);
     --white-opacity-70: rgba(255, 255, 255, 0.7);
     --white-opacity-90: rgba(255, 255, 255, 0.9);
 
