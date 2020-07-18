@@ -19,6 +19,11 @@ body
     background: var(--background-body);
 }
 
+.dhtmlx_message_area
+{
+    width: var(--width-dhtmlx-message-area);
+}
+
 .setup
 {
     margin-top: calc((100vh / 2) - (var(--height-setup) / 2));
@@ -752,6 +757,11 @@ body
 }
 
 .pages
+{
+    position: absolute;
+}
+
+.pages > div
 {
     position: absolute;
 }

@@ -42,7 +42,7 @@
                     <div>
                         <div class = "label-main-settings">MAIN SETTINGS</div>
                         <div class = "form-field">
-                            <input id = "server-name" type = "text" placeholder = "Server Name" />
+                            <input id = "server-name" type = "text" maxlength = "10" placeholder = "Server Name" />
                             <div class = "form-field-underline"></div>
                         </div>
                     </div>
@@ -52,11 +52,10 @@
                             <div id = "light-theme-square" class = "first"></div>
                             <div id = "dark-theme-square" class = "second"></div>
                         </div>
-                        <span class = "tooltip">ytyrty</span>
                         <input id = "light-theme" class = "theme-button first" type = "button" value = "LIGHT THEME" />
                         <input id = "dark-theme" class = "theme-button second" type = "button" value = "DARK THEME" />
                         <div class = "port-text-field">
-                            <input id = "port" type = "number" placeholder = "Application Port" />
+                            <input id = "port" type = "text" maxlength = "5" placeholder = "Application Port" />
                         </div>
                     </div>
                     <input id = "submit" class = "submit-button" type = "button" value = "LAUNCH" />

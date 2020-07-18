@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class RestResponseEntityWrapper
 {
     /**
+     * Autowired HttpHeaders object
      * Used as a bean, which already provides Json headers
      */
     private HttpHeaders httpHeaders;

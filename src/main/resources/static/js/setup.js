@@ -79,10 +79,12 @@ function sendSettingsRequest()
                 }
                 case 405:
                 {
+                    let response = JSON.parse(this.response);
+
                     let message =
                     {
-                        text:"Fill the form correctly",
-                        type:("")
+                        text: response.message,
+                        type: ("")
                     }
 
                     dhtmlx.message(message);

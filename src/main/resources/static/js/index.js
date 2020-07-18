@@ -107,8 +107,8 @@ function changePage(element)
     setPageVisibility(currentPage);
     setSquareScale(currentPage);
 
-    cloudLeft.style.animation = (currentPage == 2) ? "fade-in-cloud-left 0.5s forwards" : "fade-out-cloud-left 0.5s forwards";
-    cloudRight.style.animation = (currentPage == 2) ? "fade-in-cloud-right 0.5s forwards" : "fade-out-cloud-right 0.5s forwards";
+    cloudLeft.style.animation = (currentPage == 2) ? "fade-in-cloud-left 0.3s forwards" : "fade-out-cloud-left 0.3s forwards";
+    cloudRight.style.animation = (currentPage == 2) ? "fade-in-cloud-right 0.3s forwards" : "fade-out-cloud-right 0.3s forwards";
 }
 
 /**

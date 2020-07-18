@@ -22,7 +22,7 @@ public class SetupDto implements Dto
      */
     @NotNull(groups = {RequestValidator.PostRequest.class})
     @NotEmpty(groups = {RequestValidator.PostRequest.class})
-    @Size(groups = {RequestValidator.PostRequest.class}, max = 16)
+    @Size(groups = {RequestValidator.PostRequest.class}, min = 1, max = 10)
     private String serverName;
 
     /**

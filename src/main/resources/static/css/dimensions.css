@@ -156,6 +156,7 @@
 
     /* width */
     --width-body: 100%;
+    --width-dhtmlx-message-area 21.875rem;
     --width-setup-div: 21.875rem;
     --width-logo: 21.875rem;
     --width-logo-description: 21.875rem;
@@ -170,7 +171,7 @@
     --width-additional-settings-input: 9.063rem;
     --width-button-squares-grid-div: 0.625rem;
     --width-port-text-field: 18.875rem;
-    --width-port-text-field-input: 20.125rem;
+    --width-port-text-field-input: 100%;
     --width-submit-button: 8.750rem;
     --width-hw-logo: 3.750rem;
     --width-usage: 18.875rem;
@@ -231,7 +232,7 @@
     --letter-spacing-2px: 0.125rem;
 
     /* transition */
-    --transition-all: color 0.2s, background 0.2s, flex 0.2s, transform 0.07s;
+    --transition-all: color 0.200s, background 0.200s, flex 0.200s, transform 0.070s;
 
     /* transform */
     --transform-form-squares-grid-second: scale(1.3);
