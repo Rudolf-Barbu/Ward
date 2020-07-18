@@ -144,9 +144,59 @@ let dataDark;
 let options;
 
 /**
- * Used to handle chart object, displays usage for 15 seconds
+ * Used to determine current page
  */
-let chart;
+let currentPage;
+
+/**
+ * Used to select pages
+ */
+let firstControl;
+
+/**
+ * Used to select pages
+ */
+let secondControl;
+
+/**
+ * Used to determine location page
+ */
+let locationPage;
+
+/**
+ * Used to determine logo page
+ */
+let logoPage;
+
+/**
+ * Used to determine info page
+ */
+let infoPage;
+
+/**
+ * Used to determine left cloud
+ */
+let cloudLeft
+
+/**
+ * Used to determine right cloud
+ */
+let cloudRight
+
+/**
+ * Used to determine first square
+ */
+let firstUptimeSquare;
+
+/**
+ * Used to determine second square
+ */
+let secondUptimeSquare;
+
+/**
+ * Used to determine third square
+ */
+let thirdUptimeSquare;
 
 /**
  * Used to display current days of uptime
@@ -167,6 +217,11 @@ let minutes;
  * Used to display current seconds of uptime
  */
 let seconds;
+
+/**
+ * Used to handle chart object, displays usage for 15 seconds
+ */
+let chart;
 
 /**
  * Initialises html object and theme value

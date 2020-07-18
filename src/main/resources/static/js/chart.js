@@ -198,23 +198,23 @@ function hideDataset(element)
     {
         case "processor-rectangle":
         {
-            processorTriangle.style.animation = chart.getDatasetMeta(0).hidden ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
+            processorTriangle.style.animation = (chart.getDatasetMeta(0).hidden) ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
 
-            chart.getDatasetMeta(0).hidden = chart.getDatasetMeta(0).hidden ? false : true;
+            chart.getDatasetMeta(0).hidden = (chart.getDatasetMeta(0).hidden) ? false : true;
             break;
         }
         case "ram-rectangle":
         {
-            ramTriangle.style.animation = chart.getDatasetMeta(1).hidden ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
+            ramTriangle.style.animation = (chart.getDatasetMeta(1).hidden) ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
 
-            chart.getDatasetMeta(1).hidden = chart.getDatasetMeta(1).hidden ? false : true;
+            chart.getDatasetMeta(1).hidden = (chart.getDatasetMeta(1).hidden) ? false : true;
             break;
         }
         case "storage-rectangle":
         {
-            storageTriangle.style.animation = chart.getDatasetMeta(2).hidden ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
+            storageTriangle.style.animation = (chart.getDatasetMeta(2).hidden) ? "fade-in-triangle 0.5s forwards" : "fade-out-triangle 0.5s forwards";
 
-            chart.getDatasetMeta(2).hidden = chart.getDatasetMeta(2).hidden ? false : true;
+            chart.getDatasetMeta(2).hidden = (chart.getDatasetMeta(2).hidden) ? false : true;
             break;
         }
     }

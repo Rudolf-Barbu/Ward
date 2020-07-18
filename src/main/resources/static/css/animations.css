@@ -105,6 +105,76 @@
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+@keyframes fade-in-cloud-left
+{
+    0%
+    {
+        left: -5.000rem;
+    }
+    100%
+    {
+        left: 0.000rem;
+    }
+}
+
+@keyframes fade-out-cloud-left
+{
+    0%
+    {
+        left: 0.000rem;
+    }
+    100%
+    {
+        left: -5.000rem;
+    }
+}
+
+@keyframes fade-in-cloud-right
+{
+    0%
+    {
+        left: 17.875rem;
+    }
+    100%
+    {
+        left: 12.875rem;
+    }
+}
+
+@keyframes fade-out-cloud-right
+{
+    0%
+    {
+        left: 12.875rem;
+    }
+    100%
+    {
+        left: 17.875rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes fade-in-triangle
 {
     0%

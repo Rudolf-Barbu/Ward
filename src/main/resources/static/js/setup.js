@@ -40,7 +40,7 @@ function changeTheme(element)
             baseColor: 0xe4e3ef
         });
     }
-    else
+    else if (String(element.id) == "dark-theme")
     {
         darkThemeSquare.style.visibility = "visible";
 

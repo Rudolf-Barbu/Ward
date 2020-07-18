@@ -80,15 +80,15 @@ body
     width: var(--width-clouds-img);
 }
 
-.cloud-left
+.clouds > .first
 {
-    top: var(--top-cloud-left);
+    top: var(--top-clouds-first);
 }
 
-.cloud-right
+.clouds > .second
 {
-    top: var(--top-cloud-right);
-    left: var(--left-cloud-right);
+    top: var(--top-clouds-second);
+    left: var(--left-clouds-second);
 }
 
 .background
@@ -133,6 +133,7 @@ body
 .form-squares-grid > .second
 {
     background: var(--background-form-squares-grid-second);
+    transform: var(--transform-form-squares-grid-second);
 }
 
 .form-squares-grid > .third
@@ -256,12 +257,6 @@ body
     border: 0;
     outline: none;
     box-shadow: var(--box-shadow-theme-button) var(--black-opacity-10);
-    transition: var(--transition-theme-button);
-}
-
-.theme-button:active
-{
-    transform: var(--transform-theme-button-div-active);
 }
 
 .theme-button.first
@@ -274,6 +269,11 @@ body
 .theme-button.second
 {
     background: var(--background-theme-button-second);
+}
+
+.theme-button:active
+{
+    transform: var(--transform-theme-button-div-active);
 }
 
 .port-text-field
@@ -327,12 +327,11 @@ body
     border-radius: 0.625rem;
     outline: none;
     box-shadow: var(--box-shadow-submit-button) var(--black-opacity-10);
-    transition: var(--transition-submit-button);
 }
 
 .submit-button:active
 {
-    transform: var(--transform-submit-button);
+    transform: var(--transform-submit-button-active);
 }
 
 .index
@@ -742,9 +741,29 @@ body
     border-width: var(--border-width-controls-second-before);
 }
 
+.controls > div:active
+{
+    transform: var(--transform-controls-div-active);
+}
+
 .pages
 {
     position: absolute;
+}
+
+.pages > first
+{
+    visibility: hidden;
+}
+
+.pages > second
+{
+    visibility: visible;
+}
+
+.pages > third
+{
+    visibility: hidden;
 }
 
 .uptime
@@ -781,6 +800,7 @@ body
 .uptime-squares-grid > .second
 {
     background: var(--background-uptime-squares-grid-second);
+    transform: var(--transform-uptime-squares-grid-second);
 }
 
 .uptime-squares-grid > .third
@@ -886,13 +906,7 @@ body
     position: absolute;
     height: var(--height-chart-rectangle-grid-div);
     width: var(--width-chart-rectangle-grid-div);
-    transition: var(--transition-chart-rectangle-grid-div);
     cursor: pointer;
-}
-
-.chart-rectangle-grid > div:active
-{
-    transform: var(--transform-chart-rectangle-grid-div-active);
 }
 
 .first-rectangle
@@ -912,6 +926,11 @@ body
 {
     left: var(--left-third-rectangle);
     background: var(--background-third-rectangle);
+}
+
+.chart-rectangle-grid > div:active
+{
+    transform: var(--transform-chart-rectangle-grid-div-active);
 }
 
 .chart-container

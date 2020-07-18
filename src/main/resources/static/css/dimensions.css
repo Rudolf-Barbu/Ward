@@ -17,8 +17,8 @@
     /* top */
     --top-logo: 2.188rem;
     --top-logo-description: 5.300rem;
-    --top-cloud-left: 2.875rem;
-    --top-cloud-right: 2.875rem;
+    --top-clouds-first: 2.875rem;
+    --top-clouds-second: 2.875rem;
     --top-form-field-div: 0.313rem;
     --top-form-field-input: 0.125rem;
     --top-label-additional-settings: 1.500rem;
@@ -55,7 +55,7 @@
     --bottom-error-advice: 0.563rem;
 
     /* left */
-    --left-cloud-right: 12.875rem;
+    --left-clouds-second: 12.875rem;
     --left-form-squares-grid: 9.250rem;
     --left-form-field: 1.500rem;
     --left-button-squares-grid-first: 1.500rem;
@@ -231,15 +231,15 @@
     --letter-spacing-2px: 0.125rem;
 
     /* transition */
-    --transition-theme-button: transform 0.07s;
-    --transition-submit-button: transform 0.07s;
-    --transition-all: color 0.2s, background 0.2s, flex 0.2s;
-    --transition-chart-rectangle-grid-div: transform 0.07s;
+    --transition-all: color 0.2s, background 0.2s, flex 0.2s, transform 0.07s;
 
     /* transform */
+    --transform-form-squares-grid-second: scale(1.3);
     --transform-theme-button-div-active: scale(0.9);
-    --transform-submit-button: scale(0.9);
+    --transform-submit-button-active: scale(0.9);
     --transform-controls-first: rotate(90deg);
     --transform-controls-second: rotate(-90deg);
+    --transform-uptime-squares-grid-second: scale(1.3);
+    --transform-controls-div-active: scale(0.9);
     --transform-chart-rectangle-grid-div-active: scale(0.9);
 }
