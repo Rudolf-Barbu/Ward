@@ -741,9 +741,14 @@ body
     border-width: var(--border-width-controls-second-before);
 }
 
-.controls > div:active
+.controls > .first:active
 {
-    transform: var(--transform-controls-div-active);
+    transform: var(--transform-controls-first-active);
+}
+
+.controls > .second:active
+{
+    transform: var(--transform-controls-second-active);
 }
 
 .pages
