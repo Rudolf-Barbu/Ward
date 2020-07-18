@@ -199,6 +199,11 @@ body
     color: var(--color-form-field-input-placeholder);
 }
 
+.form-field > input::-moz-placeholder
+{
+    opacity: 1;
+}
+
 .form-field-underline
 {
     background: var(--background-form-field-underline);
@@ -314,6 +319,11 @@ body
 .port-text-field > input::-webkit-input-placeholder
 {
     color: var(--color-port-text-field-input-placeholder);
+}
+
+.port-text-field > input::-moz-placeholder
+{
+    opacity: 1;
 }
 
 .submit-button
