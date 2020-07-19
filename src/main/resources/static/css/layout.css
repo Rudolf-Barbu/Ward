@@ -204,6 +204,11 @@ body
     opacity: 1;
 }
 
+.form-field > input::-ms-clear
+{
+    display: none;
+}
+
 .form-field-underline
 {
     background: var(--background-form-field-underline);
@@ -324,6 +329,11 @@ body
 .port-text-field > input::-moz-placeholder
 {
     opacity: 1;
+}
+
+.port-text-field > input::-ms-clear
+{
+    display: none;
 }
 
 .submit-button

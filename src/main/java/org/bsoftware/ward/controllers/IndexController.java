@@ -41,10 +41,10 @@ public class IndexController
     @GetMapping
     public String getIndex(Model model) throws Exception
     {
-//        if (Ward.isFirstLaunch())
-//        {
-//            return "setup";
-//        }
+        if (Ward.isFirstLaunch())
+        {
+            return "setup";
+        }
 
         model.addAttribute("infoDto", infoService.get());
 
