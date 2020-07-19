@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th = "http://www.thymeleaf.org" id = "html" th:attr = "theme = ${theme}">
     <head>
-        <title>Ward</title>
+        <title th:text = "${infoDto.setupDto.serverName}"></title>
         <meta charset = "utf-8" />
         <link rel = "shortcut icon" th:href = "@{/img/ico/favicon.ico}" type = "image/x-icon" />
         <link rel = "stylesheet" th:href = "@{/css/assets/bootstrap.min.css}" />
@@ -196,7 +196,21 @@
                                 <div class = "logo">WARD</div>
                                 <div class = "logo-description">SERVER DASHBOARD</div>
                             </div>
-                            <div id = "info-page" class = "third"></div>
+                            <div id = "contacts-page" class = "third">
+                                <div class = "contacts-label">CONTACTS</div>
+                                <div class = "contacts-description">
+                                    <div class = "first">Feel free to ask questions and leave feedback</div>
+                                    <div class = "second">Join Telegram channel for users</div>
+                                </div>
+                                <div class = "contacts-links">
+                                    <a href = "https://github.com/B-Software/Ward">
+                                        <img class = "first" th:src = @{/img/links/github.png} />
+                                    </a>
+                                    <a href = "https://t.me/joinchat/AAAAAE5jCyQSs7u0OPQMrA">
+                                        <img class = "second" th:src = @{/img/links/telegram.png} />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class = "clouds">
                             <img id = "cloud-left" class = "first" th:src = @{/img/logo/clouds/left.png} />

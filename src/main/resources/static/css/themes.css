@@ -35,6 +35,8 @@ html[theme = "light"]
     --color-usage-postfix: var(--black);
     --color-info-label: var(--grey-light);
     --color-detailed-hw-info-div: var(--grey);
+    --color-contacts-label: var(--white);
+    --color-contacts-description-div: var(--white);
     --color-uptime-dashboard-logo: var(--grey-light);
     --color-uptime-dashboard-logo-description: var(--grey-light);
     --color-values-grid-div: var(--grey);
@@ -118,6 +120,8 @@ html[theme = "dark"]
     --color-usage-postfix: var(--white);
     --color-info-label: var(--grey-light);
     --color-detailed-hw-info-div: var(--grey-light);
+    --color-contacts-label: var(--white);
+    --color-contacts-description-div: var(--white);
     --color-uptime-dashboard-logo: var(--grey-light);
     --color-uptime-dashboard-logo-description: var(--grey-light);
     --color-values-grid-div: var(--white);
