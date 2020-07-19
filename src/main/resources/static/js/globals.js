@@ -171,7 +171,7 @@ let logoPage;
 /**
  * Used to determine info page
  */
-let infoPage;
+let contactsPage;
 
 /**
  * Used to determine left cloud

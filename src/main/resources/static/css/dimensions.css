@@ -33,6 +33,10 @@
     --top-detailed-hw-info-div: 1.168rem;
     --top-controls-div: 0.750rem;
     --top-controls-div-before: 1.250rem;
+    --top-contacts-label: 1.500rem;
+    --top-contacts-description-first: 3.125rem;
+    --top-contacts-description-second: 3.813rem;
+    --top-contacts-links-img: 4.906rem;
     --top-uptime-rectangle-grid: 1.925rem;
     --top-chart-label: 1.500rem;
     --top-chart-triangle-grid: 0.500rem;
@@ -78,6 +82,8 @@
     --left-controls-first: 0.750rem;
     --left-controls-second: 19.250rem;
     --left-controls-div-before: 0.313rem;
+    --left-contacts-links-first: 8.075rem;
+    --left-contacts-links-second: 11.700rem;
     --left-uptime-squares-grid: 9.250rem;
     --left-uptime-rectangle-grid: 2.781rem;
     --left-chart-label: 1.500rem;
@@ -141,6 +147,7 @@
     --height-dividers-div: 3.125rem;
     --height-controls: 2.625rem;
     --height-controls-div: 1.875rem;
+    --height-contacts-links-img: 2.125rem;
     --height-uptime: 8.281rem;
     --height-uptime-squares-grid-div: 0.625rem;
     --height-values-grid-div: 3.188rem;
@@ -186,6 +193,9 @@
     --width-dividers-div: 0.063rem;
     --width-controls: 100%;
     --width-controls-div: 1.875rem;
+    --width-contacts-label: 21.875rem;
+    --width-contacts-description-div: 21.875rem;
+    --width-contacts-links-img: 2.125rem;
     --width-uptime: 100%;
     --width-uptime-squares-grid-div: 0.625rem;
     --width-values-grid-div: 3.750rem;
@@ -228,8 +238,9 @@
     --border-radius-error-div: 1.250rem;
 
     /* letter-spacing */
-    --letter-spacing-10px: 0.625rem;
     --letter-spacing-2px: 0.125rem;
+    --letter-spacing-5px: 0.313rem;
+    --letter-spacing-10px: 0.625rem;
 
     /* transition */
     --transition-all: color 0.200s, background 0.200s, flex 0.200s, transform 0.070s;
@@ -242,6 +253,8 @@
     --transform-controls-first-active: scale(0.9) rotate(90deg);
     --transform-controls-second: rotate(-90deg);
     --transform-controls-second-active: scale(0.9) rotate(-90deg);
+    --transform-contacts-links-first-active: scale(0.9);
+    --transform-contacts-links-second-active: scale(0.9);
     --transform-uptime-squares-grid-second: scale(1.3);
     --transform-chart-rectangle-grid-div-active: scale(0.9);
 }

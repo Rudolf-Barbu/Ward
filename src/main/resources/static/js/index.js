@@ -14,7 +14,7 @@ function indexInitialization()
 
     locationPage = document.getElementById("location-page");
     logoPage = document.getElementById("logo-page");
-    infoPage = document.getElementById("info-page");
+    contactsPage = document.getElementById("contacts-page");
 
     cloudLeft = document.getElementById("cloud-left");
     cloudRight = document.getElementById("cloud-right");
@@ -124,21 +124,21 @@ function setPageVisibility(newPage)
         {
             locationPage.style.visibility = "visible";
             logoPage.style.visibility = "hidden";
-            infoPage.style.visibility = "hidden";
+            contactsPage.style.visibility = "hidden";
             break;
         }
         case 2:
         {
             locationPage.style.visibility = "hidden";
             logoPage.style.visibility = "visible";
-            infoPage.style.visibility = "hidden";
+            contactsPage.style.visibility = "hidden";
             break;
         }
         case 3:
         {
             locationPage.style.visibility = "hidden";
             logoPage.style.visibility = "hidden";
-            infoPage.style.visibility = "visible";
+            contactsPage.style.visibility = "visible";
             break;
         }
     }
