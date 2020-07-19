@@ -1,23 +1,21 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
-import org.bsoftware.ward.exceptions.CantGetPhysicalMemoryArrayException;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.OperatingSystem;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.Properties;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
@@ -119,7 +117,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @return MachineDto with filled fields
      */
-    private MachineDto getMachineDto() throws Exception
+    private MachineDto getMachineDto()
     {
         MachineDto machineDto = new MachineDto();
 
@@ -128,15 +126,17 @@ public class InfoService implements org.bsoftware.ward.services.Service
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         machineDto.setOperatingSystemName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
-
         machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
-        List<PhysicalMemory> physicalMemory = globalMemory.getPhysicalMemory();
-        if (physicalMemory.isEmpty())
+        Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
+        if (physicalMemoryOptional.isPresent())
         {
-            throw new CantGetPhysicalMemoryArrayException();
+            machineDto.setRamType(physicalMemoryOptional.get().getMemoryType());
         }
-        machineDto.setRamType(physicalMemory.stream().findAny().get().getMemoryType());
+        else
+        {
+            machineDto.setRamType("Unknown");
+        }
 
         int processCount = operatingSystem.getProcessCount();
         machineDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));
@@ -215,15 +215,22 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @return MavenDto with filled field
      * @throws IOException if file does not exists
-     * @throws XmlPullParserException if xml invalid
      */
-    private MavenDto getMavenDto() throws IOException, XmlPullParserException
+    private MavenDto getMavenDto() throws IOException
     {
         MavenDto mavenDto = new MavenDto();
-        MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-        Model model = mavenXpp3Reader.read(new FileReader("pom.xml"));
+        Properties properties = new Properties();
+        InputStream inputStream = getClass().getResourceAsStream("/META-INF/maven/org.b-software/ward/pom.properties");
 
-        mavenDto.setProjectVersion("Ward: v" + model.getVersion());
+        if (inputStream != null)
+        {
+            properties.load(inputStream);
+            mavenDto.setProjectVersion("Ward: v" + properties.getProperty("version", "unknown"));
+        }
+        else
+        {
+            mavenDto.setProjectVersion("Developer mode");
+        }
 
         return mavenDto;
     }
