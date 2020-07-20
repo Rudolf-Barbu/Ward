@@ -156,12 +156,22 @@ public class InfoService implements org.bsoftware.ward.services.Service
         List<HWDiskStore> hwDiskStores = systemInfo.getHardware().getDiskStores();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        String storageName = hwDiskStores.get(0).getModel();
-        if (storageName.contains("(Standard disk drives)"))
+        Optional<HWDiskStore> hwDiskStoreOptional = hwDiskStores.stream().findFirst();
+        if (hwDiskStoreOptional.isPresent())
         {
-            storageName = storageName.substring(0, storageName.indexOf("(Standard disk drives)") - 1);
+            String storageName = hwDiskStoreOptional.get().getModel();
+
+            if (storageName.contains("(Standard disk drives)"))
+            {
+                storageName = storageName.substring(0, storageName.indexOf("(Standard disk drives)") - 1);
+            }
+
+            storageDto.setStorageName(storageName.trim());
         }
-        storageDto.setStorageName(storageName.trim());
+        else
+        {
+            storageDto.setStorageName("Undefined");
+        }
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
         storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
