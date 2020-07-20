@@ -35,7 +35,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         <td>Processor cores count (Logical and physical ones)</td>
     </tr>
     <tr>
-        <td>Maximum frequency of the processor</td>
+        <td>Current frequency of the processor</td>
     </tr>
     <tr>
         <td>Does the processor supports 64-bit instructions</td>
@@ -58,7 +58,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         <td>Amount of total installed RAM</td>
     </tr>
     <tr>
-        <td>Generation of the installed RAM</td>
+        <td>Generation of the installed RAM (If you have dmidecode)</td>
     </tr>
     <tr>
         <td>Current processes count</td>
@@ -78,7 +78,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
         <td>Storage utilization percentage</td>
     </tr>
     <tr>
-        <td>Total Storage installed (Including external drives)</td>
+        <td>Total current storage installed (Including external drives)</td>
     </tr>
     <tr>
         <td>Installed disks count</td>
@@ -98,9 +98,10 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     </tr>
     <tr>
         <td>
-            This block contain uptime and chart modules. Uptime represent time since last boot on Linux, and time between hard resets on Windows.
-            Chart display last fifteen seconds of server utilization. (Proccesor, ram, storage)
-            You can hide separated datasets by clicking on rectangles on re top right corner of chart module.
+            This block contain uptime and chart sections. Uptime represent time since last boot on Linux, and time between hard resets on Windows.
+            Also it have paginator which can be useful to see network information, or get contacts.
+            Chart section display last fifteen seconds of server utilization. (Proccesor, ram, storage)
+            You can hide separated datasets by clicking on rectangles on the top right corner of chart section.
         </td>
     </tr>
 </table>
@@ -121,7 +122,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Download jar file from latest release (Or build you own as described above)
     2. Execute jar on Windows or Linux with administrative rights
-    3. Enter "your path":4000 and set up application
+    3. Enter localhost:4000 and set up application
 
 <br>
 
