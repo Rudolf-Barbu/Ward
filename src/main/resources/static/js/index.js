@@ -95,7 +95,7 @@ function sendInfoRequest()
  */
 function changePage(element)
 {
-    if ((String(element.id) == "first-control") && (currentPage > 2))
+    if ((String(element.id) == "first-control") && (currentPage > 1))
     {
         currentPage -= 1;
     }

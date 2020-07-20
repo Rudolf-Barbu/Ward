@@ -33,6 +33,7 @@
     --top-detailed-hw-info-div: 1.168rem;
     --top-controls-div: 0.750rem;
     --top-controls-div-before: 1.250rem;
+    --top-announcement: 3.813rem;
     --top-contacts-label: 1.500rem;
     --top-contacts-description-first: 3.125rem;
     --top-contacts-description-second: 3.813rem;
@@ -193,6 +194,7 @@
     --width-dividers-div: 0.063rem;
     --width-controls: 100%;
     --width-controls-div: 1.875rem;
+    --width-announcement: 21.875rem;
     --width-contacts-label: 21.875rem;
     --width-contacts-description-div: 21.875rem;
     --width-contacts-links-img: 2.125rem;

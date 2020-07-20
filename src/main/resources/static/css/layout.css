@@ -805,6 +805,19 @@ body
     visibility: hidden;
 }
 
+.announcement
+{
+    position: absolute;
+    top: var(--top-announcement);
+    z-index: 1;
+    width: var(--width-announcement);
+    text-align: center;
+    letter-spacing: var(--letter-spacing-5px);
+    font-size: var(--font-size-10pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-announcement);
+}
+
 .contacts-label
 {
     position: absolute;
