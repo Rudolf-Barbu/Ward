@@ -308,6 +308,7 @@ body
     height: var(--height-port-text-field-input);
     width: var(--width-port-text-field-input);
     text-align: center;
+    letter-spacing: var(--letter-spacing-5px);
     font-size: var(--font-size-14pt);
     font-weight: var(--font-weight-regular);
     color: var(--color-form-field-input);
@@ -318,16 +319,19 @@ body
 
 .port-text-field > input::placeholder
 {
+    letter-spacing: 0;
     color: var(--color-port-text-field-input-placeholder);
 }
 
 .port-text-field > input::-webkit-input-placeholder
 {
+    letter-spacing: 0;
     color: var(--color-port-text-field-input-placeholder);
 }
 
 .port-text-field > input::-moz-placeholder
 {
+    letter-spacing: 0;
     opacity: 1;
 }
 
