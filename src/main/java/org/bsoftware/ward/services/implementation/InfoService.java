@@ -135,7 +135,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
         else
         {
-            machineDto.setRamType("Unknown");
+            machineDto.setRamType("Undefined");
         }
 
         int processCount = operatingSystem.getProcessCount();
