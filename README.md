@@ -99,7 +99,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td>
             This block contain uptime and chart sections. Uptime represent time since last boot on Linux, and time between hard resets on Windows.
-            Also it have paginator which can be useful to see network information, or get contacts.
+            Also it have paginator which can be useful to get author contacts.
             Chart section display last fifteen seconds of server utilization. (Proccesor, ram, storage)
             You can hide separated datasets by clicking on rectangles on the top right corner of chart section.
         </td>
