@@ -13,7 +13,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 **All features tested on:** `Windows` `Linux`
 
 <p align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065476915719686/49DDF67C0F9E7E7CB6F101D6358C8B4000E02765/" alt = "Preview Image" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065728652593135/A9B16AD1D10FB9D112ADCF0F7CFE94A206F6CFDA/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
 </p>
 
@@ -93,7 +93,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 <table>
     <tr>
         <td width = "916.5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065476915728087/6CA3545E874463382CFFEC182CBD292C57FB29DB/" alt = "Card 4" align = "center" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065728652597158/A52A064A41ABC2A681F3C2421B5F650DD96F645E/" alt = "Card 4" align = "center" />
         </td>
     </tr>
     <tr>
