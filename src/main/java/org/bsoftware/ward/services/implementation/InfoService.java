@@ -213,7 +213,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
     private SetupDto getSetupDto() throws IOException
     {
         SetupDto setupDto = new SetupDto();
-        File file = new File(Ward.SETTINGS_FILE_PATH);
+        File file = new File(Ward.SETUP_FILE_PATH);
 
         setupDto.setServerName(utilities.getFromIniFile(file, "setup", "serverName"));
 

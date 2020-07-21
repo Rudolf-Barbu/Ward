@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.io.File;
+
 /**
  * Ward is a Spring Boot application class
  *
@@ -19,7 +21,7 @@ public class Ward extends SpringBootServletInitializer
     /**
      * Constant for determine settings file name
      */
-    public static final String SETTINGS_FILE_PATH = "settings.ini";
+    public static final String SETUP_FILE_PATH = "setup.ini";
 
     /**
      * Constant for determine initial application port
@@ -46,6 +48,12 @@ public class Ward extends SpringBootServletInitializer
     {
         isFirstLaunch = true;
         configurableApplicationContext = SpringApplication.run(Ward.class, args);
+
+        File setupFile = new File(Ward.SETUP_FILE_PATH);
+        if (setupFile.exists())
+        {
+            restart();
+        }
     }
 
     /**

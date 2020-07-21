@@ -52,7 +52,7 @@ public class SetupService implements org.bsoftware.ward.services.Service
     {
         if (Ward.isFirstLaunch())
         {
-            File file = new File(Ward.SETTINGS_FILE_PATH);
+            File file = new File(Ward.SETUP_FILE_PATH);
 
             putInIniFile(file, "setup", "serverName", ((SetupDto) dto).getServerName());
             putInIniFile(file, "setup", "theme", ((SetupDto) dto).getTheme());
