@@ -723,21 +723,19 @@ body
     width: var(--width-controls);
 }
 
-.controls > div
+.controls > img
 {
     position: absolute;
-    top: var(--top-controls-div);
+    top: var(--top-controls-img);
     z-index: 2;
-    height: var(--height-controls-div);
-    width: var(--width-controls-div);
-    border-radius: var(--border-radius-controls-div);
-    background: var(--background-controls-div);
+    height: var(--height-controls-img);
+    width: var(--width-controls-img);
+    border-radius: var(--border-radius-controls-img);
 }
 
 .controls > .first
 {
     left: var(--left-controls-first);
-    transform: var(--transform-controls-first);
     animation: wiggle-first-control;
     animation-duration: var(--animation-duration-wiggle-first-control);
 }
@@ -745,29 +743,8 @@ body
 .controls > .second
 {
     left: var(--left-controls-second);
-    transform: var(--transform-controls-second);
     animation: wiggle-second-control;
     animation-duration: var(--animation-duration-wiggle-second-control);
-}
-
-.controls > div::before
-{
-    position: relative;
-    top: var(--top-controls-div-before);
-    left: var(--left-controls-div-before);
-    content: "";
-    border-style: solid;
-    border-color: var(--background-controls-div-before) transparent;
-}
-
-.controls > .first::before
-{
-    border-width: var(--border-width-controls-first-before);
-}
-
-.controls > .second::before
-{
-    border-width: var(--border-width-controls-second-before);
 }
 
 .controls > .first:active
@@ -856,30 +833,30 @@ body
 .contacts-links > a > img
 {
     position: absolute;
-    top: var(--top-contacts-links-img);
+    top: var(--top-contacts-links-a-img);
     z-index: 1;
-    height: var(--height-contacts-links-img);
-    width: var(--width-contacts-links-img);
+    height: var(--height-contacts-links-a-img);
+    width: var(--width-contacts-links-a-img);
 }
 
 .contacts-links > a > .first
 {
-    left: var(--left-contacts-links-first);
+    left: var(--left-contacts-links-a-first);
 }
 
 .contacts-links > a > .first:active
 {
-    transform: var(--transform-contacts-links-first-active);
+    transform: var(--transform-contacts-links-a-first-active);
 }
 
 .contacts-links > a > .second
 {
-    left: var(--left-contacts-links-second);
+    left: var(--left-contacts-links-a-second);
 }
 
 .contacts-links > a > .second:active
 {
-    transform: var(--transform-contacts-links-second-active);
+    transform: var(--transform-contacts-links-a-second-active);
 }
 
 .uptime

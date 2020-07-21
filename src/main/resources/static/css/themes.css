@@ -82,8 +82,6 @@ html[theme = "light"]
     --background-footer-third-card-footer-dots-grid-div-inner-dot: var(--green);
     --background-card-footer-dots-grid-div: var(--white);
     --background-dividers-div: var(--white);
-    --background-controls-div: var(--white-opacity-40);
-    --background-controls-div-before: var(--white-opacity-70);
     --background-uptime: var(--linear-gradient-uptime-light);
     --background-uptime-squares-grid-first: var(--blue-light);
     --background-uptime-squares-grid-second: var(--red-light);
@@ -168,8 +166,6 @@ html[theme = "dark"]
     --background-footer-third-card-footer-dots-grid-div-inner-dot: var(--grey-light);
     --background-card-footer-dots-grid-div: var(--grey-dark);
     --background-dividers-div: var(--grey-dark);
-    --background-controls-div: var(--white-opacity-40);
-    --background-controls-div-before: var(--white-opacity-70);
     --background-uptime: var(--linear-gradient-uptime-dark);
     --background-uptime-squares-grid-first: var(--grey-light);
     --background-uptime-squares-grid-second: var(--grey-light);
