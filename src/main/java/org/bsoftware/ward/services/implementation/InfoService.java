@@ -131,11 +131,11 @@ public class InfoService implements org.bsoftware.ward.services.Service
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
         if (physicalMemoryOptional.isPresent())
         {
-            machineDto.setRamType(physicalMemoryOptional.get().getMemoryType());
+            machineDto.setRamTypeOrOSBitness(physicalMemoryOptional.get().getMemoryType());
         }
         else
         {
-            machineDto.setRamType("Undefined");
+            machineDto.setRamTypeOrOSBitness(operatingSystem.getBitness() + "-bit OS");
         }
 
         int processCount = operatingSystem.getProcessCount();
@@ -235,7 +235,16 @@ public class InfoService implements org.bsoftware.ward.services.Service
         if (inputStream != null)
         {
             properties.load(inputStream);
-            mavenDto.setProjectVersion("Ward: v" + properties.getProperty("version", "unknown"));
+
+            String version = properties.getProperty("version", "Unknown Ward version");
+            if (!version.equals("Unknown Ward Version"))
+            {
+                mavenDto.setProjectVersion("Ward: v" + version);
+            }
+            else
+            {
+                mavenDto.setProjectVersion(version);
+            }
         }
         else
         {

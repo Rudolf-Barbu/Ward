@@ -121,7 +121,7 @@
                             </div>
                             <div class = "detailed-hw-info">
                                 <div class = "first-label" th:text = "${infoDto.machineDto.totalRam}"></div>
-                                <div class = "second-label" th:text = "${infoDto.machineDto.ramType}"></div>
+                                <div class = "second-label" th:text = "${infoDto.machineDto.ramTypeOrOSBitness}"></div>
                                 <div id = "procCount" class = "third-label" th:text = "${infoDto.machineDto.procCount}"></div>
                             </div>
                             <div class = "dividers">
@@ -204,13 +204,13 @@
                                 <div class = "contacts-label">CONTACTS</div>
                                 <div class = "contacts-description">
                                     <div class = "first">Feel free to ask questions and leave feedback</div>
-                                    <div class = "second">Join Telegram channel for users</div>
+                                    <div class = "second">You can also text me in Telegram</div>
                                 </div>
                                 <div class = "contacts-links">
                                     <a href = "https://github.com/B-Software/Ward">
                                         <img class = "first" th:src = @{/img/links/github.png} />
                                     </a>
-                                    <a href = "https://t.me/joinchat/AAAAAE5jCyQSs7u0OPQMrA">
+                                    <a href = "https://t.me/Rudolf_Barbu">
                                         <img class = "second" th:src = @{/img/links/telegram.png} />
                                     </a>
                                 </div>
