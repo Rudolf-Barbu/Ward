@@ -236,8 +236,8 @@ public class InfoService implements org.bsoftware.ward.services.Service
         {
             properties.load(inputStream);
 
-            String version = properties.getProperty("version", "Unknown Ward version");
-            if (!version.equals("Unknown Ward Version"))
+            String version = properties.getProperty("version", "Unknown version");
+            if (!version.equals("Unknown Version"))
             {
                 mavenDto.setProjectVersion("Ward: v" + version);
             }
