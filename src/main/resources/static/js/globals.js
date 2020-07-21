@@ -159,11 +159,6 @@ let firstControl;
 let secondControl;
 
 /**
- * Used to determine location page
- */
-let locationPage;
-
-/**
  * Used to determine logo page
  */
 let logoPage;
@@ -182,21 +177,6 @@ let cloudLeft
  * Used to determine right cloud
  */
 let cloudRight
-
-/**
- * Used to determine first square
- */
-let firstUptimeSquare;
-
-/**
- * Used to determine second square
- */
-let secondUptimeSquare;
-
-/**
- * Used to determine third square
- */
-let thirdUptimeSquare;
 
 /**
  * Used to display current days of uptime

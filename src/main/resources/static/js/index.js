@@ -8,7 +8,7 @@ function indexInitialization()
     totalStorage = document.getElementById("totalStorage");
     diskCount = document.getElementById("diskCount");
 
-    currentPage = 2;
+    currentPage = 1;
     firstControl = document.getElementById("first-control");
     secondControl = document.getElementById("second-control");
 
@@ -98,17 +98,16 @@ function changePage(element)
     if ((String(element.id) == "first-control") && (currentPage > 1))
     {
         currentPage -= 1;
+        setCloudAnimation(currentPage);
     }
-    else if ((String(element.id) == "second-control") && (currentPage < 3))
+    else if ((String(element.id) == "second-control") && (currentPage < 2))
     {
         currentPage += 1;
+        setCloudAnimation(currentPage);
     }
 
     setPageVisibility(currentPage);
-    setSquareScale(currentPage);
-
-    cloudLeft.style.animation = (currentPage == 2) ? "fade-in-cloud-left 0.3s forwards" : "fade-out-cloud-left 0.3s forwards";
-    cloudRight.style.animation = (currentPage == 2) ? "fade-in-cloud-right 0.3s forwards" : "fade-out-cloud-right 0.3s forwards";
+    setControlOpacity(currentPage);
 }
 
 /**
@@ -122,21 +121,12 @@ function setPageVisibility(newPage)
     {
         case 1:
         {
-            locationPage.style.visibility = "visible";
-            logoPage.style.visibility = "hidden";
+            logoPage.style.visibility = "visible";
             contactsPage.style.visibility = "hidden";
             break;
         }
         case 2:
         {
-            locationPage.style.visibility = "hidden";
-            logoPage.style.visibility = "visible";
-            contactsPage.style.visibility = "hidden";
-            break;
-        }
-        case 3:
-        {
-            locationPage.style.visibility = "hidden";
             logoPage.style.visibility = "hidden";
             contactsPage.style.visibility = "visible";
             break;
@@ -145,33 +135,48 @@ function setPageVisibility(newPage)
 }
 
 /**
- * Changes square scale
+ * Animates clouds
  *
- * @param {*} new square scale
+ * @param {*} new page
  */
-function setSquareScale(newSquareScale)
+function setCloudAnimation(newSquareScale)
 {
     switch (newSquareScale)
     {
         case 1:
         {
-            firstUptimeSquare.style.transform = "scale(1.3)";
-            secondUptimeSquare.style.transform = "scale(1.0)";
-            thirdUptimeSquare.style.transform = "scale(1.0)";
+            cloudLeft.style.animation = "fade-in-cloud-left 0.3s forwards";
+            cloudRight.style.animation = "fade-in-cloud-right 0.3s forwards";
             break;
         }
         case 2:
         {
-            firstUptimeSquare.style.transform = "scale(1.0)";
-            secondUptimeSquare.style.transform = "scale(1.3)";
-            thirdUptimeSquare.style.transform = "scale(1.0)";
+            cloudLeft.style.animation = "fade-out-cloud-left 0.3s forwards";
+            cloudRight.style.animation = "fade-out-cloud-right 0.3s forwards";
             break;
         }
-        case 3:
+    }
+}
+
+/**
+ * Changes opacity of control
+ *
+ * @param {*} new page
+ */
+function setControlOpacity(newSquareScale)
+{
+    switch (newSquareScale)
+    {
+        case 1:
         {
-            firstUptimeSquare.style.transform = "scale(1.0)";
-            secondUptimeSquare.style.transform = "scale(1.0)";
-            thirdUptimeSquare.style.transform = "scale(1.3)";
+            firstControl.style.opacity = "0.5";
+            secondControl.style.opacity = "1";
+            break;
+        }
+        case 2:
+        {
+            firstControl.style.opacity = "1";
+            secondControl.style.opacity = "0.5";
             break;
         }
     }

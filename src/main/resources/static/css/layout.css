@@ -736,6 +736,7 @@ body
 .controls > .first
 {
     left: var(--left-controls-first);
+    opacity: 0.5;
     animation: wiggle-first-control;
     animation-duration: var(--animation-duration-wiggle-first-control);
 }
@@ -769,30 +770,12 @@ body
 
 .pages > .first
 {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .pages > .second
 {
-    visibility: visible;
-}
-
-.pages > .third
-{
     visibility: hidden;
-}
-
-.announcement
-{
-    position: absolute;
-    top: var(--top-announcement);
-    z-index: 1;
-    width: var(--width-announcement);
-    text-align: center;
-    letter-spacing: var(--letter-spacing-5px);
-    font-size: var(--font-size-10pt);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-announcement);
 }
 
 .contacts-label
