@@ -131,11 +131,11 @@ public class InfoService implements org.bsoftware.ward.services.Service
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
         if (physicalMemoryOptional.isPresent())
         {
-            machineDto.setRamTypeOrOSBitness(physicalMemoryOptional.get().getMemoryType());
+            machineDto.setRamTypeOrOSBitDepth(physicalMemoryOptional.get().getMemoryType());
         }
         else
         {
-            machineDto.setRamTypeOrOSBitness(operatingSystem.getBitness() + "-bit OS");
+            machineDto.setRamTypeOrOSBitDepth(operatingSystem.getBitness() + "-bit OS");
         }
 
         int processCount = operatingSystem.getProcessCount();

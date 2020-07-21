@@ -27,7 +27,7 @@ public class MachineDto implements Dto
     /**
      * Ram generation field
      */
-    private String ramTypeOrOSBitness;
+    private String ramTypeOrOSBitDepth;
 
     /**
      * Processes count field
