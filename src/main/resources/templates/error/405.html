@@ -21,15 +21,15 @@
     <body id = "background">
         <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container error">
-            <img class = "error-gif" th:src = @{/img/error/405.gif} />
+            <img class = "error-img" th:src = @{/img/error/405.gif} />
             <div class = "error-div">
-                <div class = "error-code">405</div>
-                <div class = "error-title">How to say it...</div>
-                <div class = "error-description">
+                <div class = "code">405</div>
+                <div class = "title">How to say it...</div>
+                <div class = "explanation">
                     <div>This type of method is not allowed here.</div>
                     <div>Do not try to shove a square into a round hole.</div>
                 </div>
-                <div class = "error-advice error-404">You're drunk, <a href = "/">go home</a></div>
+                <div class = "advice error-404">You're drunk, <a href = "/">go home</a></div>
             </div>
         </div>
     </body>

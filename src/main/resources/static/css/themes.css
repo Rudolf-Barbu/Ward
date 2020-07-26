@@ -22,13 +22,13 @@ html[theme = "light"]
     --color-logo: var(--grey-light);
     --color-logo-description: var(--grey-light);
     --color-label-main-settings: var(--grey-light);
-    --color-form-field-input: var(--grey);
-    --color-form-field-input-placeholder: var(--grey-light);
+    --color-main-settings-input: var(--grey);
+    --color-main-settings-input-placeholder: var(--grey-light);
     --color-label-additional-settings: var(--grey-light);
-    --color-theme-button: var(--grey);
-    --color-port-text-field-input: var(--grey);
-    --color-port-text-field-input-placeholder: var(--grey-light);
-    --color-submit-button: var(--grey);
+    --color-theme-buttons-input: var(--grey);
+    --color-port: var(--grey);
+    --color-port-placeholder: var(--grey-light);
+    --color-submit: var(--grey);
     --color-hw-type: var(--black);
     --color-hw-name: var(--grey);
     --color-usage-value-span: var(--grey-light);
@@ -44,10 +44,10 @@ html[theme = "light"]
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--black);
     --color-project-version: var(--grey);
-    --color-error-code: var(--black);
-    --color-error-title: var(--black);
-    --color-error-description-div: var(--grey);
-    --color-error-advice: var(--grey-light);
+    --color-code: var(--black);
+    --color-title: var(--black);
+    --color-explanation-div: var(--grey);
+    --color-advice: var(--grey-light);
 
     /* background */
     --background-body: var(--purple-light);
@@ -55,15 +55,15 @@ html[theme = "light"]
     --background-form-squares-grid-first: var(--blue-light);
     --background-form-squares-grid-second: var(--red-light);
     --background-form-squares-grid-third: var(--green-light);
-    --background-form-field: var(--white);
-    --background-form-field-input: var(--white);
-    --background-form-field-underline: var(--blue-light);
+    --background-main-settings: var(--white);
+    --background-main-settings-input: var(--white);
+    --background-main-settings-underline: var(--blue-light);
     --background-button-squares-grid-first: var(--purple-light);
     --background-button-squares-grid-second: var(--grey-light);
-    --background-theme-button-first: var(--purple-light);
-    --background-theme-button-second: var(--grey-light);
-    --background-port-text-field-input: var(--white);
-    --background-submit-button: var(--green-light);
+    --background-theme-buttons-first: var(--purple-light);
+    --background-theme-buttons-second: var(--grey-light);
+    --background-port: var(--white);
+    --background-submit: var(--green-light);
     --background-card: var(--white);
     --background-hw-logo-first: var(--blue-light);
     --background-hw-logo-second: var(--red-light);
@@ -88,15 +88,15 @@ html[theme = "light"]
     --background-uptime-squares-grid-third: var(--green-light);
     --background-values-grid-div: var(--white-opacity-70);
     --background-labels-grid-div: var(--white-opacity-90);
-    --background-first-rectangle: var(--blue-light);
-    --background-second-rectangle: var(--red-light);
-    --background-third-rectangle: var(--green-light);
+    --background-chart-rectangle-grid-first: var(--blue-light);
+    --background-chart-rectangle-grid-second: var(--red-light);
+    --background-chart-rectangle-grid-third: var(--green-light);
     --background-error-div: var(--white);
 
     /* border-color */
-    --border-color-first-triangle: var(--blue);
-    --border-color-second-triangle: var(--red);
-    --border-color-third-triangle: var(--green);
+    --border-color-chart-triangle-grid-first: var(--blue);
+    --border-color-chart-triangle-grid-second: var(--red);
+    --border-color-chart-triangle-grid-third: var(--green);
 }
 
 /* dark */
@@ -106,13 +106,13 @@ html[theme = "dark"]
     --color-logo: var(--grey-light);
     --color-logo-description: var(--grey-light);
     --color-label-main-settings: var(--grey-light);
-    --color-form-field-input: var(--white);
-    --color-form-field-input-placeholder: var(--white);
+    --color-main-settings-input: var(--white);
+    --color-main-settings-input-placeholder: var(--white);
     --color-label-additional-settings: var(--grey-light);
-    --color-theme-button: var(--grey);
-    --color-port-text-field-input: var(--white);
-    --color-port-text-field-input-placeholder: var(--white);
-    --color-submit-button: var(--white);
+    --color-theme-buttons-input: var(--grey);
+    --color-port: var(--white);
+    --color-port-placeholder: var(--white);
+    --color-submit: var(--white);
     --color-hw-type: var(--white);
     --color-hw-name: var(--grey);
     --color-usage-value-span: var(--grey);
@@ -128,10 +128,10 @@ html[theme = "dark"]
     --color-labels-grid-div: var(--grey-light);
     --color-chart-label: var(--white);
     --color-project-version: var(--white);
-    --color-error-code: var(--white);
-    --color-error-title: var(--white);
-    --color-error-description-div: var(--grey);
-    --color-error-advice: var(--grey-light);
+    --color-code: var(--white);
+    --color-title: var(--white);
+    --color-explanation-div: var(--grey);
+    --color-advice: var(--grey-light);
 
     /* background */
     --background-body: var(--grey-light);
@@ -139,15 +139,15 @@ html[theme = "dark"]
     --background-form-squares-grid-first: var(--grey-light);
     --background-form-squares-grid-second: var(--grey-light);
     --background-form-squares-grid-third: var(--grey-light);
-    --background-form-field: var(--grey);
-    --background-form-field-input: var(--grey);
-    --background-form-field-underline: var(--grey-light);
+    --background-main-settings: var(--grey);
+    --background-main-settings-input: var(--grey);
+    --background-main-settings-underline: var(--grey-light);
     --background-button-squares-grid-first: var(--purple-light);
     --background-button-squares-grid-second: var(--grey-light);
-    --background-theme-button-first: var(--purple-light);
-    --background-theme-button-second: var(--grey-light);
-    --background-port-text-field-input: var(--grey);
-    --background-submit-button: var(--grey-light);
+    --background-theme-buttons-first: var(--purple-light);
+    --background-theme-buttons-second: var(--grey-light);
+    --background-port: var(--grey);
+    --background-submit: var(--grey-light);
     --background-card: var(--grey-dark);
     --background-hw-logo-first: var(--grey);
     --background-hw-logo-second: var(--grey);
@@ -172,13 +172,13 @@ html[theme = "dark"]
     --background-uptime-squares-grid-third: var(--grey-light);
     --background-values-grid-div: var(--grey-opacity-70);
     --background-labels-grid-div: var(--grey-opacity-90);
-    --background-first-rectangle: var(--grey);
-    --background-second-rectangle: var(--grey);
-    --background-third-rectangle: var(--grey);
+    --background-chart-rectangle-grid-first: var(--grey);
+    --background-chart-rectangle-grid-second: var(--grey);
+    --background-chart-rectangle-grid-third: var(--grey);
     --background-error-div: var(--grey-dark);
 
     /* border-color */
-    --border-color-first-triangle: var(--grey-light);
-    --border-color-second-triangle: var(--grey-light);
-    --border-color-third-triangle: var(--grey-light);
+    --border-color-chart-triangle-grid-first: var(--grey-light);
+    --border-color-chart-triangle-grid-second: var(--grey-light);
+    --border-color-chart-triangle-grid-third: var(--grey-light);
 }

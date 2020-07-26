@@ -19,12 +19,12 @@
     --top-logo-description: 5.300rem;
     --top-clouds-first: 2.875rem;
     --top-clouds-second: 2.875rem;
-    --top-form-field-div: 0.313rem;
-    --top-form-field-input: 0.125rem;
+    --top-main-settings-input: 0.125rem;
+    --top-main-settings-underline: 0.313rem;
     --top-label-additional-settings: 1.500rem;
-    --top-additional-settings-input: 1.938rem;
+    --top-theme-buttons-input: 1.938rem;
     --top-button-squares-grid: 0.222rem;
-    --top-port-text-field: 2.750rem;
+    --top-port: 2.750rem;
     --top-header: 1.500rem;
     --top-label-hw-info: 0.562rem;
     --top-card-body-squares-grid: 0.813rem;
@@ -42,13 +42,13 @@
     --top-chart-triangle-grid: 0.500rem;
     --top-chart-rectangle-grid: 1.906rem;
     --top-chart-container: 3.375rem;
-    --top-error-code: 1.813rem;
-    --top-error-title: 3.500rem;
-    --top-error-description: 6.688rem;
+    --top-code: 1.813rem;
+    --top-title: 3.500rem;
+    --top-explanation: 6.688rem;
 
     /* bottom */
     --bottom-form-squares-grid:  0.813rem;
-    --bottom-submit-button: 1.125rem;
+    --bottom-submit: 1.125rem;
     --bottom-usage: 4.625rem;
     --bottom-hw-usage-div: 0.250rem;
     --bottom-card-footer-dots-grid-div: -0.750rem;
@@ -56,29 +56,29 @@
     --bottom-values-grid-div-p: 0.250rem;
     --bottom-project-version: 1.250rem;
     --bottom-error-div: 7.500rem;
-    --bottom-error-advice: 0.563rem;
+    --bottom-advice: 0.563rem;
 
     /* left */
     --left-clouds-second: 12.875rem;
     --left-form-squares-grid: 9.250rem;
-    --left-form-field: 1.500rem;
+    --left-main-settings: 1.500rem;
     --left-button-squares-grid-first: 1.500rem;
     --left-button-squares-grid-second: 19.688rem;
-    --left-theme-button-first: 1.500rem;
-    --left-port-text-field: 1.500rem;
-    --left-submit-button: 6.563rem;
+    --left-theme-buttons-first: 1.500rem;
+    --left-port: 1.500rem;
+    --left-submit: 6.563rem;
     --left-header: 1.500rem;
     --left-label-hw-info: 4.375rem;
     --left-usage: 1.500rem;
-    --left-first-dot: 2.906rem;
-    --left-second-dot: 10.187rem;
-    --left-third-dot: 17.468rem;
+    --card-footer-dots-grid-first: 2.906rem;
+    --card-footer-dots-grid-second: 10.187rem;
+    --card-footer-dots-grid-third: 17.468rem;
     --left-inner-dot: 0.375rem;
-    --left-first-label: 0.822rem;
-    --left-second-label: 8.104rem;
-    --left-third-label: 15.385rem;
-    --left-first-divider: 7.313rem;
-    --left-second-divider: 14.563rem;
+    --left-detailed-hw-info-first: 0.822rem;
+    --left-detailed-hw-info-second: 8.104rem;
+    --left-detailed-hw-info-third: 15.385rem;
+    --left-dividers-first: 7.313rem;
+    --left-dividers-second: 14.563rem;
     --left-controls-first: 0.750rem;
     --left-controls-second: 19.250rem;
     --left-contacts-links-a-first: 8.075rem;
@@ -86,24 +86,24 @@
     --left-uptime-squares-grid: 9.250rem;
     --left-uptime-rectangle-grid: 2.781rem;
     --left-chart-label: 1.500rem;
-    --left-first-triangle: 34.375rem;
-    --left-second-triangle: 38.250rem;
-    --left-third-triangle: 42.125rem;
-    --left-first-rectangle: 33.250rem;
-    --left-second-rectangle: 37.125rem;
-    --left-third-rectangle: 41.000rem;
+    --left-chart-triangle-grid-first: 34.375rem;
+    --left-chart-triangle-grid-second: 38.250rem;
+    --left-chart-triangle-grid-third: 42.125rem;
+    --left-chart-rectangle-grid-first: 33.250rem;
+    --left-chart-rectangle-grid-second: 37.125rem;
+    --left-chart-rectangle-grid-third: 41.000rem;
     --left-chart-container: 1.500rem;
     --left-error-div: 13.250rem;
-    --left-error-code: 1.813rem;
-    --left-error-title: 1.813rem;
-    --left-error-description: 1.813rem;
+    --left-code: 1.813rem;
+    --left-title: 1.813rem;
+    --left-explanation: 1.813rem;
     --left-error-404: 8.563rem;
     --left-error-405: 8.563rem;
     --left-error-500: 8.281rem;
 
     /* margin-right */
     --margin-right-form-squares-grid-div: 0.488rem;
-    --margin-right-theme-button-first: 1.938rem;
+    --margin-right-theme-buttons-first: 1.938rem;
     --margin-right-usage-value: 2.937rem;
     --margin-right-uptime-squares-grid-div: 0.488rem;
     --margin-right-values-grid-div: 0.125rem;
@@ -124,13 +124,12 @@
     --height-background: 8.281rem;
     --height-form: 18.425rem;
     --height-form-squares-grid-div: 0.625rem;
-    --height-form-field: 1.875rem;
-    --height-form-field-div: 0.313rem;
-    --height-additional-settings-input: 2.188rem;
+    --height-main-settings: 1.875rem;
+    --height-main-settings-underline: 0.313rem;
+    --height-theme-buttons-input: 2.188rem;
     --height-button-squares-grid-div: 0.625rem;;
-    --height-port-text-field: 3.125rem;
-    --height-port-text-field-input: 3.125rem;
-    --height-submit-button: 1.875rem;
+    --height-port: 3.125rem;
+    --height-submit: 1.875rem;
     --height-index-xl: 35.031rem;
     --height-index-lg: 53.438rem;
     --height-hw-logo: 3.750rem;
@@ -154,7 +153,7 @@
     --height-chart-rectangle-grid-div: 0.625rem;
     --height-chart-container: 11.688rem;
     --height-error: 25.750rem;
-    --height-error-gif: 19.313rem;
+    --height-error-img: 19.313rem;
     --height-error-div: 12.125rem;
 
     /* min-height */
@@ -171,14 +170,13 @@
     --width-background: 21.875rem;
     --width-form: 21.875rem;
     --width-form-squares-grid-div: 0.625rem;
-    --width-form-field: 18.875rem;
-    --width-form-field-div: 18.875rem;
-    --width-form-field-input: 18.875rem;
-    --width-additional-settings-input: 9.063rem;
+    --width-main-settings: 18.875rem;
+    --width-main-settings-input: 18.875rem;
+    --width-main-settings-underline: 18.875rem;
+    --width-theme-buttons-input: 9.063rem;
     --width-button-squares-grid-div: 0.625rem;
-    --width-port-text-field: 18.875rem;
-    --width-port-text-field-input: 100%;
-    --width-submit-button: 8.750rem;
+    --width-port: 18.875rem;
+    --width-submit: 8.750rem;
     --width-hw-logo: 3.750rem;
     --width-usage: 18.875rem;
     --width-card-body-squares-grid-div: 0.625rem;
@@ -202,7 +200,7 @@
     --width-labels-grid-div: 3.750rem;
     --width-chart-rectangle-grid-div: 3.125rem;
     --width-chart-container: 42.625rem;
-    --width-error-gif: 19.313rem;
+    --width-error-img: 19.313rem;
     --width-error-div: 23.875rem;
 
     /* max-width */
@@ -226,12 +224,12 @@
 
     /* border-radius */
     --border-radius-setup-div: 1.250rem;
-    --border-radius-port-text-field: 0.000rem 0.000rem 0.625rem 0.625rem;
+    --border-radius-port: 0.000rem 0.000rem 0.625rem 0.625rem;
     --border-radius-card: 1.250rem;
     --border-radius-hw-logo: 50%;
     --border-radius-card-footer-dots-grid-div: 50%;
     --border-radius-inner-dot: 50%;
-    --border-radius-error-gif: 50%;
+    --border-radius-error-img: 50%;
     --border-radius-controls-img: 50%;
     --border-radius-error-div: 1.250rem;
 
@@ -245,8 +243,8 @@
 
     /* transform */
     --transform-form-squares-grid-second: scale(1.3);
-    --transform-theme-button-div-active: scale(0.9);
-    --transform-submit-button-active: scale(0.9);
+    --transform-theme-buttons-input-active: scale(0.9);
+    --transform-submit-active: scale(0.9);
     --transform-controls-first-active: scale(0.9);
     --transform-controls-second-active: scale(0.9);
     --transform-contacts-links-a-first-active: scale(0.9);

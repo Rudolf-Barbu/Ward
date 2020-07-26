@@ -57,24 +57,24 @@
                         </div>
                         <div class = "footer first">
                             <div class = "card-footer-dots-grid">
-                                <div class = "first-dot">
+                                <div class = "first">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "second-dot">
+                                <div class = "second">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "third-dot">
+                                <div class = "third">
                                     <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${infoDto.processorDto.coreCount}"></div>
-                                <div id = "clockSpeed" class = "second-label" th:text = "${infoDto.processorDto.clockSpeed}"></div>
-                                <div class = "third-label" th:text = "${infoDto.processorDto.processorBitDepth}"></div>
+                                <div class = "first" th:text = "${infoDto.processorDto.coreCount}"></div>
+                                <div id = "clockSpeed" class = "second" th:text = "${infoDto.processorDto.clockSpeed}"></div>
+                                <div class = "third" th:text = "${infoDto.processorDto.processorBitDepth}"></div>
                             </div>
                             <div class = "dividers">
-                                <div class = "first-divider"></div>
-                                <div class = "second-divider"></div>
+                                <div class = "first"></div>
+                                <div class = "second"></div>
                             </div>
                         </div>
                     </div>
@@ -109,24 +109,24 @@
                         </div>
                         <div class = "footer second">
                             <div class = "card-footer-dots-grid">
-                                <div class = "first-dot">
+                                <div class = "first">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "second-dot">
+                                <div class = "second">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "third-dot">
+                                <div class = "third">
                                     <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first-label" th:text = "${infoDto.machineDto.totalRam}"></div>
-                                <div class = "second-label" th:text = "${infoDto.machineDto.ramTypeOrOSBitDepth}"></div>
-                                <div id = "procCount" class = "third-label" th:text = "${infoDto.machineDto.procCount}"></div>
+                                <div class = "first" th:text = "${infoDto.machineDto.totalRam}"></div>
+                                <div class = "second" th:text = "${infoDto.machineDto.ramTypeOrOSBitDepth}"></div>
+                                <div id = "procCount" class = "third" th:text = "${infoDto.machineDto.procCount}"></div>
                             </div>
                             <div class = "dividers">
-                                <div class = "first-divider"></div>
-                                <div class = "second-divider"></div>
+                                <div class = "first"></div>
+                                <div class = "second"></div>
                             </div>
                         </div>
                     </div>
@@ -161,24 +161,24 @@
                         </div>
                         <div class = "footer third">
                             <div class = "card-footer-dots-grid">
-                                <div class = "first-dot">
+                                <div class = "first">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "second-dot">
+                                <div class = "second">
                                     <div class = "inner-dot"></div>
                                 </div>
-                                <div class = "third-dot">
+                                <div class = "third">
                                     <div class = "inner-dot"></div>
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div id = "totalStorage" class = "first-label" th:text = "${infoDto.storageDto.totalStorage}"></div>
-                                <div id = "diskCount" class = "second-label" th:text = "${infoDto.storageDto.diskCount}"></div>
-                                <div class = "third-label" th:text = "${infoDto.storageDto.swapAmount}"></div>
+                                <div id = "totalStorage" class = "first" th:text = "${infoDto.storageDto.totalStorage}"></div>
+                                <div id = "diskCount" class = "second" th:text = "${infoDto.storageDto.diskCount}"></div>
+                                <div class = "third" th:text = "${infoDto.storageDto.swapAmount}"></div>
                             </div>
                             <div class = "dividers">
-                                <div class = "first-divider"></div>
-                                <div class = "second-divider"></div>
+                                <div class = "first"></div>
+                                <div class = "second"></div>
                             </div>
                         </div>
                     </div>
@@ -243,14 +243,14 @@
                     <div class = "card">
                         <div class = "chart-label">% Utilization</div>
                         <div class = "chart-triangle-grid">
-                            <div id = "processor-triangle" class = "first-triangle"></div>
-                            <div id = "ram-triangle" class = "second-triangle"></div>
-                            <div id = "storage-triangle" class = "third-triangle"></div>
+                            <div id = "processor-triangle" class = "first"></div>
+                            <div id = "ram-triangle" class = "second"></div>
+                            <div id = "storage-triangle" class = "third"></div>
                         </div>
                         <div class = "chart-rectangle-grid">
-                            <div id = "processor-rectangle" class = "first-rectangle"></div>
-                            <div id = "ram-rectangle" class = "second-rectangle"></div>
-                            <div id = "storage-rectangle" class = "third-rectangle"></div>
+                            <div id = "processor-rectangle" class = "first"></div>
+                            <div id = "ram-rectangle" class = "second"></div>
+                            <div id = "storage-rectangle" class = "third"></div>
                         </div>
                         <div class = "chart-container">
                             <canvas id = "chart-body"></canvas>
