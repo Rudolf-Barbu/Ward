@@ -11,8 +11,8 @@
     <version>1.7.4</version>
     <packaging>jar</packaging>
     <properties>
-        <oshiVersion>5.2.0</oshiVersion>
-        <jnaVersion>5.5.0</jnaVersion>
+        <oshiVersion>5.2.2</oshiVersion>
+        <jnaVersion>5.6.0</jnaVersion>
         <lombokVersion>1.18.12</lombokVersion>
         <ini4jlVersion>0.5.4</ini4jlVersion>
     </properties>
