@@ -913,7 +913,7 @@ body
     width: var(--width-labels-grid-div);
     text-align: center;
     font-size: var(--font-size-9pt);
-    font-weight: var(--font-weigth-regular);
+    font-weight: var(--font-weight-regular);
     color: var(--color-labels-grid-div);
     background: var(--background-labels-grid-div);
 }

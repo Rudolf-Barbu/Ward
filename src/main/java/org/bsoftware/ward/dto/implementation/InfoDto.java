@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.bsoftware.ward.dto.Dto;
 
 /**
- * InfoDto is a container for other info dtos
+ * InfoDto is a container for other info objects
  *
  * @author Rudolf Barbu
  * @version 1.0.1

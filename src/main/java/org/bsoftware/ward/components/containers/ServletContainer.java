@@ -15,12 +15,14 @@ import java.io.IOException;
  * @version 1.0.3
  */
 @Component
+@SuppressWarnings(value = "unused")
 public class ServletContainer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>
 {
     /**
      * Autowired Utilities object
      * Used for various utility functions
      */
+    @SuppressWarnings(value = "FieldMayBeFinal")
     private Utilities utilities;
 
     /**

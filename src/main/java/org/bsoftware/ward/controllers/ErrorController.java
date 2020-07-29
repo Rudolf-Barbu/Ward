@@ -19,12 +19,14 @@ import java.io.File;
  */
 @Controller
 @RequestMapping(value = "/error")
+@SuppressWarnings(value = "unused")
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController
 {
     /**
      * Autowired Utilities object
      * Used for various utility functions
      */
+    @SuppressWarnings(value = "FieldMayBeFinal")
     private Utilities utilities;
 
     /**

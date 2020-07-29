@@ -23,7 +23,7 @@ public interface Service
     /**
      * Get info from user and managing it
      */
-    @SuppressWarnings("UnusedReturnValue")
+    @SuppressWarnings(value = "UnusedReturnValue")
     default <T, K extends Dto> K post(T dto) throws Exception
     {
         return null;

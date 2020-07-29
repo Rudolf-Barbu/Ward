@@ -26,7 +26,7 @@ public class SetupService implements org.bsoftware.ward.services.Service
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
-    @SuppressWarnings(value = "ResultOfMethodCallIgnored")
+    @SuppressWarnings(value = {"ResultOfMethodCallIgnored", "SameParameterValue"})
     private void putInIniFile(File file, String sectionName, String optionName, String value) throws IOException
     {
         file.createNewFile();

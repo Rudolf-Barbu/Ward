@@ -22,6 +22,7 @@ public class Utilities
      * @return String wth parsed data
      * @throws IOException if file does not exists
      */
+    @SuppressWarnings(value = "MismatchedQueryAndUpdateOfCollection")
     public String getFromIniFile(File file, String sectionName, String optionName) throws IOException
     {
         if (file.exists())

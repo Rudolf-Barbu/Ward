@@ -15,12 +15,12 @@ public class ResponseDto implements Dto
     /**
      * Response message field
      */
-    private String message;
+    private final String message;
 
     /**
      * Setter for message field
      *
-     * @param message messdage to display
+     * @param message message to display
      */
     public ResponseDto(String message)
     {

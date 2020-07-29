@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/api/usage")
+@SuppressWarnings(value = {"unused", "FieldMayBeFinal"})
 public class UsageController
 {
     /**

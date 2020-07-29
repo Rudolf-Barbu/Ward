@@ -24,18 +24,21 @@ import java.util.Properties;
  * @version 1.0.2
  */
 @Service
+@SuppressWarnings(value = "FieldMayBeFinal")
 public class InfoService implements org.bsoftware.ward.services.Service
 {
     /**
      * Autowired SystemInfo object
      * Used for getting machine information
      */
+
     private SystemInfo systemInfo;
 
     /**
      * Autowired Utilities object
      * Used for various utility functions
      */
+
     private Utilities utilities;
 
     /**

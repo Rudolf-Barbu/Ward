@@ -18,6 +18,7 @@ import java.io.File;
  */
 @Controller
 @RequestMapping(value = "/")
+@SuppressWarnings(value = {"unused", "FieldMayBeFinal"})
 public class IndexController
 {
     /**

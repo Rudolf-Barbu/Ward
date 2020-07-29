@@ -34,10 +34,10 @@ function changeTheme(element)
 
         background.setOptions
         ({
-            highlightColor: 0xcac7e8,
-            midtoneColor: 0xbbb7ed,
-            lowlightColor: 0xe4e3ef,
-            baseColor: 0xe4e3ef
+            highlightColor: 0xCAC7E8,
+            midtoneColor: 0xBBB7ED,
+            lowlightColor: 0xE4E3EF,
+            baseColor: 0xE4E3EF
         });
     }
     else if (String(element.id) == "dark-theme")
@@ -50,9 +50,9 @@ function changeTheme(element)
         background.setOptions
         ({
             highlightColor: 0x797979,
-            midtoneColor: 0xffffff,
-            lowlightColor: 0xbcbcbc,
-            baseColor: 0xbcbcbc
+            midtoneColor: 0xFFFFFF,
+            lowlightColor: 0xBCBCBC,
+            baseColor: 0xBCBCBC
         });
     }
 }

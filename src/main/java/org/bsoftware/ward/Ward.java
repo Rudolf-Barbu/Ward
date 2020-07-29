@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
-
 import java.io.File;
 
 /**
@@ -29,9 +28,10 @@ public class Ward extends SpringBootServletInitializer
     public static final int INITIAL_PORT = 4000;
 
     /**
-     * Holder for determine first launch of applicatuion
+     * Holder for determine first launch of application
      */
     @Getter
+    @SuppressWarnings(value = "unused")
     private static boolean isFirstLaunch;
 
     /**

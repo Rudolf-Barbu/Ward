@@ -13,6 +13,7 @@ import oshi.SystemInfo;
  * @version 1.0.1
  */
 @Configuration
+@SuppressWarnings(value = "unused")
 public class BeanConfiguration
 {
     /**
