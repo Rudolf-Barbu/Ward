@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.validators.RequestValidator;
-
 import javax.validation.constraints.*;
 
 /**

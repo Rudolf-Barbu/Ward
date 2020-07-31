@@ -4,11 +4,6 @@
 let html;
 
 /**
- * Used for holding button element
- */
-let lightTheme;
-
-/**
  * Light theme square
  */
 let lightThemeSquare;
@@ -16,12 +11,17 @@ let lightThemeSquare;
 /**
  * Used for holding button element
  */
-let darkTheme;
+let lightTheme;
 
 /**
  * Dark theme square
  */
 let darkThemeSquare;
+
+/**
+ * Used for holding button element
+ */
+let darkTheme;
 
 /**
  * Used to set up server name
@@ -66,7 +66,7 @@ let processorLabelsArray;
 /**
  * Used to hold value of clock speed
  */
-let clockSpeed;
+let currentClockSpeed;
 
 /**
  * Used to hold values tens of processor usage
@@ -76,7 +76,7 @@ let ramLabelsArray;
 /**
  * Used to hold value of processes count
  */
-let procCount;
+let currentProcCount;
 
 /**
  * Used to hold values ones of processor usage

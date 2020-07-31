@@ -3,10 +3,10 @@
  */
 function indexInitialization()
 {
-    clockSpeed = document.getElementById("clockSpeed");
-    procCount = document.getElementById("procCount");
-    totalStorage = document.getElementById("totalStorage");
-    diskCount = document.getElementById("diskCount");
+    currentClockSpeed = document.getElementById("currentClockSpeed");
+    currentProcCount = document.getElementById("currentProcCount");
+    currentTotalStorage = document.getElementById("currentTotalStorage");
+    currentDiskCount = document.getElementById("currentDiskCount");
 
     currentPage = 1;
     firstControl = document.getElementById("first-control");
@@ -64,6 +64,9 @@ function sendUsageRequest()
     usageXHR.send();
 }
 
+/**
+ * Sending ajax request to receive info about server
+ */
 function sendInfoRequest()
 {
     infoXHR.onreadystatechange = function()
@@ -72,10 +75,10 @@ function sendInfoRequest()
         {
             let response = JSON.parse(this.response);
 
-            clockSpeed.innerHTML = response.processorDto.clockSpeed;
-            procCount.innerHTML = response.machineDto.procCount;
-            totalStorage.innerHTML = response.storageDto.totalStorage;
-            diskCount.innerHTML = response.storageDto.diskCount;
+            currentClockSpeed.innerHTML = response.processorDto.clockSpeed;
+            currentProcCount.innerHTML = response.machineDto.procCount;
+            currentTotalStorage.innerHTML = response.storageDto.totalStorage;
+            currentDiskCount.innerHTML = response.storageDto.diskCount;
 
             days.innerHTML = response.uptimeDto.days;
             hours.innerHTML = response.uptimeDto.hours;
