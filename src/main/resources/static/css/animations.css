@@ -16,6 +16,7 @@
 :root
 {
     /* animation-duration */
+    --animation-duration-fade-in-square: 0.5s;
     --animation-duration-wiggle-span: 0.6s;
     --animation-duration-wiggle-first-control: 1s;
     --animation-duration-wiggle-second-control: 1s;

@@ -3,6 +3,8 @@
  */
 function setupInitialization()
 {
+    setAlertStyle("light");
+
     lightTheme = document.getElementById("light-theme");
     darkTheme = document.getElementById("dark-theme");
 
@@ -17,7 +19,7 @@ function setupInitialization()
 
     lightTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     darkTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
-    submit.addEventListener("click", function(event) {sendSettingsRequest(event.target || event.srcElement)});
+    submit.addEventListener("click", function(event) {sendSetupRequest(event.target || event.srcElement)});
 }
 
 /**
@@ -25,10 +27,11 @@ function setupInitialization()
  */
 function changeTheme(element)
 {
-    (String(element.id) == "light-theme") ? html.setAttribute("theme", "light") : html.setAttribute("theme", "dark");
-
     if (String(element.id) == "light-theme")
     {
+        html.setAttribute("theme", "light");
+        setAlertStyle("light");
+
         lightThemeSquare.style.animation = "fade-in-square 0.5s forwards";
         darkThemeSquare.style.animation = "fade-out-square 0.5s forwards";
 
@@ -40,8 +43,11 @@ function changeTheme(element)
             baseColor: 0xE4E3EF
         });
     }
-    else if (String(element.id) == "dark-theme")
+    else
     {
+        html.setAttribute("theme", "dark");
+        setAlertStyle("dark");
+
         darkThemeSquare.style.visibility = "visible";
 
         lightThemeSquare.style.animation = "fade-out-square 0.5s forwards";
@@ -58,9 +64,26 @@ function changeTheme(element)
 }
 
 /**
+ * Changes alert style
+ *
+ * @param {*} style name
+ */
+function setAlertStyle(styleName)
+{
+    let links = document.getElementsByTagName("link");
+    for (let i = 0; i < links.length; i++)
+    {
+        if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
+        {
+            links[i].disabled = (links[i].getAttribute("title") != styleName);
+        }
+    }
+}
+
+/**
  * Sends settings request
  */
-function sendSettingsRequest()
+function sendSetupRequest()
 {
     setupXHR.open("POST", "/api/settings");
     setupXHR.setRequestHeader("Content-Type", "application/json");

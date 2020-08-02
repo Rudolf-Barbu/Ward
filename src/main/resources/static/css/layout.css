@@ -249,7 +249,9 @@ body
 {
     left: var(--left-button-squares-grid-first);
     background: var(--background-button-squares-grid-first);
-    animation: fade-in-square 0.5s forwards;
+    animation: fade-in-square;
+    animation-duration: var(--animation-duration-fade-in-square);
+    animation-fill-mode: forwards;
 }
 
 .button-squares-grid > .second
@@ -294,7 +296,6 @@ body
 .port
 {
     position: relative;
-
     top: var(--top-port);
     left: var(--left-port);
     height: var(--height-port);
