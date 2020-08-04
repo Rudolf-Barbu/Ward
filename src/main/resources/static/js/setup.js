@@ -25,6 +25,24 @@ function setupInitialization()
 }
 
 /**
+ * Changes alert style
+ *
+ * @param {*} style name
+ */
+function setAlertStyle(styleName)
+{
+    let links = document.getElementsByTagName("link");
+
+    for (let i = 0; i < links.length; i++)
+    {
+        if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
+        {
+            links[i].disabled = (links[i].getAttribute("title") != styleName);
+        }
+    }
+}
+
+/**
  * Changes theme
  */
 function changeTheme(element)
@@ -62,24 +80,6 @@ function changeTheme(element)
             lowlightColor: 0xBCBCBC,
             baseColor: 0xBCBCBC
         });
-    }
-}
-
-/**
- * Changes alert style
- *
- * @param {*} style name
- */
-function setAlertStyle(styleName)
-{
-    let links = document.getElementsByTagName("link");
-
-    for (let i = 0; i < links.length; i++)
-    {
-        if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
-        {
-            links[i].disabled = (links[i].getAttribute("title") != styleName);
-        }
     }
 }
 

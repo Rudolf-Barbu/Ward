@@ -16,8 +16,9 @@
 :root
 {
     /* animation-duration */
+    --animation-duration-fade-in-setup-div: 0.4s;
     --animation-duration-fade-in-square: 0.5s;
-    --animation-duration-wiggle-span: 0.6s;
+    --animation-duration-wiggle-usage-value: 0.6s;
     --animation-duration-wiggle-first-control: 1s;
     --animation-duration-wiggle-second-control: 1s;
     --animation-duration-fade-in-triangle: 0.5s;
@@ -25,9 +26,21 @@
 
     /* animation-delay */
     --animation-delay-chart-triangle-grid-div: 1s;
-    --animation-delay-first-span: 0.2s;
-    --animation-delay-second-span: 0.4s;
-    --animation-delay-third-span: 0.6s;
+    --animation-delay-usage-value-first: 0.2s;
+    --animation-delay-usage-value-second: 0.4s;
+    --animation-delay-usage-value-third: 0.6s;
+}
+
+@keyframes fade-in-setup-div
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
 }
 
 @keyframes fade-in-square
@@ -58,7 +71,7 @@
     }
 }
 
-@keyframes wiggle-span
+@keyframes wiggle-usage-value
 {
     0%
     {

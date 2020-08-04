@@ -4,12 +4,12 @@
 
     Every category must follow convention:
     * Category must contain page name (Exception are base classes)
-    * Page name must be followed by word "classes"
+    * Page name must be followed by word "elements"
 
-    By example: index classes
+    By example: index elements
 */
 
-/* base classes */
+/* base elements */
 *
 {
     font-family: var(--font-family-roboto);
@@ -86,7 +86,7 @@ body
     width: var(--width-background);
 }
 
-/* setup classes */
+/* setup elements */
 .dhtmlx_message_area
 {
     width: var(--width-dhtmlx-message-area);
@@ -106,10 +106,14 @@ body
     margin: auto;
     height: var(--height-setup-div);
     width: var(--width-setup-div);
+    opacity: 0;
     background: white;
     border-radius: var(--border-radius-setup-div);
     overflow: hidden;
     box-shadow: var(--box-shadow-setup-div) var(--black-opacity-10);
+    animation: fade-in-setup-div;
+    animation-duration: var(--animation-duration-fade-in-setup-div);
+    animation-fill-mode: forwards;
 }
 
 .form
@@ -357,7 +361,7 @@ body
     transform: var(--transform-submit-active);
 }
 
-/* index classes */
+/* index elements */
 .index
 {
     margin-top: calc((100vh / 2) - (var(--height-index-xl) / 2));
@@ -513,25 +517,23 @@ body
     height: var(--height-usage-value-span);
     width: var(--width-usage-value-span);
     color: var(--color-usage-value-span);
-    animation-duration: var(--animation-duration-wiggle-span);
+    animation: wiggle-usage-value;
+    animation-duration: var(--animation-duration-wiggle-usage-value);
 }
 
-.first-span
+.usage-value > .first
 {
-    animation: wiggle-span;
-    animation-delay: var(--animation-delay-first-span);
+    animation-delay: var(--animation-delay-usage-value-first);
 }
 
-.second-span
+.usage-value > .second
 {
-    animation: wiggle-span;
-    animation-delay: var(--animation-delay-second-span);
+    animation-delay: var(--animation-delay-usage-value-second);
 }
 
-.third-span
+.usage-value > .third
 {
-    animation: wiggle-span;
-    animation-delay: var(--animation-delay-third-span)
+    animation-delay: var(--animation-delay-usage-value-third);
 }
 
 .usage-postfix
