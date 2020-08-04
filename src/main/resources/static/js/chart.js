@@ -1,19 +1,21 @@
+"use strict";
+
 /**
  * Initializes labels and datasets
  */
 function chartInitialization()
 {
-    processorRectangle = document.getElementById("processor-rectangle");
-    ramRectangle = document.getElementById("ram-rectangle");
-    storageRectangle = document.getElementById("storage-rectangle");
+    let processorRectangle = document.getElementById("processor-rectangle");
+    let ramRectangle = document.getElementById("ram-rectangle");
+    let storageRectangle = document.getElementById("storage-rectangle");
+
+    let ctx = document.getElementById("chart-body").getContext("2d");
 
     processorTriangle = document.getElementById("processor-triangle");
     ramTriangle = document.getElementById("ram-triangle");
     storageTriangle = document.getElementById("storage-triangle");
 
-    ctx = document.getElementById("chart-body").getContext("2d");
-
-    dataLight =
+    let dataLight =
     {
         data:
         {
@@ -56,7 +58,7 @@ function chartInitialization()
             ]
         }
     }
-    dataDark =
+    let dataDark =
     {
         data:
         {
@@ -99,8 +101,7 @@ function chartInitialization()
             ]
         }
     }
-
-    options =
+    let options =
     {
         type: "line",
         options:

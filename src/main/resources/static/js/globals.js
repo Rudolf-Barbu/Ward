@@ -1,7 +1,14 @@
+"use strict";
+
 /**
  * Used to determine html tag object
  */
 let html;
+
+/**
+ * Used to determine background object
+ */
+let background;
 
 /**
  * Light theme square
@@ -9,19 +16,9 @@ let html;
 let lightThemeSquare;
 
 /**
- * Used for holding button element
- */
-let lightTheme;
-
-/**
  * Dark theme square
  */
 let darkThemeSquare;
-
-/**
- * Used for holding button element
- */
-let darkTheme;
 
 /**
  * Used to set up server name
@@ -32,11 +29,6 @@ let serverName;
  * Used to set up application port
  */
 let port;
-
-/**
- * Used to send settings to database
- */
-let submit;
 
 /**
  * Used for sending setup request
@@ -52,11 +44,6 @@ let usageXHR;
  * Used for sending info requests
  */
 let infoXHR;
-
-/**
- * Used to hold value of processor name
- */
-let processorName;
 
 /**
  * Used to hold values of processor usage
@@ -86,12 +73,12 @@ let storageLabelsArray;
 /**
  * Used to hold values of total storage
  */
-let totalStorage
+let currentTotalStorage
 
 /**
  * Used to hold values of disk count
  */
-let diskCount
+let currentDiskCount
 
 /**
  * Used to manipulate processor triangle div
@@ -107,41 +94,6 @@ let ramTriangle;
  * Used to manipulate storage triangle div
  */
 let storageTriangle;
-
-/**
- * Used to hold dataset element
- */
-let processorRectangle;
-
-/**
- * Used to hold dataset element
- */
-let ramRectangle;
-
-/**
- * Used to hold dataset element
- */
-let storageRectangle;
-
-/**
- *  Ctx chart object
- */
-let ctx;
-
-/**
- * Data for light chart theme
- */
-let dataLight;
-
-/**
- *  Data for dark chart theme
- */
-let dataDark;
-
-/**
- *  Options of chart object
- */
-let options;
 
 /**
  * Used to determine current page

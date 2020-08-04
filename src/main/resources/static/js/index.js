@@ -1,8 +1,12 @@
+"use strict";
+
 /**
  * Initializes uptime, labels and chart values
  */
 function indexInitialization()
 {
+    showCards();
+
     currentClockSpeed = document.getElementById("currentClockSpeed");
     currentProcCount = document.getElementById("currentProcCount");
     currentTotalStorage = document.getElementById("currentTotalStorage");
@@ -12,16 +16,11 @@ function indexInitialization()
     firstControl = document.getElementById("first-control");
     secondControl = document.getElementById("second-control");
 
-    locationPage = document.getElementById("location-page");
     logoPage = document.getElementById("logo-page");
     contactsPage = document.getElementById("contacts-page");
 
     cloudLeft = document.getElementById("cloud-left");
     cloudRight = document.getElementById("cloud-right");
-
-    firstUptimeSquare = document.getElementById("first-uptime-square");
-    secondUptimeSquare = document.getElementById("second-uptime-square");
-    thirdUptimeSquare = document.getElementById("third-uptime-square");
 
     days = document.getElementById("uptime-days");
     hours = document.getElementById("uptime-hours");
@@ -40,6 +39,50 @@ function indexInitialization()
 
     firstControl.addEventListener("click", function(event) {changePage(event.target || event.srcElement)});
     secondControl.addEventListener("click", function(event) {changePage(event.target || event.srcElement)});
+}
+
+/**
+ * Changes cards opacity with random sequence
+ */
+function showCards()
+{
+    let cards = document.getElementsByClassName("card");
+    let versionLabel = document.getElementById("project-version");
+
+    let randomSequenceArray = getRandomSequenceArray();
+
+    for (let i = 0; i < cards.length; i++)
+    {
+        setTimeout(function()
+        {
+            cards[randomSequenceArray[i]].style.opacity = "1";
+
+            if (randomSequenceArray[i] == 4)
+            {
+                versionLabel.style.opacity = "1";
+            }
+        }, 70 * i);
+    }
+}
+
+/**
+ * Generates random sequence
+ */
+function getRandomSequenceArray()
+{
+    let buffer = [];
+
+    while (buffer.length < 5)
+    {
+        let randomNumber = Math.floor(Math.random() * 5);
+
+        if ((buffer.indexOf(randomNumber) === -1))
+        {
+            buffer.push(randomNumber);
+        }
+    }
+
+    return buffer;
 }
 
 /**

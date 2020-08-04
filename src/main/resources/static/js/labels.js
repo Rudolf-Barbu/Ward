@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Initializes labels span arrays
  */
@@ -63,7 +65,7 @@ function labelsTick(usageData)
  */
 function formatLabels(labelArray, usageData)
 {
-    usageDataString = String(usageData);
+    let usageDataString = String(usageData);
 
     switch (usageDataString.length)
     {

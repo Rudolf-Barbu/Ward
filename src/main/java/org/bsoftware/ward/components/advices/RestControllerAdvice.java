@@ -49,7 +49,7 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler
             FieldError fieldError = optionalFieldError.get();
             String message = fieldError.getField() + " " + fieldError.getDefaultMessage();
 
-            return handleExceptionInternal(exception, new ResponseDto(message), httpHeaders, HttpStatus.METHOD_NOT_ALLOWED, request);
+            return handleExceptionInternal(exception, new ResponseDto(message), httpHeaders, HttpStatus.UNPROCESSABLE_ENTITY, request);
         }
         else
         {

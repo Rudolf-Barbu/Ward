@@ -239,7 +239,7 @@
     --letter-spacing-10px: 0.625rem;
 
     /* transition */
-    --transition-all: color 0.200s, background 0.200s, flex 0.200s, transform 0.070s;
+    --transition-all: color 0.200s, background 0.200s, transform 0.070s, opacity 0.4s;
 
     /* transform */
     --transform-form-squares-grid-second: scale(1.3);

@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Initializes dom objects
  */
@@ -5,15 +7,15 @@ function setupInitialization()
 {
     setAlertStyle("light");
 
-    lightTheme = document.getElementById("light-theme");
-    darkTheme = document.getElementById("dark-theme");
+    let lightTheme = document.getElementById("light-theme");
+    let darkTheme = document.getElementById("dark-theme");
+    let submit = document.getElementById("submit");
 
     lightThemeSquare = document.getElementById("light-theme-square");
     darkThemeSquare = document.getElementById("dark-theme-square");
 
     serverName = document.getElementById("server-name");
     port = document.getElementById("port");
-    submit = document.getElementById("submit");
 
     setupXHR = new XMLHttpRequest();
 
@@ -71,6 +73,7 @@ function changeTheme(element)
 function setAlertStyle(styleName)
 {
     let links = document.getElementsByTagName("link");
+
     for (let i = 0; i < links.length; i++)
     {
         if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
@@ -101,6 +104,7 @@ function sendSetupRequest()
                     break;
                 }
                 case 405:
+                case 422:
                 {
                     let response = JSON.parse(this.response);
 
@@ -117,7 +121,7 @@ function sendSetupRequest()
         }
     }
 
-    data =
+    let data =
     {
         "serverName": serverName.value,
         "theme": html.getAttribute("theme"),

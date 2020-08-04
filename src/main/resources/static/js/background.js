@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Initializes dynamic background
  */

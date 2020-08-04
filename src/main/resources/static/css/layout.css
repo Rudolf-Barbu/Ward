@@ -237,8 +237,8 @@ body
 
 .button-squares-grid > div
 {
-    position: absolute;
     display: inline-block;
+    position: absolute;
     height: var(--height-button-squares-grid-div);
     width: var(--width-button-squares-grid-div);
     opacity: 0;
@@ -389,6 +389,7 @@ body
 {
     margin-bottom: var(--margin-bottom-card);
     min-height: var(--min-height-card);
+    opacity: 0;
     border: none;
     border-radius: var(--border-radius-card);
     overflow: hidden;
@@ -1014,10 +1015,11 @@ body
     border: var(--border-chart-container) solid var(--grey-light);
 }
 
-.project-version
+#project-version
 {
     position: relative;
     bottom: var(--bottom-project-version);
+    opacity: 0;
     font-size: var(--font-size-12pt);
     font-weight: var(--font-weight-regular);
     color: var(--color-project-version);
