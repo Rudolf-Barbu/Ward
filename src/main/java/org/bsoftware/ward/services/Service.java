@@ -1,7 +1,6 @@
 package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.dto.Dto;
-
 import javax.servlet.http.HttpServletResponse;
 
 /**

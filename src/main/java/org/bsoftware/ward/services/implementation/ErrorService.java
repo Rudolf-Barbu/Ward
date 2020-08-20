@@ -6,9 +6,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * ErrorService used to get error page messages
+ *
+ * @author Rudolf Barbu
+ * @version 1.0.0
+ */
 @Service
 public class ErrorService implements org.bsoftware.ward.services.Service
 {
+    /**
+     * Get messages for error page
+     *
+     * @param httpServletResponse request status code
+     * @param <T> generic type, which extends Dto class
+     * @return Dto object
+     */
     @Override
     @SuppressWarnings(value = {"unchecked", "ConstantConditions"})
     public <T extends Dto> T get(HttpServletResponse httpServletResponse)
