@@ -25,8 +25,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
      * Autowired SystemInfo object
      * Used for getting usage information
      */
-    @SuppressWarnings(value = "FieldMayBeFinal")
-    private SystemInfo systemInfo;
+    private final SystemInfo systemInfo;
 
     /**
      * Gets processor usage

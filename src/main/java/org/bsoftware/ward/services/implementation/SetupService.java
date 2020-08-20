@@ -48,7 +48,7 @@ public class SetupService implements org.bsoftware.ward.services.Service
      */
     @Override
     @SuppressWarnings(value = "unchecked")
-    public <T, K extends Dto> K post(T dto) throws Exception
+    public <T extends Dto, K extends Dto> K post(T dto) throws Exception
     {
         if (Ward.isFirstLaunch())
         {

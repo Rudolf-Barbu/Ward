@@ -20,8 +20,7 @@ public class RestResponseEntityWrapper
      * Autowired HttpHeaders object
      * Used as a bean, which already provides Json headers
      */
-    @SuppressWarnings(value = "FieldMayBeFinal")
-    private HttpHeaders httpHeaders;
+    private final HttpHeaders httpHeaders;
 
     /**
      *  Wrapping Json headers, status and specified dto to ResponseEntity

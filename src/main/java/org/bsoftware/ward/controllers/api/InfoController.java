@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/api/info")
-@SuppressWarnings(value = {"unused", "FieldMayBeFinal"})
+@SuppressWarnings(value = "unused")
 public class InfoController
 {
     /**
      * Autowired InfoService object
      * Used for getting usage information
      */
-    private InfoService infoService;
+    private final InfoService infoService;
 
     /**
      * Autowired RestResponseEntityWrapper object
      * Used as response wrapper bean, which provides Json headers automatically
      */
-    private RestResponseEntityWrapper restResponseEntityWrapper;
+    private final RestResponseEntityWrapper restResponseEntityWrapper;
 
     /**
      * Get request to display current usage information for processor, RAM and storage

@@ -18,20 +18,20 @@ import java.io.File;
  */
 @Controller
 @RequestMapping(value = "/")
-@SuppressWarnings(value = {"unused", "FieldMayBeFinal"})
+@SuppressWarnings(value = "unused")
 public class IndexController
 {
     /**
      * Autowired InfoService object
-     * Used for various utility functions
+     * Used for getting machine information for html template
      */
-    private Utilities utilities;
+    private final InfoService infoService;
 
     /**
      * Autowired InfoService object
-     * Used for getting machine information for html template
+     * Used for various utility functions
      */
-    private InfoService infoService;
+    private final Utilities utilities;
 
     /**
      * Get request to display index page
@@ -42,14 +42,14 @@ public class IndexController
     @GetMapping
     public String getIndex(Model model) throws Exception
     {
+        File file = new File(Ward.SETUP_FILE_PATH);
+
         if (Ward.isFirstLaunch())
         {
             return "setup";
         }
 
         model.addAttribute("infoDto", infoService.get());
-
-        File file = new File(Ward.SETUP_FILE_PATH);
         model.addAttribute("theme", utilities.getFromIniFile(file, "setup", "theme"));
 
         return "index";

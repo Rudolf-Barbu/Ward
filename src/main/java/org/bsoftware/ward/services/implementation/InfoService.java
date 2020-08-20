@@ -24,7 +24,6 @@ import java.util.Properties;
  * @version 1.0.2
  */
 @Service
-@SuppressWarnings(value = "FieldMayBeFinal")
 public class InfoService implements org.bsoftware.ward.services.Service
 {
     /**
@@ -32,14 +31,14 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for getting machine information
      */
 
-    private SystemInfo systemInfo;
+    private final SystemInfo systemInfo;
 
     /**
      * Autowired Utilities object
      * Used for various utility functions
      */
 
-    private Utilities utilities;
+    private final Utilities utilities;
 
     /**
      * Converts frequency to most readable format

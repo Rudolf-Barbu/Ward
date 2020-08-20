@@ -136,8 +136,8 @@ function sendSetupRequest()
     {
         let message =
         {
-            text:"Choose other port",
-            type:("")
+            text: "Choose other port",
+            type: ("")
         }
 
         dhtmlx.message(message);

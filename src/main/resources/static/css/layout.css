@@ -1102,23 +1102,10 @@ body
 
 .advice
 {
+    width: var(--width-advice);
     bottom: var(--bottom-advice);
+    text-align: center;
     font-size: var(--font-size-11pt);
     font-weight: var(--font-weight-regular);
     color: var(--color-advice);
-}
-
-.error-404
-{
-    left: var(--left-error-404);
-}
-
-.error-405
-{
-    left: var(--left-error-405);
-}
-
-.error-500
-{
-    left: var(--left-error-500);
 }

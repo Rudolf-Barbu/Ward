@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "/api/settings")
-@SuppressWarnings(value = {"unused", "FieldMayBeFinal"})
+@SuppressWarnings(value = "unused")
 public class SetupController
 {
     /**
      * Autowired SetupService object
      * Used for posting settings information in database
      */
-    private SetupService setupService;
+    private final SetupService setupService;
 
     /**
      * Autowired RestResponseEntityWrapper object
      * Used as response wrapper bean, which provides Json headers automatically
      */
-    private RestResponseEntityWrapper restResponseEntityWrapper;
+    private final RestResponseEntityWrapper restResponseEntityWrapper;
 
     /**
      * Posting settings into database

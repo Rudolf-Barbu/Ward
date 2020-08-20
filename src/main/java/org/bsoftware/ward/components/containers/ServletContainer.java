@@ -22,8 +22,8 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
      * Autowired Utilities object
      * Used for various utility functions
      */
-    @SuppressWarnings(value = "FieldMayBeFinal")
-    private Utilities utilities;
+
+    private final Utilities utilities;
 
     /**
      * Customizes port of application
