@@ -219,7 +219,20 @@ body
     height: var(--height-main-settings-underline);
     width: var(--width-main-settings-underline);
     background: var(--background-main-settings-underline);
-    box-shadow: var(--box-shadow-main-settings-underline) var(--black-opacity-10);
+}
+
+.main-settings > select
+{
+    position: relative;
+    top: var(--top-main-settings-select);
+    height: var(--height-main-settings-select);
+    width: var(--width-main-settings-select);
+    font-size: var(--font-size-13pt);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-main-settings-input);
+    background: var(--background-main-settings-select);
+    border: 0;
+    outline: none;
 }
 
 .label-additional-settings
@@ -231,6 +244,12 @@ body
     font-size: var(--font-size-9pt);
     font-weight: var(--font-weight-regular);
     color: var(--color-label-additional-settings);
+}
+
+.additional-settings
+{
+    position: relative;
+    top: var(--top-additional-settings);
 }
 
 .button-squares-grid

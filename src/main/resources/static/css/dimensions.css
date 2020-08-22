@@ -21,7 +21,9 @@
     --top-clouds-second: 2.875rem;
     --top-main-settings-input: 0.125rem;
     --top-main-settings-underline: 0.313rem;
-    --top-label-additional-settings: 1.500rem;
+    --top-main-settings-select: 0.188rem;
+    --top-label-additional-settings: 2.438rem;
+    --top-additional-settings: 0.938rem;
     --top-theme-buttons-input: 1.938rem;
     --top-button-squares-grid: 0.222rem;
     --top-port: 2.750rem;
@@ -123,6 +125,7 @@
     --height-form-squares-grid-div: 0.625rem;
     --height-main-settings: 1.875rem;
     --height-main-settings-underline: 0.313rem;
+    --height-main-settings-select: 1.250rem;
     --height-theme-buttons-input: 2.188rem;
     --height-button-squares-grid-div: 0.625rem;;
     --height-port: 3.125rem;
@@ -170,6 +173,7 @@
     --width-main-settings: 18.875rem;
     --width-main-settings-input: 18.875rem;
     --width-main-settings-underline: 18.875rem;
+    --width-main-settings-select: 18.875rem;
     --width-theme-buttons-input: 9.063rem;
     --width-button-squares-grid-div: 0.625rem;
     --width-port: 18.875rem;

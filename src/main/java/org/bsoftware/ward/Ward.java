@@ -69,6 +69,7 @@ public class Ward extends SpringBootServletInitializer
             configurableApplicationContext = SpringApplication.run(Ward.class, args.getSourceArgs());
         });
 
+        thread.setDaemon(false);
         thread.start();
     }
 }
