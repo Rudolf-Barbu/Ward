@@ -2,9 +2,11 @@ package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.ErrorDto;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
 
 /**
  * ErrorService used to get error page messages
@@ -16,6 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 public class ErrorService implements org.bsoftware.ward.services.Service
 {
     /**
+     * Autowired MessageSource object
+     * Used for getting messages bundle
+     */
+    private final MessageSource messageSource;
+
+    /**
      * Get messages for error page
      *
      * @param httpServletResponse request status code
@@ -23,39 +31,36 @@ public class ErrorService implements org.bsoftware.ward.services.Service
      * @return Dto object
      */
     @Override
-    @SuppressWarnings(value = {"unchecked", "ConstantConditions"})
+    @SuppressWarnings(value = "unchecked")
     public <T extends Dto> T get(HttpServletResponse httpServletResponse)
     {
         ErrorDto errorDto = new ErrorDto();
-        final HttpStatus httpStatus = HttpStatus.resolve(httpServletResponse.getStatus());
 
-        switch (httpStatus)
-        {
-            case NOT_FOUND:
-            {
-                errorDto.setCode(httpServletResponse.getStatus());
-                errorDto.setTitle("Oops! You're lost...");
-                errorDto.setExplanation("<div>The page you are looking for does not exist.</div><div>How you got here is a mystery.</div>");
-                errorDto.setAdvice("You're drunk, <a href = \"/\">go home</a>");
-                break;
-            }
-            case METHOD_NOT_ALLOWED:
-            {
-                errorDto.setCode(httpServletResponse.getStatus());
-                errorDto.setTitle("How to say it...");
-                errorDto.setExplanation("<div>This type of method is not allowed here.</div><div>Do not try to shove a square into a round hole.</div>");
-                errorDto.setAdvice("You're drunk, <a href = \"/\">go home</a>");
-                break;
-            }
-            default:
-            {
-                errorDto.setCode(500);
-                errorDto.setTitle("We have a problem...");
-                errorDto.setExplanation("<div>While we go down this rabbit hole.</div><div>Please go outside and enjoy the sunshine.</div>");
-                errorDto.setAdvice("Open an issue on <a href = \"https://github.com/B-Software/Ward\">Github</a>");
-            }
-        }
+        errorDto.setCode(httpServletResponse.getStatus());
+
+        errorDto.setTitle(messageSource.getMessage("error."
+                .concat(String.valueOf(httpServletResponse.getStatus()))
+                .concat(".title"), null, Locale.getDefault()));
+
+        errorDto.setExplanation(messageSource.getMessage("error."
+                .concat(String.valueOf(httpServletResponse.getStatus()))
+                .concat(".explanation"), null, Locale.getDefault()));
+
+        errorDto.setAdvice(messageSource.getMessage("error."
+                .concat(String.valueOf(httpServletResponse.getStatus()))
+                .concat(".advice"), null, Locale.getDefault()));
 
         return (T) errorDto;
+    }
+
+    /**
+     * Used for autowiring necessary objects
+     *
+     * @param messageSource autowired MessageSource object
+     */
+    @Autowired
+    public ErrorService(MessageSource messageSource)
+    {
+        this.messageSource = messageSource;
     }
 }

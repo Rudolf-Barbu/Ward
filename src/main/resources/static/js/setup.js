@@ -125,6 +125,7 @@ function sendSetupRequest()
     {
         "serverName": serverName.value,
         "theme": html.getAttribute("theme"),
+        "language": "en",
         "port": port.value
     }
 
