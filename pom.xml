@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.b-software</groupId>
     <artifactId>ward</artifactId>
-    <version>1.7.7</version>
+    <version>1.8.0</version>
     <packaging>jar</packaging>
     <properties>
         <oshiVersion>5.2.2</oshiVersion>

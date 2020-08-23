@@ -5,6 +5,7 @@ import org.bsoftware.ward.components.Utilities;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
@@ -12,10 +13,7 @@ import oshi.software.os.OperatingSystem;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
@@ -37,8 +35,13 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Autowired Utilities object
      * Used for various utility functions
      */
-
     private final Utilities utilities;
+
+    /**
+     * Autowired MessageSource object
+     * Used for getting messages bundle
+     */
+    private final MessageSource messageSource;
 
     /**
      * Converts frequency to most readable format
@@ -105,11 +108,13 @@ public class InfoService implements org.bsoftware.ward.services.Service
         processorDto.setProcessorName(processorName.trim());
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
-        processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
+        processorDto.setCoreCount(coreCount + " " + messageSource
+                .getMessage("info.processor.cores".concat(((coreCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
+
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit Arch");
+        processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit");
 
         return processorDto;
     }
@@ -137,11 +142,12 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
         else
         {
-            machineDto.setRamTypeOrOSBitDepth(operatingSystem.getBitness() + "-bit OS");
+            machineDto.setRamTypeOrOSBitDepth(operatingSystem.getBitness() + "-bit");
         }
 
         int processCount = operatingSystem.getProcessCount();
-        machineDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));
+        machineDto.setProcCount(processCount + " " + messageSource
+                .getMessage("info.machine.processes".concat(((processCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
 
         return machineDto;
     }
@@ -172,14 +178,17 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
         else
         {
-            storageDto.setStorageName("Undefined");
+            storageDto.setStorageName(messageSource
+                    .getMessage("info.storage.undefined", null, Locale.getDefault()));
         }
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
+        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " " + messageSource
+                .getMessage("info.storage.total", null, Locale.getDefault()));
 
         int diskCount = hwDiskStores.size();
-        storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
+        storageDto.setDiskCount(diskCount + " " + messageSource
+                .getMessage("info.storage.disks".concat(((diskCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
 
         storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
@@ -238,19 +247,15 @@ public class InfoService implements org.bsoftware.ward.services.Service
         {
             properties.load(inputStream);
 
-            String version = properties.getProperty("version", "Unknown version");
-            if (!version.equals("Unknown Version"))
-            {
-                mavenDto.setProjectVersion("Ward: v" + version);
-            }
-            else
-            {
-                mavenDto.setProjectVersion(version);
-            }
+            String version = properties.getProperty("version", messageSource
+                    .getMessage("info.maven.version.unknown", null, Locale.getDefault()));
+
+            mavenDto.setProjectVersion("Ward: " + version);
         }
         else
         {
-            mavenDto.setProjectVersion("Developer mode");
+            mavenDto.setProjectVersion(messageSource
+                    .getMessage("info.maven.version.developer", null, Locale.getDefault()));
         }
 
         return mavenDto;
@@ -282,11 +287,13 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @param systemInfo autowired SystemInfo object
      * @param utilities autowired Utilities object
+     * @param messageSource autowired MessageSource object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo, Utilities utilities)
+    public InfoService(SystemInfo systemInfo, Utilities utilities, MessageSource messageSource)
     {
         this.systemInfo = systemInfo;
         this.utilities = utilities;
+        this.messageSource = messageSource;
     }
 }
