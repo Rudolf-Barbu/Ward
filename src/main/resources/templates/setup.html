@@ -2,7 +2,6 @@
 <html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light">
     <head>
         <title>Welcome</title>
-        <meta charset = "utf-8" />
         <link rel = "shortcut icon" type = "image/x-icon" th:href = "@{/img/ico/favicon.ico}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/assets/bootstrap.min.css}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/assets/dhtmlx.light.min.css}" title = "light" />
@@ -44,6 +43,9 @@
                     <div class = "main-settings">
                         <input id = "server-name" type = "text" maxlength = "10" placeholder = "Server Name" />
                         <div class = "main-settings-underline"></div>
+                        <select id = "language" class = "language">
+                            <option value = "en">English</option>
+                        </select>
                     </div>
                     <div class = "label-additional-settings">ADDITIONAL SETTINGS</div>
                     <div class = "additional-settings">

@@ -15,6 +15,7 @@ function setupInitialization()
     darkThemeSquare = document.getElementById("dark-theme-square");
 
     serverName = document.getElementById("server-name");
+    language = document.getElementById("language");
     port = document.getElementById("port");
 
     setupXHR = new XMLHttpRequest();
@@ -125,6 +126,7 @@ function sendSetupRequest()
     {
         "serverName": serverName.value,
         "theme": html.getAttribute("theme"),
+        "language": language.value,
         "port": port.value
     }
 

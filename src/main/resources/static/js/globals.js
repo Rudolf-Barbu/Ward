@@ -26,6 +26,11 @@ let darkThemeSquare;
 let serverName;
 
 /**
+ * Used to set up language type
+ */
+let language;
+
+/**
  * Used to set up application port
  */
 let port;

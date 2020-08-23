@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
  * Service interface makes to all services return dto object
  *
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.1
  */
 public interface Service
 {

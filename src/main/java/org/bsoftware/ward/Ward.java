@@ -12,7 +12,7 @@ import java.io.File;
  * Ward is a Spring Boot application class
  *
  * @author Rudolf Barbu
- * @version 1.0.3
+ * @version 1.0.4
  */
 @SpringBootApplication
 public class Ward extends SpringBootServletInitializer
@@ -31,7 +31,6 @@ public class Ward extends SpringBootServletInitializer
      * Holder for determine first launch of application
      */
     @Getter
-    @SuppressWarnings(value = "unused")
     private static boolean isFirstLaunch;
 
     /**
