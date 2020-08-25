@@ -58,7 +58,8 @@ html[theme = "light"]
     --background-main-settings: var(--white);
     --background-main-settings-input: var(--white);
     --background-main-settings-select: var(--white);
-    --background-main-settings-underline: var(--blue-light);
+    --background-main-settings-underline-first: var(--blue-light);
+    --background-main-settings-underline-second: var(--red-light);
     --background-button-squares-grid-first: var(--purple-light);
     --background-button-squares-grid-second: var(--grey-light);
     --background-theme-buttons-first: var(--purple-light);
@@ -143,7 +144,8 @@ html[theme = "dark"]
     --background-main-settings: var(--grey);
     --background-main-settings-input: var(--grey);
     --background-main-settings-select: var(--grey);
-    --background-main-settings-underline: var(--grey-light);
+    --background-main-settings-underline-first: var(--grey-light);
+    --background-main-settings-underline-second: var(--grey-light);
     --background-button-squares-grid-first: var(--purple-light);
     --background-button-squares-grid-second: var(--grey-light);
     --background-theme-buttons-first: var(--purple-light);

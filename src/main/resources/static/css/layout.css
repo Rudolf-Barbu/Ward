@@ -212,27 +212,38 @@ body
     display: none;
 }
 
-.main-settings-underline
-{
-    position: relative;
-    top: var(--top-main-settings-underline);
-    height: var(--height-main-settings-underline);
-    width: var(--width-main-settings-underline);
-    background: var(--background-main-settings-underline);
-}
-
 .main-settings > select
 {
     position: relative;
     top: var(--top-main-settings-select);
     height: var(--height-main-settings-select);
     width: var(--width-main-settings-select);
-    font-size: var(--font-size-13pt);
+    font-size: var(--font-size-14pt);
     font-weight: var(--font-weight-regular);
     color: var(--color-main-settings-input);
     background: var(--background-main-settings-select);
     border: 0;
     outline: none;
+}
+
+.main-settings-underline
+{
+    position: relative;
+    height: var(--height-main-settings-underline);
+    width: var(--width-main-settings-underline);
+    box-shadow: var(--box-shadow-main-settings-underline) var(--black-opacity-10);
+}
+
+.main-settings-underline.first
+{
+    top: var(--top-main-settings-underline-first);
+    background: var(--background-main-settings-underline-first);
+}
+
+.main-settings-underline.second
+{
+    top: var(--top-main-settings-underline-second);
+    background: var(--background-main-settings-underline-second);
 }
 
 .label-additional-settings
