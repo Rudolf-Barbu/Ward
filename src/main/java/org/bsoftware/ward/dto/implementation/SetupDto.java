@@ -38,7 +38,7 @@ public class SetupDto implements Dto
     @NotNull(groups = {RequestValidator.PostRequest.class})
     @NotEmpty(groups = {RequestValidator.PostRequest.class})
     @Size(groups = {RequestValidator.PostRequest.class}, min = 2, max = 2)
-    @Pattern(groups = {RequestValidator.PostRequest.class}, regexp = "en")
+    @Pattern(groups = {RequestValidator.PostRequest.class}, regexp = "en|ru")
     private String language;
 
     /**

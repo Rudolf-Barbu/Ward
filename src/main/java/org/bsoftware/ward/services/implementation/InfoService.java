@@ -133,7 +133,9 @@ public class InfoService implements org.bsoftware.ward.services.Service
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         machineDto.setOperatingSystemName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
-        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+
+        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " " + messageSource
+                .getMessage("info.machine.ram", null, Locale.getDefault()));
 
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
         if (physicalMemoryOptional.isPresent())
@@ -190,7 +192,8 @@ public class InfoService implements org.bsoftware.ward.services.Service
         storageDto.setDiskCount(diskCount + " " + messageSource
                 .getMessage("info.storage.disks".concat(((diskCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
 
-        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
+        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " " + messageSource
+                .getMessage("info.storage.disks.swap", null, Locale.getDefault()));
 
         return storageDto;
     }
@@ -246,9 +249,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         if (inputStream != null)
         {
             properties.load(inputStream);
-
-            String version = properties.getProperty("version", messageSource
-                    .getMessage("info.maven.version.unknown", null, Locale.getDefault()));
+            String version = properties.getProperty("version");
 
             mavenDto.setProjectVersion("Ward: " + version);
         }
