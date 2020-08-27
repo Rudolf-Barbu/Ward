@@ -13,7 +13,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 **All features tested on:** `Windows` `Linux`
 
 <p align = "center">
-    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065728652593135/A9B16AD1D10FB9D112ADCF0F7CFE94A206F6CFDA/" alt = "Preview Image" />
+    <img src = "https://steamuserimages-a.akamaihd.net/ugc/1601547572022736987/1D8D2E576D957DDB9CE34E13D5944AF841E8AAD8/" alt = "Preview Image" />
     <h7 align = "center">Preview Image</h7>
 </p>
 
@@ -25,7 +25,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Processor name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851282360/403FDEBFCF7D1FF0F69EB5278A61D4E20845DB7A/" alt = "Card 1" align = "center" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1601547572022743136/D62DF59CFA60F5749F2DC7BFE5E9256BCF59E066/" alt = "Card 1" align = "center" />
         </td>
     </tr>
     <tr>
@@ -48,7 +48,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Type of operating system and it's version</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851285796/144BB74471806F12E742CD82F8FF2756F30E4683/" alt = "Card 2" align = "center" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1601547572022744630/F9E0CACAA81C882B2F4E401E65090BE9F1FE96F6/" alt = "Card 2" align = "center" />
         </td>
     </tr>
     <tr>
@@ -71,7 +71,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     <tr>
         <td width = "600.5">Host0 storage name</td>
         <td rowspan = "5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1183831643851289616/A01554173BC78C5AF030573F8572B53E00CF5EFD/" alt = "Card 3" align = "center" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1601547572022746249/D6C5612E2D6AB759CC10438C2D93F7EC80F83D83/" alt = "Card 3" align = "center" />
         </td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 <table>
     <tr>
         <td width = "916.5">
-            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1472065728652597158/A52A064A41ABC2A681F3C2421B5F650DD96F645E/" alt = "Card 4" align = "center" />
+            <img src = "https://steamuserimages-a.akamaihd.net/ugc/1601547572022740496/79ED24E5E626C7029DA4BDEFFBB04C3E0BF61DB1/" alt = "Card 4" align = "center" />
         </td>
     </tr>
     <tr>
