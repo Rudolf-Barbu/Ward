@@ -2,7 +2,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.9.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.b-software</groupId>
@@ -10,10 +10,10 @@
     <version>1.8.3</version>
     <packaging>jar</packaging>
     <properties>
-        <oshiVersion>5.2.2</oshiVersion>
+        <oshiVersion>5.2.5</oshiVersion>
         <jnaVersion>5.6.0</jnaVersion>
         <lombokVersion>1.18.12</lombokVersion>
-        <ini4jlVersion>0.5.4</ini4jlVersion>
+        <ini4jVersion>0.5.4</ini4jVersion>
     </properties>
     <dependencies>
         <dependency>
@@ -23,6 +23,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
             <groupId>com.github.oshi</groupId>
@@ -47,7 +51,7 @@
         <dependency>
             <groupId>org.ini4j</groupId>
             <artifactId>ini4j</artifactId>
-            <version>${ini4jlVersion}</version>
+            <version>${ini4jVersion}</version>
         </dependency>
     </dependencies>
     <build>
