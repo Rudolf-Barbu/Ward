@@ -133,6 +133,7 @@
     --height-submit: 1.875rem;
     --height-index-xl: 35.031rem;
     --height-index-lg: 53.438rem;
+    --height-index-md: 53.438rem;
     --height-hw-logo: 3.750rem;
     --height-usage: 5.313rem;
     --height-card-body-squares-grid-div: 0.625rem;
@@ -156,6 +157,9 @@
     --height-error: 25.750rem;
     --height-error-img: 19.313rem;
     --height-error-div: 12.125rem;
+
+    /* max-height */
+    --max-height-card: 16.562rem;
 
     /* min-height */
     --min-height-card: 16.562rem;
@@ -210,13 +214,17 @@
     --max-width-setup: 71.250rem;
     --max-width-index-xl: 71.250rem;
     --max-width-index-lg: 47.500rem;
-    --max-width-col-lg-6-col-xl-4: 23.750rem;
+    --max-width-index-md: 23.750rem;
+    --max-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.750rem;
     --max-width-col-lg-12-col-xl-8: 47.500rem;
 
     /* min-width */
     --min-width-setup: 71.250rem;
     --min-width-index-xl: 71.250rem;
     --min-width-index-lg: 47.500rem;
+    --min-width-index-md: 23.750rem;
+    --min-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.750rem;
+    --min-width-col-lg-12-col-xl-8: 47.500rem;
     --min-width-error: 71.250rem;
 
     /* border */
