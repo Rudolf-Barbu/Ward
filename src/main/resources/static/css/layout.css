@@ -814,16 +814,6 @@ body
     position: absolute;
 }
 
-.pages > .first
-{
-    visibility: visible;
-}
-
-.pages > .second
-{
-    visibility: hidden;
-}
-
 .contacts-label
 {
     position: absolute;

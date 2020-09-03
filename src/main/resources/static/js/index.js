@@ -5,6 +5,9 @@
  */
 function indexInitialization()
 {
+    logoPage = document.getElementById("logo-page");
+    contactsPage = document.getElementById("contacts-page");
+
     showCards();
 
     currentClockSpeed = document.getElementById("currentClockSpeed");
@@ -15,9 +18,6 @@ function indexInitialization()
     currentPage = 1;
     firstControl = document.getElementById("first-control");
     secondControl = document.getElementById("second-control");
-
-    logoPage = document.getElementById("logo-page");
-    contactsPage = document.getElementById("contacts-page");
 
     cloudLeft = document.getElementById("cloud-left");
     cloudRight = document.getElementById("cloud-right");
@@ -46,6 +46,8 @@ function indexInitialization()
  */
 function showCards()
 {
+    contactsPage.style.visibility = "hidden";
+
     let cards = document.getElementsByClassName("card");
     let versionLabel = document.getElementById("project-version");
 
@@ -167,14 +169,14 @@ function setPageVisibility(newPage)
     {
         case 1:
         {
-            logoPage.style.visibility = "visible";
+            logoPage.style.visibility = "";
             contactsPage.style.visibility = "hidden";
             break;
         }
         case 2:
         {
             logoPage.style.visibility = "hidden";
-            contactsPage.style.visibility = "visible";
+            contactsPage.style.visibility = "";
             break;
         }
     }
