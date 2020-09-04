@@ -1,17 +1,20 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <project xmlns = "http://maven.apache.org/POM/4.0.0" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
-    </parent>
-
+    <!-- pom options -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.b-software</groupId>
     <artifactId>ward</artifactId>
     <version>1.8.5</version>
     <packaging>jar</packaging>
 
+    <!-- parent pom -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+    </parent>
+
+    <!-- pom properties -->
     <properties>
         <oshiVersion>5.2.5</oshiVersion>
         <jnaVersion>5.6.0</jnaVersion>
@@ -19,6 +22,7 @@
         <ini4jVersion>0.5.4</ini4jVersion>
     </properties>
 
+    <!-- pom dependencies -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -59,6 +63,7 @@
         </dependency>
     </dependencies>
 
+    <!-- pom build plugins -->
     <build>
         <plugins>
             <plugin>
