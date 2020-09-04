@@ -23,7 +23,6 @@ import java.util.Locale;
  * @version 1.0.2
  */
 @Configuration
-@SuppressWarnings(value = "unused")
 public class BeanConfiguration
 {
     /**

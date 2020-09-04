@@ -15,7 +15,6 @@ import java.io.IOException;
  * @version 1.0.3
  */
 @Component
-@SuppressWarnings(value = "unused")
 public class ServletContainer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>
 {
     /**
