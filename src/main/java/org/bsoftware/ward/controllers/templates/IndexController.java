@@ -1,4 +1,4 @@
-package org.bsoftware.ward.controllers;
+package org.bsoftware.ward.controllers.templates;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;
@@ -18,7 +18,6 @@ import java.io.File;
  */
 @Controller
 @RequestMapping(value = "/")
-@SuppressWarnings(value = "unused")
 public class IndexController
 {
     /**
