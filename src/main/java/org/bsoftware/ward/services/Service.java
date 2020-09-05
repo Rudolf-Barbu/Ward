@@ -44,7 +44,6 @@ public interface Service
      * @return @return Dto object
      * @throws Exception unexpected exception, which will forwarded to controller
      */
-    @SuppressWarnings(value = "UnusedReturnValue")
     default <T extends Dto, K extends Dto> K post(T dto) throws Exception
     {
         return null;
