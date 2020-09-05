@@ -38,7 +38,7 @@ public class SetupController
      * @return OR response with empty body
      */
     @PostMapping
-    public ResponseEntity<?> postSettings(@Validated(value = {RequestValidator.PostRequest.class}) @RequestBody SetupDto setupDto) throws Exception
+    public ResponseEntity<?> postSettings(@Validated(value = RequestValidator.PostRequest.class) @RequestBody SetupDto setupDto) throws Exception
     {
         return restResponseEntityWrapper.wrap(setupService.post(setupDto));
     }
