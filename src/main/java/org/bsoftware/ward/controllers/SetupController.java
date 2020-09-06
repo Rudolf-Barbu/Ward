@@ -1,4 +1,4 @@
-package org.bsoftware.ward.controllers.api;
+package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SetupDto;

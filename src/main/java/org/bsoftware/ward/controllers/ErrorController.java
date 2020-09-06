@@ -1,4 +1,4 @@
-package org.bsoftware.ward.controllers.templates;
+package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.Utilities;

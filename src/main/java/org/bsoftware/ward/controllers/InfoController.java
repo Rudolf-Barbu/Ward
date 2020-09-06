@@ -1,4 +1,4 @@
-package org.bsoftware.ward.controllers.api;
+package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
