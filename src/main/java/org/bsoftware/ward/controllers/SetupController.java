@@ -3,11 +3,11 @@ package org.bsoftware.ward.controllers;
 import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
 import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.bsoftware.ward.services.implementation.SetupService;
-import org.bsoftware.ward.validators.RequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * SettingsController displays responses from rest API
@@ -38,7 +38,7 @@ public class SetupController
      * @return OR response with empty body
      */
     @PostMapping
-    public ResponseEntity<?> postSettings(@Validated(value = RequestValidator.PostRequest.class) @RequestBody SetupDto setupDto) throws Exception
+    public ResponseEntity<?> postSetup(@RequestBody @Valid SetupDto setupDto) throws Exception
     {
         return restResponseEntityWrapper.wrap(setupService.post(setupDto));
     }

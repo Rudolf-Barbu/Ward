@@ -3,14 +3,13 @@ package org.bsoftware.ward.dto.implementation;
 import lombok.Getter;
 import lombok.Setter;
 import org.bsoftware.ward.dto.Dto;
-import org.bsoftware.ward.validators.RequestValidator;
 import javax.validation.constraints.*;
 
 /**
  * SettingsDto s a values container for settings
  *
  * @author Rudolf Barbu
- * @version 1.0.2
+ * @version 1.0.3
  */
 @Getter
 @Setter
@@ -19,34 +18,34 @@ public class SetupDto implements Dto
     /**
      * Server name Field
      */
-    @NotNull(groups = {RequestValidator.PostRequest.class})
-    @NotEmpty(groups = {RequestValidator.PostRequest.class})
-    @Size(groups = {RequestValidator.PostRequest.class}, min = 1, max = 10)
+    @NotNull
+    @NotEmpty
+    @Size(min = 1, max = 10)
     private String serverName;
 
     /**
      * Theme name field
      */
-    @NotNull(groups = {RequestValidator.PostRequest.class})
-    @NotEmpty(groups = {RequestValidator.PostRequest.class})
-    @Pattern(groups = {RequestValidator.PostRequest.class}, regexp = "light|dark")
+    @NotNull
+    @NotEmpty
+    @Pattern(regexp = "light|dark")
     private String theme;
 
     /**
      * Theme name field
      */
-    @NotNull(groups = {RequestValidator.PostRequest.class})
-    @NotEmpty(groups = {RequestValidator.PostRequest.class})
-    @Size(groups = {RequestValidator.PostRequest.class}, min = 2, max = 2)
-    @Pattern(groups = {RequestValidator.PostRequest.class}, regexp = "en|ru")
+    @NotNull
+    @NotEmpty
+    @Size(min = 2, max = 2)
+    @Pattern(regexp = "en|ru")
     private String language;
 
     /**
      * Port port field
      */
-    @NotNull(groups = {RequestValidator.PostRequest.class})
-    @NotEmpty(groups = {RequestValidator.PostRequest.class})
-    @Max(groups = {RequestValidator.PostRequest.class}, value = 65535)
-    @Min(groups = {RequestValidator.PostRequest.class}, value = 0)
+    @NotNull
+    @NotEmpty
+    @Min(value = 10)
+    @Max(value = 65535)
     private String port;
 }

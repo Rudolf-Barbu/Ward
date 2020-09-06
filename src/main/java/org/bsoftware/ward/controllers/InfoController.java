@@ -22,7 +22,7 @@ public class InfoController
 {
     /**
      * Autowired InfoService object
-     * Used for getting usage information
+     * Used for getting information about server
      */
     private final InfoService infoService;
 
@@ -38,7 +38,7 @@ public class InfoController
      * @return ResponseEntity to servlet
      */
     @GetMapping
-    public ResponseEntity<?> getUsage() throws Exception
+    public ResponseEntity<?> getInfo() throws Exception
     {
         if (!Ward.isFirstLaunch())
         {
