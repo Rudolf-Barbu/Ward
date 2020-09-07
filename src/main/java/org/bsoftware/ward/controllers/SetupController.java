@@ -5,6 +5,7 @@ import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.bsoftware.ward.services.implementation.SetupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
@@ -14,6 +15,7 @@ import javax.validation.Valid;
  * @author Rudolf Barbu
  * @version 1.0.1
  */
+@Validated
 @RestController
 @RequestMapping(value = "/api/settings")
 public class SetupController
