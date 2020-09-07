@@ -1,4 +1,4 @@
-package org.bsoftware.ward.components.advices;
+package org.bsoftware.ward.advices;
 
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
