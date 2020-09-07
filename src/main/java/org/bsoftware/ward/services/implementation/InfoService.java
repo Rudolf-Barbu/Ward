@@ -265,6 +265,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
     /**
      * Used to deliver dto to corresponding controller
      *
+     * @param <T> generic type, which extends Dto class
      * @return InfoDto filled with server info
      */
     @Override

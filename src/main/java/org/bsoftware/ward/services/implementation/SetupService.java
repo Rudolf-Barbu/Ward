@@ -41,14 +41,14 @@ public class SetupService implements org.bsoftware.ward.services.Service
      * Fills data in ini file
      *
      * @param dto user settings data
-     * @param <T> determines, that only Dto object can pass
-     * @param <K> determines, that only Dto object can be returned
+     * @param <T> determines, that only Dto object can be returned
+     * @param <K> determines, that only Dto object can pass
      * @return Dto
      * @throws Exception IoException if file is fot found, and cant be created
      */
     @Override
     @SuppressWarnings(value = "unchecked")
-    public <T extends Dto, K extends Dto> K post(T dto) throws Exception
+    public <T extends Dto, K extends Dto> T post(K dto) throws Exception
     {
         if (Ward.isFirstLaunch())
         {
@@ -62,6 +62,6 @@ public class SetupService implements org.bsoftware.ward.services.Service
             Ward.restart();
         }
 
-        return (K) new ResponseDto("Settings saved correctly");
+        return (T) new ResponseDto("Settings saved correctly");
     }
 }

@@ -44,7 +44,7 @@ public interface Service
      * @return @return Dto object
      * @throws Exception unexpected exception, which will forwarded to controller
      */
-    default <T extends Dto, K extends Dto> K post(T dto) throws Exception
+    default <T extends Dto, K extends Dto> T post(K dto) throws Exception
     {
         return null;
     }
