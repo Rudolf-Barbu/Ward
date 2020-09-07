@@ -120,7 +120,7 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     Run jar file
 
-    1. Create you own as described above
+    1. Create you own jar as described above
     2. Execute jar on Windows or Linux with administrative rights
     3. Enter localhost:4000 and set up application
 
