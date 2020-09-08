@@ -1,7 +1,7 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +32,10 @@ public class InfoService implements org.bsoftware.ward.services.Service
     private final SystemInfo systemInfo;
 
     /**
-     * Autowired Utilities object
+     * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final Utilities utilities;
+    private final UtilitiesComponent utilitiesComponent;
 
     /**
      * Autowired MessageSource object
@@ -229,7 +229,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         SetupDto setupDto = new SetupDto();
         File file = new File(Ward.SETUP_FILE_PATH);
 
-        setupDto.setServerName(utilities.getFromIniFile(file, "setup", "serverName"));
+        setupDto.setServerName(utilitiesComponent.getFromIniFile(file, "setup", "serverName"));
 
         return setupDto;
     }
@@ -288,14 +288,14 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for autowiring necessary objects
      *
      * @param systemInfo autowired SystemInfo object
-     * @param utilities autowired Utilities object
+     * @param utilitiesComponent autowired Utilities object
      * @param messageSource autowired MessageSource object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo, Utilities utilities, MessageSource messageSource)
+    public InfoService(SystemInfo systemInfo, UtilitiesComponent utilitiesComponent, MessageSource messageSource)
     {
         this.systemInfo = systemInfo;
-        this.utilities = utilities;
+        this.utilitiesComponent = utilitiesComponent;
         this.messageSource = messageSource;
     }
 }

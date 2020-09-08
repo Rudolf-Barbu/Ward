@@ -1,4 +1,4 @@
-package org.bsoftware.ward.components.wrappers;
+package org.bsoftware.ward.components;
 
 import org.bsoftware.ward.dto.Dto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 /**
- * RestResponseEntityWrapper provides Json headers automatically and controls dto response objects
+ * RestResponseEntityComponent provides Json headers automatically and controls dto response objects
  *
  * @author Rudolf Barbu
  * @version 1.0.0
  */
 @Component
-public class RestResponseEntityWrapper
+public class RestResponseEntityComponent
 {
     /**
      * Autowired HttpHeaders object
@@ -39,7 +39,7 @@ public class RestResponseEntityWrapper
      * @param httpHeaders autowired HttpHeaders object
      */
     @Autowired
-    public RestResponseEntityWrapper(HttpHeaders httpHeaders)
+    public RestResponseEntityComponent(HttpHeaders httpHeaders)
     {
         this.httpHeaders = httpHeaders;
     }

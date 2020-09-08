@@ -1,7 +1,7 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
+import org.bsoftware.ward.components.RestResponseEntityComponent;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +29,10 @@ public class InfoController
     private final InfoService infoService;
 
     /**
-     * Autowired RestResponseEntityWrapper object
+     * Autowired RestResponseEntityComponent object
      * Used as response wrapper bean, which provides Json headers automatically
      */
-    private final RestResponseEntityWrapper restResponseEntityWrapper;
+    private final RestResponseEntityComponent restResponseEntityComponent;
 
     /**
      * Get request to display current usage information for processor, RAM and storage
@@ -44,11 +44,11 @@ public class InfoController
     {
         if (!Ward.isFirstLaunch())
         {
-            return restResponseEntityWrapper.wrap(infoService.get());
+            return restResponseEntityComponent.wrap(infoService.get());
         }
         else
         {
-            return restResponseEntityWrapper.wrap(new ResponseDto("Set up application first"));
+            return restResponseEntityComponent.wrap(new ResponseDto("Set up application first"));
         }
     }
 
@@ -56,12 +56,12 @@ public class InfoController
      * Used for autowiring necessary objects
      *
      * @param infoService autowired InfoService object
-     * @param restResponseEntityWrapper autowired RestResponseEntityWrapper object
+     * @param restResponseEntityComponent autowired RestResponseEntityComponent object
      */
     @Autowired
-    public InfoController(InfoService infoService, RestResponseEntityWrapper restResponseEntityWrapper)
+    public InfoController(InfoService infoService, RestResponseEntityComponent restResponseEntityComponent)
     {
         this.infoService = infoService;
-        this.restResponseEntityWrapper = restResponseEntityWrapper;
+        this.restResponseEntityComponent = restResponseEntityComponent;
     }
 }

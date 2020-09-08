@@ -1,7 +1,6 @@
-package org.bsoftware.ward.components.containers;
+package org.bsoftware.ward.components;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -15,14 +14,14 @@ import java.io.IOException;
  * @version 1.0.3
  */
 @Component
-public class ServletContainer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>
+public class ServletComponent implements WebServerFactoryCustomizer<TomcatServletWebServerFactory>
 {
     /**
-     * Autowired Utilities object
+     * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
 
-    private final Utilities utilities;
+    private final UtilitiesComponent utilitiesComponent;
 
     /**
      * Customizes port of application
@@ -37,7 +36,7 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
             try
             {
                 File file = new File(Ward.SETUP_FILE_PATH);
-                factory.setPort(Integer.parseInt(utilities.getFromIniFile(file, "setup", "port")));
+                factory.setPort(Integer.parseInt(utilitiesComponent.getFromIniFile(file, "setup", "port")));
             }
             catch (IOException exception)
             {
@@ -53,11 +52,11 @@ public class ServletContainer implements WebServerFactoryCustomizer<TomcatServle
     /**
      * Used for autowiring necessary objects
      *
-     * @param utilities autowired Utilities object
+     * @param utilitiesComponent autowired UtilitiesComponent object
      */
     @Autowired
-    public ServletContainer(Utilities utilities)
+    public ServletComponent(UtilitiesComponent utilitiesComponent)
     {
-        this.utilities = utilities;
+        this.utilitiesComponent = utilitiesComponent;
     }
 }

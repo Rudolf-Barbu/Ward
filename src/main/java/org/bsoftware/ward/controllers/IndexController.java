@@ -1,7 +1,7 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,10 +29,10 @@ public class IndexController
     private final InfoService infoService;
 
     /**
-     * Autowired InfoService object
+     * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final Utilities utilities;
+    private final UtilitiesComponent utilitiesComponent;
 
     /**
      * Get request to display index page
@@ -51,7 +51,7 @@ public class IndexController
         }
 
         model.addAttribute("infoDto", infoService.get());
-        model.addAttribute("theme", utilities.getFromIniFile(file, "setup", "theme"));
+        model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
         return "index";
     }
@@ -60,12 +60,12 @@ public class IndexController
      * Used for autowiring necessary objects
      *
      * @param infoService autowired InfoService object
-     * @param utilities autowired Utilities object
+     * @param utilitiesComponent autowired UtilitiesComponent object
      */
     @Autowired
-    public IndexController(InfoService infoService, Utilities utilities)
+    public IndexController(InfoService infoService, UtilitiesComponent utilitiesComponent)
     {
         this.infoService = infoService;
-        this.utilities = utilities;
+        this.utilitiesComponent = utilitiesComponent;
     }
 }

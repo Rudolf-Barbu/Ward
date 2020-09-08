@@ -1,7 +1,7 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.services.implementation.ErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +30,10 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     private final ErrorService errorService;
 
     /**
-     * Autowired Utilities object
+     * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final Utilities utilities;
+    private final UtilitiesComponent utilitiesComponent;
 
     /**
      * Get request to display error page, which corresponds status code
@@ -49,7 +49,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
             File file = new File(Ward.SETUP_FILE_PATH);
 
             model.addAttribute("errorDto", errorService.get(httpServletResponse));
-            model.addAttribute("theme", utilities.getFromIniFile(file, "setup", "theme"));
+            model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
             return "error";
         }
@@ -73,12 +73,12 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     /**
      * Used for autowiring necessary objects
      *
-     * @param utilities autowired Utilities object
+     * @param utilitiesComponent autowired UtilitiesComponent object
      */
     @Autowired
-    public ErrorController(ErrorService errorService, Utilities utilities)
+    public ErrorController(ErrorService errorService, UtilitiesComponent utilitiesComponent)
     {
         this.errorService = errorService;
-        this.utilities = utilities;
+        this.utilitiesComponent = utilitiesComponent;
     }
 }

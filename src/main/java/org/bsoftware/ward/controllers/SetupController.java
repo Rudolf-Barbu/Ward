@@ -1,6 +1,6 @@
 package org.bsoftware.ward.controllers;
 
-import org.bsoftware.ward.components.wrappers.RestResponseEntityWrapper;
+import org.bsoftware.ward.components.RestResponseEntityComponent;
 import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.bsoftware.ward.services.implementation.SetupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +27,10 @@ public class SetupController
     private final SetupService setupService;
 
     /**
-     * Autowired RestResponseEntityWrapper object
+     * Autowired RestResponseEntityComponent object
      * Used as response wrapper bean, which provides Json headers automatically
      */
-    private final RestResponseEntityWrapper restResponseEntityWrapper;
+    private final RestResponseEntityComponent restResponseEntityComponent;
 
     /**
      * Posting settings into database
@@ -41,19 +41,19 @@ public class SetupController
     @PostMapping
     public ResponseEntity<?> postSetup(@RequestBody @Valid SetupDto setupDto) throws Exception
     {
-        return restResponseEntityWrapper.wrap(setupService.post(setupDto));
+        return restResponseEntityComponent.wrap(setupService.post(setupDto));
     }
 
     /**
      * Used for autowiring necessary objects
      *
      * @param setupService autowired SettingsService object
-     * @param restResponseEntityWrapper autowired RestResponseEntityWrapper object
+     * @param restResponseEntityComponent autowired RestResponseEntityComponent object
      */
     @Autowired
-    public SetupController(SetupService setupService, RestResponseEntityWrapper restResponseEntityWrapper)
+    public SetupController(SetupService setupService, RestResponseEntityComponent restResponseEntityComponent)
     {
         this.setupService = setupService;
-        this.restResponseEntityWrapper = restResponseEntityWrapper;
+        this.restResponseEntityComponent = restResponseEntityComponent;
     }
 }

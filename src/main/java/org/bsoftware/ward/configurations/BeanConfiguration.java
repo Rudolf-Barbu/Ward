@@ -1,7 +1,7 @@
 package org.bsoftware.ward.configurations;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.Utilities;
+import org.bsoftware.ward.components.UtilitiesComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -26,10 +26,10 @@ import java.util.Locale;
 public class BeanConfiguration
 {
     /**
-     * Autowired Utilities object
+     * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final Utilities utilities;
+    private final UtilitiesComponent utilitiesComponent;
 
     /**
      * @return SystemInfo object
@@ -79,7 +79,7 @@ public class BeanConfiguration
 
         if (setupFile.exists())
         {
-            Locale.setDefault(new Locale(utilities.getFromIniFile(setupFile, "setup", "language")));
+            Locale.setDefault(new Locale(utilitiesComponent.getFromIniFile(setupFile, "setup", "language")));
         }
         sessionLocaleResolver.setDefaultLocale(Locale.getDefault());
 
@@ -89,11 +89,11 @@ public class BeanConfiguration
     /**
      * Used for autowiring necessary objects
      *
-     * @param utilities autowired Utilities object
+     * @param utilitiesComponent autowired UtilitiesComponent object
      */
     @Autowired
-    public BeanConfiguration(Utilities utilities)
+    public BeanConfiguration(UtilitiesComponent utilitiesComponent)
     {
-        this.utilities = utilities;
+        this.utilitiesComponent = utilitiesComponent;
     }
 }

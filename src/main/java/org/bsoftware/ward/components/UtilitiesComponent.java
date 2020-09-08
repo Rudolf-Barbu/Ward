@@ -11,7 +11,7 @@ import java.io.IOException;
  * @version 1.0.2
  */
 @Component
-public class Utilities
+public class UtilitiesComponent
 {
     /**
      * Gets string data from ini file
