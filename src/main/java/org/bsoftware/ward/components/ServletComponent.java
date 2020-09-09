@@ -20,7 +20,6 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-
     private final UtilitiesComponent utilitiesComponent;
 
     /**

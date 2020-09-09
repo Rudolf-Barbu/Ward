@@ -30,7 +30,7 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler
     private final HttpHeaders httpHeaders;
 
     /**
-     * Handles MethodArgumentNotValidException when if was thrown
+     * Handles MethodArgumentNotValidException when it was thrown
      *
      * @param exception MethodArgumentNotValidException which was thrown
      * @param headers http headers
