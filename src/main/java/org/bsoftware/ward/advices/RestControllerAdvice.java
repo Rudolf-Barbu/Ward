@@ -9,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import javax.validation.ConstraintViolationException;
 import java.util.Optional;
 
 /**
@@ -30,16 +32,28 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler
     private final HttpHeaders httpHeaders;
 
     /**
+     * Handles ConstraintViolationException if it was thrown to controller
+     *
+     * @param exception ConstraintViolationException exception
+     * @return ResponseEntity to servlet
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<?> handleConstraintViolationException(ConstraintViolationException exception, WebRequest webRequest)
+    {
+        return handleExceptionInternal(exception, new ResponseDto(exception.getMessage()), httpHeaders, HttpStatus.UNPROCESSABLE_ENTITY, webRequest);
+    }
+
+    /**
      * Handles MethodArgumentNotValidException when it was thrown
      *
      * @param exception MethodArgumentNotValidException which was thrown
-     * @param headers http headers
-     * @param status http status
-     * @param request http request
+     * @param httpHeaders http headers
+     * @param httpStatus http status
+     * @param webRequest http request
      * @return ResponseEntity with error message
      */
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception, HttpHeaders headers, HttpStatus status, WebRequest request)
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception, HttpHeaders httpHeaders, HttpStatus httpStatus, WebRequest webRequest)
     {
         Optional<FieldError> optionalFieldError = exception.getBindingResult().getFieldErrors().stream().findFirst();
 
@@ -48,11 +62,11 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler
             FieldError fieldError = optionalFieldError.get();
             String message = fieldError.getField() + " " + fieldError.getDefaultMessage();
 
-            return handleExceptionInternal(exception, new ResponseDto(message), httpHeaders, HttpStatus.UNPROCESSABLE_ENTITY, request);
+            return handleExceptionInternal(exception, new ResponseDto(message), httpHeaders, HttpStatus.UNPROCESSABLE_ENTITY, webRequest);
         }
         else
         {
-            return handleExceptionInternal(exception, new ResponseDto("Method not allowed"), httpHeaders, HttpStatus.METHOD_NOT_ALLOWED, request);
+            return handleExceptionInternal(exception, new ResponseDto("Method not allowed"), httpHeaders, HttpStatus.METHOD_NOT_ALLOWED, webRequest);
         }
     }
 
