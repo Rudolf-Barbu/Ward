@@ -41,18 +41,6 @@ public class BeanConfiguration
     }
 
     /**
-     * @return HttpHeaders object, which already provides Json headers
-     */
-    @Bean
-    public HttpHeaders httpHeaders()
-    {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-
-        return httpHeaders;
-    }
-
-    /**
      * @return ResourceBundleMessageSource object
      */
     @Bean

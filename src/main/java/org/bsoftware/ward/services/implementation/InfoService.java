@@ -1,11 +1,12 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
+import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
@@ -265,12 +266,10 @@ public class InfoService implements org.bsoftware.ward.services.Service
     /**
      * Used to deliver dto to corresponding controller
      *
-     * @param <T> generic type, which extends Dto class
      * @return InfoDto filled with server info
      */
     @Override
-    @SuppressWarnings(value = "unchecked")
-    public <T extends Dto> T get() throws Exception
+    public ResponseEntityWrapperAsset<?> get() throws Exception
     {
         InfoDto infoDto = new InfoDto();
 
@@ -281,7 +280,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         infoDto.setSetupDto(getSetupDto());
         infoDto.setMavenDto(getMavenDto());
 
-        return (T) infoDto;
+        return new ResponseEntityWrapperAsset<>(infoDto, HttpStatus.OK);
     }
 
     /**

@@ -1,9 +1,10 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.bsoftware.ward.dto.Dto;
+import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.dto.implementation.ErrorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
@@ -27,12 +28,10 @@ public class ErrorService implements org.bsoftware.ward.services.Service
      * Get messages for error page
      *
      * @param httpServletResponse request status code
-     * @param <T> generic type, which extends Dto class
      * @return Dto object
      */
     @Override
-    @SuppressWarnings(value = "unchecked")
-    public <T extends Dto> T get(HttpServletResponse httpServletResponse)
+    public ResponseEntityWrapperAsset<?> get(HttpServletResponse httpServletResponse)
     {
         ErrorDto errorDto = new ErrorDto();
 
@@ -50,7 +49,7 @@ public class ErrorService implements org.bsoftware.ward.services.Service
                 .concat(String.valueOf(httpServletResponse.getStatus()))
                 .concat(".advice"), null, Locale.getDefault()));
 
-        return (T) errorDto;
+        return new ResponseEntityWrapperAsset<>(errorDto, HttpStatus.OK);
     }
 
     /**

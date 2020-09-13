@@ -1,10 +1,10 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.RestResponseEntityComponent;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.services.implementation.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,12 +29,6 @@ public class UsageController
     private final UsageService usageService;
 
     /**
-     * Autowired RestResponseEntityComponent object
-     * Used as response wrapper bean, which provides Json headers automatically
-     */
-    private final RestResponseEntityComponent restResponseEntityComponent;
-
-    /**
      * Get request to display current usage information for processor, RAM and storage
      *
      * @return ResponseEntity to servlet
@@ -44,11 +38,11 @@ public class UsageController
     {
         if (!Ward.isFirstLaunch())
         {
-            return restResponseEntityComponent.wrap(usageService.get());
+            return usageService.get().wrap();
         }
         else
         {
-            return restResponseEntityComponent.wrap(new ResponseDto("Set up application first"));
+            return new ResponseEntity<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -56,12 +50,10 @@ public class UsageController
      * Used for autowiring necessary objects
      *
      * @param usageService autowired UsageService object
-     * @param restResponseEntityComponent autowired RestResponseEntityComponent object
      */
     @Autowired
-    public UsageController(UsageService usageService, RestResponseEntityComponent restResponseEntityComponent)
+    public UsageController(UsageService usageService)
     {
         this.usageService = usageService;
-        this.restResponseEntityComponent = restResponseEntityComponent;
     }
 }

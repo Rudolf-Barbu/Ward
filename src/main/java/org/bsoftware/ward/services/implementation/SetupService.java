@@ -1,10 +1,12 @@
 package org.bsoftware.ward.services.implementation;
 
 import org.bsoftware.ward.Ward;
+import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.ini4j.Ini;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
@@ -42,13 +44,11 @@ public class SetupService implements org.bsoftware.ward.services.Service
      *
      * @param dto user settings data
      * @param <T> determines, that only Dto object can be returned
-     * @param <K> determines, that only Dto object can pass
      * @return Dto
      * @throws Exception IoException if file is fot found, and cant be created
      */
     @Override
-    @SuppressWarnings(value = "unchecked")
-    public <T extends Dto, K extends Dto> T post(K dto) throws Exception
+    public <T extends Dto> ResponseEntityWrapperAsset<?> post(T dto) throws Exception
     {
         if (Ward.isFirstLaunch())
         {
@@ -62,6 +62,6 @@ public class SetupService implements org.bsoftware.ward.services.Service
             Ward.restart();
         }
 
-        return (T) new ResponseDto("Settings saved correctly");
+        return new ResponseEntityWrapperAsset<>(new ResponseDto("Settings saved correctly"), HttpStatus.OK);
     }
 }

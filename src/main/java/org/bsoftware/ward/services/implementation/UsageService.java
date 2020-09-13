@@ -1,8 +1,9 @@
 package org.bsoftware.ward.services.implementation;
 
-import org.bsoftware.ward.dto.Dto;
+import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.dto.implementation.UsageDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -85,8 +86,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
      * @return UsageDto filled with usage info
      */
     @Override
-    @SuppressWarnings(value = "unchecked")
-    public <T extends Dto> T get()
+    public ResponseEntityWrapperAsset<?> get()
     {
         UsageDto usageDto = new UsageDto();
 
@@ -94,7 +94,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
         usageDto.setRamUsage(getRamUsage());
         usageDto.setStorageUsage(getStorageUsage());
 
-        return (T) usageDto;
+        return new ResponseEntityWrapperAsset<>(usageDto, HttpStatus.OK);
     }
 
     /**

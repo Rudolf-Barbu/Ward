@@ -1,5 +1,6 @@
 package org.bsoftware.ward.services;
 
+import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.dto.Dto;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,11 +15,10 @@ public interface Service
     /**
      * Get info from the service
      *
-     * @param <T> generic type, which extends Dto class
      * @return Dto object
      * @throws Exception unexpected exception, which will forwarded to controller
      */
-    default <T extends Dto> T get() throws Exception
+    default ResponseEntityWrapperAsset<?> get() throws Exception
     {
         return null;
     }
@@ -27,10 +27,9 @@ public interface Service
      * Get info from the service, for correspondingly request status code
      *
      * @param httpServletResponse request status code
-     * @param <T> generic type, which extends Dto class
      * @return Dto object
      */
-    default <T extends Dto> T get(HttpServletResponse httpServletResponse)
+    default ResponseEntityWrapperAsset<?> get(HttpServletResponse httpServletResponse)
     {
         return null;
     }
@@ -40,11 +39,10 @@ public interface Service
      *
      * @param dto data to post
      * @param <T> generic type, which extends Dto class
-     * @param <K> generic type, which extends Dto class
      * @return @return Dto object
      * @throws Exception unexpected exception, which will forwarded to controller
      */
-    default <T extends Dto, K extends Dto> T post(K dto) throws Exception
+    default <T extends Dto> ResponseEntityWrapperAsset<?> post(T dto) throws Exception
     {
         return null;
     }

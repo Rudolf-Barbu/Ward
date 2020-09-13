@@ -1,10 +1,10 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.RestResponseEntityComponent;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,12 +29,6 @@ public class InfoController
     private final InfoService infoService;
 
     /**
-     * Autowired RestResponseEntityComponent object
-     * Used as response wrapper bean, which provides Json headers automatically
-     */
-    private final RestResponseEntityComponent restResponseEntityComponent;
-
-    /**
      * Get request to display current usage information for processor, RAM and storage
      *
      * @return ResponseEntity to servlet
@@ -44,11 +38,11 @@ public class InfoController
     {
         if (!Ward.isFirstLaunch())
         {
-            return restResponseEntityComponent.wrap(infoService.get());
+            return infoService.get().wrap();
         }
         else
         {
-            return restResponseEntityComponent.wrap(new ResponseDto("Set up application first"));
+            return new ResponseEntity<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -56,12 +50,10 @@ public class InfoController
      * Used for autowiring necessary objects
      *
      * @param infoService autowired InfoService object
-     * @param restResponseEntityComponent autowired RestResponseEntityComponent object
      */
     @Autowired
-    public InfoController(InfoService infoService, RestResponseEntityComponent restResponseEntityComponent)
+    public InfoController(InfoService infoService)
     {
         this.infoService = infoService;
-        this.restResponseEntityComponent = restResponseEntityComponent;
     }
 }

@@ -50,7 +50,7 @@ public class IndexController
             return "setup";
         }
 
-        model.addAttribute("infoDto", infoService.get());
+        model.addAttribute("infoDto", infoService.get().getBody());
         model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
         return "index";

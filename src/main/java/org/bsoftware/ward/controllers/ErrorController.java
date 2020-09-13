@@ -48,7 +48,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
         {
             File file = new File(Ward.SETUP_FILE_PATH);
 
-            model.addAttribute("errorDto", errorService.get(httpServletResponse));
+            model.addAttribute("errorDto", errorService.get(httpServletResponse).getBody());
             model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
             return "error";
