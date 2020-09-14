@@ -43,14 +43,14 @@ public class IndexController
     @GetMapping
     public String getIndex(Model model) throws Exception
     {
-        File file = new File(Ward.SETUP_FILE_PATH);
-
         if (Ward.isFirstLaunch())
         {
             return "setup";
         }
 
-        model.addAttribute("infoDto", infoService.get().getBody());
+        File file = new File(Ward.SETUP_FILE_PATH);
+
+        model.addAttribute("infoDto", infoService.get().getDto());
         model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
         return "index";
