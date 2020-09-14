@@ -56,7 +56,6 @@ public class SetupService implements org.bsoftware.ward.services.Service
 
             putInIniFile(file, "setup", "serverName", ((SetupDto) dto).getServerName());
             putInIniFile(file, "setup", "theme", ((SetupDto) dto).getTheme());
-            putInIniFile(file, "setup", "language", ((SetupDto) dto).getLanguage());
             putInIniFile(file, "setup", "port", ((SetupDto) dto).getPort());
 
             Ward.restart();

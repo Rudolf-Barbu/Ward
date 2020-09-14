@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" th:attr = "theme = ${theme}">
+    <head>
+        <meta charset = "UTF-8">
+        <title th:text = "404"></title>
+        <link rel = "shortcut icon" type = "image/x-icon" th:href = "@{/img/ico/favicon.ico}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/assets/bootstrap.min.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/animations.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/colors.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/dimensions.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/fonts.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/layout.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/shadows.css}" />
+        <link rel = "stylesheet" type = "text/css" th:href = "@{/css/themes.css}" />
+        <script type = "text/javascript" th:src = "@{/js/assets/three.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/assets/vanta.min.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/background.js}"></script>
+        <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
+        <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
+    </head>
+    <body id = "background">
+        <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
+        <div class = "container error">
+            <img class = "error-img" th:src = "@{/img/error/404.gif}" />
+            <div class = "error-div">
+                <div class = "code">404</div>
+                <div class = "title">Oops! You're lost...</div>
+                <div class = "explanation">
+                    <div>The page you are looking for does not exist.</div>
+                    <div>How you got here is a mystery.</div>
+                </div>
+                <div class = "advice">You're drunk, <a href = "/">go home</a></div>
+            </div>
+        </div>
+    </body>
+</html>

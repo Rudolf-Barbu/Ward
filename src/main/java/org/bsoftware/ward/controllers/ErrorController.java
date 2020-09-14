@@ -2,8 +2,8 @@ package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.services.implementation.ErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -24,12 +24,6 @@ import java.io.File;
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController
 {
     /**
-     * Autowired InfoService object
-     * Used for getting machine information for html template
-     */
-    private final ErrorService errorService;
-
-    /**
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
@@ -42,16 +36,29 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * @return String name of html template
      */
     @GetMapping
+    @SuppressWarnings(value = "ConstantConditions")
     public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
         if (!Ward.isFirstLaunch())
         {
             File file = new File(Ward.SETUP_FILE_PATH);
-
-            model.addAttribute("errorDto", errorService.get(httpServletResponse).getBody());
             model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
-            return "error";
+            switch (HttpStatus.resolve(httpServletResponse.getStatus()))
+            {
+                case NOT_FOUND:
+                {
+                    return "error/404";
+                }
+                case METHOD_NOT_ALLOWED:
+                {
+                    return "error/405";
+                }
+                default:
+                {
+                    return "error/500";
+                }
+            }
         }
         else
         {
@@ -76,9 +83,8 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * @param utilitiesComponent autowired UtilitiesComponent object
      */
     @Autowired
-    public ErrorController(ErrorService errorService, UtilitiesComponent utilitiesComponent)
+    public ErrorController(UtilitiesComponent utilitiesComponent)
     {
-        this.errorService = errorService;
         this.utilitiesComponent = utilitiesComponent;
     }
 }

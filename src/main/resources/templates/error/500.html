@@ -2,7 +2,7 @@
 <html xmlns:th = "http://www.thymeleaf.org" id = "html" th:attr = "theme = ${theme}">
     <head>
         <meta charset = "UTF-8">
-        <title th:text = "${errorDto.code}"></title>
+        <title th:text = "500"></title>
         <link rel = "shortcut icon" type = "image/x-icon" th:href = "@{/img/ico/favicon.ico}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/assets/bootstrap.min.css}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/animations.css}" />
@@ -21,12 +21,15 @@
     <body id = "background">
         <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
         <div class = "container error">
-            <img class = "error-img" th:src = "@{|img/error/${errorDto.code}.gif|}" />
+            <img class = "error-img" th:src = @{/img/error/500.gif} />
             <div class = "error-div">
-                <div class = "code" th:text = "${errorDto.code}"></div>
-                <div class = "title" th:text = "${errorDto.title}"></div>
-                <div class = "explanation" th:utext = "${errorDto.explanation}"></div>
-                <div class = "advice" th:utext = "${errorDto.advice}"></div>
+                <div class = "code">500</div>
+                <div class = "title">We have a problem...</div>
+                <div class = "explanation">
+                    <div>While we go down this rabbit hole.</div>
+                    <div>Please go outside and enjoy the sunshine.</div>
+                </div>
+                <div class = "advice error-500">Open an issue on <a href = "https://github.com/B-Software/Ward">Github</a></div>
             </div>
         </div>
     </body>

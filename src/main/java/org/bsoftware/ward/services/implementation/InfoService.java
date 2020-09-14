@@ -5,7 +5,6 @@ import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.dto.implementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -37,12 +36,6 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Used for various utility functions
      */
     private final UtilitiesComponent utilitiesComponent;
-
-    /**
-     * Autowired MessageSource object
-     * Used for getting messages bundle
-     */
-    private final MessageSource messageSource;
 
     /**
      * Converts frequency to most readable format
@@ -109,9 +102,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         processorDto.setProcessorName(processorName.trim());
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
-        processorDto.setCoreCount(coreCount + " " + messageSource
-                .getMessage("info.processor.cores".concat(((coreCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
-
+        processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
         String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
@@ -134,9 +125,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
         machineDto.setOperatingSystemName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
-
-        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " " + messageSource
-                .getMessage("info.machine.ram", null, Locale.getDefault()));
+        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
         if (physicalMemoryOptional.isPresent())
@@ -149,8 +138,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
 
         int processCount = operatingSystem.getProcessCount();
-        machineDto.setProcCount(processCount + " " + messageSource
-                .getMessage("info.machine.processes".concat(((processCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
+        machineDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));
 
         return machineDto;
     }
@@ -181,20 +169,16 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
         else
         {
-            storageDto.setStorageName(messageSource
-                    .getMessage("info.storage.undefined", null, Locale.getDefault()));
+            storageDto.setStorageName("Undefined");
         }
 
         long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " " + messageSource
-                .getMessage("info.storage.total", null, Locale.getDefault()));
+        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
 
         int diskCount = hwDiskStores.size();
-        storageDto.setDiskCount(diskCount + " " + messageSource
-                .getMessage("info.storage.disks".concat(((diskCount > 1) ? ".plural" : ".single")), null, Locale.getDefault()));
+        storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
 
-        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " " + messageSource
-                .getMessage("info.storage.disks.swap", null, Locale.getDefault()));
+        storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
         return storageDto;
     }
@@ -256,8 +240,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
         }
         else
         {
-            mavenDto.setProjectVersion(messageSource
-                    .getMessage("info.maven.version.developer", null, Locale.getDefault()));
+            mavenDto.setProjectVersion("Developer mode");
         }
 
         return mavenDto;
@@ -288,13 +271,11 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @param systemInfo autowired SystemInfo object
      * @param utilitiesComponent autowired Utilities object
-     * @param messageSource autowired MessageSource object
      */
     @Autowired
-    public InfoService(SystemInfo systemInfo, UtilitiesComponent utilitiesComponent, MessageSource messageSource)
+    public InfoService(SystemInfo systemInfo, UtilitiesComponent utilitiesComponent)
     {
         this.systemInfo = systemInfo;
         this.utilitiesComponent = utilitiesComponent;
-        this.messageSource = messageSource;
     }
 }

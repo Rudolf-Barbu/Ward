@@ -15,7 +15,6 @@ function setupInitialization()
     darkThemeSquare = document.getElementById("dark-theme-square");
 
     serverName = document.getElementById("server-name");
-    language = document.getElementById("language");
     port = document.getElementById("port");
 
     setupXHR = new XMLHttpRequest();
@@ -23,24 +22,6 @@ function setupInitialization()
     lightTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     darkTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     submit.addEventListener("click", function(event) {sendSetupRequest(event.target || event.srcElement)});
-}
-
-/**
- * Changes alert style
- *
- * @param {*} style name
- */
-function setAlertStyle(styleName)
-{
-    let links = document.getElementsByTagName("link");
-
-    for (let i = 0; i < links.length; i++)
-    {
-        if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
-        {
-            links[i].disabled = (links[i].getAttribute("title") != styleName);
-        }
-    }
 }
 
 /**
@@ -85,6 +66,24 @@ function changeTheme(element)
 }
 
 /**
+ * Changes alert style
+ *
+ * @param {*} style name
+ */
+function setAlertStyle(styleName)
+{
+    let links = document.getElementsByTagName("link");
+
+    for (let i = 0; i < links.length; i++)
+    {
+        if ((links[i].getAttribute("title") == "light") || (links[i].getAttribute("title") == "dark"))
+        {
+            links[i].disabled = (links[i].getAttribute("title") != styleName);
+        }
+    }
+}
+
+/**
  * Sends settings request
  */
 function sendSetupRequest()
@@ -96,28 +95,20 @@ function sendSetupRequest()
     {
         if (this.readyState == 4)
         {
-            switch (this.status)
+            if (this.status == 200)
             {
-                case 200:
+                submit.value = "LOADING";
+                window.location = "http://" + window.location.hostname + ":" + port.value;
+            }
+            else
+            {
+                let message =
                 {
-                    submit.value = "LOADING";
-                    window.location = "http://" + window.location.hostname + ":" + port.value;
-                    break;
+                    text: "Fill the form correctly",
+                    type: ("")
                 }
-                case 405:
-                case 422:
-                {
-                    let response = JSON.parse(this.response);
 
-                    let message =
-                    {
-                        text: response.message,
-                        type: ("")
-                    }
-
-                    dhtmlx.message(message);
-                    break;
-                }
+                dhtmlx.message(message);
             }
         }
     }
@@ -126,7 +117,6 @@ function sendSetupRequest()
     {
         "serverName": serverName.value,
         "theme": html.getAttribute("theme"),
-        "language": language.value,
         "port": port.value
     }
 

@@ -15,7 +15,7 @@ public interface Service
     /**
      * Get info from the service
      *
-     * @return Dto object
+     * @return ResponseEntityWrapperAsset which contain dto and result status
      * @throws Exception unexpected exception, which will forwarded to controller
      */
     default ResponseEntityWrapperAsset<?> get() throws Exception
@@ -27,7 +27,7 @@ public interface Service
      * Get info from the service, for correspondingly request status code
      *
      * @param httpServletResponse request status code
-     * @return Dto object
+     * @return ResponseEntityWrapperAsset which contain dto and result status
      */
     default ResponseEntityWrapperAsset<?> get(HttpServletResponse httpServletResponse)
     {
@@ -39,7 +39,7 @@ public interface Service
      *
      * @param dto data to post
      * @param <T> generic type, which extends Dto class
-     * @return @return Dto object
+     * @return ResponseEntityWrapperAsset which contain dto and result status
      * @throws Exception unexpected exception, which will forwarded to controller
      */
     default <T extends Dto> ResponseEntityWrapperAsset<?> post(T dto) throws Exception

@@ -32,15 +32,6 @@ public class SetupDto implements Dto
     private String theme;
 
     /**
-     * Theme name field
-     */
-    @NotNull
-    @NotEmpty
-    @Size(min = 2, max = 2)
-    @Pattern(regexp = "en|ru")
-    private String language;
-
-    /**
      * Port port field
      */
     @NotNull

@@ -229,21 +229,11 @@ body
 .main-settings-underline
 {
     position: relative;
+    top: var(--top-main-settings-underline);
     height: var(--height-main-settings-underline);
     width: var(--width-main-settings-underline);
+    background: var(--background-main-settings-underline);
     box-shadow: var(--box-shadow-main-settings-underline) var(--black-opacity-10);
-}
-
-.main-settings-underline.first
-{
-    top: var(--top-main-settings-underline-first);
-    background: var(--background-main-settings-underline-first);
-}
-
-.main-settings-underline.second
-{
-    top: var(--top-main-settings-underline-second);
-    background: var(--background-main-settings-underline-second);
 }
 
 .label-additional-settings

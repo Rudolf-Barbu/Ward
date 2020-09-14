@@ -32,7 +32,7 @@
                         <div class = "header">
                             <div class = "hw-logo first"></div>
                             <div class = "label-hw-info">
-                                <div class = "hw-type" th:text = "#{header.processor}"></div>
+                                <div class = "hw-type">Processor</div>
                                 <div class = "hw-name" th:text = "${infoDto.processorDto.processorName}"></div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class = "usage-postfix">%</div>
                                 </div>
-                                <p class = "info-label" th:text = "#{underline.processor}"></p>
+                                <p class = "info-label">PROCESSOR USAGE</p>
                                 <div class = "usage-underline first"></div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                         <div class = "header">
                             <div class = "hw-logo second"></div>
                             <div class = "label-hw-info">
-                                <div class = "hw-type" th:text = "#{header.machine}"></div>
+                                <div class = "hw-type">Machine</div>
                                 <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemName}"></div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class = "usage-postfix">%</div>
                                 </div>
-                                <p class = "info-label" th:text = "#{underline.ram}"></p>
+                                <p class = "info-label">RAM USAGE</p>
                                 <div class = "usage-underline second"></div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                         <div class = "header">
                             <div class = "hw-logo third"></div>
                             <div class = "label-hw-info">
-                                <div class = "hw-type" th:text = "#{header.storage}"></div>
+                                <div class = "hw-type">Storage</div>
                                 <div class = "hw-name" th:text = "${infoDto.storageDto.storageName}"></div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                                     </div>
                                     <div class = "usage-postfix">%</div>
                                 </div>
-                                <div class = "info-label" th:text = "#{underline.storage}"></div>
+                                <div class = "info-label">STORAGE USAGE</div>
                                 <div class = "usage-underline third"></div>
                             </div>
                         </div>
@@ -196,10 +196,10 @@
                                 <div class = "logo-description">SERVER DASHBOARD</div>
                             </div>
                             <div id = "contacts-page" class = "second">
-                                <div class = "contacts-label" th:text = "#{contacts.title}"></div>
+                                <div class = "contacts-label">CONTACTS</div>
                                 <div class = "contacts-description">
-                                    <div class = "first" th:text = "#{contacts.description.first}"></div>
-                                    <div class = "second" th:text = "#{contacts.description.second}"></div>
+                                    <div class = "first">Feel free to ask questions and leave feedback</div>
+                                    <div class = "second">You can also text author in Telegram</div>
                                 </div>
                                 <div class = "contacts-links">
                                     <a href = "https://github.com/B-Software/Ward">
@@ -230,10 +230,10 @@
                                     <div><p id = "uptime-seconds" th:text = "${infoDto.uptimeDto.seconds}"></p></div>
                                 </div>
                                 <div class = "labels-grid">
-                                    <div th:text = "#{uptime.days}"></div>
-                                    <div th:text = "#{uptime.hours}"></div>
-                                    <div th:text = "#{uptime.minutes}"></div>
-                                    <div th:text = "#{uptime.seconds}"></div>
+                                    <div>DAYS</div>
+                                    <div>HOURS</div>
+                                    <div>MINUTES</div>
+                                    <div>SECONDS</div>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                 </div>
                 <div class = "col-lg-12 col-xl-8 sm-hidden">
                     <div class = "card">
-                        <div class = "chart-label" th:text = "#{header.chart}"></div>
+                        <div class = "chart-label">% Utilization</div>
                         <div class = "chart-triangle-grid">
                             <div id = "processor-triangle" class = "first"></div>
                             <div id = "ram-triangle" class = "second"></div>
