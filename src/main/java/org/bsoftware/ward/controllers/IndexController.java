@@ -6,7 +6,6 @@ import org.bsoftware.ward.services.implementation.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.File;
@@ -17,7 +16,6 @@ import java.io.File;
  * @author Rudolf Barbu
  * @version 1.0.1
  */
-@Validated
 @Controller
 @RequestMapping(value = "/")
 public class IndexController
@@ -43,14 +41,14 @@ public class IndexController
     @GetMapping
     public String getIndex(Model model) throws Exception
     {
-        File file = new File(Ward.SETUP_FILE_PATH);
-
         if (Ward.isFirstLaunch())
         {
             return "setup";
         }
 
-        model.addAttribute("infoDto", infoService.get().getBody());
+        File file = new File(Ward.SETUP_FILE_PATH);
+
+        model.addAttribute("infoDto", infoService.get().getDto());
         model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
         return "index";

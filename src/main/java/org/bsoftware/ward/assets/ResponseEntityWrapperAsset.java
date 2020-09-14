@@ -11,13 +11,13 @@ import org.springframework.http.ResponseEntity;
  * @author Rudolf Barbu
  * @version 1.0.0
  */
-@Getter
 public class ResponseEntityWrapperAsset<T extends Dto>
 {
     /**
      * Response body which extends Dto
      */
-    private final T body;
+    @Getter
+    private final T dto;
 
     /**
      * Http response code
@@ -31,18 +31,18 @@ public class ResponseEntityWrapperAsset<T extends Dto>
      */
     public ResponseEntity<?> wrap()
     {
-        return new ResponseEntity<>(body, httpStatus);
+        return new ResponseEntity<>(dto, httpStatus);
     }
 
     /**
      * Creates ResponseEntity with body witch extends Dto
      *
-     * @param body dto object
+     * @param dto dto object
      * @param httpStatus status of request
      */
-    public ResponseEntityWrapperAsset(T body, HttpStatus httpStatus)
+    public ResponseEntityWrapperAsset(T dto, HttpStatus httpStatus)
     {
-        this.body = body;
+        this.dto = dto;
         this.httpStatus = httpStatus;
     }
 }

@@ -6,7 +6,6 @@ import org.bsoftware.ward.services.implementation.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Rudolf Barbu
  * @version 1.0.1
  */
-@Validated
 @RestController
 @RequestMapping(value = "/api/usage")
 public class UsageController
