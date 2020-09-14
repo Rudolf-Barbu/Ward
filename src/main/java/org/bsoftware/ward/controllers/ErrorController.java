@@ -34,7 +34,6 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * @return String name of html template
      */
     @GetMapping
-    @SuppressWarnings(value = "ConstantConditions")
     public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
         if (!Ward.isFirstLaunch())
@@ -42,20 +41,13 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
             File file = new File(Ward.SETUP_FILE_PATH);
             model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
-            switch (HttpStatus.resolve(httpServletResponse.getStatus()))
+            if (HttpStatus.resolve(httpServletResponse.getStatus()) == HttpStatus.NOT_FOUND)
             {
-                case NOT_FOUND:
-                {
-                    return "error/404";
-                }
-                case METHOD_NOT_ALLOWED:
-                {
-                    return "error/405";
-                }
-                default:
-                {
-                    return "error/500";
-                }
+                return "error/404";
+            }
+            else
+            {
+                return "error/500";
             }
         }
         else
