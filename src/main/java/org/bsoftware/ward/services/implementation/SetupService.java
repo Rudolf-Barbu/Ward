@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * SettingsService manipulated settings data
+ * SetupService manipulating setup data
  *
  * @author Rudolf Barbu
  * @version 1.0.2
@@ -40,11 +40,11 @@ public class SetupService implements org.bsoftware.ward.services.Service
     }
 
     /**
-     * Fills data in ini file
+     * Fills setup data in ini file
      *
      * @param dto user settings data
      * @param <T> determines, that only Dto object can be returned
-     * @return Dto
+     * @return ResponseEntityWrapperAsset filled with ResponseDto
      * @throws Exception IoException if file is fot found, and cant be created
      */
     @Override

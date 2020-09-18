@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * SettingsController displays responses from rest API
+ * SetupController displays responses from rest API
  *
  * @author Rudolf Barbu
  * @version 1.0.1
@@ -24,10 +24,10 @@ public class SetupController
     private final SetupService setupService;
 
     /**
-     * Posting settings into database
+     * Posting setup into database
      *
      * @param setupDto dto with data
-     * @return OR response with empty body
+     * @return ResponseEntity to servlet
      */
     @PostMapping
     public ResponseEntity<?> postSetup(@RequestBody @Valid SetupDto setupDto) throws Exception

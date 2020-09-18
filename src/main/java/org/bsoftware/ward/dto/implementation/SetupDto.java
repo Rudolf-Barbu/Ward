@@ -6,7 +6,7 @@ import org.bsoftware.ward.dto.Dto;
 import javax.validation.constraints.*;
 
 /**
- * SettingsDto s a values container for settings
+ * SetupDto is a values container for setup data
  *
  * @author Rudolf Barbu
  * @version 1.0.3

@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.bsoftware.ward.dto.Dto;
 
 /**
- * StorageDto is a values container for presenting uptime principal information
+ * UptimeDto is a values container for presenting uptime principal information
  *
  * @author Rudolf Barbu
  * @version 1.0.0

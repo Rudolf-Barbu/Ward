@@ -28,7 +28,6 @@ public class InfoService implements org.bsoftware.ward.services.Service
      * Autowired SystemInfo object
      * Used for getting machine information
      */
-
     private final SystemInfo systemInfo;
 
     /**

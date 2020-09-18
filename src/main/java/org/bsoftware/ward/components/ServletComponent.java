@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * ServletContainer used for application port changing
+ * ServletComponent used for application port changing
  * @author Rudolf Barbu
  * @version 1.0.3
  */
@@ -25,17 +25,17 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
     /**
      * Customizes port of application
      *
-     * @param factory servlet factory
+     * @param tomcatServletWebServerFactory servlet factory
      */
     @Override
-    public void customize(TomcatServletWebServerFactory factory)
+    public void customize(TomcatServletWebServerFactory tomcatServletWebServerFactory)
     {
         if (!Ward.isFirstLaunch())
         {
             try
             {
                 File file = new File(Ward.SETUP_FILE_PATH);
-                factory.setPort(Integer.parseInt(utilitiesComponent.getFromIniFile(file, "setup", "port")));
+                tomcatServletWebServerFactory.setPort(Integer.parseInt(utilitiesComponent.getFromIniFile(file, "setup", "port")));
             }
             catch (IOException exception)
             {
@@ -44,7 +44,7 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
         }
         else
         {
-            factory.setPort(Ward.INITIAL_PORT);
+            tomcatServletWebServerFactory.setPort(Ward.INITIAL_PORT);
         }
     }
 

@@ -83,7 +83,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
     /**
      * Used to deliver dto to corresponding controller
      *
-     * @return UsageDto filled with usage info
+     * @return ResponseEntityWrapperAsset filled with usageDto
      */
     @Override
     public ResponseEntityWrapperAsset<?> get()

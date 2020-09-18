@@ -5,7 +5,7 @@ import org.bsoftware.ward.dto.Dto;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Service interface makes to all services return dto object
+ * Service interface makes to all services return ResponseEntityWrapperAsset object
  *
  * @author Rudolf Barbu
  * @version 1.0.1

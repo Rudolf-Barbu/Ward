@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Utilities used various functions, which are used in different classes
+ * UtilitiesComponent provides various functions, which are used in different classes
  * @author Rudolf Barbu
  * @version 1.0.2
  */

@@ -35,7 +35,7 @@ public class ResponseEntityWrapperAsset<T extends Dto>
     }
 
     /**
-     * Creates ResponseEntity with body witch extends Dto
+     * Creates ResponseEntityWrapperAsset with body witch extends Dto
      *
      * @param dto dto object
      * @param httpStatus status of request
