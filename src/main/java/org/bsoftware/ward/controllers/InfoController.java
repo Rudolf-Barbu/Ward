@@ -2,7 +2,7 @@ package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
-import org.bsoftware.ward.services.implementation.InfoService;
+import org.bsoftware.ward.services.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +36,7 @@ public class InfoController
     {
         if (!Ward.isFirstLaunch())
         {
-            return infoService.get().wrap();
+            return infoService.getInfo().wrap();
         }
         else
         {

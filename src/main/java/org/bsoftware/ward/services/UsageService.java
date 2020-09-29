@@ -1,4 +1,4 @@
-package org.bsoftware.ward.services.implementation;
+package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.dto.implementation.UsageDto;
@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @version 1.0.3
  */
 @Service
-public class UsageService implements org.bsoftware.ward.services.Service
+public class UsageService
 {
     /**
      * Autowired SystemInfo object
@@ -85,8 +85,7 @@ public class UsageService implements org.bsoftware.ward.services.Service
      *
      * @return ResponseEntityWrapperAsset filled with usageDto
      */
-    @Override
-    public ResponseEntityWrapperAsset<?> get()
+    public ResponseEntityWrapperAsset<?> getUsage()
     {
         UsageDto usageDto = new UsageDto();
 

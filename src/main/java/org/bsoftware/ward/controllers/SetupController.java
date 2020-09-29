@@ -1,7 +1,7 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.dto.implementation.SetupDto;
-import org.bsoftware.ward.services.implementation.SetupService;
+import org.bsoftware.ward.services.SetupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +32,7 @@ public class SetupController
     @PostMapping
     public ResponseEntity<?> postSetup(@RequestBody @Valid SetupDto setupDto) throws Exception
     {
-        return setupService.post(setupDto).wrap();
+        return setupService.postSetup(setupDto).wrap();
     }
 
     /**

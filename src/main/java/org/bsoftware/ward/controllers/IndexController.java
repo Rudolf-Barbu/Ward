@@ -2,7 +2,7 @@ package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.services.implementation.InfoService;
+import org.bsoftware.ward.services.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +48,7 @@ public class IndexController
 
         File file = new File(Ward.SETUP_FILE_PATH);
 
-        model.addAttribute("infoDto", infoService.get().getDto());
+        model.addAttribute("infoDto", infoService.getInfo().getDto());
         model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
 
         return "index";

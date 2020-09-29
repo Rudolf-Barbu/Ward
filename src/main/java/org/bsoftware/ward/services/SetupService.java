@@ -1,8 +1,7 @@
-package org.bsoftware.ward.services.implementation;
+package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
-import org.bsoftware.ward.dto.Dto;
 import org.bsoftware.ward.dto.implementation.ResponseDto;
 import org.bsoftware.ward.dto.implementation.SetupDto;
 import org.ini4j.Ini;
@@ -18,7 +17,7 @@ import java.io.IOException;
  * @version 1.0.2
  */
 @Service
-public class SetupService implements org.bsoftware.ward.services.Service
+public class SetupService
 {
     /**
      * Puts new data in ini file
@@ -42,21 +41,19 @@ public class SetupService implements org.bsoftware.ward.services.Service
     /**
      * Fills setup data in ini file
      *
-     * @param dto user settings data
-     * @param <T> determines, that only Dto object can be returned
+     * @param setupDto user settings data
      * @return ResponseEntityWrapperAsset filled with ResponseDto
      * @throws Exception IoException if file is fot found, and cant be created
      */
-    @Override
-    public <T extends Dto> ResponseEntityWrapperAsset<?> post(T dto) throws Exception
+    public ResponseEntityWrapperAsset<?> postSetup(SetupDto setupDto) throws Exception
     {
         if (Ward.isFirstLaunch())
         {
             File file = new File(Ward.SETUP_FILE_PATH);
 
-            putInIniFile(file, "setup", "serverName", ((SetupDto) dto).getServerName());
-            putInIniFile(file, "setup", "theme", ((SetupDto) dto).getTheme());
-            putInIniFile(file, "setup", "port", ((SetupDto) dto).getPort());
+            putInIniFile(file, "setup", "serverName", setupDto.getServerName());
+            putInIniFile(file, "setup", "theme", setupDto.getTheme());
+            putInIniFile(file, "setup", "port", setupDto.getPort());
 
             Ward.restart();
         }

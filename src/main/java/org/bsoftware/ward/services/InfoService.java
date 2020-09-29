@@ -1,4 +1,4 @@
-package org.bsoftware.ward.services.implementation;
+package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
@@ -22,7 +22,7 @@ import java.util.*;
  * @version 1.0.2
  */
 @Service
-public class InfoService implements org.bsoftware.ward.services.Service
+public class InfoService
 {
     /**
      * Autowired SystemInfo object
@@ -250,8 +250,7 @@ public class InfoService implements org.bsoftware.ward.services.Service
      *
      * @return InfoDto filled with server info
      */
-    @Override
-    public ResponseEntityWrapperAsset<?> get() throws Exception
+    public ResponseEntityWrapperAsset<?> getInfo() throws Exception
     {
         InfoDto infoDto = new InfoDto();
 
