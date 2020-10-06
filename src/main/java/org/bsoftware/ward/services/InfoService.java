@@ -252,16 +252,23 @@ public class InfoService
      */
     public ResponseEntityWrapperAsset<?> getInfo() throws Exception
     {
-        InfoDto infoDto = new InfoDto();
+        if (!Ward.isFirstLaunch())
+        {
+            InfoDto infoDto = new InfoDto();
 
-        infoDto.setProcessorDto(getProcessorDto());
-        infoDto.setMachineDto(getMachineDto());
-        infoDto.setStorageDto(getStorageDto());
-        infoDto.setUptimeDto(getUptimeDto());
-        infoDto.setSetupDto(getSetupDto());
-        infoDto.setMavenDto(getMavenDto());
+            infoDto.setProcessorDto(getProcessorDto());
+            infoDto.setMachineDto(getMachineDto());
+            infoDto.setStorageDto(getStorageDto());
+            infoDto.setUptimeDto(getUptimeDto());
+            infoDto.setSetupDto(getSetupDto());
+            infoDto.setMavenDto(getMavenDto());
 
-        return new ResponseEntityWrapperAsset<>(infoDto, HttpStatus.OK);
+            return new ResponseEntityWrapperAsset<>(infoDto, HttpStatus.OK);
+        }
+        else
+        {
+            return new ResponseEntityWrapperAsset<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**

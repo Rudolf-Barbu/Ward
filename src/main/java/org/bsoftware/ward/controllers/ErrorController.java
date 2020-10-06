@@ -1,15 +1,12 @@
 package org.bsoftware.ward.controllers;
 
-import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.components.UtilitiesComponent;
+import org.bsoftware.ward.services.ErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 
 /**
  * ErrorController displays error pages of Ward application
@@ -22,10 +19,10 @@ import java.io.File;
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController
 {
     /**
-     * Autowired UtilitiesComponent object
-     * Used for various utility functions
+     * Autowired ErrorService object
+     * Used to determine error page
      */
-    private final UtilitiesComponent utilitiesComponent;
+    private final ErrorService errorService;
 
     /**
      * Get request to display error page, which corresponds status code
@@ -36,24 +33,7 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     @GetMapping
     public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
     {
-        if (!Ward.isFirstLaunch())
-        {
-            File file = new File(Ward.SETUP_FILE_PATH);
-            model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
-
-            if (HttpStatus.resolve(httpServletResponse.getStatus()) == HttpStatus.NOT_FOUND)
-            {
-                return "error/404";
-            }
-            else
-            {
-                return "error/500";
-            }
-        }
-        else
-        {
-            return "setup";
-        }
+        return errorService.getError(httpServletResponse, model);
     }
 
     /**
@@ -70,11 +50,11 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     /**
      * Used for autowiring necessary objects
      *
-     * @param utilitiesComponent autowired UtilitiesComponent object
+     * @param errorService autowired ErrorService object
      */
     @Autowired
-    public ErrorController(UtilitiesComponent utilitiesComponent)
+    public ErrorController(ErrorService errorService)
     {
-        this.utilitiesComponent = utilitiesComponent;
+        this.errorService = errorService;
     }
 }

@@ -34,14 +34,7 @@ public class UsageController
     @GetMapping
     public ResponseEntity<?> getUsage()
     {
-        if (!Ward.isFirstLaunch())
-        {
-            return usageService.getUsage().wrap();
-        }
-        else
-        {
-            return new ResponseEntity<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
-        }
+        return usageService.getUsage().wrap();
     }
 
     /**
