@@ -1,7 +1,6 @@
 package org.bsoftware.ward.controllers;
 
-import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.dto.implementation.ResponseDto;
+import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.bsoftware.ward.services.UsageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,9 +31,9 @@ public class UsageController
      * @return ResponseEntity to servlet
      */
     @GetMapping
-    public ResponseEntity<?> getUsage()
+    public ResponseEntity<?> getUsage() throws ApplicationNotSetUpException
     {
-        return usageService.getUsage().wrap();
+        return new ResponseEntity<>(usageService.getUsage(), HttpStatus.OK);
     }
 
     /**

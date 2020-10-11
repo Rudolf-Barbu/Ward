@@ -1,11 +1,10 @@
 package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.dto.implementation.*;
+import org.bsoftware.ward.dto.*;
+import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.*;
@@ -250,7 +249,7 @@ public class InfoService
      *
      * @return InfoDto filled with server info
      */
-    public ResponseEntityWrapperAsset<?> getInfo() throws Exception
+    public InfoDto getInfo() throws Exception
     {
         if (!Ward.isFirstLaunch())
         {
@@ -263,11 +262,11 @@ public class InfoService
             infoDto.setSetupDto(getSetupDto());
             infoDto.setMavenDto(getMavenDto());
 
-            return new ResponseEntityWrapperAsset<>(infoDto, HttpStatus.OK);
+            return infoDto;
         }
         else
         {
-            return new ResponseEntityWrapperAsset<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
+            throw new ApplicationNotSetUpException("Set up application first");
         }
     }
 

@@ -1,8 +1,7 @@
-package org.bsoftware.ward.dto.implementation;
+package org.bsoftware.ward.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bsoftware.ward.dto.Dto;
 
 /**
  * UptimeDto is a values container for presenting uptime principal information
@@ -12,7 +11,7 @@ import org.bsoftware.ward.dto.Dto;
  */
 @Getter
 @Setter
-public class UptimeDto implements Dto
+public class UptimeDto
 {
     /**
      * Uptime days field

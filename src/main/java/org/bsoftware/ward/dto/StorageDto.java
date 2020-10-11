@@ -1,8 +1,7 @@
-package org.bsoftware.ward.dto.implementation;
+package org.bsoftware.ward.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bsoftware.ward.dto.Dto;
 
 /**
  * StorageDto is a values container for presenting storage principal information
@@ -12,7 +11,7 @@ import org.bsoftware.ward.dto.Dto;
  */
 @Getter
 @Setter
-public class StorageDto implements Dto
+public class StorageDto
 {
     /**
      * Host0 storage name field
