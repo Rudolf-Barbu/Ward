@@ -32,16 +32,6 @@ public class ControllerExceptionHandler
     private final UtilitiesComponent utilitiesComponent;
 
     /**
-     * Handles MethodArgumentNotValidException, then it thrown
-     */
-    @ResponseBody
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<?> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException)
-    {
-        return new ResponseEntity<>(new ErrorDto(methodArgumentNotValidException), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    /**
      * Handles ApplicationNotSetUpException, then it thrown
      */
     @ResponseBody
@@ -49,6 +39,16 @@ public class ControllerExceptionHandler
     public ResponseEntity<?> applicationNotSetUpExceptionHandler(ApplicationNotSetUpException applicationNotSetUpException)
     {
         return new ResponseEntity<>(new ErrorDto(applicationNotSetUpException), HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Handles MethodArgumentNotValidException, then it thrown
+     */
+    @ResponseBody
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public ResponseEntity<?> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException)
+    {
+        return new ResponseEntity<>(new ErrorDto(methodArgumentNotValidException), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     /**
