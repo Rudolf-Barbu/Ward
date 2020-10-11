@@ -1,5 +1,6 @@
 package org.bsoftware.ward.components;
 
+import org.bsoftware.ward.Ward;
 import org.ini4j.Ini;
 import org.springframework.stereotype.Component;
 import java.io.File;
@@ -33,5 +34,16 @@ public class UtilitiesComponent
         }
 
         return null;
+    }
+
+    /**
+     * Gets theme name from setup ini file
+     *
+     * @return String wth theme name
+     * @throws IOException if file does not exists
+     */
+    public String getThemeName() throws IOException
+    {
+        return getFromIniFile(new File(Ward.SETUP_FILE_PATH), "setup", "theme");
     }
 }

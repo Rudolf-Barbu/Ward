@@ -1,11 +1,9 @@
 package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
-import org.bsoftware.ward.dto.implementation.ResponseDto;
-import org.bsoftware.ward.dto.implementation.SetupDto;
+import org.bsoftware.ward.dto.ResponseDto;
+import org.bsoftware.ward.dto.SetupDto;
 import org.ini4j.Ini;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +43,7 @@ public class SetupService
      * @return ResponseEntityWrapperAsset filled with ResponseDto
      * @throws Exception IoException if file is fot found, and cant be created
      */
-    public ResponseEntityWrapperAsset<?> postSetup(SetupDto setupDto) throws Exception
+    public ResponseDto postSetup(SetupDto setupDto) throws Exception
     {
         if (Ward.isFirstLaunch())
         {
@@ -58,6 +56,6 @@ public class SetupService
             Ward.restart();
         }
 
-        return new ResponseEntityWrapperAsset<>(new ResponseDto("Settings saved correctly"), HttpStatus.OK);
+        return new ResponseDto("Settings saved correctly");
     }
 }

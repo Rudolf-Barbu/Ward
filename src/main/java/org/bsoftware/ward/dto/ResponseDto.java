@@ -1,7 +1,6 @@
-package org.bsoftware.ward.dto.implementation;
+package org.bsoftware.ward.dto;
 
 import lombok.Getter;
-import org.bsoftware.ward.dto.Dto;
 
 /**
  * ResponseDto is a values container for presenting response info
@@ -10,7 +9,7 @@ import org.bsoftware.ward.dto.Dto;
  * @version 1.0.0
  */
 @Getter
-public class ResponseDto implements Dto
+public final class ResponseDto
 {
     /**
      * Response message field

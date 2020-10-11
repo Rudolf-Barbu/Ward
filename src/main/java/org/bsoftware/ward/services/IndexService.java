@@ -5,13 +5,12 @@ import org.bsoftware.ward.components.UtilitiesComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import java.io.File;
 
 /**
  * IndexService displays index page of Ward application
  *
  * @author Rudolf Barbu
- * @version 1.0.0
+ * @version 1.0.1
  */
 @Service
 public class IndexService
@@ -41,10 +40,8 @@ public class IndexService
             return "setup";
         }
 
-        File file = new File(Ward.SETUP_FILE_PATH);
-
-        model.addAttribute("infoDto", infoService.getInfo().getDto());
-        model.addAttribute("theme", utilitiesComponent.getFromIniFile(file, "setup", "theme"));
+        model.addAttribute("infoDto", infoService.getInfo());
+        model.addAttribute("theme", utilitiesComponent.getThemeName());
 
         return "index";
     }

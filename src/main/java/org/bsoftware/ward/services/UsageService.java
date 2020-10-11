@@ -1,12 +1,9 @@
 package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
-import org.bsoftware.ward.assets.ResponseEntityWrapperAsset;
-import org.bsoftware.ward.dto.implementation.ResponseDto;
-import org.bsoftware.ward.dto.implementation.UsageDto;
+import org.bsoftware.ward.dto.UsageDto;
+import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -88,7 +85,7 @@ public class UsageService
      *
      * @return ResponseEntityWrapperAsset filled with usageDto
      */
-    public ResponseEntityWrapperAsset<?> getUsage()
+    public UsageDto getUsage() throws ApplicationNotSetUpException
     {
         if (!Ward.isFirstLaunch())
         {
@@ -98,11 +95,11 @@ public class UsageService
             usageDto.setRamUsage(getRamUsage());
             usageDto.setStorageUsage(getStorageUsage());
 
-            return new ResponseEntityWrapperAsset<>(usageDto, HttpStatus.OK);
+            return usageDto;
         }
         else
         {
-            return new ResponseEntityWrapperAsset<>(new ResponseDto("Set up application first"), HttpStatus.BAD_REQUEST);
+            throw new ApplicationNotSetUpException("Set up application first");
         }
     }
 

@@ -1,8 +1,8 @@
-package org.bsoftware.ward.dto.implementation;
+package org.bsoftware.ward.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bsoftware.ward.dto.Dto;
+
 import javax.validation.constraints.*;
 
 /**
@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  */
 @Getter
 @Setter
-public class SetupDto implements Dto
+public class SetupDto
 {
     /**
      * Server name Field
