@@ -99,7 +99,7 @@ public class UsageService
         }
         else
         {
-            throw new ApplicationNotSetUpException("Set up application first");
+            throw new ApplicationNotSetUpException();
         }
     }
 

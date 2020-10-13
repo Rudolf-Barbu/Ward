@@ -266,7 +266,7 @@ public class InfoService
         }
         else
         {
-            throw new ApplicationNotSetUpException("Set up application first");
+            throw new ApplicationNotSetUpException();
         }
     }
 

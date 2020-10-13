@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * ErrorController displays error pages of Ward application
@@ -27,13 +26,12 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     /**
      * Get request to display error page, which corresponds status code
      *
-     * @param httpServletResponse used for providing response data
      * @return String name of html template
      */
     @GetMapping
-    public String getError(HttpServletResponse httpServletResponse, Model model) throws Exception
+    public String getError(Model model) throws Exception
     {
-        return errorService.getError(httpServletResponse, model);
+        return errorService.getError(model);
     }
 
     /**

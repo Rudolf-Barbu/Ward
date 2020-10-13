@@ -9,10 +9,10 @@ package org.bsoftware.ward.exceptions;
 public final class ApplicationNotSetUpException extends Exception
 {
     /**
-     * @param message exception message
+     * Call super class with exception message
      */
-    public ApplicationNotSetUpException(String message)
+    public ApplicationNotSetUpException()
     {
-        super(message);
+        super("Set up application first");
     }
 }

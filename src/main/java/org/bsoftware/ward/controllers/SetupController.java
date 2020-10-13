@@ -20,12 +20,12 @@ public class SetupController
 {
     /**
      * Autowired SetupService object
-     * Used for posting settings information in database
+     * Used for posting settings information in ini file
      */
     private final SetupService setupService;
 
     /**
-     * Posting setup into database
+     * Posting setup info in database
      *
      * @param setupDto dto with data
      * @return ResponseEntity to servlet
