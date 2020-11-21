@@ -18,7 +18,7 @@
     <properties>
         <oshiVersion>5.3.6</oshiVersion>
         <jnaVersion>5.6.0</jnaVersion>
-        <lombokVersion>1.18.12</lombokVersion>
+        <lombokVersion>1.18.16</lombokVersion>
         <ini4jVersion>0.5.4</ini4jVersion>
     </properties>
 
