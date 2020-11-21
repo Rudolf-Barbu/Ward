@@ -6,7 +6,7 @@
 
 ### About
 
-Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme and language system.
+Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead looking on bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
