@@ -16,15 +16,15 @@ public class UsageDto
     /**
      * Processor usage field
      */
-    private int processorUsage;
+    private int processor;
 
     /**
      * Ram usage field
      */
-    private int ramUsage;
+    private int ram;
 
     /**
      * Storage usage field
      */
-    private int storageUsage;
+    private int storage;
 }

@@ -120,15 +120,15 @@ function sendInfoRequest()
         {
             let response = JSON.parse(this.response);
 
-            currentClockSpeed.innerHTML = response.processorDto.clockSpeed;
-            currentProcCount.innerHTML = response.machineDto.procCount;
-            currentTotalStorage.innerHTML = response.storageDto.totalStorage;
-            currentDiskCount.innerHTML = response.storageDto.diskCount;
+            currentClockSpeed.innerHTML = response.processor.clockSpeed;
+            currentProcCount.innerHTML = response.machine.procCount;
+            currentTotalStorage.innerHTML = response.storage.totalStorage;
+            currentDiskCount.innerHTML = response.storage.diskCount;
 
-            days.innerHTML = response.uptimeDto.days;
-            hours.innerHTML = response.uptimeDto.hours;
-            minutes.innerHTML = response.uptimeDto.minutes;
-            seconds.innerHTML = response.uptimeDto.seconds;
+            days.innerHTML = response.uptime.days;
+            hours.innerHTML = response.uptime.hours;
+            minutes.innerHTML = response.uptime.minutes;
+            seconds.innerHTML = response.uptime.seconds;
         }
     }
 

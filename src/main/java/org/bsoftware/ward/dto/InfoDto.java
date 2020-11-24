@@ -16,30 +16,30 @@ public class InfoDto
     /**
      *  Processor info dto field
      */
-    private ProcessorDto processorDto;
+    private ProcessorDto processor;
 
     /**
      *  machine info dto field
      */
-    private MachineDto machineDto;
+    private MachineDto machine;
 
     /**
      *  Storage info dto field
      */
-    private StorageDto storageDto;
+    private StorageDto storage;
 
     /**
      *  Uptime info dto field
      */
-    private UptimeDto uptimeDto;
+    private UptimeDto uptime;
 
     /**
      *  Setup info dto field
      */
-    private SetupDto setupDto;
+    private SetupDto setup;
 
     /**
      *  Maven info dto field
      */
-    private MavenDto mavenDto;
+    private ProjectDto project;
 }

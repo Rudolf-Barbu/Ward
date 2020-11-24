@@ -16,7 +16,7 @@ public class ProcessorDto
     /**
      * Processor name field
      */
-    private String processorName;
+    private String name;
 
     /**
      * Core count field
@@ -31,5 +31,5 @@ public class ProcessorDto
     /**
      * Processor architecture field
      */
-    private String processorBitDepth;
+    private String bitDepth;
 }

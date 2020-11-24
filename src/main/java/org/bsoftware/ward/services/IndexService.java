@@ -40,7 +40,7 @@ public class IndexService
             return "setup";
         }
 
-        model.addAttribute("infoDto", infoService.getInfo());
+        model.addAttribute("info", infoService.getInfo());
         model.addAttribute("theme", utilitiesComponent.getThemeName());
 
         return "index";

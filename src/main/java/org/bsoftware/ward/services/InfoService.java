@@ -86,25 +86,25 @@ public class InfoService
      *
      * @return ProcessorDto with filled fields
      */
-    private ProcessorDto getProcessorDto()
+    private ProcessorDto getProcessor()
     {
         ProcessorDto processorDto = new ProcessorDto();
 
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
 
-        String processorName = centralProcessor.getProcessorIdentifier().getName();
-        if (processorName.contains("@"))
+        String name = centralProcessor.getProcessorIdentifier().getName();
+        if (name.contains("@"))
         {
-            processorName = processorName.substring(0, processorName.indexOf('@') - 1);
+            name = name.substring(0, name.indexOf('@') - 1);
         }
-        processorDto.setProcessorName(processorName.trim());
+        processorDto.setName(name.trim());
 
         int coreCount = centralProcessor.getLogicalProcessorCount();
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
-        String processorBitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        processorDto.setProcessorBitDepth(processorBitDepthPrefix + "-bit");
+        String BitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
+        processorDto.setBitDepth(BitDepthPrefix + "-bit");
 
         return processorDto;
     }
@@ -114,7 +114,7 @@ public class InfoService
      *
      * @return MachineDto with filled fields
      */
-    private MachineDto getMachineDto()
+    private MachineDto getMachine()
     {
         MachineDto machineDto = new MachineDto();
 
@@ -122,7 +122,7 @@ public class InfoService
         OperatingSystem.OSVersionInfo osVersionInfo = systemInfo.getOperatingSystem().getVersionInfo();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        machineDto.setOperatingSystemName(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
+        machineDto.setOperatingSystem(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
         machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
 
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
@@ -146,7 +146,7 @@ public class InfoService
      *
      * @return StorageDto with filled fields
      */
-    private StorageDto getStorageDto()
+    private StorageDto getStorage()
     {
         StorageDto storageDto = new StorageDto();
 
@@ -156,22 +156,22 @@ public class InfoService
         Optional<HWDiskStore> hwDiskStoreOptional = hwDiskStores.stream().findFirst();
         if (hwDiskStoreOptional.isPresent())
         {
-            String storageName = hwDiskStoreOptional.get().getModel();
+            String mainStorage = hwDiskStoreOptional.get().getModel();
 
-            if (storageName.contains("(Standard disk drives)"))
+            if (mainStorage.contains("(Standard disk drives)"))
             {
-                storageName = storageName.substring(0, storageName.indexOf("(Standard disk drives)") - 1);
+                mainStorage = mainStorage.substring(0, mainStorage.indexOf("(Standard disk drives)") - 1);
             }
 
-            storageDto.setStorageName(storageName.trim());
+            storageDto.setMainStorage(mainStorage.trim());
         }
         else
         {
-            storageDto.setStorageName("Undefined");
+            storageDto.setMainStorage("Undefined");
         }
 
-        long totalStorage = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
-        storageDto.setTotalStorage(getConvertedCapacity(totalStorage) + " Total");
+        long total = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
+        storageDto.setTotal(getConvertedCapacity(total) + " Total");
 
         int diskCount = hwDiskStores.size();
         storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
@@ -187,7 +187,7 @@ public class InfoService
      * @return UptimeDto with filled fields
      */
     @SuppressWarnings(value = "IntegerDivisionInFloatingPointContext")
-    private UptimeDto getUptimeDto()
+    private UptimeDto getUptime()
     {
         UptimeDto uptimeDto = new UptimeDto();
 
@@ -207,7 +207,7 @@ public class InfoService
      * @return SetupDto with filled field
      * @throws IOException if file does not exists
      */
-    private SetupDto getSetupDto() throws IOException
+    private SetupDto getSetup() throws IOException
     {
         SetupDto setupDto = new SetupDto();
         File file = new File(Ward.SETUP_FILE_PATH);
@@ -223,9 +223,9 @@ public class InfoService
      * @return MavenDto with filled field
      * @throws IOException if file does not exists
      */
-    private MavenDto getMavenDto() throws IOException
+    private ProjectDto getProject() throws IOException
     {
-        MavenDto mavenDto = new MavenDto();
+        ProjectDto projectDto = new ProjectDto();
         Properties properties = new Properties();
         InputStream inputStream = getClass().getResourceAsStream("/META-INF/maven/org.b-software/ward/pom.properties");
 
@@ -234,14 +234,14 @@ public class InfoService
             properties.load(inputStream);
             String version = properties.getProperty("version");
 
-            mavenDto.setProjectVersion("Ward: v" + version);
+            projectDto.setVersion("Ward: v" + version);
         }
         else
         {
-            mavenDto.setProjectVersion("Developer mode");
+            projectDto.setVersion("Developer mode");
         }
 
-        return mavenDto;
+        return projectDto;
     }
 
     /**
@@ -255,12 +255,12 @@ public class InfoService
         {
             InfoDto infoDto = new InfoDto();
 
-            infoDto.setProcessorDto(getProcessorDto());
-            infoDto.setMachineDto(getMachineDto());
-            infoDto.setStorageDto(getStorageDto());
-            infoDto.setUptimeDto(getUptimeDto());
-            infoDto.setSetupDto(getSetupDto());
-            infoDto.setMavenDto(getMavenDto());
+            infoDto.setProcessor(getProcessor());
+            infoDto.setMachine(getMachine());
+            infoDto.setStorage(getStorage());
+            infoDto.setUptime(getUptime());
+            infoDto.setSetup(getSetup());
+            infoDto.setProject(getProject());
 
             return infoDto;
         }

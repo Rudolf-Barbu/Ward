@@ -2,7 +2,7 @@
 <html xmlns:th = "http://www.thymeleaf.org" id = "html" th:attr = "theme = ${theme}">
     <head>
         <meta charset = "UTF-8">
-        <title th:text = "${infoDto.setupDto.serverName}"></title>
+        <title th:text = "${info.setup.serverName}"></title>
         <link rel = "shortcut icon" type = "image/x-icon" th:href = "@{/img/ico/favicon.ico}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/assets/bootstrap.min.css}" />
         <link rel = "stylesheet" type = "text/css" th:href = "@{/css/animations.css}" />
@@ -33,7 +33,7 @@
                             <div class = "hw-logo first"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Processor</div>
-                                <div class = "hw-name" th:text = "${infoDto.processorDto.processorName}"></div>
+                                <div class = "hw-name" th:text = "${info.processor.name}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -68,9 +68,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first" th:text = "${infoDto.processorDto.coreCount}"></div>
-                                <div id = "currentClockSpeed" class = "second" th:text = "${infoDto.processorDto.clockSpeed}"></div>
-                                <div class = "third" th:text = "${infoDto.processorDto.processorBitDepth}"></div>
+                                <div class = "first" th:text = "${info.processor.coreCount}"></div>
+                                <div id = "currentClockSpeed" class = "second" th:text = "${info.processor.clockSpeed}"></div>
+                                <div class = "third" th:text = "${info.processor.bitDepth}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first"></div>
@@ -85,7 +85,7 @@
                             <div class = "hw-logo second"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Machine</div>
-                                <div class = "hw-name" th:text = "${infoDto.machineDto.operatingSystemName}"></div>
+                                <div class = "hw-name" th:text = "${info.machine.operatingSystem}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -120,9 +120,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div class = "first" th:text = "${infoDto.machineDto.totalRam}"></div>
-                                <div class = "second" th:text = "${infoDto.machineDto.ramTypeOrOSBitDepth}"></div>
-                                <div id = "currentProcCount" class = "third" th:text = "${infoDto.machineDto.procCount}"></div>
+                                <div class = "first" th:text = "${info.machine.totalRam}"></div>
+                                <div class = "second" th:text = "${info.machine.ramTypeOrOSBitDepth}"></div>
+                                <div id = "currentProcCount" class = "third" th:text = "${info.machine.procCount}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first"></div>
@@ -137,7 +137,7 @@
                             <div class = "hw-logo third"></div>
                             <div class = "label-hw-info">
                                 <div class = "hw-type">Storage</div>
-                                <div class = "hw-name" th:text = "${infoDto.storageDto.storageName}"></div>
+                                <div class = "hw-name" th:text = "${info.storage.mainStorage}"></div>
                             </div>
                         </div>
                         <div class = "usage">
@@ -172,9 +172,9 @@
                                 </div>
                             </div>
                             <div class = "detailed-hw-info">
-                                <div id = "currentTotalStorage" class = "first" th:text = "${infoDto.storageDto.totalStorage}"></div>
-                                <div id = "currentDiskCount" class = "second" th:text = "${infoDto.storageDto.diskCount}"></div>
-                                <div class = "third" th:text = "${infoDto.storageDto.swapAmount}"></div>
+                                <div id = "currentTotalStorage" class = "first" th:text = "${info.storage.total}"></div>
+                                <div id = "currentDiskCount" class = "second" th:text = "${info.storage.diskCount}"></div>
+                                <div class = "third" th:text = "${info.storage.swapAmount}"></div>
                             </div>
                             <div class = "dividers">
                                 <div class = "first"></div>
@@ -224,10 +224,10 @@
                             </div>
                             <div class = "uptime-rectangle-grid">
                                 <div class = "values-grid">
-                                    <div><p id = "uptime-days" th:text = "${infoDto.uptimeDto.days}"></p></div>
-                                    <div><p id = "uptime-hours" th:text = "${infoDto.uptimeDto.hours}"></p></div>
-                                    <div><p id = "uptime-minutes" th:text = "${infoDto.uptimeDto.minutes}"></p></div>
-                                    <div><p id = "uptime-seconds" th:text = "${infoDto.uptimeDto.seconds}"></p></div>
+                                    <div><p id = "uptime-days" th:text = "${info.uptime.days}"></p></div>
+                                    <div><p id = "uptime-hours" th:text = "${info.uptime.hours}"></p></div>
+                                    <div><p id = "uptime-minutes" th:text = "${info.uptime.minutes}"></p></div>
+                                    <div><p id = "uptime-seconds" th:text = "${info.uptime.seconds}"></p></div>
                                 </div>
                                 <div class = "labels-grid">
                                     <div>DAYS</div>
@@ -257,7 +257,7 @@
                         </div>
                         <script type = "text/javascript" th:inline = "javascript"> chartInitialization(); </script>
                     </div>
-                    <div id = "project-version" class = "text-center" th:text = "${infoDto.mavenDto.projectVersion}"></div>
+                    <div id = "project-version" class = "text-center" th:text = "${info.project.version}"></div>
                 </div>
             </div>
         </div>

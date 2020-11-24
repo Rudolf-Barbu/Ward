@@ -11,10 +11,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class MavenDto
+public class ProjectDto
 {
     /**
      * Project version field
      */
-    private String projectVersion;
+    private String version;
 }

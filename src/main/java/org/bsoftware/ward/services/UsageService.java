@@ -33,7 +33,7 @@ public class UsageService
      *
      * @return int that display processor usage
      */
-    private int getProcessorUsage()
+    private int getProcessor()
     {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
 
@@ -55,7 +55,7 @@ public class UsageService
      *
      * @return int that display ram usage
      */
-    private int getRamUsage()
+    private int getRam()
     {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
@@ -70,7 +70,7 @@ public class UsageService
      *
      * @return int that display storage usage
      */
-    private int getStorageUsage()
+    private int getStorage()
     {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
 
@@ -91,9 +91,9 @@ public class UsageService
         {
             UsageDto usageDto = new UsageDto();
 
-            usageDto.setProcessorUsage(getProcessorUsage());
-            usageDto.setRamUsage(getRamUsage());
-            usageDto.setStorageUsage(getStorageUsage());
+            usageDto.setProcessor(getProcessor());
+            usageDto.setRam(getRam());
+            usageDto.setStorage(getStorage());
 
             return usageDto;
         }

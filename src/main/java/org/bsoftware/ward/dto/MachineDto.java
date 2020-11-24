@@ -16,7 +16,7 @@ public class MachineDto
     /**
      * OS info field
      */
-    private String operatingSystemName;
+    private String operatingSystem;
 
     /**
      * Amount of total installed ram field

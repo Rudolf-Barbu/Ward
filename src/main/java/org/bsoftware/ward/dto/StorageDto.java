@@ -16,12 +16,12 @@ public class StorageDto
     /**
      * Host0 storage name field
      */
-    private String storageName;
+    private String mainStorage;
 
     /**
      * Amount of total installed storage field
      */
-    private String totalStorage;
+    private String total;
 
     /**
      * Disk count field
