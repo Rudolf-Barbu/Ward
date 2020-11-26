@@ -27,13 +27,15 @@ public class InfoService
      * Autowired SystemInfo object
      * Used for getting machine information
      */
-    private final SystemInfo systemInfo;
+    @Autowired
+    private SystemInfo systemInfo;
 
     /**
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final UtilitiesComponent utilitiesComponent;
+    @Autowired
+    private UtilitiesComponent utilitiesComponent;
 
     /**
      * Converts frequency to most readable format
@@ -268,18 +270,5 @@ public class InfoService
         {
             throw new ApplicationNotSetUpException();
         }
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param systemInfo autowired SystemInfo object
-     * @param utilitiesComponent autowired Utilities object
-     */
-    @Autowired
-    public InfoService(SystemInfo systemInfo, UtilitiesComponent utilitiesComponent)
-    {
-        this.systemInfo = systemInfo;
-        this.utilitiesComponent = utilitiesComponent;
     }
 }

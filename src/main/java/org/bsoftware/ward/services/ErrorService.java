@@ -20,7 +20,8 @@ public class ErrorService
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final UtilitiesComponent utilitiesComponent;
+    @Autowired
+    private UtilitiesComponent utilitiesComponent;
 
     /**
      * Returns 404 error page
@@ -38,16 +39,5 @@ public class ErrorService
 
         model.addAttribute("theme", utilitiesComponent.getThemeName());
         return "error/404";
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param utilitiesComponent autowired UtilitiesComponent object
-     */
-    @Autowired
-    public ErrorService(UtilitiesComponent utilitiesComponent)
-    {
-        this.utilitiesComponent = utilitiesComponent;
     }
 }

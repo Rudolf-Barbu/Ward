@@ -29,7 +29,8 @@ public class ControllerExceptionHandler
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final UtilitiesComponent utilitiesComponent;
+    @Autowired
+    private UtilitiesComponent utilitiesComponent;
 
     /**
      * Handles ApplicationNotSetUpException, then it thrown
@@ -62,16 +63,5 @@ public class ControllerExceptionHandler
         model.addAttribute("theme", utilitiesComponent.getThemeName());
 
         return "error/500";
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param utilitiesComponent autowired UtilitiesComponent object
-     */
-    @Autowired
-    public ControllerExceptionHandler(UtilitiesComponent utilitiesComponent)
-    {
-        this.utilitiesComponent = utilitiesComponent;
     }
 }

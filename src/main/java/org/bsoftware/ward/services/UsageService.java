@@ -26,7 +26,8 @@ public class UsageService
      * Autowired SystemInfo object
      * Used for getting usage information
      */
-    private final SystemInfo systemInfo;
+    @Autowired
+    private SystemInfo systemInfo;
 
     /**
      * Gets processor usage
@@ -101,16 +102,5 @@ public class UsageService
         {
             throw new ApplicationNotSetUpException();
         }
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param systemInfo autowired SystemInfo object
-     */
-    @Autowired
-    public UsageService(SystemInfo systemInfo)
-    {
-        this.systemInfo = systemInfo;
     }
 }

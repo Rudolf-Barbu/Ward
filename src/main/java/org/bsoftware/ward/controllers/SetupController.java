@@ -22,7 +22,8 @@ public class SetupController
      * Autowired SetupService object
      * Used for posting settings information in ini file
      */
-    private final SetupService setupService;
+    @Autowired
+    private SetupService setupService;
 
     /**
      * Posting setup info in database
@@ -34,16 +35,5 @@ public class SetupController
     public ResponseEntity<?> postSetup(@RequestBody @Valid SetupDto setupDto) throws Exception
     {
         return new ResponseEntity<>(setupService.postSetup(setupDto), HttpStatus.OK);
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param setupService autowired SettingsService object
-     */
-    @Autowired
-    public SetupController(SetupService setupService)
-    {
-        this.setupService = setupService;
     }
 }

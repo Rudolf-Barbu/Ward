@@ -22,7 +22,8 @@ public class InfoController
      * Autowired InfoService object
      * Used for getting information about server
      */
-    private final InfoService infoService;
+    @Autowired
+    private InfoService infoService;
 
     /**
      * Get request to display current usage information for processor, RAM and storage
@@ -33,16 +34,5 @@ public class InfoController
     public ResponseEntity<?> getInfo() throws Exception
     {
         return new ResponseEntity<>(infoService.getInfo(), HttpStatus.OK);
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param infoService autowired InfoService object
-     */
-    @Autowired
-    public InfoController(InfoService infoService)
-    {
-        this.infoService = infoService;
     }
 }

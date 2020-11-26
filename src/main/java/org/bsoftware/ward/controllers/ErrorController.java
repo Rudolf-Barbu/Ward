@@ -21,7 +21,8 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * Autowired ErrorService object
      * Used to determine error page
      */
-    private final ErrorService errorService;
+    @Autowired
+    private ErrorService errorService;
 
     /**
      * Get request to display error page, which corresponds status code
@@ -43,16 +44,5 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
     public String getErrorPath()
     {
         return "/error";
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param errorService autowired ErrorService object
-     */
-    @Autowired
-    public ErrorController(ErrorService errorService)
-    {
-        this.errorService = errorService;
     }
 }

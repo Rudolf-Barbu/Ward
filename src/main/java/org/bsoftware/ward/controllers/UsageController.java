@@ -23,7 +23,8 @@ public class UsageController
      * Autowired UsageService object
      * Used for getting usage information
      */
-    private final UsageService usageService;
+    @Autowired
+    private UsageService usageService;
 
     /**
      * Get request to display current usage information for processor, RAM and storage
@@ -34,16 +35,5 @@ public class UsageController
     public ResponseEntity<?> getUsage() throws ApplicationNotSetUpException
     {
         return new ResponseEntity<>(usageService.getUsage(), HttpStatus.OK);
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param usageService autowired UsageService object
-     */
-    @Autowired
-    public UsageController(UsageService usageService)
-    {
-        this.usageService = usageService;
     }
 }

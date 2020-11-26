@@ -19,13 +19,15 @@ public class IndexService
      * Autowired InfoService object
      * Used for getting machine information for html template
      */
-    private final InfoService infoService;
+    @Autowired
+    private InfoService infoService;
 
     /**
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final UtilitiesComponent utilitiesComponent;
+    @Autowired
+    private UtilitiesComponent utilitiesComponent;
 
     /**
      * Fills model and returns template name
@@ -44,18 +46,5 @@ public class IndexService
         model.addAttribute("theme", utilitiesComponent.getThemeName());
 
         return "index";
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param infoService autowired InfoService object
-     * @param utilitiesComponent autowired UtilitiesComponent object
-     */
-    @Autowired
-    public IndexService(InfoService infoService, UtilitiesComponent utilitiesComponent)
-    {
-        this.infoService = infoService;
-        this.utilitiesComponent = utilitiesComponent;
     }
 }

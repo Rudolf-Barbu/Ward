@@ -20,7 +20,8 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
      * Autowired UtilitiesComponent object
      * Used for various utility functions
      */
-    private final UtilitiesComponent utilitiesComponent;
+    @Autowired
+    private UtilitiesComponent utilitiesComponent;
 
     /**
      * Customizes port of application
@@ -46,16 +47,5 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
         {
             tomcatServletWebServerFactory.setPort(Ward.INITIAL_PORT);
         }
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param utilitiesComponent autowired UtilitiesComponent object
-     */
-    @Autowired
-    public ServletComponent(UtilitiesComponent utilitiesComponent)
-    {
-        this.utilitiesComponent = utilitiesComponent;
     }
 }

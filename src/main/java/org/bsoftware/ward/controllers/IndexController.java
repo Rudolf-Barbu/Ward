@@ -21,7 +21,8 @@ public class IndexController
      * Autowired IndexService object
      * Used for getting index page template
      */
-    private final IndexService indexService;
+    @Autowired
+    private IndexService indexService;
 
     /**
      * Get request to display index page
@@ -33,16 +34,5 @@ public class IndexController
     public String getIndex(Model model) throws Exception
     {
         return indexService.getIndex(model);
-    }
-
-    /**
-     * Used for autowiring necessary objects
-     *
-     * @param indexService autowired IndexService object
-     */
-    @Autowired
-    public IndexController(IndexService indexService)
-    {
-        this.indexService = indexService;
     }
 }
