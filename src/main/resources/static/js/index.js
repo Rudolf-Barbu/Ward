@@ -122,7 +122,7 @@ function sendInfoRequest()
 
             currentClockSpeed.innerHTML = response.processor.clockSpeed;
             currentProcCount.innerHTML = response.machine.procCount;
-            currentTotalStorage.innerHTML = response.storage.totalStorage;
+            currentTotalStorage.innerHTML = response.storage.total;
             currentDiskCount.innerHTML = response.storage.diskCount;
 
             days.innerHTML = response.uptime.days;
