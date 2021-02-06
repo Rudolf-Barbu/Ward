@@ -1,11 +1,14 @@
 package org.bsoftware.ward.controllers;
 
+import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.bsoftware.ward.services.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.io.IOException;
 
 /**
  * IndexController displays index page of Ward application
@@ -31,7 +34,7 @@ public class IndexController
      * @return String name of html template with values from model param
      */
     @GetMapping
-    public String getIndex(Model model) throws Exception
+    public String getIndex(final Model model) throws IOException, ApplicationNotSetUpException
     {
         return indexService.getIndex(model);
     }

@@ -2,9 +2,12 @@ package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.UtilitiesComponent;
+import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import java.io.IOException;
 
 /**
  * IndexService displays index page of Ward application
@@ -35,7 +38,7 @@ public class IndexService
      * @param model strings container
      * @return template name
      */
-    public String getIndex(Model model) throws Exception
+    public String getIndex(final Model model) throws IOException, ApplicationNotSetUpException
     {
         if (Ward.isFirstLaunch())
         {

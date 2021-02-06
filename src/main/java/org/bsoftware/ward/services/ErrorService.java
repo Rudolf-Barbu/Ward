@@ -5,6 +5,7 @@ import org.bsoftware.ward.components.UtilitiesComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
 import java.io.IOException;
 
 /**
@@ -30,7 +31,7 @@ public class ErrorService
      * @return template name
      * @throws IOException if ini file is unreachable
      */
-    public String getError(Model model) throws IOException
+    public String getError(final Model model) throws IOException
     {
         if (Ward.isFirstLaunch())
         {

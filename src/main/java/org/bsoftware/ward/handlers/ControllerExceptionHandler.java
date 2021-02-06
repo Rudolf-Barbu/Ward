@@ -13,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.io.IOException;
 
 /**
@@ -37,7 +38,7 @@ public class ControllerExceptionHandler
      */
     @ResponseBody
     @ExceptionHandler(value = ApplicationNotSetUpException.class)
-    public ResponseEntity<?> applicationNotSetUpExceptionHandler(ApplicationNotSetUpException applicationNotSetUpException)
+    public ResponseEntity<ErrorDto> applicationNotSetUpExceptionHandler(final ApplicationNotSetUpException applicationNotSetUpException)
     {
         return new ResponseEntity<>(new ErrorDto(applicationNotSetUpException), HttpStatus.BAD_REQUEST);
     }
@@ -47,7 +48,7 @@ public class ControllerExceptionHandler
      */
     @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<?> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException)
+    public ResponseEntity<ErrorDto> methodArgumentNotValidExceptionHandler(final MethodArgumentNotValidException methodArgumentNotValidException)
     {
         return new ResponseEntity<>(new ErrorDto(methodArgumentNotValidException), HttpStatus.UNPROCESSABLE_ENTITY);
     }
@@ -58,7 +59,7 @@ public class ControllerExceptionHandler
      * @throws IOException if ini file is unreachable
      */
     @ExceptionHandler(value = Exception.class)
-    public String exceptionHandler(Model model) throws IOException
+    public String exceptionHandler(final Model model) throws IOException
     {
         model.addAttribute("theme", utilitiesComponent.getThemeName());
 

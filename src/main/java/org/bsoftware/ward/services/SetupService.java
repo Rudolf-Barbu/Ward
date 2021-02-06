@@ -5,6 +5,7 @@ import org.bsoftware.ward.dto.ResponseDto;
 import org.bsoftware.ward.dto.SetupDto;
 import org.ini4j.Ini;
 import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -18,6 +19,11 @@ import java.io.IOException;
 public class SetupService
 {
     /**
+     * Constant, that providing setup section name
+     */
+    public static final String SECTION_NAME = "setup";
+
+    /**
      * Puts new data in ini file
      *
      * @param file ini file
@@ -25,14 +31,11 @@ public class SetupService
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
-    @SuppressWarnings(value = {"ResultOfMethodCallIgnored", "SameParameterValue"})
-    private void putInIniFile(File file, String sectionName, String optionName, String value) throws IOException
+    @SuppressWarnings(value = "SameParameterValue")
+    private void putInIniFile(final File file, final String sectionName, final String optionName, final String value) throws IOException
     {
-        file.createNewFile();
         Ini ini = new Ini(file);
-
         ini.put(sectionName, optionName, value);
-
         ini.store();
     }
 
@@ -41,19 +44,26 @@ public class SetupService
      *
      * @param setupDto user settings data
      * @return ResponseEntityWrapperAsset filled with ResponseDto
-     * @throws Exception IoException if file is fot found, and cant be created
+     * @throws IOException IoException if file is fot found, and cant be created
      */
-    public ResponseDto postSetup(SetupDto setupDto) throws Exception
+    public ResponseDto postSetup(final SetupDto setupDto) throws IOException
     {
         if (Ward.isFirstLaunch())
         {
             File file = new File(Ward.SETUP_FILE_PATH);
 
-            putInIniFile(file, "setup", "serverName", setupDto.getServerName());
-            putInIniFile(file, "setup", "theme", setupDto.getTheme());
-            putInIniFile(file, "setup", "port", setupDto.getPort());
+            if (file.createNewFile())
+            {
+                putInIniFile(file, SECTION_NAME, "serverName", setupDto.getServerName());
+                putInIniFile(file, SECTION_NAME, "theme", setupDto.getTheme());
+                putInIniFile(file, SECTION_NAME, "port", setupDto.getPort());
 
-            Ward.restart();
+                Ward.restart();
+            }
+            else
+            {
+                throw new IOException();
+            }
         }
 
         return new ResponseDto("Settings saved correctly");

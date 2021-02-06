@@ -3,6 +3,7 @@ package org.bsoftware.ward.components;
 import org.bsoftware.ward.Ward;
 import org.ini4j.Ini;
 import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -24,12 +25,11 @@ public class UtilitiesComponent
      * @throws IOException if file does not exists
      */
     @SuppressWarnings(value = "MismatchedQueryAndUpdateOfCollection")
-    public String getFromIniFile(File file, String sectionName, String optionName) throws IOException
+    public String getFromIniFile(final File file, final String sectionName, final String optionName) throws IOException
     {
         if (file.exists())
         {
             Ini ini = new Ini(file);
-
             return ini.get(sectionName, optionName, String.class);
         }
 

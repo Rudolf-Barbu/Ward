@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
+
 import java.io.File;
 
 /**
@@ -43,7 +44,7 @@ public class Ward extends SpringBootServletInitializer
      *
      * @param args Spring Boot application arguments
      */
-    public static void main(String[] args)
+    public static void main(final String[] args)
     {
         isFirstLaunch = true;
         configurableApplicationContext = SpringApplication.run(Ward.class, args);

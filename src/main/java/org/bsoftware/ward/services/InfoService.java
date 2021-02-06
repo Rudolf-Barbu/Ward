@@ -2,17 +2,30 @@ package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.dto.*;
+import org.bsoftware.ward.dto.InfoDto;
+import org.bsoftware.ward.dto.MachineDto;
+import org.bsoftware.ward.dto.ProcessorDto;
+import org.bsoftware.ward.dto.ProjectDto;
+import org.bsoftware.ward.dto.SetupDto;
+import org.bsoftware.ward.dto.StorageDto;
+import org.bsoftware.ward.dto.UptimeDto;
 import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
-import oshi.hardware.*;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.GlobalMemory;
+import oshi.hardware.HWDiskStore;
+import oshi.hardware.PhysicalMemory;
 import oshi.software.os.OperatingSystem;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.Properties;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
@@ -43,7 +56,7 @@ public class InfoService
      * @param hertzArray raw frequency array values in hertz for each logical processor
      * @return String with formatted frequency and postfix
      */
-    private String getConvertedFrequency(long[] hertzArray)
+    private String getConvertedFrequency(final long[] hertzArray)
     {
         long totalFrequency = Arrays.stream(hertzArray).sum();
         long hertz = totalFrequency / hertzArray.length;
@@ -64,7 +77,7 @@ public class InfoService
      * @param bits raw capacity value in bits
      * @return String with formatted capacity and postfix
      */
-    private String getConvertedCapacity(long bits)
+    private String getConvertedCapacity(final long bits)
     {
         if ((bits / 1.049E+6) > 999)
         {
@@ -105,8 +118,8 @@ public class InfoService
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
-        String BitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        processorDto.setBitDepth(BitDepthPrefix + "-bit");
+        String bitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
+        processorDto.setBitDepth(bitDepthPrefix + "-bit");
 
         return processorDto;
     }
@@ -188,17 +201,16 @@ public class InfoService
      *
      * @return UptimeDto with filled fields
      */
-    @SuppressWarnings(value = "IntegerDivisionInFloatingPointContext")
     private UptimeDto getUptime()
     {
         UptimeDto uptimeDto = new UptimeDto();
 
         long uptimeInSeconds = systemInfo.getOperatingSystem().getSystemUptime();
 
-        uptimeDto.setDays(String.format("%02d", (int) Math.floor(uptimeInSeconds / 86400)));
-        uptimeDto.setHours(String.format("%02d", (int) Math.floor((uptimeInSeconds % 86400) / 3600)));
-        uptimeDto.setMinutes(String.format("%02d", (int) Math.floor((uptimeInSeconds / 60) % 60)));
-        uptimeDto.setSeconds(String.format("%02d", (int) Math.floor(uptimeInSeconds % 60)));
+        uptimeDto.setDays(String.format("%02d", (int) uptimeInSeconds / 86400));
+        uptimeDto.setHours(String.format("%02d", (int) (uptimeInSeconds % 86400) / 3600));
+        uptimeDto.setMinutes(String.format("%02d", (int) (uptimeInSeconds / 60) % 60));
+        uptimeDto.setSeconds(String.format("%02d", (int) uptimeInSeconds % 60));
 
         return uptimeDto;
     }
@@ -251,7 +263,7 @@ public class InfoService
      *
      * @return InfoDto filled with server info
      */
-    public InfoDto getInfo() throws Exception
+    public InfoDto getInfo() throws IOException, ApplicationNotSetUpException
     {
         if (!Ward.isFirstLaunch())
         {
