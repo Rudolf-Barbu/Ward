@@ -11,14 +11,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
+        <version>2.4.2</version>
     </parent>
 
     <!-- project properties -->
     <properties>
-        <oshiVersion>5.3.6</oshiVersion>
+        <oshiVersion>5.4.1</oshiVersion>
         <jnaVersion>5.6.0</jnaVersion>
-        <lombokVersion>1.18.16</lombokVersion>
+        <lombokVersion>1.18.18</lombokVersion>
         <ini4jVersion>0.5.4</ini4jVersion>
     </properties>
 
