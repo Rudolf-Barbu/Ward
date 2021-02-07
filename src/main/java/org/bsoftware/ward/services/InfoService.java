@@ -26,6 +26,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
@@ -172,10 +174,11 @@ public class InfoService
         if (hwDiskStoreOptional.isPresent())
         {
             String mainStorage = hwDiskStoreOptional.get().getModel();
+            Matcher matcher = Pattern.compile("\\(.{1,15} .{1,15} .{1,15}\\)").matcher(mainStorage);
 
-            if (mainStorage.contains("(Standard disk drives)"))
+            if (matcher.find())
             {
-                mainStorage = mainStorage.substring(0, mainStorage.indexOf("(Standard disk drives)") - 1);
+                mainStorage = mainStorage.substring(0, matcher.start() - 1);
             }
 
             storageDto.setMainStorage(mainStorage.trim());
