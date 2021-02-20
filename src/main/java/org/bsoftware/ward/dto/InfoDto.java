@@ -27,19 +27,4 @@ public class InfoDto
      *  Storage info dto field
      */
     private StorageDto storage;
-
-    /**
-     *  Uptime info dto field
-     */
-    private UptimeDto uptime;
-
-    /**
-     *  Setup info dto field
-     */
-    private SetupDto setup;
-
-    /**
-     *  Maven info dto field
-     */
-    private ProjectDto project;
 }

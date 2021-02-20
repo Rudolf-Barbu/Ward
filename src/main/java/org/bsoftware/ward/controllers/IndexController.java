@@ -1,6 +1,6 @@
 package org.bsoftware.ward.controllers;
 
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.bsoftware.ward.services.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +34,7 @@ public class IndexController
      * @return String name of html template with values from model param
      */
     @GetMapping
-    public String getIndex(final Model model) throws IOException, ApplicationNotSetUpException
+    public String getIndex(final Model model) throws IOException, ApplicationNotConfiguredException
     {
         return indexService.getIndex(model);
     }

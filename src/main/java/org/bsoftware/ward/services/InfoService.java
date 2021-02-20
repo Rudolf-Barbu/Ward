@@ -5,11 +5,8 @@ import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.dto.InfoDto;
 import org.bsoftware.ward.dto.MachineDto;
 import org.bsoftware.ward.dto.ProcessorDto;
-import org.bsoftware.ward.dto.ProjectDto;
-import org.bsoftware.ward.dto.SetupDto;
 import org.bsoftware.ward.dto.StorageDto;
-import org.bsoftware.ward.dto.UptimeDto;
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -19,13 +16,9 @@ import oshi.hardware.HWDiskStore;
 import oshi.hardware.PhysicalMemory;
 import oshi.software.os.OperatingSystem;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -200,73 +193,11 @@ public class InfoService
     }
 
     /**
-     * Gets uptime information
-     *
-     * @return UptimeDto with filled fields
-     */
-    private UptimeDto getUptime()
-    {
-        UptimeDto uptimeDto = new UptimeDto();
-
-        long uptimeInSeconds = systemInfo.getOperatingSystem().getSystemUptime();
-
-        uptimeDto.setDays(String.format("%02d", (int) uptimeInSeconds / 86400));
-        uptimeDto.setHours(String.format("%02d", (int) (uptimeInSeconds % 86400) / 3600));
-        uptimeDto.setMinutes(String.format("%02d", (int) (uptimeInSeconds / 60) % 60));
-        uptimeDto.setSeconds(String.format("%02d", (int) uptimeInSeconds % 60));
-
-        return uptimeDto;
-    }
-
-    /**
-     * Gets server name information
-     *
-     * @return SetupDto with filled field
-     * @throws IOException if file does not exists
-     */
-    private SetupDto getSetup() throws IOException
-    {
-        SetupDto setupDto = new SetupDto();
-        File file = new File(Ward.SETUP_FILE_PATH);
-
-        setupDto.setServerName(utilitiesComponent.getFromIniFile(file, "setup", "serverName"));
-
-        return setupDto;
-    }
-
-    /**
-     * Gets project version information
-     *
-     * @return MavenDto with filled field
-     * @throws IOException if file does not exists
-     */
-    private ProjectDto getProject() throws IOException
-    {
-        ProjectDto projectDto = new ProjectDto();
-        Properties properties = new Properties();
-        InputStream inputStream = getClass().getResourceAsStream("/META-INF/maven/org.b-software/ward/pom.properties");
-
-        if (inputStream != null)
-        {
-            properties.load(inputStream);
-            String version = properties.getProperty("version");
-
-            projectDto.setVersion("Ward: v" + version);
-        }
-        else
-        {
-            projectDto.setVersion("Developer mode");
-        }
-
-        return projectDto;
-    }
-
-    /**
      * Used to deliver dto to corresponding controller
      *
      * @return InfoDto filled with server info
      */
-    public InfoDto getInfo() throws IOException, ApplicationNotSetUpException
+    public InfoDto getInfo() throws ApplicationNotConfiguredException
     {
         if (!Ward.isFirstLaunch())
         {
@@ -275,15 +206,12 @@ public class InfoService
             infoDto.setProcessor(getProcessor());
             infoDto.setMachine(getMachine());
             infoDto.setStorage(getStorage());
-            infoDto.setUptime(getUptime());
-            infoDto.setSetup(getSetup());
-            infoDto.setProject(getProject());
 
             return infoDto;
         }
         else
         {
-            throw new ApplicationNotSetUpException();
+            throw new ApplicationNotConfiguredException();
         }
     }
 }

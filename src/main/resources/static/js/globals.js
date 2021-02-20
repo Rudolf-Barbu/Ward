@@ -46,6 +46,11 @@ let usageXHR;
 let infoXHR;
 
 /**
+ * Used for sending uptime requests
+ */
+let uptimeXHR;
+
+/**
  * Used to hold values of processor usage
  */
 let processorLabelsArray;

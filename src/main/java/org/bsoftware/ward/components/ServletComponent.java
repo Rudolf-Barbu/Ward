@@ -6,7 +6,6 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -36,8 +35,7 @@ public class ServletComponent implements WebServerFactoryCustomizer<TomcatServle
         {
             try
             {
-                File file = new File(Ward.SETUP_FILE_PATH);
-                tomcatServletWebServerFactory.setPort(Integer.parseInt(utilitiesComponent.getFromIniFile(file, "setup", "port")));
+                tomcatServletWebServerFactory.setPort(Integer.parseInt(utilitiesComponent.getFromIniFile("port")));
             }
             catch (IOException exception)
             {

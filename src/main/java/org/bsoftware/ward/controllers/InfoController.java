@@ -1,7 +1,7 @@
 package org.bsoftware.ward.controllers;
 
 import org.bsoftware.ward.dto.InfoDto;
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.bsoftware.ward.services.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
 
 /**
  * InfoController displays responses from rest API, about server
@@ -35,7 +33,7 @@ public class InfoController
      * @return ResponseEntity to servlet
      */
     @GetMapping
-    public ResponseEntity<InfoDto> getInfo() throws IOException, ApplicationNotSetUpException
+    public ResponseEntity<InfoDto> getInfo() throws ApplicationNotConfiguredException
     {
         return new ResponseEntity<>(infoService.getInfo(), HttpStatus.OK);
     }

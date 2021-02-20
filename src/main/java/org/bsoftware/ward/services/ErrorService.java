@@ -38,7 +38,7 @@ public class ErrorService
             return "setup";
         }
 
-        model.addAttribute("theme", utilitiesComponent.getThemeName());
+        model.addAttribute("theme", utilitiesComponent.getFromIniFile("theme"));
         return "error/404";
     }
 }
