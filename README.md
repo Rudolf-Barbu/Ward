@@ -8,7 +8,7 @@
 
 ## Docker
 
-* `docker run --rm -it -d --name ward  -p 4000:4000 -p <application port>:<application port> --privileged antonyleons/ward`
+* `docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -p <application port>:<application port> --privileged antonyleons/ward`
 * Go to localhost:4000 in web browser, input the same application port
 * If you get error after being redirected to application port try hitting refresh
 
