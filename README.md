@@ -109,12 +109,15 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ---
 
 ### Installation
+
     Create your own jar
 
-    • Clone the project
-    • Import project in your IDE as Maven project
-    • mvn clean package
-    • jar will be in the target folder
+    1. Clone or dowload this github repository
+    2. cd into directory with copy of this repository
+    3. docker build -t ward/ward .
+    4. docker run --rm -it --name ward -p 4000:4000 -p <application port>:<application port> --privileged ward
+    5. Go to localhost:4000 in web browser, input the same application port
+    6. If you get error after being redirected to application port try hitting refresh
 
 <br>
 
