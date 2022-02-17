@@ -14,7 +14,7 @@
 
 ## Java
 
-Download the latest release from [here]("https://github.com/AntonyLeons/Ward/releases/latest")
+Download the latest release from [here](https://github.com/AntonyLeons/Ward/releases/latest)
 
 ```console
 java -jar ward.jar
