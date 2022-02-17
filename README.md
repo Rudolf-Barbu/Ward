@@ -4,7 +4,7 @@
 
 ---
 
-## Quick start
+# Quick start
 
 ### Docker
 
@@ -18,7 +18,7 @@
 java -jar ward.jar
 ```
 
-# About
+## About
 
 Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead looking on bunch of numbers and graphs.
