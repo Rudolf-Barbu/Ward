@@ -4,21 +4,21 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.b-software</groupId>
     <artifactId>ward</artifactId>
-    <version>1.8.8</version>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
 
     <!-- parent pom -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
+        <version>2.6.3</version>
     </parent>
 
     <!-- project properties -->
     <properties>
-        <oshiVersion>5.3.6</oshiVersion>
-        <jnaVersion>5.6.0</jnaVersion>
-        <lombokVersion>1.18.16</lombokVersion>
+        <oshiVersion>6.1.2</oshiVersion>
+        <jnaVersion>5.10.0</jnaVersion>
+        <lombokVersion>1.18.22</lombokVersion>
         <ini4jVersion>0.5.4</ini4jVersion>
     </properties>
 
@@ -65,6 +65,8 @@
 
     <!-- project build plugins -->
     <build>
+        <directory>${project.basedir}/target</directory>
+        <outputDirectory>${project.build.directory}/classes</outputDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

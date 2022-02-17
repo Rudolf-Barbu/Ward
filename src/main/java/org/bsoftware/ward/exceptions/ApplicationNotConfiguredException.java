@@ -6,12 +6,12 @@ package org.bsoftware.ward.exceptions;
  * @author Rudolf Barbu
  * @version 1.0.0
  */
-public final class ApplicationNotSetUpException extends Exception
+public final class ApplicationNotConfiguredException extends Exception
 {
     /**
      * Call super class with exception message
      */
-    public ApplicationNotSetUpException()
+    public ApplicationNotConfiguredException()
     {
         super("Set up application first");
     }

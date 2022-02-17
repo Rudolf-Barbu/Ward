@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
+
 /**
  * ErrorController displays error pages of Ward application
  *
@@ -30,19 +32,9 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
      * @return String name of html template
      */
     @GetMapping
-    public String getError(Model model) throws Exception
+    public String getError(final Model model) throws IOException
     {
         return errorService.getError(model);
     }
 
-    /**
-     * Returns error path
-     *
-     * @return String error path
-     */
-    @Override
-    public String getErrorPath()
-    {
-        return "/error";
-    }
 }

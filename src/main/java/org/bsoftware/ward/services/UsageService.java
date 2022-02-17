@@ -2,7 +2,7 @@ package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.dto.UsageDto;
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -11,6 +11,7 @@ import oshi.hardware.GlobalMemory;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.util.Util;
+
 import java.util.Arrays;
 
 /**
@@ -86,7 +87,7 @@ public class UsageService
      *
      * @return ResponseEntityWrapperAsset filled with usageDto
      */
-    public UsageDto getUsage() throws ApplicationNotSetUpException
+    public UsageDto getUsage() throws ApplicationNotConfiguredException
     {
         if (!Ward.isFirstLaunch())
         {
@@ -100,7 +101,7 @@ public class UsageService
         }
         else
         {
-            throw new ApplicationNotSetUpException();
+            throw new ApplicationNotConfiguredException();
         }
     }
 }

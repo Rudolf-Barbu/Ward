@@ -2,17 +2,21 @@ package org.bsoftware.ward.handlers;
 
 import org.bsoftware.ward.components.UtilitiesComponent;
 import org.bsoftware.ward.dto.ErrorDto;
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.exceptions.ApplicationAlreadyConfiguredException;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.io.IOException;
 
 /**
@@ -33,35 +37,36 @@ public class ControllerExceptionHandler
     private UtilitiesComponent utilitiesComponent;
 
     /**
-     * Handles ApplicationNotSetUpException, then it thrown
+     * Handles exceptions with BAD_REQUEST status, then they thrown
      */
     @ResponseBody
-    @ExceptionHandler(value = ApplicationNotSetUpException.class)
-    public ResponseEntity<?> applicationNotSetUpExceptionHandler(ApplicationNotSetUpException applicationNotSetUpException)
+    @ExceptionHandler(value = {ApplicationNotConfiguredException.class, ApplicationAlreadyConfiguredException.class})
+    public ResponseEntity<ErrorDto> applicationNotSetUpExceptionHandler(final Exception exception)
     {
-        return new ResponseEntity<>(new ErrorDto(applicationNotSetUpException), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ErrorDto(exception), HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * Handles exceptions with UNPROCESSABLE_ENTITY status, then they thrown
+     */
+    @ResponseBody
+    @ExceptionHandler(value = {MethodArgumentNotValidException.class, HttpMessageNotReadableException.class})
+    public ResponseEntity<ErrorDto> methodArgumentNotValidExceptionHandler(final Exception exception)
+    {
+        return new ResponseEntity<>(new ErrorDto(exception), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     /**
      * Handles MethodArgumentNotValidException, then it thrown
-     */
-    @ResponseBody
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<?> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException)
-    {
-        return new ResponseEntity<>(new ErrorDto(methodArgumentNotValidException), HttpStatus.UNPROCESSABLE_ENTITY);
-    }
-
-    /**
-     * Handles all other servlet exceptions, which were not handled by others handlers
+     * Also handles all other servlet exceptions, which were not handled by others handlers
      *
      * @throws IOException if ini file is unreachable
      */
     @ExceptionHandler(value = Exception.class)
-    public String exceptionHandler(Model model) throws IOException
+    public String exceptionHandler(final Exception exception, final Model model) throws IOException
     {
-        model.addAttribute("theme", utilitiesComponent.getThemeName());
+        model.addAttribute("theme", utilitiesComponent.getFromIniFile("theme"));
 
-        return "error/500";
+        return (exception instanceof HttpRequestMethodNotSupportedException) ? "error/404" : "error/500";
     }
 }

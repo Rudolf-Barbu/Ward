@@ -21,7 +21,7 @@ public final class ResponseDto
      *
      * @param message message to display
      */
-    public ResponseDto(String message)
+    public ResponseDto(final String message)
     {
         this.message = message;
     }

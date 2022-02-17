@@ -12,253 +12,252 @@
     By example: --height-body
 */
 
-:root
-{
-    /* top */
-    --top-logo: 2.188rem;
-    --top-logo-description: 5.300rem;
-    --top-clouds-first: 2.875rem;
-    --top-clouds-second: 2.875rem;
-    --top-main-settings-input: 0.125rem;
-    --top-main-settings-underline: 0.313rem;
-    --top-main-settings-select: 0.938rem;
-    --top-label-additional-settings: 2.300rem;
-    --top-additional-settings: 1.000rem;
-    --top-theme-buttons-input: 1.938rem;
-    --top-button-squares-grid: 0.222rem;
-    --top-port: 2.750rem;
-    --top-header: 1.500rem;
-    --top-label-hw-info: 0.562rem;
-    --top-card-body-squares-grid: 0.813rem;
-    --top-info-label: 4.188rem;
-    --top-inner-dot: 0.375rem;
-    --top-detailed-hw-info-div: 1.168rem;
-    --top-controls-img: 0.750rem;
-    --top-announcement: 3.813rem;
-    --top-contacts-label: 1.500rem;
-    --top-contacts-description-first: 3.125rem;
-    --top-contacts-description-second: 3.813rem;
-    --top-contacts-links-a-img: 4.906rem;
-    --top-uptime-rectangle-grid: 1.925rem;
-    --top-chart-label: 1.500rem;
-    --top-chart-triangle-grid: 0.500rem;
-    --top-chart-rectangle-grid: 1.906rem;
-    --top-chart-container: 3.375rem;
-    --top-code: 1.813rem;
-    --top-title: 3.500rem;
-    --top-explanation: 6.688rem;
+:root {
+  /* top */
+  --top-logo: 2.188rem;
+  --top-logo-description: 5.3rem;
+  --top-clouds-first: 2.875rem;
+  --top-clouds-second: 2.875rem;
+  --top-main-settings-input: 0.125rem;
+  --top-main-settings-underline: 0.313rem;
+  --top-main-settings-select: 0.938rem;
+  --top-label-additional-settings: 2.3rem;
+  --top-additional-settings: 1rem;
+  --top-theme-buttons-input: 1.938rem;
+  --top-button-squares-grid: 0.222rem;
+  --top-port: 2.75rem;
+  --top-header: 1.5rem;
+  --top-label-hw-info: 0.562rem;
+  --top-card-body-squares-grid: 0.813rem;
+  --top-info-label: 4.188rem;
+  --top-inner-dot: 0.375rem;
+  --top-detailed-hw-info-div: 1.168rem;
+  --top-controls-img: 0.75rem;
+  --top-announcement: 3.813rem;
+  --top-contacts-label: 1.5rem;
+  --top-contacts-description-first: 3.125rem;
+  --top-contacts-description-second: 3.813rem;
+  --top-contacts-links-a-img: 4.906rem;
+  --top-uptime-rectangle-grid: 1.925rem;
+  --top-chart-label: 1.5rem;
+  --top-chart-triangle-grid: 0.5rem;
+  --top-chart-rectangle-grid: 1.906rem;
+  --top-chart-container: 3.375rem;
+  --top-code: 1.813rem;
+  --top-title: 3.5rem;
+  --top-explanation: 6.688rem;
 
-    /* bottom */
-    --bottom-form-squares-grid:  0.813rem;
-    --bottom-submit: 1.125rem;
-    --bottom-usage: 4.625rem;
-    --bottom-hw-usage-div: 0.250rem;
-    --bottom-card-footer-dots-grid-div: -0.750rem;
-    --bottom-uptime-squares-grid:  0.813rem;
-    --bottom-values-grid-div-p: 0.250rem;
-    --bottom-project-version: 1.250rem;
-    --bottom-error-div: 7.500rem;
-    --bottom-advice: 0.563rem;
+  /* bottom */
+  --bottom-form-squares-grid: 0.813rem;
+  --bottom-submit: 1.125rem;
+  --bottom-usage: 4.625rem;
+  --bottom-hw-usage-div: 0.25rem;
+  --bottom-card-footer-dots-grid-div: -0.75rem;
+  --bottom-uptime-squares-grid: 0.813rem;
+  --bottom-values-grid-div-p: 0.25rem;
+  --bottom-project-version: 1.25rem;
+  --bottom-error-div: 7.5rem;
+  --bottom-advice: 0.563rem;
 
-    /* left */
-    --left-clouds-second: 12.875rem;
-    --left-form-squares-grid: 9.250rem;
-    --left-main-settings: 1.500rem;
-    --left-button-squares-grid-first: 1.500rem;
-    --left-button-squares-grid-second: 19.688rem;
-    --left-theme-buttons-first: 1.500rem;
-    --left-port: 1.500rem;
-    --left-submit: 6.563rem;
-    --left-header: 1.500rem;
-    --left-label-hw-info: 4.375rem;
-    --left-usage: 1.500rem;
-    --card-footer-dots-grid-first: 2.906rem;
-    --card-footer-dots-grid-second: 10.187rem;
-    --card-footer-dots-grid-third: 17.468rem;
-    --left-inner-dot: 0.375rem;
-    --left-detailed-hw-info-first: 0.822rem;
-    --left-detailed-hw-info-second: 8.104rem;
-    --left-detailed-hw-info-third: 15.385rem;
-    --left-dividers-first: 7.313rem;
-    --left-dividers-second: 14.563rem;
-    --left-controls-first: 0.750rem;
-    --left-controls-second: 19.250rem;
-    --left-contacts-links-a-first: 8.075rem;
-    --left-contacts-links-a-second: 11.700rem;
-    --left-uptime-squares-grid: 9.250rem;
-    --left-uptime-rectangle-grid: 2.781rem;
-    --left-chart-label: 1.500rem;
-    --left-chart-triangle-grid-first: 34.375rem;
-    --left-chart-triangle-grid-second: 38.250rem;
-    --left-chart-triangle-grid-third: 42.125rem;
-    --left-chart-rectangle-grid-first: 33.250rem;
-    --left-chart-rectangle-grid-second: 37.125rem;
-    --left-chart-rectangle-grid-third: 41.000rem;
-    --left-chart-container: 1.500rem;
-    --left-error-div: 13.250rem;
-    --left-code: 1.813rem;
-    --left-title: 1.813rem;
-    --left-explanation: 1.813rem;
+  /* left */
+  --left-clouds-second: 12.875rem;
+  --left-form-squares-grid: 9.25rem;
+  --left-main-settings: 1.5rem;
+  --left-button-squares-grid-first: 1.5rem;
+  --left-button-squares-grid-second: 19.688rem;
+  --left-theme-buttons-first: 1.5rem;
+  --left-port: 1.5rem;
+  --left-submit: 6.563rem;
+  --left-header: 1.5rem;
+  --left-label-hw-info: 4.375rem;
+  --left-usage: 1.5rem;
+  --card-footer-dots-grid-first: 2.906rem;
+  --card-footer-dots-grid-second: 10.187rem;
+  --card-footer-dots-grid-third: 17.468rem;
+  --left-inner-dot: 0.375rem;
+  --left-detailed-hw-info-first: 0.822rem;
+  --left-detailed-hw-info-second: 8.104rem;
+  --left-detailed-hw-info-third: 15.385rem;
+  --left-dividers-first: 7.313rem;
+  --left-dividers-second: 14.563rem;
+  --left-controls-first: 0.75rem;
+  --left-controls-second: 19.25rem;
+  --left-contacts-links-a-first: 8.075rem;
+  --left-contacts-links-a-second: 11.7rem;
+  --left-uptime-squares-grid: 9.25rem;
+  --left-uptime-rectangle-grid: 2.781rem;
+  --left-chart-label: 1.5rem;
+  --left-chart-triangle-grid-first: 34.375rem;
+  --left-chart-triangle-grid-second: 38.25rem;
+  --left-chart-triangle-grid-third: 42.125rem;
+  --left-chart-rectangle-grid-first: 33.25rem;
+  --left-chart-rectangle-grid-second: 37.125rem;
+  --left-chart-rectangle-grid-third: 41rem;
+  --left-chart-container: 1.5rem;
+  --left-error-div: 13.25rem;
+  --left-code: 1.813rem;
+  --left-title: 1.813rem;
+  --left-explanation: 1.813rem;
 
-    /* margin-right */
-    --margin-right-form-squares-grid-div: 0.488rem;
-    --margin-right-theme-buttons-first: 1.938rem;
-    --margin-right-usage-value: 2.937rem;
-    --margin-right-uptime-squares-grid-div: 0.488rem;
-    --margin-right-values-grid-div: 0.125rem;
-    --margin-right-labels-grid-div: 0.125rem;
+  /* margin-right */
+  --margin-right-form-squares-grid-div: 0.488rem;
+  --margin-right-theme-buttons-first: 1.938rem;
+  --margin-right-usage-value: 2.937rem;
+  --margin-right-uptime-squares-grid-div: 0.488rem;
+  --margin-right-values-grid-div: 0.125rem;
+  --margin-right-labels-grid-div: 0.125rem;
 
-    /* margin-bottom */
-    --margin-bottom-label-main-settings: 0.438rem;
-    --margin-bottom-card: 1.875rem;
-    --margin-bottom-card-body-squares-grid-div: 0.750rem;
-    --margin-bottom-labels-grid-div: 0.313rem;
+  /* margin-bottom */
+  --margin-bottom-label-main-settings: 0.438rem;
+  --margin-bottom-card: 1.875rem;
+  --margin-bottom-card-body-squares-grid-div: 0.75rem;
+  --margin-bottom-labels-grid-div: 0.313rem;
 
-    /* height */
-    --height-body: 100%;
-    --height-setup: 26.706rem;
-    --height-setup-div: 26.706rem;
-    --height-clouds: 8.281rem;
-    --height-clouds-img: 5.438rem;
-    --height-background: 8.281rem;
-    --height-form: 18.425rem;
-    --height-form-squares-grid-div: 0.625rem;
-    --height-main-settings: 1.875rem;
-    --height-main-settings-underline: 0.313rem;
-    --height-main-settings-select: 1.875rem;
-    --height-theme-buttons-input: 2.188rem;
-    --height-button-squares-grid-div: 0.625rem;;
-    --height-port: 3.125rem;
-    --height-submit: 1.875rem;
-    --height-index-xl: 35.031rem;
-    --height-index-lg: 53.438rem;
-    --height-index-md: 53.438rem;
-    --height-hw-logo: 3.750rem;
-    --height-usage: 5.313rem;
-    --height-card-body-squares-grid-div: 0.625rem;
-    --height-main-hw-info: 100%;
-    --height-usage-value-span: 5.800rem;
-    --height-usage-underline: 0.313rem;
-    --height-footer: 3.125rem;
-    --height-card-footer-dots-grid-div: 1.500rem;
-    --height-inner-dot: 0.750rem;
-    --height-detailed-hw-info-div: 1.063rem;
-    --height-dividers-div: 3.125rem;
-    --height-controls: 2.625rem;
-    --height-controls-img: 1.875rem;
-    --height-contacts-links-a-img: 2.125rem;
-    --height-uptime: 8.270rem;
-    --height-uptime-squares-grid-div: 0.625rem;
-    --height-values-grid-div: 3.188rem;
-    --height-labels-grid-div: 0.813rem;
-    --height-chart-rectangle-grid-div: 0.625rem;
-    --height-chart-container: 11.688rem;
-    --height-error: 25.750rem;
-    --height-error-img: 19.313rem;
-    --height-error-div: 12.125rem;
+  /* height */
+  --height-body: 100%;
+  --height-setup: 26.706rem;
+  --height-setup-div: 26.706rem;
+  --height-clouds: 8.281rem;
+  --height-clouds-img: 5.438rem;
+  --height-background: 8.281rem;
+  --height-form: 18.425rem;
+  --height-form-squares-grid-div: 0.625rem;
+  --height-main-settings: 1.875rem;
+  --height-main-settings-underline: 0.313rem;
+  --height-main-settings-select: 1.875rem;
+  --height-theme-buttons-input: 2.188rem;
+  --height-button-squares-grid-div: 0.625rem;
+  --height-port: 3.125rem;
+  --height-submit: 1.875rem;
+  --height-index-xl: 35.031rem;
+  --height-index-lg: 53.438rem;
+  --height-index-md: 53.438rem;
+  --height-hw-logo: 3.75rem;
+  --height-usage: 5.313rem;
+  --height-card-body-squares-grid-div: 0.625rem;
+  --height-main-hw-info: 100%;
+  --height-usage-value-span: 5.8rem;
+  --height-usage-underline: 0.313rem;
+  --height-footer: 3.125rem;
+  --height-card-footer-dots-grid-div: 1.5rem;
+  --height-inner-dot: 0.75rem;
+  --height-detailed-hw-info-div: 1.063rem;
+  --height-dividers-div: 3.125rem;
+  --height-controls: 2.625rem;
+  --height-controls-img: 1.875rem;
+  --height-contacts-links-a-img: 2.125rem;
+  --height-uptime: 8.27rem;
+  --height-uptime-squares-grid-div: 0.625rem;
+  --height-values-grid-div: 3.188rem;
+  --height-labels-grid-div: 0.813rem;
+  --height-chart-rectangle-grid-div: 0.625rem;
+  --height-chart-container: 11.688rem;
+  --height-error: 25.75rem;
+  --height-error-img: 19.313rem;
+  --height-error-div: 12.125rem;
 
-    /* max-height */
-    --max-height-card: 16.562rem;
+  /* max-height */
+  --max-height-card: 16.562rem;
 
-    /* min-height */
-    --min-height-card: 16.562rem;
+  /* min-height */
+  --min-height-card: 16.562rem;
 
-    /* width */
-    --width-body: 100%;
-    --width-dhtmlx-message-area 21.875rem;
-    --width-setup-div: 21.875rem;
-    --width-logo: 21.875rem;
-    --width-logo-description: 21.875rem;
-    --width-clouds: 21.875rem;
-    --width-clouds-img: 4.375rem;
-    --width-background: 21.875rem;
-    --width-form: 21.875rem;
-    --width-form-squares-grid-div: 0.625rem;
-    --width-main-settings: 18.875rem;
-    --width-main-settings-input: 18.875rem;
-    --width-main-settings-underline: 18.875rem;
-    --width-main-settings-select: 18.875rem;
-    --width-theme-buttons-input: 9.063rem;
-    --width-button-squares-grid-div: 0.625rem;
-    --width-port: 18.875rem;
-    --width-submit: 8.750rem;
-    --width-hw-logo: 3.750rem;
-    --width-usage: 18.875rem;
-    --width-card-body-squares-grid-div: 0.625rem;
-    --width-usage-value-span: 2.224rem;
-    --width-info-label: 9.500rem;
-    --width-usage-underline: 9.500rem;
-    --width-footer: 100%;
-    --width-card-footer-dots-grid-div: 1.500rem;
-    --width-inner-dot: 0.750rem;
-    --width-detailed-hw-info-div: 5.625rem;
-    --width-dividers-div: 0.063rem;
-    --width-controls: 100%;
-    --width-controls-img: 1.875rem;
-    --width-announcement: 21.875rem;
-    --width-contacts-label: 21.875rem;
-    --width-contacts-description-div: 21.875rem;
-    --width-contacts-links-a-img: 2.125rem;
-    --width-uptime: 100%;
-    --width-uptime-squares-grid-div: 0.625rem;
-    --width-values-grid-div: 3.750rem;
-    --width-labels-grid-div: 3.750rem;
-    --width-chart-rectangle-grid-div: 3.125rem;
-    --width-chart-container: 42.625rem;
-    --width-error-img: 19.313rem;
-    --width-error-div: 23.875rem;
-    --width-advice: 23.875rem;;
+  /* width */
+  --width-body: 100%;
+  --width-dhtmlx-message-area: 21.875rem;
+  --width-setup-div: 21.875rem;
+  --width-logo: 21.875rem;
+  --width-logo-description: 21.875rem;
+  --width-clouds: 21.875rem;
+  --width-clouds-img: 4.375rem;
+  --width-background: 21.875rem;
+  --width-form: 21.875rem;
+  --width-form-squares-grid-div: 0.625rem;
+  --width-main-settings: 18.875rem;
+  --width-main-settings-input: 18.875rem;
+  --width-main-settings-underline: 18.875rem;
+  --width-main-settings-select: 18.875rem;
+  --width-theme-buttons-input: 9.063rem;
+  --width-button-squares-grid-div: 0.625rem;
+  --width-port: 18.875rem;
+  --width-submit: 8.75rem;
+  --width-hw-logo: 3.75rem;
+  --width-usage: 18.875rem;
+  --width-card-body-squares-grid-div: 0.625rem;
+  --width-usage-value-span: 2.224rem;
+  --width-info-label: 9.5rem;
+  --width-usage-underline: 9.5rem;
+  --width-footer: 100%;
+  --width-card-footer-dots-grid-div: 1.5rem;
+  --width-inner-dot: 0.75rem;
+  --width-detailed-hw-info-div: 5.625rem;
+  --width-dividers-div: 0.063rem;
+  --width-controls: 100%;
+  --width-controls-img: 1.875rem;
+  --width-announcement: 21.875rem;
+  --width-contacts-label: 21.875rem;
+  --width-contacts-description-div: 21.875rem;
+  --width-contacts-links-a-img: 2.125rem;
+  --width-uptime: 100%;
+  --width-uptime-squares-grid-div: 0.625rem;
+  --width-values-grid-div: 3.75rem;
+  --width-labels-grid-div: 3.75rem;
+  --width-chart-rectangle-grid-div: 3.125rem;
+  --width-chart-container: 42.625rem;
+  --width-error-img: 19.313rem;
+  --width-error-div: 23.875rem;
+  --width-advice: 23.875rem;
 
-    /* max-width */
-    --max-width-setup: 71.250rem;
-    --max-width-index-xl: 71.250rem;
-    --max-width-index-lg: 47.500rem;
-    --max-width-index-md: 23.750rem;
-    --max-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.750rem;
-    --max-width-col-lg-12-col-xl-8: 47.500rem;
+  /* max-width */
+  --max-width-setup: 71.25rem;
+  --max-width-index-xl: 71.25rem;
+  --max-width-index-lg: 47.5rem;
+  --max-width-index-md: 23.75rem;
+  --max-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.75rem;
+  --max-width-col-lg-12-col-xl-8: 47.5rem;
 
-    /* min-width */
-    --min-width-setup: 71.250rem;
-    --min-width-index-xl: 71.250rem;
-    --min-width-index-lg: 47.500rem;
-    --min-width-index-md: 23.750rem;
-    --min-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.750rem;
-    --min-width-col-lg-12-col-xl-8: 47.500rem;
-    --min-width-error: 71.250rem;
+  /* min-width */
+  --min-width-setup: 71.25rem;
+  --min-width-index-xl: 71.25rem;
+  --min-width-index-lg: 47.5rem;
+  --min-width-index-md: 23.75rem;
+  --min-width-col-sm-12-col-md-6-col-lg-6-col-xl-4: 23.75rem;
+  --min-width-col-lg-12-col-xl-8: 47.5rem;
+  --min-width-error: 71.25rem;
 
-    /* border */
-    --border-chart-container: 0.063rem;
+  /* border */
+  --border-chart-container: 0.063rem;
 
-    /* border-width */
-    --border-width-chart-triangle-grid-div: 0.438rem 0.438rem 0.000rem 0.438rem;
+  /* border-width */
+  --border-width-chart-triangle-grid-div: 0.438rem 0.438rem 0rem 0.438rem;
 
-    /* border-radius */
-    --border-radius-setup-div: 1.250rem;
-    --border-radius-port: 0.000rem 0.000rem 0.625rem 0.625rem;
-    --border-radius-card: 1.250rem;
-    --border-radius-hw-logo: 50%;
-    --border-radius-card-footer-dots-grid-div: 50%;
-    --border-radius-inner-dot: 50%;
-    --border-radius-error-img: 50%;
-    --border-radius-controls-img: 50%;
-    --border-radius-error-div: 1.250rem;
+  /* border-radius */
+  --border-radius-setup-div: 1.25rem;
+  --border-radius-port: 0rem 0rem 0.625rem 0.625rem;
+  --border-radius-card: 1.25rem;
+  --border-radius-hw-logo: 50%;
+  --border-radius-card-footer-dots-grid-div: 50%;
+  --border-radius-inner-dot: 50%;
+  --border-radius-error-img: 50%;
+  --border-radius-controls-img: 50%;
+  --border-radius-error-div: 1.25rem;
 
-    /* letter-spacing */
-    --letter-spacing-2px: 0.125rem;
-    --letter-spacing-5px: 0.313rem;
-    --letter-spacing-10px: 0.625rem;
+  /* letter-spacing */
+  --letter-spacing-2px: 0.125rem;
+  --letter-spacing-5px: 0.313rem;
+  --letter-spacing-10px: 0.625rem;
 
-    /* transition */
-    --transition-all: color 0.200s, background 0.200s, transform 0.070s, opacity 0.4s;
+  /* transition */
+  --transition-all: color 0.2s, background 0.2s, transform 0.07s, opacity 0.4s;
 
-    /* transform */
-    --transform-form-squares-grid-second: scale(1.3);
-    --transform-theme-buttons-input-active: scale(0.9);
-    --transform-submit-active: scale(0.9);
-    --transform-controls-first-active: scale(0.9);
-    --transform-controls-second-active: scale(0.9);
-    --transform-contacts-links-a-first-active: scale(0.9);
-    --transform-contacts-links-a-second-active: scale(0.9);
-    --transform-uptime-squares-grid-second: scale(1.3);
-    --transform-chart-rectangle-grid-div-active: scale(0.9);
+  /* transform */
+  --transform-form-squares-grid-second: scale(1.3);
+  --transform-theme-buttons-input-active: scale(0.9);
+  --transform-submit-active: scale(0.9);
+  --transform-controls-first-active: scale(0.9);
+  --transform-controls-second-active: scale(0.9);
+  --transform-contacts-links-a-first-active: scale(0.9);
+  --transform-contacts-links-a-second-active: scale(0.9);
+  --transform-uptime-squares-grid-second: scale(1.3);
+  --transform-chart-rectangle-grid-div-active: scale(0.9);
 }

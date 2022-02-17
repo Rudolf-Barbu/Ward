@@ -2,17 +2,25 @@ package org.bsoftware.ward.services;
 
 import org.bsoftware.ward.Ward;
 import org.bsoftware.ward.components.UtilitiesComponent;
-import org.bsoftware.ward.dto.*;
-import org.bsoftware.ward.exceptions.ApplicationNotSetUpException;
+import org.bsoftware.ward.dto.InfoDto;
+import org.bsoftware.ward.dto.MachineDto;
+import org.bsoftware.ward.dto.ProcessorDto;
+import org.bsoftware.ward.dto.StorageDto;
+import org.bsoftware.ward.exceptions.ApplicationNotConfiguredException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
-import oshi.hardware.*;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.GlobalMemory;
+import oshi.hardware.HWDiskStore;
+import oshi.hardware.PhysicalMemory;
 import oshi.software.os.OperatingSystem;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
@@ -43,7 +51,7 @@ public class InfoService
      * @param hertzArray raw frequency array values in hertz for each logical processor
      * @return String with formatted frequency and postfix
      */
-    private String getConvertedFrequency(long[] hertzArray)
+    private String getConvertedFrequency(final long[] hertzArray)
     {
         long totalFrequency = Arrays.stream(hertzArray).sum();
         long hertz = totalFrequency / hertzArray.length;
@@ -64,7 +72,7 @@ public class InfoService
      * @param bits raw capacity value in bits
      * @return String with formatted capacity and postfix
      */
-    private String getConvertedCapacity(long bits)
+    private String getConvertedCapacity(final long bits)
     {
         if ((bits / 1.049E+6) > 999)
         {
@@ -105,8 +113,8 @@ public class InfoService
         processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
-        String BitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        processorDto.setBitDepth(BitDepthPrefix + "-bit");
+        String bitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
+        processorDto.setBitDepth(bitDepthPrefix + "-bit");
 
         return processorDto;
     }
@@ -159,10 +167,11 @@ public class InfoService
         if (hwDiskStoreOptional.isPresent())
         {
             String mainStorage = hwDiskStoreOptional.get().getModel();
+            Matcher matcher = Pattern.compile("\\(.{1,15} .{1,15} .{1,15}\\)").matcher(mainStorage);
 
-            if (mainStorage.contains("(Standard disk drives)"))
+            if (matcher.find())
             {
-                mainStorage = mainStorage.substring(0, mainStorage.indexOf("(Standard disk drives)") - 1);
+                mainStorage = mainStorage.substring(0, matcher.start() - 1);
             }
 
             storageDto.setMainStorage(mainStorage.trim());
@@ -184,74 +193,11 @@ public class InfoService
     }
 
     /**
-     * Gets uptime information
-     *
-     * @return UptimeDto with filled fields
-     */
-    @SuppressWarnings(value = "IntegerDivisionInFloatingPointContext")
-    private UptimeDto getUptime()
-    {
-        UptimeDto uptimeDto = new UptimeDto();
-
-        long uptimeInSeconds = systemInfo.getOperatingSystem().getSystemUptime();
-
-        uptimeDto.setDays(String.format("%02d", (int) Math.floor(uptimeInSeconds / 86400)));
-        uptimeDto.setHours(String.format("%02d", (int) Math.floor((uptimeInSeconds % 86400) / 3600)));
-        uptimeDto.setMinutes(String.format("%02d", (int) Math.floor((uptimeInSeconds / 60) % 60)));
-        uptimeDto.setSeconds(String.format("%02d", (int) Math.floor(uptimeInSeconds % 60)));
-
-        return uptimeDto;
-    }
-
-    /**
-     * Gets server name information
-     *
-     * @return SetupDto with filled field
-     * @throws IOException if file does not exists
-     */
-    private SetupDto getSetup() throws IOException
-    {
-        SetupDto setupDto = new SetupDto();
-        File file = new File(Ward.SETUP_FILE_PATH);
-
-        setupDto.setServerName(utilitiesComponent.getFromIniFile(file, "setup", "serverName"));
-
-        return setupDto;
-    }
-
-    /**
-     * Gets project version information
-     *
-     * @return MavenDto with filled field
-     * @throws IOException if file does not exists
-     */
-    private ProjectDto getProject() throws IOException
-    {
-        ProjectDto projectDto = new ProjectDto();
-        Properties properties = new Properties();
-        InputStream inputStream = getClass().getResourceAsStream("/META-INF/maven/org.b-software/ward/pom.properties");
-
-        if (inputStream != null)
-        {
-            properties.load(inputStream);
-            String version = properties.getProperty("version");
-
-            projectDto.setVersion("Ward: v" + version);
-        }
-        else
-        {
-            projectDto.setVersion("Developer mode");
-        }
-
-        return projectDto;
-    }
-
-    /**
      * Used to deliver dto to corresponding controller
      *
      * @return InfoDto filled with server info
      */
-    public InfoDto getInfo() throws Exception
+    public InfoDto getInfo() throws ApplicationNotConfiguredException
     {
         if (!Ward.isFirstLaunch())
         {
@@ -260,15 +206,12 @@ public class InfoService
             infoDto.setProcessor(getProcessor());
             infoDto.setMachine(getMachine());
             infoDto.setStorage(getStorage());
-            infoDto.setUptime(getUptime());
-            infoDto.setSetup(getSetup());
-            infoDto.setProject(getProject());
 
             return infoDto;
         }
         else
         {
-            throw new ApplicationNotSetUpException();
+            throw new ApplicationNotConfiguredException();
         }
     }
 }

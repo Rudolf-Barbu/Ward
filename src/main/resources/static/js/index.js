@@ -29,13 +29,9 @@ function indexInitialization()
 
     usageXHR = new XMLHttpRequest();
     infoXHR = new XMLHttpRequest();
+    uptimeXHR = new XMLHttpRequest();
 
     sendUsageRequest();
-
-    setInterval(function()
-    {
-        sendInfoRequest();
-    }, 1000);
 
     firstControl.addEventListener("click", function(event) {changePage(event.target || event.srcElement)});
     secondControl.addEventListener("click", function(event) {changePage(event.target || event.srcElement)});
@@ -101,7 +97,7 @@ function sendUsageRequest()
             labelsTick(response);
             chartTick(response);
 
-            sendUsageRequest();
+            sendInfoRequest();
         }
     }
 
@@ -125,14 +121,35 @@ function sendInfoRequest()
             currentTotalStorage.innerHTML = response.storage.total;
             currentDiskCount.innerHTML = response.storage.diskCount;
 
-            days.innerHTML = response.uptime.days;
-            hours.innerHTML = response.uptime.hours;
-            minutes.innerHTML = response.uptime.minutes;
-            seconds.innerHTML = response.uptime.seconds;
+            sendUptimeRequest();
         }
     }
 
     infoXHR.open("GET", "/api/info");
+    infoXHR.send();
+}
+
+/**
+ * Sending ajax request to receive server uptime
+ */
+function sendUptimeRequest()
+{
+    infoXHR.onreadystatechange = function()
+    {
+        if ((this.readyState == 4) && (this.status == 200))
+        {
+            let response = JSON.parse(this.response);
+
+            days.innerHTML = response.days;
+            hours.innerHTML = response.hours;
+            minutes.innerHTML = response.minutes;
+            seconds.innerHTML = response.seconds;
+
+            sendUsageRequest()
+        }
+    }
+
+    infoXHR.open("GET", "/api/uptime");
     infoXHR.send();
 }
 

@@ -1,6 +1,7 @@
 package org.bsoftware.ward.dto;
 
 import lombok.Getter;
+
 import java.time.LocalDateTime;
 
 /**
@@ -32,7 +33,7 @@ public final class ErrorDto
      *
      * @param exception thrown exception
      */
-    public ErrorDto(Exception exception)
+    public ErrorDto(final Exception exception)
     {
         this.errMessage = exception.getMessage();
         this.exceptionName = exception.getClass().getName();
