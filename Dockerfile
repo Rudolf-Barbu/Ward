@@ -1,5 +1,5 @@
 # Base image with maven installed already
-FROM maven:3.8.4-eclipse-temurin-17 as builder
+FROM maven:eclipse-temurin as builder
 
 # Copy whole project inside docker
 COPY . .
@@ -8,8 +8,8 @@ COPY . .
 RUN mvn clean package
 
 
-# Base image containing OpenJDK 8, maintained by RedHat
-FROM eclipse-temurin:17-jre-centos7
+# Base image containing OpenJDK 17
+FROM eclipse-temurin:17-jre
 
 # Copy jar and pom from builder image to working directory
 COPY --from=builder target/*.jar /ward.jar

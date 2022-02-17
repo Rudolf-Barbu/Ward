@@ -4,7 +4,21 @@
 
 ---
 
-### About
+## Quick start
+
+### Docker
+
+* `docker run --rm -it -d --name ward  -p 4000:4000 -p <application port>:<application port> --privileged antonyleons/ward`
+* Go to localhost:4000 in web browser, input the same application port
+* If you get error after being redirected to application port try hitting refresh
+
+### Java
+
+```console
+java -jar ward.jar
+```
+
+# About
 
 Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead looking on bunch of numbers and graphs.
