@@ -928,6 +928,7 @@ body
     font-weight: var(--font-weight-bold);
     color: var(--color-values-grid-div);
     background: var(--background-values-grid-div);
+    border-radius: 2px
 }
 
 .values-grid > div > p
@@ -948,6 +949,7 @@ body
     font-weight: var(--font-weight-regular);
     color: var(--color-labels-grid-div);
     background: var(--background-labels-grid-div);
+    border-radius:2px
 }
 
 .chart-label

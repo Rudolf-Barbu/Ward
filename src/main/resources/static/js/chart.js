@@ -61,38 +61,38 @@ function chartInitialization()
         {
             labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
             datasets:
-            [
-                {
-                    borderWidth: 1.5,
-                    borderColor: "rgba(188, 188, 188, 1)",
-                    pointRadius: 2,
-                    pointHoverRadius: 3,
-                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
-                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
-                    backgroundColor: "rgba(121, 121, 121, 0.5)",
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                },
-                {
-                    borderWidth: 1.5,
-                    borderColor: "rgba(188, 188, 188, 1)",
-                    pointRadius: 2,
-                    pointHoverRadius: 3,
-                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
-                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
-                    backgroundColor: "rgba(121, 121, 121, 0.5)",
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                },
-                {
-                    borderWidth: 1.5,
-                    borderColor: "rgba(188, 188, 188, 1)",
-                    pointRadius: 2,
-                    pointHoverRadius: 3,
-                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
-                    pointHoverBackgroundColor: "rgba(121, 121, 121, 1)",
-                    backgroundColor: "rgba(121, 121, 121, 0.5)",
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                }
-            ]
+                [
+                    {
+                        borderWidth: 1.5,
+                        borderColor: "rgba(89, 101, 249, 1)",
+                        pointRadius: 2,
+                        pointHoverRadius: 3,
+                        pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                        pointHoverBackgroundColor: "rgba(230, 232, 254, 1)",
+                        backgroundColor: "rgba(230, 232, 254, 0.3)",
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    },
+                    {
+                        borderWidth: 1.5,
+                        borderColor: "rgba(255, 89, 89, 1)",
+                        pointRadius: 2,
+                        pointHoverRadius: 3,
+                        pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                        pointHoverBackgroundColor: "rgba(249, 226, 226, 1)",
+                        backgroundColor: "rgba(249, 226, 226, 0.3)",
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    },
+                    {
+                        borderWidth: 1.5,
+                        borderColor: "rgba(8, 193, 141, 1)",
+                        pointRadius: 2,
+                        pointHoverRadius: 3,
+                        pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                        pointHoverBackgroundColor: "rgba(212, 242, 225, 1)",
+                        backgroundColor: "rgba(212, 242, 225, 0.3)",
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    }
+                ]
         }
     }
     let options =
