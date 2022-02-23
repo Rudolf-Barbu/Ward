@@ -150,3 +150,28 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
     3. docker run --rm -it --name ward -p 4000:4000 -p <application port>:<application port> --privileged ward
     4. Go to localhost:4000 in web browser, input the same application port
     5. If you get error after being redirected to application port try hitting refresh
+
+### Config
+
+If you want to change Ward's configuration, you can edit `setup.ini`. When using Docker, this file is located within the container at `/`. `setup.ini` is generated once you navigate to Ward's webpage and complete the initial setup. You can also make this file yourself before starting Ward and it will use your configuration.
+
+| Setting    | Description                  | Default |
+|------------|------------------------------|---------|
+| serverName | Name shown in the interface. |         |
+| theme      | Either `light` or `dark`.    |         |
+| port       | Port to listen on.           | 4000    |
+
+For example:
+```ini
+[setup]
+serverName = my-server
+theme = dark
+port = 8200
+```
+
+If you're using Docker and you want to avoid the initial setup or have Ward listen on a different port right away, you could create a `setup.ini` on the host and copy it to the container:
+```bash
+docker cp setup.ini ward:/setup.ini
+```
+
+Then, just make sure you `docker restart ward`.
