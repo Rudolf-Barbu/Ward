@@ -4,6 +4,8 @@
 
 ---
 
+## [Demo](https://status.leons.dev)
+
 # Quick start
 
 ## Docker
