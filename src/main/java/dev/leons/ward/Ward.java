@@ -45,12 +45,15 @@ public class Ward extends SpringBootServletInitializer {
      * @param args Spring Boot application arguments
      */
     public static void main(final String[] args) {
-        SetupService.envSetup();
+
         isFirstLaunch = true;
         configurableApplicationContext = SpringApplication.run(Ward.class, args);
 
         File setupFile = new File(Ward.SETUP_FILE_PATH);
-        if (setupFile.exists()) {
+
+        if (System.getenv("WARD_NAME") != null || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null)) {
+            SetupService.envSetup();
+        } else if (setupFile.exists()) {
             restart();
         }
     }

@@ -73,7 +73,7 @@ public class SetupService {
                     }
                     if (file.createNewFile()) {
                         String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
-                        String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME") : "light";
+                        String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME").toLowerCase() : "light";
                         String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
 
                         putInIniFile(file, "serverName", servername);
