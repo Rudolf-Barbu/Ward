@@ -65,13 +65,13 @@ public class SetupService {
 
     public static ResponseDto envSetup() {
         if (Ward.isFirstLaunch()) {
-            File file = new File(Ward.SETUP_FILE_PATH);
             try {
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (file.createNewFile()) {
-                    if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null || (System.getenv("WARD_PORT") != null))) {
+                if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null)) {
+                    File file = new File(Ward.SETUP_FILE_PATH);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    if (file.createNewFile()) {
                         String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
                         String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME") : "light";
                         String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
@@ -81,9 +81,9 @@ public class SetupService {
                         putInIniFile(file, "port", port);
 
                         Ward.restart();
+                    } else {
+                        throw new IOException();
                     }
-                } else {
-                    throw new IOException();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
