@@ -17,8 +17,7 @@ import java.io.IOException;
  * @version 1.0.2
  */
 @Service
-public class SetupService
-{
+public class SetupService {
     /**
      * Constant, that providing setup section name
      */
@@ -27,12 +26,11 @@ public class SetupService
     /**
      * Puts new data in ini file
      *
-     * @param file ini file
+     * @param file       ini file
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
-    private void putInIniFile(final File file, final String optionName, final String value) throws IOException
-    {
+    private void putInIniFile(final File file, final String optionName, final String value) throws IOException {
         Ini ini = new Ini(file);
         ini.put(SECTION_NAME, optionName, value);
         ini.store();
@@ -45,27 +43,46 @@ public class SetupService
      * @return ResponseEntityWrapperAsset filled with ResponseDto
      * @throws IOException IoException if file is fot found, and cant be created
      */
-    public ResponseDto postSetup(final SetupDto setupDto) throws IOException, ApplicationAlreadyConfiguredException
-    {
-        if (Ward.isFirstLaunch())
-        {
+    public ResponseDto postSetup(final SetupDto setupDto) throws IOException, ApplicationAlreadyConfiguredException {
+        if (Ward.isFirstLaunch()) {
             File file = new File(Ward.SETUP_FILE_PATH);
 
-            if (file.createNewFile())
-            {
+            if (file.createNewFile()) {
                 putInIniFile(file, "serverName", setupDto.getServerName());
                 putInIniFile(file, "theme", setupDto.getTheme());
                 putInIniFile(file, "port", setupDto.getPort());
 
                 Ward.restart();
-            }
-            else
-            {
+            } else {
                 throw new IOException();
             }
+        } else {
+            throw new ApplicationAlreadyConfiguredException();
         }
-        else
-        {
+
+        return new ResponseDto("Settings saved correctly");
+    }
+
+    public ResponseDto envSetup() throws IOException, ApplicationAlreadyConfiguredException {
+        if (Ward.isFirstLaunch()) {
+            File file = new File(Ward.SETUP_FILE_PATH);
+
+            if (file.createNewFile()) {
+                if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null || (System.getenv("WARD_PORT") != null))) {
+                    String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
+                    String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME") : "light";
+                    String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
+
+                    putInIniFile(file, "serverName", servername);
+                    putInIniFile(file, "theme", theme);
+                    putInIniFile(file, "port", port);
+
+                    Ward.restart();
+                }
+            } else {
+                throw new IOException();
+            }
+        } else {
             throw new ApplicationAlreadyConfiguredException();
         }
 
