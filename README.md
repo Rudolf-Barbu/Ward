@@ -9,8 +9,7 @@
 ## Docker
 
 * `docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -e WARD_PORT=4000 -e WARD_THEME=dark --privileged antonyleons/ward`
-* Go to localhost:4000 in web browser, input the same application port
-* If you get error after being redirected to application port try hitting refresh
+* Go to localhost:4000 in web browser
 
 ## Java
 
