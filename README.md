@@ -148,15 +148,12 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
     1. Clone the project
     2. docker build --tag ward
-    3. docker run --rm -it --name ward -p 4000:4000 -p <application port>:<application port> --privileged ward
-    4. Go to localhost:4000 in web browser, input the same application port
-    5. If you get error after being redirected to application port try hitting refresh
+    3. docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -e WARD_PORT=4000 -e WARD_THEME=dark --privileged ward
+    4. Go to localhost:4000 in web browser
 
 ### Config
 
 If you want to change Ward's configuration, you can edit `setup.ini`. When using Docker, use the environment variables `WARD_NAME`,`WARD_THEME`, `WARD_PORT` to automatically regenerate this file at startup. Using any environment variable listed will enable the defaults below and immediately start Ward without the GUI setup. 
-
-
 
 | Setting    | Description                  | Default |
 |------------|------------------------------|---------|
@@ -167,6 +164,7 @@ If you want to change Ward's configuration, you can edit `setup.ini`. When using
 Environment variables take priority and will regenerate this file with your variables. If no environment variables are set, `setup.ini` is generated once you navigate to Ward's webpage and complete the initial setup. You can also make this file yourself before starting Ward, and place it in the same directory.
 
 For example:
+
 ```ini
 [setup]
 serverName = my-server
