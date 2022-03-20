@@ -13,6 +13,8 @@
 * `docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -e WARD_PORT=4000 -e WARD_THEME=dark --privileged antonyleons/ward`
 * Go to localhost:4000 in web browser
 
+Also see the example [docker-compose.yml](https://github.com/AntonyLeons/Ward/blob/main/docker-compose.yml) file in the root directory.
+
 ## Java
 
 Download the latest release from [here](https://github.com/AntonyLeons/Ward/releases/latest)

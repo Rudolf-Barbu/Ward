@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    run:
+        restart: unless-stopped
+        container_name: ward
+        ports:
+            - '4000:4000'
+        environment:
+            - WARD_PORT=4000
+            - WARD_THEME=dark
+            - WARD_NAME=leons-server
+        privileged: true
+        image: antonyleons/ward
