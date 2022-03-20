@@ -66,25 +66,24 @@ public class SetupService {
     public static ResponseDto envSetup() {
         if (Ward.isFirstLaunch()) {
             try {
-                if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null)) {
-                    File file = new File(Ward.SETUP_FILE_PATH);
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    if (file.createNewFile()) {
-                        String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
-                        String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME").toLowerCase() : "light";
-                        String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
-
-                        putInIniFile(file, "serverName", servername);
-                        putInIniFile(file, "theme", theme);
-                        putInIniFile(file, "port", port);
-
-                        Ward.restart();
-                    } else {
-                        throw new IOException();
-                    }
+                File file = new File(Ward.SETUP_FILE_PATH);
+                if (file.exists()) {
+                    file.delete();
                 }
+                if (file.createNewFile()) {
+                    String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
+                    String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME").toLowerCase() : "light";
+                    String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
+
+                    putInIniFile(file, "serverName", servername);
+                    putInIniFile(file, "theme", theme);
+                    putInIniFile(file, "port", port);
+
+                    Ward.restart();
+                } else {
+                    throw new IOException();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
