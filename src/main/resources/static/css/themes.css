@@ -107,12 +107,12 @@ html[theme = "dark"]
     --color-logo: var(--white);
     --color-logo-description: var(--white);
     --color-label-main-settings: var(--white);
-    --color-main-settings-input: var(--grey);
+    --color-main-settings-input: var(--white);
     --color-main-settings-input-placeholder: var(--grey-light);
-    --color-label-additional-settings: var(--grey-light);
+    --color-label-additional-settings: var(--white);
     --color-theme-buttons-input: var(--grey);
     --color-port: var(--white);
-    --color-port-placeholder: var(--white);
+    --color-port-placeholder: var(--grey-light);
     --color-submit: var(--white);
     --color-hw-type: var(--white);
     --color-hw-name: var(--white);

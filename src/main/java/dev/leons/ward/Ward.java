@@ -1,5 +1,6 @@
 package dev.leons.ward;
 
+import dev.leons.ward.services.SetupService;
 import lombok.Getter;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
@@ -16,8 +17,7 @@ import java.io.File;
  * @version 1.0.4
  */
 @SpringBootApplication
-public class Ward extends SpringBootServletInitializer
-{
+public class Ward extends SpringBootServletInitializer {
     /**
      * Constant for determine settings file name
      */
@@ -44,14 +44,16 @@ public class Ward extends SpringBootServletInitializer
      *
      * @param args Spring Boot application arguments
      */
-    public static void main(final String[] args)
-    {
+    public static void main(final String[] args) {
+
         isFirstLaunch = true;
         configurableApplicationContext = SpringApplication.run(Ward.class, args);
 
         File setupFile = new File(Ward.SETUP_FILE_PATH);
-        if (setupFile.exists())
-        {
+
+        if (System.getenv("WARD_NAME") != null || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null)) {
+            SetupService.envSetup();
+        } else if (setupFile.exists()) {
             restart();
         }
     }
@@ -59,8 +61,7 @@ public class Ward extends SpringBootServletInitializer
     /**
      * Restarts application
      */
-    public static void restart()
-    {
+    public static void restart() {
         isFirstLaunch = false;
         ApplicationArguments args = configurableApplicationContext.getBean(ApplicationArguments.class);
 

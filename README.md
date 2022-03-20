@@ -8,7 +8,7 @@
 
 ## Docker
 
-* `docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -p <application port>:<application port> --privileged antonyleons/ward`
+* `docker run --restart unless-stopped -it -d --name ward  -p 4000:4000 -e WARD_PORT=4000 -e WARD_THEME=dark --privileged antonyleons/ward`
 * Go to localhost:4000 in web browser, input the same application port
 * If you get error after being redirected to application port try hitting refresh
 
@@ -153,13 +153,17 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 ### Config
 
-If you want to change Ward's configuration, you can edit `setup.ini`. When using Docker, this file is located within the container at `/`. `setup.ini` is generated once you navigate to Ward's webpage and complete the initial setup. You can also make this file yourself before starting Ward and it will use your configuration.
+If you want to change Ward's configuration, you can edit `setup.ini`. When using Docker, use the environment variables `WARD_NAME`,`WARD_THEME`, `WARD_PORT` to automatically regenerate this file at startup. Using any environment variable listed will enable the defaults below and immediately start Ward without the GUI setup. 
+
+
 
 | Setting    | Description                  | Default |
 |------------|------------------------------|---------|
-| serverName | Name shown in the interface. |         |
-| theme      | Either `light` or `dark`.    |         |
+| serverName | Name shown in the interface. | Ward    |
+| theme      | Either `light` or `dark`.    | light   |
 | port       | Port to listen on.           | 4000    |
+
+Environment variables take priority and will regenerate this file with your variables. If no environment variables are set, `setup.ini` is generated once you navigate to Ward's webpage and complete the initial setup. You can also make this file yourself before starting Ward, and place it in the same directory.
 
 For example:
 ```ini
@@ -168,10 +172,3 @@ serverName = my-server
 theme = dark
 port = 8200
 ```
-
-If you're using Docker and you want to avoid the initial setup or have Ward listen on a different port right away, you could create a `setup.ini` on the host and copy it to the container:
-```bash
-docker cp setup.ini ward:/setup.ini
-```
-
-Then, just make sure you `docker restart ward`.
