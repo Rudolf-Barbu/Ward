@@ -30,7 +30,7 @@ public class SetupService {
      * @param optionName option in section
      * @throws IOException if file does not exists
      */
-    private void putInIniFile(final File file, final String optionName, final String value) throws IOException {
+    private static void putInIniFile(final File file, final String optionName, final String value) throws IOException {
         Ini ini = new Ini(file);
         ini.put(SECTION_NAME, optionName, value);
         ini.store();
@@ -63,27 +63,31 @@ public class SetupService {
         return new ResponseDto("Settings saved correctly");
     }
 
-    public ResponseDto envSetup() throws IOException, ApplicationAlreadyConfiguredException {
+    public static ResponseDto envSetup() {
         if (Ward.isFirstLaunch()) {
             File file = new File(Ward.SETUP_FILE_PATH);
-
-            if (file.createNewFile()) {
-                if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null || (System.getenv("WARD_PORT") != null))) {
-                    String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
-                    String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME") : "light";
-                    String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
-
-                    putInIniFile(file, "serverName", servername);
-                    putInIniFile(file, "theme", theme);
-                    putInIniFile(file, "port", port);
-
-                    Ward.restart();
+            try {
+                if (file.exists()) {
+                    file.delete();
                 }
-            } else {
-                throw new IOException();
+                if (file.createNewFile()) {
+                    if ((System.getenv("WARD_NAME") != null) || (System.getenv("WARD_THEME") != null || (System.getenv("WARD_PORT") != null))) {
+                        String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
+                        String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME") : "light";
+                        String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
+
+                        putInIniFile(file, "serverName", servername);
+                        putInIniFile(file, "theme", theme);
+                        putInIniFile(file, "port", port);
+
+                        Ward.restart();
+                    }
+                } else {
+                    throw new IOException();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } else {
-            throw new ApplicationAlreadyConfiguredException();
         }
 
         return new ResponseDto("Settings saved correctly");

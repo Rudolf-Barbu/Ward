@@ -120,18 +120,6 @@ function sendSetupRequest()
         "port": port.value
     }
 
-    // if (port.value != 4000)
-    // {
         setupXHR.send(JSON.stringify(data));
-    // }
-    // else
-    // {
-    //     let message =
-    //     {
-    //         text: "Choose other port",
-    //         type: ("")
-    //     }
-    //
-    //     dhtmlx.message(message);
-    // }
+
 }
