@@ -9,9 +9,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - run: mvn clean install
       - run: mvn clean package
-      - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
         with:
-          name: Package
-          path: staging
+          name: Ward.jar
+          path: target/*.jar
