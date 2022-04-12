@@ -22,14 +22,14 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 ### Installation
     Create your own jar
 
-    1. Clone the project
-    2. Import project in your IDE as Maven project
-    3. mvn clean package
+    • Clone the project
+    • Import project in your IDE as Maven project
+    • mvn clean package
 
 <br>
 
     Run jar file
 
-    1. Create you own jar as described above
-    2. Execute jar on Windows or Linux with administrative rights
-    3. Enter localhost:4000 and set up application
+    • Create you own jar as described above
+    • Execute jar on Windows or Linux with administrative rights
+    • Enter localhost:4000 and set up application
