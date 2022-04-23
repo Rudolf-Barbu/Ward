@@ -66,7 +66,7 @@ public class ControllerExceptionHandler
     public String exceptionHandler(final Exception exception, final Model model) throws IOException
     {
         model.addAttribute("theme", utilitiesComponent.getFromIniFile("theme"));
-
+        System.out.println(exception.getMessage());
         return (exception instanceof HttpRequestMethodNotSupportedException) ? "error/404" : "error/500";
     }
 }
