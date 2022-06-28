@@ -1,5 +1,7 @@
-<div style="float: left;"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/AntonyLeons/ward/docker-image"></div>
-<div style="float: right;"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/antonyleons/ward?style=plastic"></div>
+<h3 align = "center">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/AntonyLeons/ward/docker-image">
+<img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/antonyleons/ward?style=plastic">
+</h3>
 <h3 align = "center">
     <img src = "images/logo.png" alt = "Logo" />
 </h3>
