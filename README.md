@@ -1,5 +1,5 @@
 <h3 align = "center">
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/AntonyLeons/ward/docker-image">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/AntonyLeons/ward/docker-image.yml">
 <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/antonyleons/ward?style=plastic">
 </h3>
 <h3 align = "center">
@@ -29,7 +29,7 @@ java -jar ward.jar
 
 ### About
 
-Ward is a simple and and minimalistic server monitoring tool. Ward supports adaptive design system. Also it supports dark theme.
+Ward is a simple and minimalistic server monitoring tool. Ward supports adaptive design system. Also, it supports dark theme.
 It shows only principal information and can be used, if you want to see nice looking dashboard instead looking on bunch of numbers and graphs.
 Ward works nice on all popular operating systems, because it uses [OSHI](https://github.com/oshi/oshi).
 
