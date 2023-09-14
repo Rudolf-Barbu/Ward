@@ -22,6 +22,17 @@
         <script type = "text/javascript" th:src = "@{/js/globals.js}"></script>
         <script type = "text/javascript" th:src = "@{/js/setup.js}"></script>
         <script type = "text/javascript" th:inline = "javascript"> globalsInitialization(); </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var input = document.getElementById('port');
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');  // Remove all non-numeric characters
+                    if (this.value.length > 5) {
+                        this.value = this.value.slice(0, 5);  // Limit to 5 digits
+                    }
+                });
+            });
+        </script>
     </head>
     <body id = "background">
         <script type = "text/javascript" th:inline = "javascript"> backgroundInitialization(); </script>
