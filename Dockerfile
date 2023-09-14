@@ -1,5 +1,5 @@
 # Base image with maven installed already
-FROM maven:eclipse-temurin as builder
+FROM maven:3.9-eclipse-temurin-17 as builder
 
 # Copy whole project inside docker
 COPY . .
