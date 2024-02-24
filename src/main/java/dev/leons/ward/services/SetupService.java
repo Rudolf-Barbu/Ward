@@ -51,6 +51,8 @@ public class SetupService {
                 putInIniFile(file, "serverName", setupDto.getServerName());
                 putInIniFile(file, "theme", setupDto.getTheme());
                 putInIniFile(file, "port", setupDto.getPort());
+                putInIniFile(file, "enableFog", setupDto.getEnableFog());
+                putInIniFile(file, "backgroundColor", setupDto.getBackgroundColor());
 
                 Ward.restart();
             } else {
@@ -74,10 +76,14 @@ public class SetupService {
                     String servername = (System.getenv("WARD_NAME") != null) ? System.getenv("WARD_NAME") : "Ward";
                     String theme = (System.getenv("WARD_THEME") != null) ? System.getenv("WARD_THEME").toLowerCase() : "light";
                     String port = (System.getenv("WARD_PORT") != null) ? System.getenv("WARD_PORT") : "4000";
+                    String enableFog = (System.getenv("WARD_FOG") != null) ? System.getenv("WARD_FOG") : "true";
+                    String backgroundColor = (System.getenv("WARD_BACKGROUND") != null) ? System.getenv("WARD_BACKGROUND") : "default";
 
                     putInIniFile(file, "serverName", servername);
                     putInIniFile(file, "theme", theme);
                     putInIniFile(file, "port", port);
+                    putInIniFile(file, "enableFog", enableFog);
+                    putInIniFile(file, "backgroundColor", backgroundColor);
 
                     Ward.restart();
                 } else {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light">
+<html xmlns:th = "http://www.thymeleaf.org" id = "html" theme = "light" enableFog = "true" backgroundColor = "default">
     <head>
         <meta charset = "UTF-8">
         <title>Welcome</title>
@@ -66,6 +66,8 @@
                             <input id = "light-theme" class = "first" type = "button" value = "LIGHT THEME" />
                             <input id = "dark-theme" class = "second" type = "button" value = "DARK THEME" />
                         </div>
+                        <label class = "label-additional-settings"><span>ENABLE BACKGROUND FOG</span><input id = "fog-toggle" class = "fog-toggle" type = "checkbox" name = "enableFog" checked></label>
+                        <label class = "label-additional-settings" title="Disable Fog to select"><span>SELECT BACKGROUND COLOR</span><input id = "color-selector" class = "color-selector" type = "color" value="#e5e5e5" disabled></label>
                         <input id = "port" class = "port" type = "text" maxlength = "5" placeholder = "Application Port" />
                     </div>
                     <input id = "submit" class = "submit" type = "button" value = "LAUNCH" />

@@ -10,6 +10,17 @@ let html;
  */
 let background;
 
+
+/**
+ * Used to determine background color
+ */
+let backgroundColor;
+
+/**
+ * Used to determine if we enable the fog
+ */
+let enableFog;
+
 /**
  * Light theme square
  */

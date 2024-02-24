@@ -63,6 +63,7 @@ html[theme = "light"]
     --background-button-squares-grid-second: var(--grey-light);
     --background-theme-buttons-first: var(--purple-light);
     --background-theme-buttons-second: var(--grey-light);
+    --background-background-settings-color-selector: var(--grey-light);
     --background-port: var(--white);
     --background-submit: var(--green-light);
     --background-card: var(--white);
@@ -148,6 +149,7 @@ html[theme = "dark"]
     --background-button-squares-grid-second: var(--grey-light);
     --background-theme-buttons-first: var(--purple-light);
     --background-theme-buttons-second: var(--grey-light);
+    --background-background-settings-color-selector: var(--grey-light);
     --background-port: var(--grey);
     --background-submit: var(--grey-light);
     --background-card: var(--grey-dark);

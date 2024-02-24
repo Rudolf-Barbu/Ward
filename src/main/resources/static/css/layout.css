@@ -280,6 +280,35 @@ body {
     background: var(--background-theme-buttons-second);
 }
 
+.additional-settings > label {
+    top: var(--top-background-settings);
+    left: var(--left-background-settings);
+    height: var(--height-background-settings);
+    white-space: nowrap;
+}
+
+.additional-settings > label > input {
+    vertical-align: middle;
+    position: relative;
+    left: var(--left-background-settings);
+    border-style: none;
+}
+
+.additional-settings > label > span {
+    vertical-align: middle;
+    position: relative;
+}
+
+.additional-settings > .color-selector {
+    display: block;
+    position: relative;
+    margin-top: var(--height-background-settings);
+    left: var(--left-background-settings-color-selector);
+    width: var(--width-background-settings-input);
+    background: var(--background-background-settings-color-selector);
+    box-shadow: var(--box-shadow-background-settings-input) var(--black-opacity-10);
+}
+
 .port {
     position: relative;
     top: var(--top-port);

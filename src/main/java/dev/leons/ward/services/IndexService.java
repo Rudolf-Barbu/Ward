@@ -78,13 +78,26 @@ public class IndexService
             return "setup";
         }
 
+        updateDefaultsInSetupFile();
+
         model.addAttribute("theme", utilitiesComponent.getFromIniFile("theme"));
         model.addAttribute("serverName", utilitiesComponent.getFromIniFile("serverName"));
+        model.addAttribute("enableFog", utilitiesComponent.getFromIniFile("enableFog"));
+        model.addAttribute("backgroundColor", utilitiesComponent.getFromIniFile("backgroundColor"));
 
         model.addAttribute("info", infoService.getInfo());
         model.addAttribute("uptime", uptimeService.getUptime());
         model.addAttribute("version", getVersion());
 
         return "index";
+    }
+
+    private void updateDefaultsInSetupFile() throws IOException {
+        if (utilitiesComponent.getFromIniFile("enableFog") == null) {
+            utilitiesComponent.putInIniFile("enableFog", "true");
+        }
+        if (utilitiesComponent.getFromIniFile("backgroundColor") == null) {
+            utilitiesComponent.putInIniFile("backgroundColor", "#303030");
+        }
     }
 }

@@ -16,12 +16,16 @@ function setupInitialization()
 
     serverName = document.getElementById("server-name");
     port = document.getElementById("port");
+    enableFog = document.getElementById("fog-toggle");
+    backgroundColor = document.getElementById("color-selector");
 
     setupXHR = new XMLHttpRequest();
 
     lightTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     darkTheme.addEventListener("click", function(event) {changeTheme(event.target || event.srcElement)});
     submit.addEventListener("click", function(event) {sendSetupRequest(event.target || event.srcElement)});
+    enableFog.addEventListener("change", function(event) {toggleFog()});
+    backgroundColor.addEventListener("input", function(event) {changeBackgroundColor()});
 }
 
 /**
@@ -63,6 +67,10 @@ function changeTheme(element)
             baseColor: 0xBCBCBC
         });
     }
+    let color = html.getAttribute("theme") == "light" ? "#e5e5e5" : "#303030";
+    html.setAttribute("backgroundColor", color);
+    backgroundColor.value = color;
+    document.body.style.backgroundColor = color;
 }
 
 /**
@@ -117,9 +125,30 @@ function sendSetupRequest()
     {
         "serverName": serverName.value,
         "theme": html.getAttribute("theme"),
-        "port": port.value
+        "port": port.value,
+        "enableFog": String(enableFog.checked),
+        "backgroundColor": backgroundColor.value
     }
 
         setupXHR.send(JSON.stringify(data));
 
+}
+
+/**
+ * Toggles fog
+ */
+function toggleFog()
+{
+    html.setAttribute("enableFog", String(enableFog.checked));
+    backgroundInitialization();
+    backgroundColor.disabled = enableFog.checked;
+}
+
+/**
+ * Change background color
+ */
+function changeBackgroundColor()
+{
+    html.setAttribute("backgroundColor", backgroundColor.value);
+    document.body.style.backgroundColor = backgroundColor.value;
 }

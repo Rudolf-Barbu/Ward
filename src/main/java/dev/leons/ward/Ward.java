@@ -51,7 +51,7 @@ public class Ward extends SpringBootServletInitializer {
 
         File setupFile = new File(Ward.SETUP_FILE_PATH);
 
-        if (System.getenv("WARD_NAME") != null || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null)) {
+        if (System.getenv("WARD_NAME") != null || (System.getenv("WARD_THEME") != null) || (System.getenv("WARD_PORT") != null) || (System.getenv("WARD_FOG") != null)) {
             SetupService.envSetup();
         } else if (setupFile.exists()) {
             restart();

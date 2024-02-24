@@ -71,11 +71,13 @@ Ward works nice on all popular operating systems, because it uses [OSHI](https:/
 
 If you want to change Ward's configuration, you can edit `setup.ini`. When using Docker, use the environment variables `WARD_NAME`,`WARD_THEME`, `WARD_PORT` to automatically regenerate this file at startup. Using any environment variable listed will enable the defaults below and immediately start Ward without the GUI setup. 
 
-| Setting    | Description                  | Default |
-|------------|------------------------------|---------|
-| serverName | Name shown in the interface. | Ward    |
-| theme      | Either `light` or `dark`.    | light   |
-| port       | Port to listen on.           | 4000    |
+| Setting         | Env var         | Description                                  | Default |
+|-----------------|-----------------|----------------------------------------------|---------|
+| serverName      | WARD_NAME       | Name shown in the interface.                 | Ward    |
+| port            | WARD_PORT       | Port to listen on.                           | 4000    |
+| theme           | WARD_THEME      | Either `light` or `dark`.                    | light   |
+| enableFog       | WARD_FOG        | Either `true` or `false`.                    | true    |
+| backgroundColor | WARD_BACKGROUND | HexColor for background when fog is disabled | default |
 
 Environment variables take priority and will regenerate this file with your variables. If no environment variables are set, `setup.ini` is generated once you navigate to Ward's webpage and complete the initial setup. You can also make this file yourself before starting Ward, and place it in the same directory.
 
@@ -86,4 +88,6 @@ For example:
 serverName = my-server
 theme = dark
 port = 8200
+enableFog = true
+backgroundColor = #303030
 ```

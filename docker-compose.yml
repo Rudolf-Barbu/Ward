@@ -9,5 +9,7 @@ services:
             - WARD_PORT=4000
             - WARD_THEME=dark
             - WARD_NAME=leons-server
+            - WARD_FOG=false
+            - WARD_BACKGROUND=#3c3c3c
         privileged: true
         image: antonyleons/ward
