@@ -24,5 +24,5 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm64,linux/s390x
+          platforms: linux/amd64,linux/arm64,linux/s390x,linux/ppc64le
           tags: antonyleons/ward:latest,antonyleons/ward:${{ env.TAG }}
