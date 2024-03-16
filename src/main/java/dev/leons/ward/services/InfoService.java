@@ -159,33 +159,18 @@ public class InfoService
     private StorageDto getStorage()
     {
         StorageDto storageDto = new StorageDto();
-
         List<HWDiskStore> hwDiskStores = systemInfo.getHardware().getDiskStores();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        Optional<HWDiskStore> hwDiskStoreOptional = hwDiskStores.stream().findFirst();
-        if (hwDiskStoreOptional.isPresent())
-        {
-            String mainStorage = hwDiskStoreOptional.get().getModel();
-            Matcher matcher = Pattern.compile("\\(.{1,15} .{1,15} .{1,15}\\)").matcher(mainStorage);
-
-            if (matcher.find())
-            {
-                mainStorage = mainStorage.substring(0, matcher.start() - 1);
-            }
-
-            storageDto.setMainStorage(mainStorage.trim());
-        }
-        else
-        {
-            storageDto.setMainStorage("Undefined");
-        }
+    // Retrieve main storage model
+        String mainStorage = hwDiskStores.isEmpty() ? "Undefined" : hwDiskStores.get(0).getModel().replaceAll("\\(.+?\\)", "").trim();
+        storageDto.setMainStorage(mainStorage);
 
         long total = hwDiskStores.stream().mapToLong(HWDiskStore::getSize).sum();
         storageDto.setTotal(getConvertedCapacity(total) + " Total");
 
         int diskCount = hwDiskStores.size();
-        storageDto.setDiskCount(diskCount + ((diskCount > 1) ? " Disks" : " Disk"));
+        storageDto.setDiskCount(diskCount + (diskCount > 1 ? " Disks" : " Disk"));
 
         storageDto.setSwapAmount(getConvertedCapacity(globalMemory.getVirtualMemory().getSwapTotal()) + " Swap");
 
