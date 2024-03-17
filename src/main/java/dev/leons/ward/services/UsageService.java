@@ -35,10 +35,8 @@ public class UsageService
      *
      * @return int that display processor usage
      */
-    private int getProcessor()
-    {
+    private int getProcessor() {
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
-
         long[] prevTicksArray = centralProcessor.getSystemCpuLoadTicks();
         long prevTotalTicks = Arrays.stream(prevTicksArray).sum();
         long prevIdleTicks = prevTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
@@ -49,7 +47,16 @@ public class UsageService
         long currTotalTicks = Arrays.stream(currTicksArray).sum();
         long currIdleTicks = currTicksArray[CentralProcessor.TickType.IDLE.getIndex()];
 
-        return (int) Math.round((1 - ((double) (currIdleTicks - prevIdleTicks)) / ((double) (currTotalTicks - prevTotalTicks))) * 100);
+        long idleTicksDelta = currIdleTicks - prevIdleTicks;
+        long totalTicksDelta = currTotalTicks - prevTotalTicks;
+
+        // Handle possible division by zero
+        if (totalTicksDelta == 0) {
+            return 0; // or handle in a way suitable for your application
+        }
+
+        // Calculate CPU usage percentage
+        return (int) ((1 - (double) idleTicksDelta / totalTicksDelta) * 100);
     }
 
     /**
@@ -57,14 +64,18 @@ public class UsageService
      *
      * @return int that display ram usage
      */
-    private int getRam()
-    {
+    private int getRam() {
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
-
         long totalMemory = globalMemory.getTotal();
         long availableMemory = globalMemory.getAvailable();
 
-        return (int) Math.round(100 - (((double) availableMemory / totalMemory) * 100));
+        // Handle possible division by zero
+        if (totalMemory == 0) {
+            return 0; // or handle in a way suitable for your application
+        }
+
+        // Calculate RAM usage percentage
+        return (int) (100 - ((double) availableMemory / totalMemory * 100));
     }
 
     /**
@@ -72,13 +83,19 @@ public class UsageService
      *
      * @return int that display storage usage
      */
-    private int getStorage()
-    {
+    private int getStorage() {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
 
+        // Calculate total storage and free storage
         long totalStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getTotalSpace).sum();
         long freeStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getFreeSpace).sum();
 
+        // Handle possible division by zero
+        if (totalStorage == 0) {
+            return 0; // or handle in a way suitable for your application
+        }
+
+        // Calculate storage usage percentage
         return (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100);
     }
 
