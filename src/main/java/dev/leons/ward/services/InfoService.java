@@ -96,25 +96,24 @@ public class InfoService
      *
      * @return ProcessorDto with filled fields
      */
-    private ProcessorDto getProcessor()
-    {
+    private ProcessorDto getProcessor() {
         ProcessorDto processorDto = new ProcessorDto();
-
         CentralProcessor centralProcessor = systemInfo.getHardware().getProcessor();
 
-        String name = centralProcessor.getProcessorIdentifier().getName();
-        if (name.contains("@"))
-        {
-            name = name.substring(0, name.indexOf('@') - 1);
-        }
-        processorDto.setName(name.trim());
+        // Extract processor name
+        String name = centralProcessor.getProcessorIdentifier().getName().split("@")[0].trim();
+        processorDto.setName(name);
 
+        // Set core count
         int coreCount = centralProcessor.getLogicalProcessorCount();
-        processorDto.setCoreCount(coreCount + ((coreCount > 1) ? " Cores" : " Core"));
+        processorDto.setCoreCount(coreCount + (coreCount > 1 ? " Cores" : " Core"));
+
+        // Set clock speed
         processorDto.setClockSpeed(getConvertedFrequency(centralProcessor.getCurrentFreq()));
 
-        String bitDepthPrefix = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64" : "32";
-        processorDto.setBitDepth(bitDepthPrefix + "-bit");
+        // Set bit depth
+        String bitDepth = centralProcessor.getProcessorIdentifier().isCpu64bit() ? "64-bit" : "32-bit";
+        processorDto.setBitDepth(bitDepth);
 
         return processorDto;
     }
@@ -124,29 +123,32 @@ public class InfoService
      *
      * @return MachineDto with filled fields
      */
-    private MachineDto getMachine()
-    {
+    private MachineDto getMachine() {
         MachineDto machineDto = new MachineDto();
 
         OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
-        OperatingSystem.OSVersionInfo osVersionInfo = systemInfo.getOperatingSystem().getVersionInfo();
+        OperatingSystem.OSVersionInfo osVersionInfo = operatingSystem.getVersionInfo();
         GlobalMemory globalMemory = systemInfo.getHardware().getMemory();
 
-        machineDto.setOperatingSystem(operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", " + osVersionInfo.getCodeName());
-        machineDto.setTotalRam(getConvertedCapacity(globalMemory.getTotal()) + " Ram");
+        String osDescription = operatingSystem.getFamily() + " " + osVersionInfo.getVersion() + ", "
+                + osVersionInfo.getCodeName();
+        machineDto.setOperatingSystem(osDescription);
+
+        long totalRam = globalMemory.getTotal();
+        machineDto.setTotalRam(getConvertedCapacity(totalRam) + " Ram");
 
         Optional<PhysicalMemory> physicalMemoryOptional = globalMemory.getPhysicalMemory().stream().findFirst();
-        if (physicalMemoryOptional.isPresent())
-        {
-            machineDto.setRamTypeOrOSBitDepth(physicalMemoryOptional.get().getMemoryType());
+        String ramTypeOrOSBitDepth;
+        if (physicalMemoryOptional.isPresent()) {
+            ramTypeOrOSBitDepth = physicalMemoryOptional.get().getMemoryType();
+        } else {
+            ramTypeOrOSBitDepth = operatingSystem.getBitness() + "-bit";
         }
-        else
-        {
-            machineDto.setRamTypeOrOSBitDepth(operatingSystem.getBitness() + "-bit");
-        }
+        machineDto.setRamTypeOrOSBitDepth(ramTypeOrOSBitDepth);
 
         int processCount = operatingSystem.getProcessCount();
-        machineDto.setProcCount(processCount + ((processCount > 1) ? " Procs" : " Proc"));
+        String procCount = processCount + ((processCount > 1) ? " Procs" : " Proc");
+        machineDto.setProcCount(procCount);
 
         return machineDto;
     }
