@@ -19,8 +19,6 @@ import oshi.software.os.OperatingSystem;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * InfoService provides various information about machine, such as processor name, core count, Ram amount, etc.
