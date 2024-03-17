@@ -86,16 +86,20 @@ public class UsageService
     private int getStorage() {
         FileSystem fileSystem = systemInfo.getOperatingSystem().getFileSystem();
 
-        // Calculate total storage and free storage
-        long totalStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getTotalSpace).sum();
-        long freeStorage = fileSystem.getFileStores().stream().mapToLong(OSFileStore::getFreeSpace).sum();
+        // Calculate total storage and free storage for all drives
+        long totalStorage = 0;
+        long freeStorage = 0;
+        for (OSFileStore fileStore : fileSystem.getFileStores()) {
+            totalStorage += fileStore.getTotalSpace();
+            freeStorage += fileStore.getFreeSpace();
+        }
 
         // Handle possible division by zero
         if (totalStorage == 0) {
             return 0; // or handle in a way suitable for your application
         }
 
-        // Calculate storage usage percentage
+        // Calculate total storage usage percentage for all drives
         return (int) Math.round(((double) (totalStorage - freeStorage) / totalStorage) * 100);
     }
 
